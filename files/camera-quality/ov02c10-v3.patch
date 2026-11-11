@@ -1,0 +1,134 @@
+From patchwork Mon Nov  2 10:05:33 2026
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Patchwork-Submitter: =?utf-8?q?Fran=C3=A7ois_Roux?= <info@humanlearning.ch>
+X-Patchwork-Id: 28734
+Return-Path: <libcamera-devel-bounces@lists.libcamera.org>
+X-Original-To: parsemail@patchwork.libcamera.org
+Delivered-To: parsemail@patchwork.libcamera.org
+Received: from lancelot.ideasonboard.com (lancelot.ideasonboard.com
+	[92.243.16.209])
+	by patchwork.libcamera.org (Postfix) with ESMTPS id BAF42C324C
+	for <parsemail@patchwork.libcamera.org>;
+	Mon,  2 Nov 2026 10:05:37 +0000 (UTC)
+Received: from lancelot.ideasonboard.com (localhost [IPv6:::1])
+	by lancelot.ideasonboard.com (Postfix) with ESMTP id B13D9691EC;
+	Mon,  2 Nov 2026 11:05:36 +0100 (CET)
+Authentication-Results: lancelot.ideasonboard.com; dkim=pass (2048-bit key;
+	unprotected) header.d=humanlearning.ch header.i=@humanlearning.ch
+	header.b="FJqqYhR7"; dkim-atps=neutral
+Received: from smtp-8faa.mail.infomaniak.ch (smtp-8faa.mail.infomaniak.ch
+	[IPv6:2001:1600:19:38e0::8faa])
+	by lancelot.ideasonboard.com (Postfix) with ESMTPS id 24750691DC
+	for <libcamera-devel@lists.libcamera.org>;
+	Mon,  2 Nov 2026 11:05:35 +0100 (CET)
+Received: from smtp-3-0000.mail.infomaniak.ch (unknown
+	[IPv6:2001:1600:4:17::246b])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id
+	4jJ6lf6BdCz15kX; Mon,  2 Nov 2026 11:05:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=humanlearning.ch;
+	s=20250828; t=1793613934;
+	bh=PJJj4fShBZb28qYa6yDdMtOAd2OogzfqxSz8F2pfey0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FJqqYhR7yr/lap2OtpFtkJm0hvTM9vXsbo5ivuJOBDsXAcUayLGf+2Pm87IxGz4j1
+	11senNh+QOzafu7S46UlaW4C2/4Q7nemsSEVt73UanNYASDx6RNUniO8ibfWBBzhUQ
+	YWYXbD20/rPvDx+jvs4qqXKJNDjfRh+cKDd+nX6wOmCAFlaz//jvZDkDyOo3odnqCL
+	pAmtGZVWkHG9osvkB6W1paQ2VuEhfQvGCy8yN/x5k4v48btnHG6oxg5mU7cV4dPYQb
+	bwICxRDAWVdFDzqZcOpXqobF2jpirpsfis0FVjpXWY9HJKOrJ2FL/fHfb7gGrNUQcC
+	pZiHcicWnct4w==
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with
+	ESMTPA id 4jJ6lf1kQWzDgs; Mon,  2 Nov 2026 11:05:34 +0100 (CET)
+From: =?utf-8?q?Fran=C3=A7ois_Roux?= <info@humanlearning.ch>
+To: libcamera-devel@lists.libcamera.org
+Cc: barnabas.pocze@ideasonboard.com
+Subject: [PATCH v3] ipa: libipa: camera_sensor_helper: add ov02c10
+Date: Mon,  2 Nov 2026 11:05:33 +0100
+Message-ID: <20261102100533.30106-1-info@humanlearning.ch>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261019154904.GC5830@killaraus.ideasonboard.com>
+References: <20261019154904.GC5830@killaraus.ideasonboard.com>
+MIME-Version: 1.0
+X-Infomaniak-Routing: alpha
+X-BeenThere: libcamera-devel@lists.libcamera.org
+X-Mailman-Version: 2.1.29
+Precedence: list
+List-Id: <libcamera-devel.lists.libcamera.org>
+List-Unsubscribe: <https://lists.libcamera.org/options/libcamera-devel>,
+	<mailto:libcamera-devel-request@lists.libcamera.org?subject=unsubscribe>
+List-Archive: <https://lists.libcamera.org/pipermail/libcamera-devel/>
+List-Post: <mailto:libcamera-devel@lists.libcamera.org>
+List-Help: <mailto:libcamera-devel-request@lists.libcamera.org?subject=help>
+List-Subscribe: <https://lists.libcamera.org/listinfo/libcamera-devel>,
+	<mailto:libcamera-devel-request@lists.libcamera.org?subject=subscribe>
+Errors-To: libcamera-devel-bounces@lists.libcamera.org
+Sender: "libcamera-devel" <libcamera-devel-bounces@lists.libcamera.org>
+
+Without an entry for ov02c10, the software ISP used by the simple
+pipeline handler has no gain model or black level for this sensor and
+logs:
+
+  IPASoft: Failed to create camera sensor helper for ov02c10
+
+AGC then still runs, but on raw analogue-gain register values instead
+of a linear gain, which makes it converge poorly.
+
+The kernel driver (drivers/media/i2c/ov02c10.c) advertises analogue-gain
+register values in the range 0x10..0xf8 with a default of 0x10, and
+writes them to the 16-bit register at 0x3508 as (val << 4).  That
+register is graded in 1/256 steps, so both the control range and the
+register encoding agree on 1/16 steps: the default of 0x10 is unity gain
+and the maximum of 0xf8 is 15.5x.  Without a datasheet, this was checked
+by measurement on a second machine (Lenovo Yoga Slim 7x, X1E80100): at a
+fixed exposure, the signal above the pedestal follows code / 16 to
+within 1.5% from 0x18 to 0xf8 (1.49 at 0x18, 4.03 at 0x40, 8.11 at 0x80,
+15.32 at 0xf8).
+
+The sensor outputs 10-bit Bayer data (MEDIA_BUS_FMT_SGRBG10_1X10).  The
+driver programs a black level target of 0x40 in the BLC registers
+0x4002/0x4003, which scales to 4096 at the 16-bit width expected by
+blackLevel(), as for ov01a10, ov08d10, ov2740 and ov5675, which use
+the same 0x40 target at 10 bits.  A
+dark-frame measurement matches it: the mean pedestal is 64.2 LSB, and
+changing the target to 0x80 while streaming moves it to 128.2 LSB on all
+four colour channels from the next frame.
+
+Tested on the front camera of a Microsoft Surface Pro 12 (Qualcomm
+X1P42100) driven by the qcom CAMSS pipeline.  Before the change the IPA
+reported "Exposure 4-2320, gain 16-248 (1)"; after it reports
+"Exposure 4-2320, gain 1-15.5 (0.145)".
+
+Acked-by: Barnabás Pőcze <barnabas.pocze@ideasonboard.com>
+Tested-by: Birk Skyum <birk.skyum@pm.me>
+Tested-by: Christian Cortner <ccortner@gmail.com>
+Signed-off-by: François Roux <info@humanlearning.ch>
+---
+ src/ipa/libipa/camera_sensor_helper.cpp | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+
+base-commit: df8e348d64b4932a0676256ed24f0da3ee9438bc
+
+diff --git a/src/ipa/libipa/camera_sensor_helper.cpp b/src/ipa/libipa/camera_sensor_helper.cpp
+index 359040ec..72f974ee 100644
+--- a/src/ipa/libipa/camera_sensor_helper.cpp
++++ b/src/ipa/libipa/camera_sensor_helper.cpp
+@@ -713,6 +713,18 @@ public:
+ };
+ REGISTER_CAMERA_SENSOR_HELPER("ov01a10", CameraSensorHelperOv01a10)
+ 
++class CameraSensorHelperOv02c10 : public CameraSensorHelper
++{
++public:
++	CameraSensorHelperOv02c10()
++	{
++		/* From Linux kernel driver: 0x40 at 10bits. */
++		blackLevel_ = 4096;
++		gain_ = AnalogueGainLinear{ 1, 0, 0, 16 };
++	}
++};
++REGISTER_CAMERA_SENSOR_HELPER("ov02c10", CameraSensorHelperOv02c10)
++
+ class CameraSensorHelperOv08d10 : public CameraSensorHelper
+ {
+ public:

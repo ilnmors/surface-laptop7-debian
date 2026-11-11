@@ -1,0 +1,10 @@
+[/]
+accent-color='blue'
+clock-show-date=true
+clock-show-weekday=true
+color-scheme='prefer-light'
+enable-hot-corners=true
+gtk-theme='Fluent-Light'
+icon-theme='Papirus'
+show-battery-percentage=true
+toolkit-accessibility=false

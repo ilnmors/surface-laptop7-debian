@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+"""Set a stable address only on an unconfigured Qualcomm Bluetooth controller."""
+import ctypes
+import hashlib
+import pathlib
+import socket
+import struct
+import sys
+import time
+
+index = int(sys.argv[1].removeprefix("hci"))
+with socket.socket(socket.AF_BLUETOOTH, socket.SOCK_RAW, socket.BTPROTO_HCI) as connection:
+    address = ctypes.create_string_buffer(struct.pack("<HHH", socket.AF_BLUETOOTH, 0xffff, 3))
+    library = ctypes.CDLL(None, use_errno=True)
+    if library.bind(connection.fileno(), address, 6) != 0:
+        raise OSError(ctypes.get_errno(), "Cannot bind Bluetooth management socket")
+    connection.settimeout(3)
+
+    def request(opcode, controller, payload=b""):
+        connection.send(struct.pack("<HHH", opcode, controller, len(payload)) + payload)
+        deadline = time.monotonic() + 5
+        while time.monotonic() < deadline:
+            packet = connection.recv(4096)
+            event, current_index, length = struct.unpack_from("<HHH", packet)
+            if event == 1 and current_index == controller and struct.unpack_from("<H", packet, 6)[0] == opcode:
+                if packet[8]:
+                    raise RuntimeError(f"Bluetooth management status {packet[8]}")
+                return packet[9:]
+        raise TimeoutError("Bluetooth management response timed out")
+
+    def indices(opcode):
+        controllers = request(opcode, 0xffff)
+        count = struct.unpack_from("<H", controllers)[0]
+        return struct.unpack_from("<" + "H" * count, controllers, 2)
+
+    deadline = time.monotonic() + 20
+    while True:
+        if index in indices(0x0003):
+            print(f"hci{index} already configured")
+            sys.exit(0)
+        if index in indices(0x0036):
+            break
+        if time.monotonic() >= deadline:
+            raise TimeoutError("Bluetooth controller did not finish initializing")
+        time.sleep(0.5)
+
+    manufacturer, supported, missing = struct.unpack("<HII", request(0x0037, index))
+    if manufacturer != 29 or missing != 2:
+        raise RuntimeError("Expected Qualcomm controller missing only its public address")
+
+    identity = pathlib.Path("/etc/machine-id").read_bytes()
+    address = bytearray(hashlib.sha256(identity + b"surface-bluetooth").digest()[:6])
+    address[0] = (address[0] & 0xfc) | 2
+    request(0x0039, index, bytes(reversed(address)))
+    print("Configured stable local Bluetooth address " + ":".join(f"{value:02X}" for value in address))

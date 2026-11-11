@@ -1,0 +1,26 @@
+/dts-v1/;
+/plugin/;
+
+/* Romulus13 HID-over-I2C enablement, Jizhou Tong, 2026-09-30. */
+&i2c8 {
+    clock-frequency = <400000>;
+    status = "okay";
+
+    touchscreen@34 {
+        compatible = "hid-over-i2c";
+        reg = <0x34>;
+        hid-descr-addr = <0x0000>;
+        interrupt-parent = <&tlmm>;
+        interrupts = <38 8>;
+        pinctrl-0 = <&surface_touchscreen_irq>;
+        pinctrl-names = "default";
+    };
+};
+
+&tlmm {
+    surface_touchscreen_irq: surface-touchscreen-irq-state {
+        pins = "gpio38";
+        function = "gpio";
+        bias-pull-up;
+    };
+};

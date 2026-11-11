@@ -1,0 +1,19 @@
+[waydroid]
+arch = arm64_only
+vendor_type = MAINLINE
+system_datetime = 1790490369
+vendor_datetime = 1792665099
+suspend_action = freeze
+mount_overlays = True
+auto_adb = False
+images_path = /var/lib/waydroid/images
+binder = anbox-binder
+vndbinder = anbox-vndbinder
+hwbinder = anbox-hwbinder
+system_ota = https://ota.waydro.id/system/lineage/waydroid_arm64_only/VANILLA.json
+vendor_ota = https://ota.waydro.id/vendor/waydroid_arm64_only/MAINLINE.json
+binder_protocol = aidl3
+service_manager_protocol = aidl3
+
+[properties]
+

@@ -1,0 +1,9 @@
+[Unit]
+Description=Configure missing Surface Bluetooth address for %I
+After=bluetooth.service
+ConditionPathExists=/sys/class/bluetooth/%I
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/surface-bluetooth-address %I
+TimeoutStartSec=30

@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+test -f /var/lib/surface-secureboot/MOK.key || exit 0
+exec /usr/local/sbin/surface-secureboot-update "$1"

@@ -1,0 +1,8 @@
+[org/gnome/desktop/peripherals/touchpad]
+accel-profile='flat'
+speed=0.0
+tap-to-click=false
+tap-and-drag=false
+two-finger-scrolling-enabled=true
+natural-scroll=true
+click-method='areas'

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Korean input service
+Exec=sh -c "ibus engine >/dev/null 2>&1 || exec ibus-daemon --daemonize --panel disable"
+OnlyShowIn=GNOME;
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

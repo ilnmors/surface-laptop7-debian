@@ -1,0 +1,16 @@
+diff --git a/drivers/soundwire/qcom.c b/drivers/soundwire/qcom.c
+index 6e0c5fb10efa..29130745c809 100644
+--- a/drivers/soundwire/qcom.c
++++ b/drivers/soundwire/qcom.c
+@@ -1350,8 +1350,10 @@ static int qcom_swrm_stream_alloc_ports(struct qcom_swrm_ctrl *ctrl,
+ 				else
+ 					pn = find_first_zero_bit(port_mask, maxport);
+ 
+-				if (pn >= maxport) {
++				if (pn >= maxport || nports >= maxport) {
+ 					dev_err(ctrl->dev, "All ports busy\n");
++					while (nports--)
++						clear_bit(pconfig[nports].num, port_mask);
+ 					return -EBUSY;
+ 				}
+ 				set_bit(pn, port_mask);

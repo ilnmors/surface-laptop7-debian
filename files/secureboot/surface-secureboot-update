@@ -1,0 +1,190 @@
+#!/usr/bin/python3
+"""Sign Surface modules and rebuild its signed kernel with the selected DTB."""
+import argparse
+import fcntl
+import gzip
+import lzma
+import os
+from pathlib import Path
+import shutil
+import stat
+import struct
+import subprocess
+import tempfile
+import sys
+sys.path.insert(0, "/usr/local/lib/surface-secureboot")
+from kernel_certificate import insert_certificate
+
+def run(*args, **kwargs):
+    return subprocess.run(args, check=True, **kwargs)
+
+def sign(source, destination, state):
+    run("sbsign", "--key", str(state / "MOK.key"), "--cert", str(state / "MOK.pem"),
+        "--output", str(destination), str(source), stdout=subprocess.DEVNULL)
+    run("sbverify", "--cert", str(state / "MOK.pem"), str(destination),
+        stdout=subprocess.DEVNULL)
+
+def remove_module_signature(data):
+    marker = b"~Module signature appended~\n"
+    while data.endswith(marker):
+        header = len(data) - len(marker) - 12
+        signature_size = struct.unpack_from(">I", data, header + 8)[0]
+        start = header - signature_size - data[header + 3] - data[header + 4]
+        if start < 4 or not data.startswith(b"\x7fELF"):
+            raise ValueError("Invalid module signature layout")
+        data = data[:start]
+    return data
+
+def sign_modules(kernel, state):
+    certificate_info = subprocess.check_output(
+        ["openssl", "x509", "-in", str(state / "MOK.pem"), "-noout",
+         "-ext", "subjectKeyIdentifier"], text=True)
+    certificate_id = certificate_info.splitlines()[-1].strip().replace(":", "").lower()
+    count = 0
+    modules = Path("/lib/modules") / kernel
+    for module in sorted(modules.rglob("*.ko*")):
+        if module.is_symlink() or not module.is_file():
+            continue
+        if module.suffix not in (".ko", ".xz", ".zst", ".gz"):
+            continue
+        current = subprocess.run(["modinfo", "-F", "sig_key", str(module)],
+                                 capture_output=True, text=True)
+        if current.returncode == 0 and current.stdout.strip().replace(":", "").lower() == certificate_id:
+            continue
+        mode = stat.S_IMODE(module.stat().st_mode)
+        data = module.read_bytes()
+        if module.suffix == ".xz":
+            data = lzma.decompress(data)
+        elif module.suffix == ".gz":
+            data = gzip.decompress(data)
+        elif module.suffix == ".zst":
+            data = subprocess.check_output(["zstd", "-q", "-d", "-c", str(module)])
+        data = remove_module_signature(data)
+        with tempfile.TemporaryDirectory(dir=state) as temporary:
+            raw = Path(temporary) / "module.ko"
+            raw.write_bytes(data)
+            run(str(state / "sign-file"), "sha512", str(state / "MOK.key"),
+                str(state / "MOK.pem"), str(raw))
+            data = raw.read_bytes()
+            if module.suffix == ".xz":
+                data = lzma.compress(data, check=lzma.CHECK_CRC32)
+            elif module.suffix == ".gz":
+                data = gzip.compress(data, mtime=0)
+            elif module.suffix == ".zst":
+                data = subprocess.check_output(["zstd", "-q", "-c", str(raw)])
+        replacement = module.with_name(module.name + ".surface-new")
+        replacement.write_bytes(data)
+        replacement.chmod(mode)
+        replacement.replace(module)
+        count += 1
+        if count % 200 == 0:
+            print(f"Signed {count} modules", flush=True)
+    run("depmod", "-a", kernel)
+    print(f"Signed {count} modules for {kernel}", flush=True)
+
+def build_kernel(kernel, state):
+    blob = bytearray((Path("/boot") / ("vmlinuz-" + kernel)).read_bytes())
+    pe = struct.unpack_from("<I", blob, 0x3c)[0]
+    count = struct.unpack_from("<H", blob, pe + 6)[0]
+    optional = pe + 24
+    table = optional + struct.unpack_from("<H", blob, pe + 20)[0]
+    sections = [(table + number * 40, bytes(blob[table + number * 40:table + (number + 1) * 40]))
+                for number in range(count)]
+    header = next(header for _, header in sections if header[:8].rstrip(b"\0") == b".linux")
+    size = struct.unpack_from("<I", header, 8)[0]
+    offset = struct.unpack_from("<I", header, 20)[0]
+    alignment = struct.unpack_from("<I", blob, optional + 32)[0]
+    file_alignment = struct.unpack_from("<I", blob, optional + 36)[0]
+
+    def aligned(value, boundary):
+        return (value + boundary - 1) // boundary * boundary
+
+    first_data = min(struct.unpack_from("<I", header, 20)[0] for _, header in sections
+                     if struct.unpack_from("<I", header, 16)[0])
+    if table + (count + 2) * 40 > first_data:
+        raise ValueError("No space for signed kernel and DTB section headers")
+    virtual_address = aligned(max(struct.unpack_from("<I", header, 12)[0] +
+                                  max(struct.unpack_from("<I", header, 8)[0],
+                                      struct.unpack_from("<I", header, 16)[0])
+                                  for _, header in sections), alignment)
+    with tempfile.TemporaryDirectory(dir=state) as temporary:
+        folder = Path(temporary)
+        inner = folder / "linux.efi"
+        signed_inner = folder / "linux-signed.efi"
+        inner.write_bytes(insert_certificate(bytes(blob[offset:offset + size]), kernel, (state / "MOK.der").read_bytes()))
+        sign(inner, signed_inner, state)
+        dtb = Path("/boot/surface-sl7-xplus.dtb").read_bytes()
+        if dtb[:4] != bytes.fromhex("d00dfeed"):
+            raise ValueError("Invalid Surface DTB")
+        for position, section in sections:
+            name = section[:8].rstrip(b"\0")
+            if name == b".linux":
+                blob[position:position + 8] = b".lnxold\0"
+            elif name == b".dtbauto":
+                blob[position:position + 8] = b".dtbold\0"
+        for number, (name, payload) in enumerate(
+                ((b".linux", signed_inner.read_bytes()), (b".dtbauto", dtb))):
+            raw_offset = aligned(len(blob), file_alignment)
+            raw_size = aligned(len(payload), file_alignment)
+            blob.extend(bytes(raw_offset - len(blob)))
+            blob.extend(payload)
+            blob.extend(bytes(raw_size - len(payload)))
+            section = struct.pack("<8sIIIIIIHHI", name.ljust(8, b"\0"), len(payload),
+                                  virtual_address, raw_size, raw_offset, 0, 0, 0, 0, 0x40000040)
+            position = table + (count + number) * 40
+            blob[position:position + 40] = section
+            virtual_address = aligned(virtual_address + len(payload), alignment)
+        struct.pack_into("<H", blob, pe + 6, count + 2)
+        struct.pack_into("<I", blob, optional + 56, virtual_address)
+        struct.pack_into("<I", blob, optional + 64, 0)
+        struct.pack_into("<II", blob, optional + 112 + 4 * 8, 0, 0)
+        image = folder / "surface.efi"
+        image.write_bytes(blob)
+        output = Path("/boot/secureboot")
+        output.mkdir(exist_ok=True)
+        staged = output / "vmlinuz-surface-signed.efi.new"
+        sign(image, staged, state)
+        staged.replace(output / "vmlinuz-surface-signed.efi")
+        shutil.copyfile(Path("/boot") / ("initrd.img-" + kernel),
+                        output / ("initrd.img-" + kernel))
+    root_uuid = subprocess.check_output(
+        ["findmnt", "-n", "-o", "UUID", "-T", "/"], text=True).strip()
+    boot_uuid = subprocess.check_output(
+        ["findmnt", "-n", "-o", "UUID", "-T", "/boot"], text=True).strip()
+    boot_prefix = subprocess.check_output(
+        ["grub-mkrelpath", "/boot"], text=True).strip().rstrip("/")
+    if not root_uuid or not boot_uuid:
+        raise RuntimeError("Cannot determine root and boot UUIDs")
+    grub = (
+        "set default=0\nset timeout_style=hidden\nset timeout=1\n"
+        "menuentry 'Debian Surface - signed kernel' {\n"
+        f" search --no-floppy --fs-uuid --set=root {boot_uuid}\n"
+        f" linux {boot_prefix}/secureboot/vmlinuz-surface-signed.efi "
+        f"root=UUID={root_uuid} ro clk_ignore_unused pd_ignore_unused cma=128M "
+        "arm64.nopauth stubble.dtb_override=true console=tty0 quiet splash loglevel=3 systemd.show_status=false rd.systemd.show_status=false vt.global_cursor_default=0\n"
+        f" initrd {boot_prefix}/secureboot/initrd.img-{kernel}\n"
+        "}\n"
+    )
+    (output / "grub.cfg").write_text(grub)
+    run("grub-script-check", str(output / "grub.cfg"))
+    efi_config = Path("/boot/efi/EFI/debian/grub.cfg")
+    if efi_config.parent.exists():
+        efi_config.write_text(
+            f"search --no-floppy --fs-uuid --set=root {boot_uuid}\n"
+            f"configfile {boot_prefix}/secureboot/grub.cfg\n")
+    print("Signed Surface kernel, embedded DTB and GRUB configuration refreshed", flush=True)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("kernel", nargs="?", default=os.uname().release)
+parser.add_argument("--skip-module-signing", action="store_true")
+arguments = parser.parse_args()
+if os.geteuid() != 0:
+    parser.error("Run as root")
+state = Path("/var/lib/surface-secureboot")
+lock = (state / "update.lock").open("w")
+fcntl.flock(lock, fcntl.LOCK_EX)
+if not arguments.skip_module_signing:
+    sign_modules(arguments.kernel, state)
+    environment = dict(os.environ, SURFACE_SECUREBOOT_BUILDING="1")
+    run("update-initramfs", "-u", "-k", arguments.kernel, env=environment)
+build_kernel(arguments.kernel, state)

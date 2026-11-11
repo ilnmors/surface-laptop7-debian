@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+case "${1:-}" in prereqs) exit 0 ;; esac
+. /usr/share/initramfs-tools/hook-functions
+mkdir -p "$DESTDIR/usr/lib/firmware/ath12k/WCN7850"
+cp -a /usr/lib/firmware/ath12k/WCN7850/hw2.0 "$DESTDIR/usr/lib/firmware/ath12k/WCN7850/"

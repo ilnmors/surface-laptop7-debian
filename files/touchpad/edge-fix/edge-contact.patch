@@ -1,0 +1,171 @@
+--- a/src/apps/daemon/touch.hpp
++++ b/src/apps/daemon/touch.hpp
+@@ -88,6 +88,21 @@
+ 	// that bypasses contact-based palm suppression entirely.
+ 	bool m_blocked = false;
+ 
++	// Retain the last valid edge contact across a short rejected fit.
++	std::optional<contacts::Contact<f64>> m_edge_contact;
++	std::chrono::steady_clock::time_point m_edge_contact_time {};
++	f64 m_edge_contact_peak = 0;
++	unsigned int m_edge_missing_frames = 0;
++	unsigned int m_edge_weak_frames = 0;
++
++	// Defaults recovered from the Windows 0C77 lift detector. The normalized
++	// force ratio is approximated here using local heatmap peak contrast.
++	constexpr static unsigned int EDGE_MAX_MISSING_FRAMES = 10;
++	constexpr static f64 EDGE_MIN_PEAK_RATIO = 0.65;
++	constexpr static f64 EDGE_RECOVERY_PEAK_RATIO = 0.85;
++	constexpr static unsigned int EDGE_MAX_WEAK_FRAMES = 2;
++	constexpr static auto EDGE_MAX_MISSING_TIME = std::chrono::milliseconds {100};
++
+ public:
+ 	TouchDevice(const core::Config &config, const core::DeviceInfo &info)
+ 		: m_config {config},
+@@ -153,12 +168,15 @@
+ 	 *
+ 	 * @param[in] contacts All currently active contacts.
+ 	 */
+-	void update(const std::vector<contacts::Contact<f64>> &contacts)
++	void update(const std::vector<contacts::Contact<f64>> &contacts, const Image<f64> &heatmap)
+ 	{
+ 		// If the touch device is disabled ignore all inputs.
+ 		if (!m_enabled)
+ 			return;
+ 
++		if (this->keep_edge_contact(contacts, heatmap))
++			return;
++
+ 		// Find the inputs that need to be lifted
+ 		this->search_lifted(contacts);
+ 
+@@ -223,6 +241,7 @@
+ 		this->lift_all();
+ 		this->sync();
+ 
++		m_edge_contact.reset();
+ 		m_current.clear();
+ 		m_last.clear();
+ 		m_lift.clear();
+@@ -258,6 +277,110 @@
+ 	}
+ 
+ private:
++	bool keep_edge_contact(const std::vector<contacts::Contact<f64>> &contacts,
++	                       const Image<f64> &heatmap)
++	{
++		using namespace std::chrono;
++
++		if (!m_info.is_touchpad() || m_info.vendor != 0x045e ||
++		    m_info.product != 0x0c77 || contacts.size() > 1 || this->is_blocked(contacts)) {
++			m_edge_contact.reset();
++			return false;
++		}
++
++		const auto now = steady_clock::now();
++		if (contacts.empty()) {
++			if (this->keep_edge_signal(heatmap, now))
++				return true;
++
++			m_edge_contact.reset();
++			return false;
++		}
++
++		const auto &contact = contacts.front();
++		const f64 x = contact.mean.x();
++		const f64 y = contact.mean.y();
++		const bool outside = x < 0 || x > 1 || y < 0 || y > 1;
++		const bool stable = contact.stable.value_or(true) && contact.valid.value_or(true);
++		constexpr f64 edge_cm = 0.4;
++
++		if (stable && !outside) {
++			const bool near_edge = std::min(x, 1 - x) * m_config.width <= edge_cm ||
++			                       std::min(y, 1 - y) * m_config.height <= edge_cm;
++			if (near_edge && contact.index.has_value()) {
++				m_edge_contact = contact;
++				m_edge_contact_time = now;
++				m_edge_contact_peak = this->edge_signal_peak(heatmap);
++				m_edge_missing_frames = 0;
++				m_edge_weak_frames = 0;
++			} else {
++				m_edge_contact.reset();
++			}
++			return false;
++		}
++
++		if (!m_edge_contact || contact.index != m_edge_contact->index) {
++			m_edge_contact.reset();
++			return false;
++		}
++
++		const f64 dx = (x - m_edge_contact->mean.x()) * m_config.width;
++		const f64 dy = (y - m_edge_contact->mean.y()) * m_config.height;
++		if (std::hypot(dx, dy) <= edge_cm && this->keep_edge_signal(heatmap, now))
++			return true;
++
++		m_edge_contact.reset();
++		return false;
++	}
++
++	bool keep_edge_signal(const Image<f64> &heatmap,
++	                      const std::chrono::steady_clock::time_point now)
++	{
++		if (!m_edge_contact || m_edge_contact_peak <= 0 ||
++		    now - m_edge_contact_time > EDGE_MAX_MISSING_TIME ||
++		    m_edge_missing_frames >= EDGE_MAX_MISSING_FRAMES)
++			return false;
++
++		const auto peak = this->edge_signal_peak(heatmap);
++		if (peak <= 0)
++			return false;
++
++		const auto ratio = peak / m_edge_contact_peak;
++		if (ratio >= EDGE_RECOVERY_PEAK_RATIO)
++			m_edge_weak_frames = 0;
++		else if (ratio < EDGE_MIN_PEAK_RATIO &&
++		         ++m_edge_weak_frames > EDGE_MAX_WEAK_FRAMES)
++			return false;
++
++		m_edge_missing_frames++;
++		return true;
++	}
++
++	f64 edge_signal_peak(const Image<f64> &heatmap) const
++	{
++		if (heatmap.rows() != 18 || heatmap.cols() != 26 || !heatmap.allFinite())
++			return 0;
++
++		auto x = m_edge_contact->mean.x();
++		auto y = m_edge_contact->mean.y();
++		if (m_config.invert_x)
++			x = 1 - x;
++		if (m_config.invert_y)
++			y = 1 - y;
++
++		const auto col = static_cast<Eigen::Index>(std::lround(x * 25));
++		const auto row = static_cast<Eigen::Index>(std::lround(y * 17));
++		const auto left = std::max<Eigen::Index>(0, col - 1);
++		const auto right = std::min<Eigen::Index>(25, col + 1);
++		const auto top = std::max<Eigen::Index>(0, row - 1);
++		const auto bottom = std::min<Eigen::Index>(17, row + 1);
++		const auto local = heatmap.block(top, left, bottom - top + 1, right - left + 1);
++		const auto contrast = local - heatmap.mean();
++
++		const auto peak = contrast.maxCoeff();
++		return peak >= 0.08 && (contrast >= 0.035).count() >= 2 ? peak : 0;
++	}
++
+ 	/*!
+ 	 * Builds the difference between the current and the last frame.
+ 	 * Contacts that were present in the last frame but not in this one have to be lifted.
+--- a/src/apps/daemon/daemon.hpp
++++ b/src/apps/daemon/daemon.hpp
+@@ -65,7 +65,7 @@
+ 				m_touch->enable();
+ 		}
+ 
+-		m_touch->update(contacts);
++		m_touch->update(contacts, m_heatmap);
+ 	}
+ 
+ 	void on_button(const ipts::samples::Button &button) override

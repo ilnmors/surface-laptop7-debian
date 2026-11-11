@@ -1,0 +1,18 @@
+Oops#1 Part4
+<4>[ 5702.007626]  sm4_ce_ccm(E) snd_compress(E) videobuf2_memops(E) sm4_ce(E) btintel(E) videobuf2_v4l2(E) sm4_ce_cipher(E) qcom_vadc_common(E) ac97_bus(E) binfmt_misc(E) sm4(E) qcom_spmi_temp_alarm(E) industrialio(E) pm8941_pwrkey(E) bluetooth(E) surface_aggregator_registry(E) snd_pcm_dmaengine(E) snd_pcm(E) qcom_tsens(E) videobuf2_common(E) pci_pwrctrl_pwrseq(E) qcom_edac(E) snd_timer(E) snd(E) qcom_rng(E) qcomtee(E) arm_smccc_trng(E) soundcore(E) leds_gpio(E) tee(E) joydev(E) efi_pstore(E) dmi_sysfs(E) ip_tables(E) x_tables(E) autofs4(E) nls_iso8859_1(E) overlay(E) ath12k_wifi7(OE) ath12k(OE) mac80211(E) libarc4(E) cfg80211(E) mhi(E) hid_multitouch(E) hid_generic(E) nvme(E) nvme_core(E) nvme_keyring(E) nvme_auth(E) xhci_plat_hcd(E) panel_edp(E) i2c_hid_of(E) i2c_hid_acpi_prp0001(E) phy_nxp_ptn3222(E) i2c_hid(E) spi_hid(OE) ps883x(E) surface_aggregator(E) hid(E) ov02c10(OE) crc_itu_t(E) v4l2_cci(E) v4l2_fwnode(E) v4l2_async(E) videodev(E) i2c_qcom_geni(E) spi_geni_qcom(OE) mc(E) phy_qcom_eusb2_repeater(E) rtc_pm8xxx(E)
+Oops#1 Part3
+<4>[ 5702.007678]  leds_qcom_lpg(E) qcom_pon(E) led_class_multicolor(E) nvmem_qcom_spmi_sdam(E) pinctrl_spmi_gpio(E) qcom_pbs(E) reboot_mode(E) ucsi_glink(E) pmic_glink_altmode(E) typec_ucsi(E) aux_hpd_bridge(E) qcom_battmgr(E) qrtr(E) socinfo(E) qcom_spmi_pmic(E) msm(E) regmap_spmi(E) phy_qcom_qmp_combo(E) qcom_q6v5_pas(E) dwc3_qcom(E) aux_bridge(E) qcom_pil_info(E) ubwc_config(E) qcom_common(E) typec(E) ocmem(E) qcom_glink_smem(E) dwc3(E) spmi_pmic_arb(E) qcom_glink(E) gpu_sched(E) spmi_devres(E) qcom_q6v5(E) drm_dp_aux_bus(E) thunderbolt(E) pinctrl_x1e80100(E) i2c_qcom_cci(E) qcom_stats(E) phy_qcom_mipi_csi2(E) camcc_x1e80100(E) drm_display_helper(E) ulpi(E) dispcc_x1e80100(E) spmi(E) phy_qcom_edp(E) phy_snps_eusb2(E) udc_core(E) cec(E) pinctrl_sm8550_lpass_lpi(E) lpasscc_sc8280xp(E) gpi(OE) pinctrl_lpass_lpi(E) gpucc_x1e80100(E) phy_qcom_qmp_usb(E) videocc_sm8550(E) qcom_rpmh_regulator(E) rc_core(E) qcom_sysmon(E) mdt_loader(E) qcom_aoss(E) qcom_smd(E) bam_dma(E) pmic_glink(E) tcsrcc_x1e80100(E) gcc_x1e80100(E)
+Oops#1 Part2
+<4>[ 5702.007724]  llcc_qcom(E) qcom_cpucp_mbox(E) qcom_hwspinlock(E) phy_qcom_qmp_pcie(E) sbsa_gwdt(E) pdr_interface(E) icc_bwmon(E) nvmem_qfprom(E) qcom_pdr_msg(E) pwrseq_qcom_wcn(E) smp2p(E) qmi_helpers(E) gpio_keys(E) qcom_smem(E) rpmsg_core(E) fixed(E) pwm_bl(E) qnoc_x1e80100(E)
+<4>[ 5702.007740] CPU: 0 UID: 0 PID: 17630 Comm: systemd-sleep Tainted: G        W  OE       7.3.0-31-qcom-x1e #31-Ubuntu PREEMPT(lazy) 
+<4>[ 5702.007743] Tainted: [W]=WARN, [O]=OOT_MODULE, [E]=UNSIGNED_MODULE
+<4>[ 5702.007744] Hardware name: Microsoft Corporation Microsoft Surface Laptop, 7th Edition/Microsoft Surface Laptop, 7th Edition, BIOS 175.327.235 06/24/2026
+<4>[ 5702.007746] pstate: 81400005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+<4>[ 5702.007748] pc : dwc3_qcom_suspend.part.0+0x1d0/0x380 [dwc3_qcom]
+<4>[ 5702.007752] lr : dwc3_qcom_suspend.part.0+0x174/0x380 [dwc3_qcom]
+<4>[ 5702.007753] sp : ffff80008feb38a0
+<4>[ 5702.007754] x29: ffff80008feb38a0 x28: ffffd7eba43f1638 x27: 0000000000000000
+<4>[ 5702.007756] x26: ffffd7eba454f830 x25: 0000000000000001 x24: ffffd7eb7ff05ac0
+<4>[ 5702.007758] x23: ffffd7eb7ff10558 x22: 000000000028100c x21: 0000000000000001
+<4>[ 5702.007760] x20: 0000000000000000 x19: ffff00080a176880 x18: ffff80008fae50a8
+<4>[ 5702.007762] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000

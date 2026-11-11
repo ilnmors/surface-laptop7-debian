@@ -1,0 +1,3 @@
+[/]
+mru-sources=[('ibus', 'hangul'), ('xkb', 'us')]
+sources=[('xkb', 'us'), ('ibus', 'hangul')]

@@ -1,0 +1,32 @@
+[Plymouth Theme]
+Name=Surface Debian
+Description=Debian logo with a simple boot spinner
+ModuleName=two-step
+
+[two-step]
+ImageDir=/usr/share/plymouth/themes/surface-debian
+Font=Cantarell 12
+TitleFont=Cantarell Light 30
+BackgroundStartColor=0x000000
+BackgroundEndColor=0x000000
+HorizontalAlignment=.5
+VerticalAlignment=.68
+WatermarkHorizontalAlignment=.5
+WatermarkVerticalAlignment=.40
+DialogHorizontalAlignment=.5
+DialogVerticalAlignment=.55
+MessageBelowAnimation=true
+Transition=none
+TransitionDuration=0.0
+
+[boot-up]
+UseEndAnimation=false
+SuppressMessages=true
+
+[shutdown]
+UseEndAnimation=false
+SuppressMessages=true
+
+[reboot]
+UseEndAnimation=false
+SuppressMessages=true

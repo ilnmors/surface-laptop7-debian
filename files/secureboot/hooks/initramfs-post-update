@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+test "${SURFACE_SECUREBOOT_BUILDING:-}" != 1 || exit 0
+test -f /var/lib/surface-secureboot/MOK.key || exit 0
+exec /usr/local/sbin/surface-secureboot-update "$1" --skip-module-signing

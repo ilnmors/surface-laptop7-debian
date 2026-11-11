@@ -1,0 +1,331 @@
+{
+  "system": {
+    "channel": "https://ota.waydro.id/system/lineage/waydroid_arm64_only/VANILLA.json",
+    "metadata": {
+      "response": [
+        {
+          "datetime": 1790490369,
+          "filename": "lineage-20.0-20260927-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "a7806741ea8ca5be917d0c66b031d97a60abb7a95031ca5b35c40620b6273ccd",
+          "romtype": "VANILLA",
+          "size": 733009660,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20260927-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1775194047,
+          "filename": "lineage-20.0-20260403-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "c3cf6ab5ded7496761bae4a49fe1a6f691923c5b84818755790f3ae4e239127b",
+          "romtype": "VANILLA",
+          "size": 728517282,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20260403-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1773320554,
+          "filename": "lineage-20.0-20260312-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "49596ba88debb0e69f72e0cf2b9462341d4a3924049eeb9d03339f3aa924e886",
+          "romtype": "VANILLA",
+          "size": 727668766,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20260312-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1772402490,
+          "filename": "lineage-20.0-20260301-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "d8027897b1476eb08ee39b384b40f8c8854d3541d1bf91a5ce000b90fc7821dc",
+          "romtype": "VANILLA",
+          "size": 727669460,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20260301-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1754686358,
+          "filename": "lineage-20.0-20250809-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "4839cb57d8e23b05c450308c5fa18438464fe8b54fca7f84b7db8b4b506b45ec",
+          "romtype": "VANILLA",
+          "size": 723059304,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250809-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1754081516,
+          "filename": "lineage-20.0-20250802-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "17ce16228e55f37b3988e4a97a807e14472a67e968cd6c3c025dc852d9ee0880",
+          "romtype": "VANILLA",
+          "size": 723059615,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250802-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1753492090,
+          "filename": "lineage-20.0-20250726-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "f492bdbde042c80a89ccb1303605aed7fa776ba0780cd0fbe5c298f0655dab99",
+          "romtype": "VANILLA",
+          "size": 723060302,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250726-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1753231762,
+          "filename": "lineage-20.0-20250723-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "27a82eb2f61186fdfbd8d947dc029de889ac8dc4a2677508f1639f673f4357b0",
+          "romtype": "VANILLA",
+          "size": 723060353,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250723-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1752871985,
+          "filename": "lineage-20.0-20250719-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "435196acea4dbc60078ba50193bc93a8fa1da26e575d7a6ba96e54a6d21521bd",
+          "romtype": "VANILLA",
+          "size": 723060916,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250719-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1752267148,
+          "filename": "lineage-20.0-20250712-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "70107f6b4fd5d44ee8ee9458c5296e21678442fcb8871d6a49873f78b36f8ac7",
+          "romtype": "VANILLA",
+          "size": 723060578,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250712-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1751662310,
+          "filename": "lineage-20.0-20250705-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "8f62f4f6186d174c144a1bc7313963037ded804fa6176b1a59805f7037f335bc",
+          "romtype": "VANILLA",
+          "size": 718134092,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250705-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1751057578,
+          "filename": "lineage-20.0-20250628-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "81aabaa4aaca012cdbf434e8c5c01aba520dbe8f98a6251b2f2b19216a23d15b",
+          "romtype": "VANILLA",
+          "size": 718133691,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250628-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1750452731,
+          "filename": "lineage-20.0-20250621-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "286e767f06e1e4e80f3b292b8cf8f7012e18c653da37060d9fa095e330ae2fb9",
+          "romtype": "VANILLA",
+          "size": 718132554,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250621-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1749847967,
+          "filename": "lineage-20.0-20250614-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "b5db55dda84e56d8090185289a904c4e6fabaa778fd9d59d14fc245fd6056b6b",
+          "romtype": "VANILLA",
+          "size": 718133303,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250614-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1749243082,
+          "filename": "lineage-20.0-20250607-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "f8c0239a354c8315fb4602ccb69ecf51b70bd1f5fdf325bd624c9f8672fd19c3",
+          "romtype": "VANILLA",
+          "size": 717129666,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250607-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1748638302,
+          "filename": "lineage-20.0-20250531-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "4eb260c4dac4d8da6f0dbf564d73a7c7f5aa64ea12b75d4d035007dbbca0c38d",
+          "romtype": "VANILLA",
+          "size": 717128333,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250531-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1748033554,
+          "filename": "lineage-20.0-20250524-VANILLA-waydroid_arm64_only-system.zip",
+          "id": "7272781a359ded2078a768e87490f4d80e263174ecbdd8be0d7727b81971292b",
+          "romtype": "VANILLA",
+          "size": 717129600,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_arm64_only/lineage-20.0-20250524-VANILLA-waydroid_arm64_only-system.zip/download",
+          "version": "20.0"
+        }
+      ]
+    }
+  },
+  "vendor": {
+    "channel": "https://ota.waydro.id/vendor/waydroid_arm64_only/MAINLINE.json",
+    "metadata": {
+      "response": [
+        {
+          "datetime": 1792665099,
+          "filename": "lineage-20.0-20261022-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "b634f6376cd20accfa835a78381e16f076057f8ca9a538a17282f25af04b44cc",
+          "romtype": "MAINLINE",
+          "size": 77356908,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20261022-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1790493416,
+          "filename": "lineage-20.0-20260927-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "bd502c53ada5019e0fad3beb6feb248ce45c9ea500870f4725e0d12624baef0a",
+          "romtype": "MAINLINE",
+          "size": 77357342,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20260927-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1775198504,
+          "filename": "lineage-20.0-20260403-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "bad5e84a2a47b877d8a85f6a212720f5562e3eeb26696bfd0e2de50dab1ec3ba",
+          "romtype": "MAINLINE",
+          "size": 77349347,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20260403-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1773323153,
+          "filename": "lineage-20.0-20260312-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "97e789d5cf1c1344966591d04673a10e6b9acbee25cae3909756eda7a20485f3",
+          "romtype": "MAINLINE",
+          "size": 77349641,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20260312-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1772405311,
+          "filename": "lineage-20.0-20260301-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "6ba31ce79346aceba707ea7d54b3fe56937d56f70089752a83d77740eed50a5c",
+          "romtype": "MAINLINE",
+          "size": 77350856,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20260301-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1754676649,
+          "filename": "lineage-20.0-20250809-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "3ece18b531a3aa0e4794fc39808c48ad3f254e95681b873e5e99543dfe9fba34",
+          "romtype": "MAINLINE",
+          "size": 73227569,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250809-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1754175004,
+          "filename": "lineage-20.0-20250803-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "aed8a879063206b11b0f670fb5e28839b3174d84f0bcbadebdf506782aa6fe5a",
+          "romtype": "MAINLINE",
+          "size": 73227667,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250803-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1754071735,
+          "filename": "lineage-20.0-20250802-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "bdcc77ae1878b70565fef50675d66e186f090c79cb060218f7227b6f598333f8",
+          "romtype": "MAINLINE",
+          "size": 69471087,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250802-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1752862105,
+          "filename": "lineage-20.0-20250719-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "f45f563c75f74a21897ec4a7170b8cd197e41d525c8af20c2042b1d17f59f886",
+          "romtype": "MAINLINE",
+          "size": 69469883,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250719-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1752257148,
+          "filename": "lineage-20.0-20250712-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "355e820c1c558767f50640a7ee03441fd7a5557bae2f6994761eb1311adb8984",
+          "romtype": "MAINLINE",
+          "size": 69464027,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250712-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1751927721,
+          "filename": "lineage-20.0-20250708-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "8bd8ccd44653da2703efd72d1403e9c83335bbad9a973a8c2901286ab2ed3fc0",
+          "romtype": "MAINLINE",
+          "size": 69466896,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250708-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1751652489,
+          "filename": "lineage-20.0-20250705-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "7b022efb1cc84b077778fd75730cbe79f2f02dd85e97f1a9cd09f458a6514c2f",
+          "romtype": "MAINLINE",
+          "size": 69463215,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250705-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1751051887,
+          "filename": "lineage-20.0-20250628-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "f495dfa2048d6b195a14e956f72d81b4c0ddc7dfe8fee22b321d9585bd7ef694",
+          "romtype": "MAINLINE",
+          "size": 69464127,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250628-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1750446810,
+          "filename": "lineage-20.0-20250621-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "d388a55eb4bb1baa1b8d972648143cf1d24521267bedff598c0dc01df373be63",
+          "romtype": "MAINLINE",
+          "size": 69465700,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250621-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1749842770,
+          "filename": "lineage-20.0-20250614-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "1411a10ea5ff71e0245c1ed5fa994ece42aaba088d8954f69cac603dca4454df",
+          "romtype": "MAINLINE",
+          "size": 69464875,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250614-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1749236956,
+          "filename": "lineage-20.0-20250607-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "d0783cc00b8ea3dd1e1ef7b455d64416f1d481838ce44ab8c62655d93e18a317",
+          "romtype": "MAINLINE",
+          "size": 69488356,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250607-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1748693703,
+          "filename": "lineage-20.0-20250531-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "7e50c954d1055a7c32f765a3610fce5a566e01f7c3a514b665f2c438f55d7cc7",
+          "romtype": "MAINLINE",
+          "size": 69490477,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250531-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        },
+        {
+          "datetime": 1748028174,
+          "filename": "lineage-20.0-20250524-MAINLINE-waydroid_arm64_only-vendor.zip",
+          "id": "e731f33ca33f490d9ee8c026e08d1221841ccc336867ee2560bdd76ce5f74e9d",
+          "romtype": "MAINLINE",
+          "size": 69492743,
+          "url": "https://sourceforge.net/projects/waydroid/files/images/vendor/waydroid_arm64_only/lineage-20.0-20250524-MAINLINE-waydroid_arm64_only-vendor.zip/download",
+          "version": "20.0"
+        }
+      ]
+    }
+  }
+}

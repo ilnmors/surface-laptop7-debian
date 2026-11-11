@@ -1,0 +1,12 @@
+[org/gnome/desktop/interface]
+color-scheme='prefer-light'
+gtk-theme='Adwaita'
+icon-theme='Papirus'
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/sl7-debian-light.svg'
+picture-uri-dark='file:///usr/share/backgrounds/sl7-debian-light.svg'
+picture-options='zoom'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/sl7-debian-light.svg'

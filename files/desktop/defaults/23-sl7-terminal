@@ -1,0 +1,14 @@
+[org/gnome/terminal/legacy]
+theme-variant='dark'
+
+[org/gnome/terminal/legacy/profiles:]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+use-theme-colors=false
+foreground-color='#f2f2f2'
+background-color='#1e1e1e'
+cursor-colors-set=true
+cursor-foreground-color='#1e1e1e'
+cursor-background-color='#f2f2f2'

@@ -1,0 +1,19 @@
+[/]
+theme-variant='dark'
+
+[keybindings]
+paste='<Control>v'
+
+[profiles:]
+default='b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
+list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
+
+[profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='#101824'
+bold-is-bright=true
+cursor-background-color='#f2f2f2'
+cursor-colors-set=true
+cursor-foreground-color='#1e1e1e'
+foreground-color='#EEF4FC'
+palette=['#18202C', '#FF5370', '#79E287', '#FFD166', '#5EAAFF', '#C792EA', '#42D9E8', '#E6EDF3', '#75869C', '#FF7B91', '#A4F4A3', '#FFE29A', '#86C5FF', '#DEB2FF', '#77EFF5', '#FFFFFF']
+use-theme-colors=false

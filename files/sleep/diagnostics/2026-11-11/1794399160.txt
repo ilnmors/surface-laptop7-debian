@@ -1,0 +1,36 @@
+Oops#1 Part6
+<3>[  763.922867] wsa884x-codec sdw:1:0:0217:0204:00:1: Parity error detected
+<3>[  763.932220] wsa884x-codec sdw:1:0:0217:0204:00:0: Parity error detected
+<3>[  948.700175] qcom-soundwire 6b10000.soundwire: no slave alert found.spurious interrupt
+<3>[  948.700185] qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected
+<4>[ 2825.311267] NOTICE: Automounting of tracing to debugfs is deprecated and will be removed in 2030
+<6>[ 5698.665689] wlP4p1s0: deauthenticating from XX:XX:XX:XX:XX:XX by local choice (Reason: 3=DEAUTH_LEAVING)
+<4>[ 5698.886398] ath12k_wifi7_pci 0004:01:00.0: Failed to set the requested Country regulatory setting
+<4>[ 5698.886494] ath12k_wifi7_pci 0004:01:00.0: Failed to set the requested Country regulatory setting
+<6>[ 5698.953620] PM: suspend entry (deep)
+<6>[ 5698.956531] Filesystems sync: 0.002 seconds
+<6>[ 5698.968601] Freezing user space processes
+<6>[ 5698.970712] Freezing user space processes completed (elapsed 0.002 seconds)
+<6>[ 5698.970716] OOM killer disabled.
+<6>[ 5698.970717] Freezing remaining freezable tasks
+<6>[ 5698.971904] Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
+<6>[ 5698.971906] printk: Suspending console(s) (use no_console_suspend to debug)
+<4>[ 5701.988104] ath12k_wifi7_pci 0004:01:00.0: Timeout while waiting for regulatory update
+<3>[ 5702.007304] dwc3-qcom a400000.usb: port-1 HS-PHY not in L2
+<3>[ 5702.007309] dwc3-qcom a400000.usb: port-2 HS-PHY not in L2
+<1>[ 5702.007565] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000058
+<1>[ 5702.007567] Mem abort info:
+<1>[ 5702.007567]   ESR = 0x0000000096000004
+Oops#1 Part5
+<1>[ 5702.007568]   EC = 0x25: DABT (current EL), IL = 32 bits
+<1>[ 5702.007569]   SET = 0, FnV = 0
+<1>[ 5702.007570]   EA = 0, S1PTW = 0
+<1>[ 5702.007571]   FSC = 0x04: level 0 translation fault
+<1>[ 5702.007571] Data abort info:
+<1>[ 5702.007572]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+<1>[ 5702.007573]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+<1>[ 5702.007573]   GCS = 0, Overlay = 0, DirtyBit = 0
+<1>[ 5702.007574] user pgtable: 4k pages, 48-bit VAs, pgdp=00000009fc28e000
+<1>[ 5702.007576] [0000000000000058] pgd=0000000000000000, p4d=0000000000000000
+<0>[ 5702.007581] Internal error: Oops: 0000000096000004 [#1]  SMP
+<4>[ 5702.007583] Modules linked in: snd_seq_dummy(E) snd_hrtimer(E) snd_seq(E) snd_seq_device(E) reset_gpio(E) snd_soc_wsa884x(E) gpio_shared_proxy(E) q6prm_clocks(E) q6apm_lpass_dais(E) q6apm_dai(E) snd_q6dsp_common(E) q6prm(E) rfcomm(E) algif_hash(E) algif_skcipher(E) af_alg(E) aes_ce_ccm(E) snd_q6apm(E) fastrpc(E) apr(E) rpmsg_ctrl(E) rpmsg_char(E) qrtr_smd(E) bnep(E) qrtr_mhi(E) qcom_pd_mapper(E) input_leds(E) surface_hid(E) surface_hid_core(E) surface_fan(E) snd_soc_wcd938x(E) snd_soc_wcd938x_sdw(E) snd_soc_wcd_classh(E) snd_soc_wcd_common(E) snd_soc_x1e80100(E) snd_soc_wcd_mbhc(E) soundwire_qcom(E) snd_soc_qcom_sdw(E) snd_soc_qcom_common(E) slimbus(E) regmap_sdw(E) soundwire_bus(E) snd_soc_lpass_wsa_macro(E) snd_soc_lpass_tx_macro(E) snd_soc_lpass_va_macro(E) snd_soc_lpass_rx_macro(E) snd_soc_sdca(E) aes_ce_blk(E) snd_soc_hdmi_codec(E) snd_soc_lpass_macro_common(E) hci_uart(E) qcom_camss(E) ghash_ce(E) btqca(E) gf128mul(E) btrtl(E) snd_soc_core(E) btbcm(E) sm4_ce_gcm(E) videobuf2_dma_sg(E) qcom_spmi_adc5_gen3(E)

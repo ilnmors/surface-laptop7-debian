@@ -1,0 +1,36 @@
+# Offline payloads and historical snapshots stay on disk, outside Git.
+archive/
+*.deb
+*.img
+*.iso
+*.msi
+*.zip
+*.tar
+*.tar.*
+*.gz
+*.xz
+*.zst
+*.bz2
+*.ko
+*.ko.*
+*.so
+*.so.*
+*.a
+*.o
+*.dtb
+*.dtbo
+*.bin
+*.fw
+*.tlv
+*.woff*
+*.ttf
+*.otf
+*.pyc
+__pycache__/
+files/rootfs/usr/lib/firmware/
+files/rootfs/lib/firmware/
+files/rootfs/usr/local/libexec/surface-iptsd/iptsd
+files/secureboot/sign-file
+*.key
+*.gpg
+# The HTML report deliberately remains untracked, not ignored.

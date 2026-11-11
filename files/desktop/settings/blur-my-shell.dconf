@@ -1,0 +1,10 @@
+[/]
+settings-version=8
+
+[panel]
+blur=true
+corner-radius=14
+force-light-text=false
+override-background=false
+static-blur=true
+style-panel=2

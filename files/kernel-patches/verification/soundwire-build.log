@@ -1,0 +1,57 @@
+make: Entering directory '/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e'
+make[1]: Entering directory '/var/tmp/surface-kernel-patches/soundwire/drivers/soundwire'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-linux-gnu-gcc (Ubuntu 15.3.0-4ubuntu1) 15.3.0
+  You are using:           gcc-14 (Debian 14.2.0-19) 14.2.0
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 131
+  You are using:             0
+  CC [M]  qcom.o
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from qcom.c:9:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/of_irq.h:8,
+                 from qcom.c:12:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/irqdomain.h:196:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+  196 |         struct irq_data __rcu           *revmap[] __counted_by(revmap_size);
+      |                ^~~~~~~~
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/sound/ac97_codec.h:18,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/sound/soc.h:26,
+                 from qcom.c:22:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/sound/control.h:85:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+   85 |         struct snd_kcontrol_volatile vd[] __counted_by(count);  /* volatile data */
+      |                ^~~~~~~~~~~~~~~~~~~~~
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/sound/soc.h:427:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/sound/soc-dapm.h:587:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+  587 |         struct snd_soc_dapm_widget *widgets[] __counted_by(num_widgets);
+      |                ^~~~~~~~~~~~~~~~~~~
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/sound/soc.h:1188:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1188 |         struct snd_soc_component *components[] __counted_by(num_components);
+      |                ^~~~~~~~~~~~~~~~~
+  LD [M]  soundwire-qcom.o
+  MODPOST Module.symvers
+  CC [M]  soundwire-qcom.mod.o
+  CC [M]  .module-common.o
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/scripts/module-common.c:3:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from soundwire-qcom.mod.c:1:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+  LD [M]  soundwire-qcom.ko
+  BTF [M] soundwire-qcom.ko
+Skipping BTF generation for soundwire-qcom.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/var/tmp/surface-kernel-patches/soundwire/drivers/soundwire'
+make: Leaving directory '/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e'

@@ -1,0 +1,277 @@
+--- a/drivers/soundwire/qcom.c
++++ b/drivers/soundwire/qcom.c
+@@ -199,6 +199,8 @@
+ 	struct completion enumeration;
+ 	/* Port alloc/free lock */
+ 	struct mutex port_lock;
++	/* Interrupt mask and broadcast completion lock */
++	struct mutex intr_lock;
+ 	struct clk *hclk;
+ 	int irq;
+ 	unsigned int version;
+@@ -497,11 +499,18 @@
+ 	if (swrm_wait_for_wr_fifo_avail(ctrl))
+ 		return SDW_CMD_FAIL_OTHER;
+ 
+-	if (cmd_id == SWR_BROADCAST_CMD_ID)
++	if (cmd_id == SWR_BROADCAST_CMD_ID) {
++		mutex_lock(&ctrl->intr_lock);
++		ctrl->reg_write(ctrl,
++				ctrl->reg_layout[SWRM_REG_INTERRUPT_CLEAR],
++				SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED);
+ 		reinit_completion(&ctrl->broadcast);
+-
+-	/* Its assumed that write is okay as we do not get any status back */
+-	ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_CMD_FIFO_WR_CMD], val);
++		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_CMD_FIFO_WR_CMD], val);
++		mutex_unlock(&ctrl->intr_lock);
++	} else {
++		/* Its assumed that write is okay as we do not get any status back */
++		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_CMD_FIFO_WR_CMD], val);
++	}
+ 
+ 	if (ctrl->version <= SWRM_VERSION_1_3_0)
+ 		usleep_range(150, 155);
+@@ -514,10 +523,16 @@
+ 		 */
+ 		ret = wait_for_completion_timeout(&ctrl->broadcast,
+ 						  msecs_to_jiffies(TIMEOUT_MS));
+-		if (!ret)
++		if (!ret) {
++			mutex_lock(&ctrl->intr_lock);
++			ctrl->reg_write(ctrl,
++					ctrl->reg_layout[SWRM_REG_INTERRUPT_CLEAR],
++					SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED);
++			mutex_unlock(&ctrl->intr_lock);
+ 			ret = SDW_CMD_IGNORED;
+-		else
++		} else {
+ 			ret = SDW_CMD_OK;
++		}
+ 
+ 	} else {
+ 		ret = SDW_CMD_OK;
+@@ -712,6 +727,22 @@
+ 	return IRQ_HANDLED;
+ }
+ 
++static void qcom_swrm_complete_broadcast(struct qcom_swrm_ctrl *ctrl)
++{
++	u32 status;
++
++	guard(mutex)(&ctrl->intr_lock);
++
++	ctrl->reg_read(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_STATUS],
++		       &status);
++	if (status & SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED) {
++		ctrl->reg_write(ctrl,
++				ctrl->reg_layout[SWRM_REG_INTERRUPT_CLEAR],
++				SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED);
++		complete(&ctrl->broadcast);
++	}
++}
++
+ static irqreturn_t qcom_swrm_irq_handler(int irq, void *dev_id)
+ {
+ 	struct qcom_swrm_ctrl *ctrl = dev_id;
+@@ -719,11 +750,15 @@
+ 	u32 i;
+ 	int devnum;
+ 	int ret = IRQ_HANDLED;
+-	clk_prepare_enable(ctrl->hclk);
++
++	if (clk_prepare_enable(ctrl->hclk))
++		return IRQ_NONE;
+ 
+ 	ctrl->reg_read(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_STATUS],
+ 		       &intr_sts);
++	mutex_lock(&ctrl->intr_lock);
+ 	intr_sts_masked = intr_sts & ctrl->intr_mask;
++	mutex_unlock(&ctrl->intr_lock);
+ 
+ 	do {
+ 		for (i = 0; i < SWRM_INTERRUPT_MAX; i++) {
+@@ -759,10 +794,12 @@
+ 				dev_err_ratelimited(ctrl->dev,
+ 						"%s: SWR bus clsh detected\n",
+ 						__func__);
++				mutex_lock(&ctrl->intr_lock);
+ 				ctrl->intr_mask &= ~SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET;
+ 				ctrl->reg_write(ctrl,
+ 						ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
+ 						ctrl->intr_mask);
++				mutex_unlock(&ctrl->intr_lock);
+ 				break;
+ 			case SWRM_INTERRUPT_STATUS_RD_FIFO_OVERFLOW:
+ 				ctrl->reg_read(ctrl,
+@@ -802,23 +839,28 @@
+ 				dev_err_ratelimited(ctrl->dev,
+ 						"%s: SWR Port collision detected\n",
+ 						__func__);
++				mutex_lock(&ctrl->intr_lock);
+ 				ctrl->intr_mask &= ~SWRM_INTERRUPT_STATUS_DOUT_PORT_COLLISION;
+ 				ctrl->reg_write(ctrl,
+ 						ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
+ 						ctrl->intr_mask);
++				mutex_unlock(&ctrl->intr_lock);
+ 				break;
+ 			case SWRM_INTERRUPT_STATUS_READ_EN_RD_VALID_MISMATCH:
+ 				dev_err_ratelimited(ctrl->dev,
+ 					"%s: SWR read enable valid mismatch\n",
+ 					__func__);
++				mutex_lock(&ctrl->intr_lock);
+ 				ctrl->intr_mask &=
+ 					~SWRM_INTERRUPT_STATUS_READ_EN_RD_VALID_MISMATCH;
+ 				ctrl->reg_write(ctrl,
+ 						ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
+ 						ctrl->intr_mask);
++				mutex_unlock(&ctrl->intr_lock);
+ 				break;
+ 			case SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED:
+-				complete(&ctrl->broadcast);
++				qcom_swrm_complete_broadcast(ctrl);
++				intr_sts &= ~SWRM_INTERRUPT_STATUS_SPECIAL_CMD_ID_FINISHED;
+ 				break;
+ 			case SWRM_INTERRUPT_STATUS_BUS_RESET_FINISHED_V2:
+ 				break;
+@@ -849,7 +891,9 @@
+ 				intr_sts);
+ 		ctrl->reg_read(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_STATUS],
+ 			       &intr_sts);
++		mutex_lock(&ctrl->intr_lock);
+ 		intr_sts_masked = intr_sts & ctrl->intr_mask;
++		mutex_unlock(&ctrl->intr_lock);
+ 	} while (intr_sts_masked);
+ 
+ 	clk_disable_unprepare(ctrl->hclk);
+@@ -891,11 +935,13 @@
+ 	/* Enable Auto enumeration */
+ 	ctrl->reg_write(ctrl, SWRM_ENUMERATOR_CFG_ADDR, 1);
+ 
++	mutex_lock(&ctrl->intr_lock);
+ 	ctrl->intr_mask = SWRM_INTERRUPT_STATUS_RMSK;
+ 	/* Mask soundwire interrupts */
+ 	if (ctrl->version < SWRM_VERSION_2_0_0)
+ 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_MASK_ADDR],
+-				SWRM_INTERRUPT_STATUS_RMSK);
++				ctrl->intr_mask);
++	mutex_unlock(&ctrl->intr_lock);
+ 
+ 	/* Configure No pings */
+ 	ctrl->reg_read(ctrl, SWRM_MCP_CFG_ADDR, &val);
+@@ -935,10 +981,12 @@
+ 			0xFFFFFFFF);
+ 
+ 	/* enable CPU IRQs */
++	mutex_lock(&ctrl->intr_lock);
+ 	if (ctrl->mmio) {
+ 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
+-				SWRM_INTERRUPT_STATUS_RMSK);
+-	}
++				ctrl->intr_mask);
++	}
++	mutex_unlock(&ctrl->intr_lock);
+ 
+ 	/* Set IRQ to PULSE */
+ 	ctrl->reg_write(ctrl, SWRM_COMP_CFG_ADDR,
+@@ -1284,8 +1332,10 @@
+ 				else
+ 					pn = find_first_zero_bit(port_mask, maxport);
+ 
+-				if (pn >= maxport) {
++				if (pn >= maxport || nports >= maxport) {
+ 					dev_err(ctrl->dev, "All ports busy\n");
++					while (nports--)
++						clear_bit(pconfig[nports].num, port_mask);
+ 					return -EBUSY;
+ 				}
+ 				set_bit(pn, port_mask);
+@@ -1605,11 +1655,14 @@
+ 		goto err_init;
+ 	}
+ 
+-	clk_prepare_enable(ctrl->hclk);
++	ret = clk_prepare_enable(ctrl->hclk);
++	if (ret)
++		goto err_init;
+ 
+ 	ctrl->dev = dev;
+ 	dev_set_drvdata(&pdev->dev, ctrl);
+ 	mutex_init(&ctrl->port_lock);
++	mutex_init(&ctrl->intr_lock);
+ 	init_completion(&ctrl->broadcast);
+ 	init_completion(&ctrl->enumeration);
+ 
+@@ -1660,7 +1713,7 @@
+ 						"swr_wake_irq", ctrl);
+ 		if (ret) {
+ 			dev_err(dev, "Failed to request soundwire wake irq\n");
+-			goto err_init;
++			goto err_clk;
+ 		}
+ 	}
+ 
+@@ -1715,21 +1768,29 @@
+ {
+ 	struct qcom_swrm_ctrl *ctrl = dev_get_drvdata(&pdev->dev);
+ 
++	pm_runtime_get_sync(&pdev->dev);
+ 	sdw_bus_master_delete(&ctrl->bus);
+-	clk_disable_unprepare(ctrl->hclk);
++	pm_runtime_disable(&pdev->dev);
++	pm_runtime_put_noidle(&pdev->dev);
++	if (!pm_runtime_status_suspended(&pdev->dev))
++		clk_disable_unprepare(ctrl->hclk);
++	pm_runtime_set_suspended(&pdev->dev);
+ }
+ 
+ static int __maybe_unused swrm_runtime_resume(struct device *dev)
+ {
+ 	struct qcom_swrm_ctrl *ctrl = dev_get_drvdata(dev);
+ 	int ret;
++
++	ret = clk_prepare_enable(ctrl->hclk);
++	if (ret)
++		return ret;
+ 
+ 	if (ctrl->wake_irq > 0) {
+ 		if (!irqd_irq_disabled(irq_get_irq_data(ctrl->wake_irq)))
+ 			disable_irq_nosync(ctrl->wake_irq);
+ 	}
+ 
+-	clk_prepare_enable(ctrl->hclk);
+ 	enable_irq(ctrl->irq);
+ 
+ 	if (ctrl->clock_stop_not_supported) {
+@@ -1765,6 +1826,7 @@
+ 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CLEAR],
+ 			SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET);
+ 
++		mutex_lock(&ctrl->intr_lock);
+ 		ctrl->intr_mask |= SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET;
+ 		if (ctrl->version < SWRM_VERSION_2_0_0)
+ 			ctrl->reg_write(ctrl,
+@@ -1772,6 +1834,7 @@
+ 					ctrl->intr_mask);
+ 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
+ 				ctrl->intr_mask);
++		mutex_unlock(&ctrl->intr_lock);
+ 
+ 		usleep_range(100, 105);
+ 		if (!swrm_wait_for_frame_gen_enabled(ctrl))
+@@ -1793,6 +1856,7 @@
+ 	swrm_wait_for_wr_fifo_done(ctrl);
+ 	if (!ctrl->clock_stop_not_supported) {
+ 		/* Mask bus clash interrupt */
++		mutex_lock(&ctrl->intr_lock);
+ 		ctrl->intr_mask &= ~SWRM_INTERRUPT_STATUS_MASTER_CLASH_DET;
+ 		if (ctrl->version < SWRM_VERSION_2_0_0)
+ 			ctrl->reg_write(ctrl,
+@@ -1800,6 +1864,7 @@
+ 					ctrl->intr_mask);
+ 		ctrl->reg_write(ctrl, ctrl->reg_layout[SWRM_REG_INTERRUPT_CPU_EN],
+ 				ctrl->intr_mask);
++		mutex_unlock(&ctrl->intr_lock);
+ 		/* Prepare slaves for clock stop */
+ 		ret = sdw_bus_prep_clk_stop(&ctrl->bus);
+ 		if (ret < 0 && ret != -ENODATA) {
