@@ -42,3 +42,7 @@ HTML, generation script, status data, documents, configuration and patches are t
 ## Display recovery verified
 
 The earlier GPU initramfs hook omitted the Microsoft zap shader. It now includes qcdxkmsuc8380.mbn alongside SQE/GMU firmware. After reboot the user confirmed normal graphics; Secure Boot remains enabled and previous GPU init errors are absent from this boot. KakaoTalk autostart has been restored. Night Light and Blur My Shell remain disabled from recovery.
+
+## Latest deep-sleep and hardware check
+
+This boot completed one deep cycle (success 1/fail 0). Entry 10:59:18, exit 12:04:55. Wi-Fi regulatory and PCIe L2 warnings remain; authentication began 11.4s after suspend exit. Fresh device power trace is armed. User reports working speakers but one later codec parity error remains. Camera streamed 90/90 frames at 720p, ~18.8fps; touchscreen and CPU9 remain unresolved. See drivers/files/power/HARDWARE-RECHECK.md. These later observations supersede earlier statements that no cycle occurred.

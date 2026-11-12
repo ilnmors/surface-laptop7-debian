@@ -1898,6 +1898,7 @@ a46543298ce25438a1a6869b2696fe2bc17b8d425b6e9d20bfa6306cf604dc35  drivers/files/
 65d1abc4373cce3aa08d22fd3286078ad66b609fd8efe48d4f594ec2279ec35f  drivers/files/camera-quality/build.sh
 3cbfb753dae0966fe430c20fe23d4efc452cea1ed3f17c9e12d3855ea17677d6  drivers/files/camera-quality/install.sh
 42239e9c147765f5d2fdc75bd365fb954d655589c82371cc38210fa9fca1b039  drivers/files/camera-quality/ipa_soft_simple.so
+c649f60e9664300bf4603267f610b8534404283af948c2d1c058bb748d08e80a  drivers/files/camera-quality/latest-capture-check.json
 e1e1a9a0726cf7e446926ac849018a02f9b497951062e1982be761a039ce6271  drivers/files/camera-quality/libcamera_0.4.0-7.debian.tar.xz
 4bea748710fdc0dec694e19e0a838f4329da5f8fc851725a8820848cbda46279  drivers/files/camera-quality/libcamera_0.4.0-7.dsc
 32a0a2b91f03f16a191b8fbe48fdcf886e8153c367569301bfd1bf70ebb4dcc0  drivers/files/camera-quality/libcamera_0.4.0.orig.tar.bz2
@@ -1919,6 +1920,7 @@ bd5b0662fbfbc0fdff7e3a1fbada2afe7ab0b793fe948b05c0e1a884b493e119  drivers/files/
 c2abeaf74462b9ae0b30f90f5501b4b24f82ac0e18350d4cd111183e79c973eb  drivers/files/packages/sl7-camera-support_2026.11.10-1_arm64.deb
 4c65d614efc4cffae578a0f6b368cfea31079365dbe95d1a09db612157788eef  drivers/files/power/CPU-AND-DRIVER-CHECK.md
 b4b048fa81f3daa0de031c7bbc19bd1353556fb38bdb51833f2c8cd91630fd6a  drivers/files/power/DRIVER-FOLLOWUP.md
+2e0fee9e68f2ba9a24768db1ebaac545ea2ad20b3657146220b963368c03bcba  drivers/files/power/HARDWARE-RECHECK.md
 cf9d6e24cc69f9a6c4bdbf33185cb096d825ce0ef645ce7ddce281efce8f680a  drivers/files/power/OPTIMIZATION.md
 d779fdf859cccf9f57b10d18508aa9605c14f41beda9e6db5b9ce6f9fa6781a5  drivers/files/power/README.md
 38b410193e7b12583c91bec503d2e52451d112b57333c1da8f80792203d00388  drivers/files/power/battery-measurement.json
@@ -1981,6 +1983,7 @@ eba574ac745431dbf0a4463f0451a2dee27b0c9199a3502ae3033c864ce5181f  drivers/files/
 7e316d82480e46a61915b7061f4a3044fdfb01a9d138d6c7bf856913050bb059  drivers/files/sleep/diagnostics/2026-11-11/README.md
 aae9077058cf365f578873707a7d6eaa5a3d00bbdc47a905a3cb814c88cc1fce  drivers/files/sleep/diagnostics/2026-11-12-090205/power-trace.txt
 592be5a6e3dc851ce067312dcc0ed93a34e631beac5ebb846b2b7973cf86d416  drivers/files/sleep/diagnostics/2026-11-12-090205/timing-summary.json
+71b35f405ccd8a15e6e1e0cd577ad63ce118c8773e17b1583b4450f42ab8b884  drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md
 d6d3ae299c3e3e56b21f32290bbe84eae39cb3dc479b385f53dc164fedd58b77  drivers/files/sleep/trace-resume.py
 d2ca7d84e07b0087f4099385392741c0784a27c097df7841596386a6a741c3b0  drivers/files/touchpad/README.md
 c7571a08ff78829ae33cd0c5d0cbb389b70a904fe4134afaa673c227b5cc2786  drivers/files/touchpad/diagnose.py

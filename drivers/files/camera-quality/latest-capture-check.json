@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-11-12 12:11:59 +0900",
+  "requested": "1280x720 viewfinder",
+  "requested_frames": 90,
+  "exit_code": 0,
+  "fps_sample_count": 90,
+  "mean_reported_fps_excluding_first": 18.7823595505618,
+  "tail": [
+    "624.009415 (18.83 fps) cam0-stream0 seq: 000086 bytesused: 3686400",
+    "624.062790 (18.74 fps) cam0-stream0 seq: 000087 bytesused: 3686400",
+    "624.116015 (18.79 fps) cam0-stream0 seq: 000088 bytesused: 3686400",
+    "624.169161 (18.82 fps) cam0-stream0 seq: 000089 bytesused: 3686400"
+  ],
+  "images_saved": false
+}

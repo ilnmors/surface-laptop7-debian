@@ -23,10 +23,10 @@
       "group": "POWER",
       "title": "deep 절전과 복귀",
       "status": "pending",
-      "label": "새 모듈 부팅 · 복귀 대기",
-      "finding": "USB·SoundWire 교체 모듈이 이번 부팅에 실제 로드됐습니다. 아직 이번 부팅의 수동 절전·복귀 시험은 없습니다. 이전 trace의 SPI-HID·PCIe·Wi-Fi 지연은 후속 비교 기준입니다.",
-      "next": "다음 수동 절전용 power-only trace를 준비했습니다. 작업 중 강제 절전은 하지 않았으며, 측정 전 속도 개선을 주장하지 않습니다.",
-      "path": "drivers/files/sleep/README.md"
+      "label": "deep 복귀 1회 성공 · 지연 추적",
+      "finding": "이번 부팅에서 deep 약 65분 뒤 복귀 성공 1회·실패 0회입니다. Wi-Fi regulatory 대기·PCIe L2 timeout이 남았고, 복귀 종료부터 Wi-Fi 인증 시작까지 약 11.4초였습니다.",
+      "next": "진입·복귀 활성 시간 합계는 약 7.39초이며 화면 켜짐 시간이나 복귀 단독 시간이 아닙니다. 다음 수동 절전용 장치별 power trace를 켰습니다. Wi-Fi completion 수정은 후보이며 아직 적용하지 않았습니다.",
+      "path": "drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md"
     },
     {
       "group": "INPUT",
@@ -50,9 +50,9 @@
       "group": "AUDIO",
       "title": "간헐적 스피커 무음",
       "status": "pending",
-      "label": "새 모듈 로드 · 청취 대기",
-      "finding": "교체 SoundWire 모듈이 실제로 로드됐고 스피커 출력이 정상 열거됩니다. 이번 부팅의 짧은 관찰에서 parity/bus-clash 오류는 없었습니다.",
-      "next": "사용자는 아직 소리를 확인하지 않았습니다. 지속·중단 재생과 절전 후 소리 검증이 남았습니다.",
+      "label": "사용자 정상 청취 · 버스 오류 추적",
+      "finding": "사용자는 스피커가 정상인 것 같다고 확인했습니다. 기본 스피커 출력도 존재합니다. 다만 deep 복귀 뒤 12:11:26에 wsa884x Parity error 1회가 기록됐습니다.",
+      "next": "현재 정상 출력 설정은 유지합니다. 재발 시각과 버스 오류를 대조하며, 완전 해결로 판정하지 않습니다.",
       "path": "patches/files/README.md"
     },
     {
@@ -69,9 +69,9 @@
       "title": "CPU·카메라",
       "status": "open",
       "label": "일부 미해결",
-      "finding": "CPU9 시작 실패(-22)는 DTB가 보존한 cpu@20300 대상으로 PSCI 요청이 거부되는 문제로 좁혔습니다. 이전 DTB 생성기는 코어 수만 검사했고 이 기기의 실제 활성 코어 주소를 검증하지 않았습니다.",
-      "next": "정확한 펌웨어 코어 매핑은 미확인입니다. CPU를 유지하라는 요청에 따라 DTB·주파수·hotplug 변경은 하지 않았습니다. 카메라 품질 패치는 롤백 상태입니다.",
-      "path": "HARDWARE.md"
+      "finding": "CPU9의 PSCI -22와 online 0–8은 그대로이며 CPU 설정은 유지했습니다. 카메라는 절전 복귀 후 720p 90프레임 정상 수집, 평균 약 18.8fps로 이전 수준입니다.",
+      "next": "터치스크린도 여전히 드라이버 미연결입니다. 카메라 영상은 저장하지 않았고 화질 향상을 확인하지 못했습니다. 이전 flicker 패치는 롤백 상태를 유지합니다.",
+      "path": "drivers/files/power/HARDWARE-RECHECK.md"
     },
     {
       "group": "WIRELESS",

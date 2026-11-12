@@ -59,3 +59,7 @@ Real incoming-message evidence confirmed an empty quiet_new_message companion pl
 ## Display recovery complete
 
 User confirmed normal graphics after reboot with complete GPU firmware. KakaoTalk autostart restored; earlier temporary-autostart-disable instructions are superseded. New incoming-message notification verification remains pending.
+
+## Next comparison after verified deep return
+
+One post-repair deep cycle succeeded. Save the newly armed trace after the next manual cycle; do not re-arm before saving. Track Wi-Fi regulatory completion/L2 timeout, ~11.4s authentication-start delay, and the post-resume WSA parity warning. User currently reports working speakers; do not reset audio blindly. Camera stays ~18.8fps; CPU9 and touchscreen remain open. See drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md.
