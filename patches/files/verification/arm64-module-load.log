@@ -38,7 +38,7 @@
 [    0.000000] software IO TLB: SWIOTLB bounce buffer size adjusted to 1MB
 [    0.000000] software IO TLB: area num 2.
 [    0.000000] software IO TLB: mapped [mem 0x000000007da80000-0x000000007db80000] (1MB)
-[    0.000000] Fallback order for Node 0: 0 
+[    0.000000] Fallback order for Node 0: 0
 [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 262144
 [    0.000000] Policy zone: DMA
 [    0.000000] mem auto-init: stack:all(zero), heap alloc:on, heap free:off

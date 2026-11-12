@@ -53,3 +53,7 @@ drivers/files/sleep/diagnostics/**/power-trace.txt
 
 # Boot artwork remains in the local offline payload.
 desktop/files/rootfs/usr/share/plymouth/themes/surface-debian/*.png
+
+**/build-debs/lock
+**/packages/lock
+**/tools/lock
