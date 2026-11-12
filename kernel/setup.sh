@@ -19,7 +19,7 @@ menuentry 'Debian 13 - Surface Laptop 7 X Plus' --id surface-debian {
   insmod fdt
   search --no-floppy --fs-uuid --set=root $boot_uuid
   cutmem 0x8800000000 0x8fffffffff
-  linux $boot_prefix/vmlinuz-$kernel root=UUID=$root_uuid ro clk_ignore_unused pd_ignore_unused cma=128M arm64.nopauth stubble.dtb_override=false console=tty0
+  linux $boot_prefix/vmlinuz-$kernel root=UUID=$root_uuid ro clk_ignore_unused pd_ignore_unused cma=512M arm64.nopauth stubble.dtb_override=false console=tty0
   devicetree $boot_prefix/surface-sl7-xplus.dtb
   initrd $boot_prefix/initrd.img-$kernel
 }

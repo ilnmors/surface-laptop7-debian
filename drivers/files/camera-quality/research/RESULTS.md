@@ -20,3 +20,9 @@ Deferred at user request: 1080p CMA allocation, validated temporal/spatial denoi
 ## Promoted after reboot verification
 
 The candidate loaded successfully after reboot and delivered approximately 37.5 fps over 90 frames with zero capture errors. On explicit user approval it was promoted into the standard signed boot and offline patch installer. Baseline source and 06-camera-fast-default.patch allow rebuilding it. This promotes frame timing only; noisy/pink experimental color profiles are not installed system-wide. Camera noise/1080p work stays deferred.
+
+## CMA exhaustion and 1080p (2026-11-13)
+
+After some uptime every capture (even 640x480) failed with `dma-heap allocation failure`: the kernel log showed `cma: reserved: alloc failed, req-size 300/900 pages, ret -16` with only ~16 MB of the 128 MB CMA free and the largest free run 31 pages. Stopping Waydroid did not change it, so the CMA is held by kernel drivers from boot. With the CMA heaps hidden in a private mount namespace (system heap only) the stock stack delivered 1280x720 and 1920x1080 at 37.5 fps over 90 frames each, so 1080p works and the failure is the CMA size, not the sensor. The kernel command line now uses `cma=512M` (GRUB, surface-secureboot-update and kernel/setup.sh; backup /boot/secureboot/grub.cfg.before-cma512); it takes effect on the next boot.
+
+Noise remains a limit of the libcamera 0.4 CPU soft ISP: it has no denoise stage, and the 37.5 fps mode shortens exposure so dim scenes reach ~15.5x analogue gain. Options are the 18.8 fps mode (longer exposure, less noise) or an unvalidated GPU denoise path.
