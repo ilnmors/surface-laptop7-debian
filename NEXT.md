@@ -1,4 +1,11 @@
-# Next
+# Next (after the 2026-11-13 maintenance pass)
+
+1. On the trial boot: `sudo journalctl -k -b | grep -iE 'spi_hid|gtch'`, `libinput list-devices | grep -i touch`, touch the screen; check `grep Cma /proc/meminfo` (expect ~512 MB) and `cam -c 1 --capture=90 --stream=role=viewfinder,width=1920,height=1080`.
+2. Touch works → promote the overlay into the PCIe3-off DTB pipeline and kernel/setup.sh, run surface-secureboot-update. Fails → run spi-gtch/restore.sh as root.
+3. Camera noise: choose 37.5 fps (current) or 18.8 fps (fast_video=N, less noise in dim light).
+4. Fn lock: needs a user-space daemon that tracks the keyboard lock report (ID 0x5b) and inverts the top-row mapping; requires interactive key calibration.
+
+# Earlier next
 
 - spi-hid v2 verified (resume 1.41 s). Remaining: multi-hour sleep-drain measurement for a precise W figure, camera noise/1080p (deferred), touchscreen (open), Fn lock (open), Kakao notification body (pending).
 

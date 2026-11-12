@@ -1,4 +1,10 @@
-# Current state — spi-hid v2 verified 2026-11-12 23:59
+# Current state — 2026-11-13 maintenance pass
+
+- Next boot is a one-shot trial (GRUB next_entry=surface-touch-trial): signed image with the GTCH HID-over-SPI touchscreen on spi10 and cma=512M. It clears itself before booting; the default image also carries cma=512M. Restore: drivers/files/touchscreen/spi-gtch/restore.sh; GRUB backup /boot/secureboot/grub.cfg.before-cma512.
+- Camera: capture failures were CMA exhaustion (128 MB, ~112 MB held by drivers); 720p and 1080p run at 37.5 fps with the system heap. cma=512M fixes it from the next boot.
+- Done today: Symbola installed system-wide (user confirmed), leftover Nextcloud token 124 revoked, Wi-Fi/audio/Bluetooth stable across deep cycles, USB runtime PM tested (no effect, reverted), root-owned bundle files returned to console.
+- Waiting on the user: touchscreen/CMA trial result, camera 37.5 vs 18.8 fps noise choice, a real KakaoTalk message, boot-screen appearance, Fn-lock daemon go-ahead. Steam game checks and Samsung integration stay held by earlier decision.
+
 
 - v2 boot and lid cycle verified: kernel resume 1.41 s (v1 1.62 s, originally 4.76 s), touchpad restarted 2.3 s after wake, Wi-Fi connected 2.1 s after wake, KakaoTalk running in the background, sleep drain roughly ≤ 0.7 W (1 % over 43 min). See drivers/files/sleep/diagnostics/2026-11-12-231657/README.md.
 

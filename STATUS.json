@@ -1,13 +1,13 @@
 {
-  "progress": 80,
+  "progress": 95,
   "areas": [
     {
       "group": "RECOVERY",
       "title": "Wi-Fi 실기기 장애 복구",
-      "status": "pending",
-      "label": "regulatory 수정 적용 · 반복 장애 추적",
+      "status": "ok",
+      "label": "ath12k 안정 · 원인 정리",
       "finding": "Surface RFKILL 보정 두 개를 보존한 ath12k D044C56077CC5357DC3F5BF를 서명·로드했습니다. 차단 없음·인증·IP 할당·반복 Wi-Fi 지정 HTTPS 200을 확인했고 오프라인 재빌드도 같은 srcversion을 재현했습니다.",
-      "next": "기본 부팅에서 ath12k D044C56077CC5357DC3F5BF로 Wi-Fi 지정 HTTPS 200을 확인했고 root 권한으로 읽은 이번 부팅 로그에 비콘 손실은 없고, 절전 직전 regulatory 설정 실패 2건과 L2 진입 타임아웃 1건이 있습니다. 최초 원인은 미확정이므로 절전 복귀 후 재발 여부를 계속 확인합니다.",
+      "next": "11/12~13 deep 절전 3회 모두 비콘 손실 없이 약 2초 안에 재연결했습니다. \"Failed to set the requested Country regulatory setting\"은 절전 직전 DEAUTH_LEAVING 순간에만 나오는 기본 지역 복귀 거부라 동작에 영향이 없습니다. 23:59 복귀 뒤 00:00:26 재연결은 공유기의 WNM 대역 이동(2.4→5GHz)입니다.",
       "path": "patches/files/wifi-regulatory/known-good/README.md"
     },
     {
@@ -58,55 +58,55 @@
     {
       "group": "BATTERY",
       "title": "절전·평균 배터리 소비",
-      "status": "pending",
-      "label": "방전 약 5.2W · 구성 요소 측정",
+      "status": "ok",
+      "label": "사용 약 4.9–5.3W · 절전 ≤0.7W",
       "finding": "2026-11-12 21:3x 배터리 45%, pcie3 비활성·밝기 50%·120Hz·Firefox·Waydroid 상태에서 1분 평균 5.2–5.3W(초기 기록 50%/2시간≈12W, 이전 기준 7.64W). A/B: Waydroid 일시정지 −0.45W, 밝기 80% +2.1W. CPU는 cpu-sleep 79–85%, GPU 300MHz 최저, Wi-Fi·NVMe ASPM L1.2. 완충 50.8Wh(설계 52.3Wh, 97%) 기준 약 9.5–10시간에 해당합니다.",
-      "next": "Windows 공식 수치(로컬 동영상 최대 약 20시간)보다 소비가 큽니다. 남은 요인은 Linux 쪽 패널 PSR·USB 컨트롤러 런타임 PM 등 드라이버 성숙도입니다. Waydroid 백그라운드는 사용자 선택으로 유지합니다.",
+      "next": "밝기 25–50%·Waydroid 상태에서 4.9–5.3W(초기 약 12W), 절전은 43분 1%로 0.7W 이하입니다. USB 컨트롤러 런타임 PM은 auto로 바꿔도 dwc3-qcom이 active로 남아 효과가 없어 원래 값으로 되돌렸습니다. 남은 차이는 패널 PSR 등 드라이버 성숙도이며 안전한 추가 조정은 없습니다.",
       "path": "drivers/files/power/README.md"
     },
     {
       "group": "AUDIO",
       "title": "간헐적 스피커 무음",
-      "status": "pending",
-      "label": "사용자 정상 청취 · 버스 오류 추적",
+      "status": "ok",
+      "label": "재발 없음",
       "finding": "사용자는 스피커가 정상인 것 같다고 확인했습니다. 기본 스피커 출력도 존재합니다. 다만 deep 복귀 뒤 12:11:26에 wsa884x Parity error 1회가 기록됐습니다.",
-      "next": "현재 정상 출력 설정은 유지합니다. 재발 시각과 버스 오류를 대조하며, 완전 해결로 판정하지 않습니다.",
+      "next": "이번 부팅과 deep 절전 3회에서 SoundWire/WSA parity 오류가 없고 스피커 출력이 정상입니다. 재발하면 patches/files/README.md 절차로 오류 시각을 대조합니다.",
       "path": "patches/files/README.md"
     },
     {
       "group": "INPUT",
       "title": "터치스크린",
-      "status": "open",
-      "label": "미해결",
+      "status": "pending",
+      "label": "SPI(GTCH) 패널로 판단 · 다음 부팅 one-shot 시험",
       "finding": "Romulus13 I2C 0x34가 HID probe에 응답하지 않습니다. DT overlay만 켜졌다고 터치가 작동하는 것은 아닙니다.",
-      "next": "공개된 같은 Romulus13의 GPIO31 리셋까지 시험했지만 ENXIO가 유지됐습니다. 영구 DTB에 추가하지 않았습니다. 현재 장치의 정확한 reset·전원·펌웨어 증거가 더 필요합니다.",
-      "path": "drivers/files/touchscreen/README.md"
+      "next": "이 기기 SSDT는 ITCH(I2C)와 GTCH(SPI) 둘 다 선언하고, I2C 0x34는 응답이 없으며 UEFI가 GTCH 핀(gpio64 전원·gpio48 리셋 high, gpio49/50 QSPI)을 설정해 둡니다. spi10 GTCH overlay를 넣은 서명 시험 이미지를 GRUB next_entry로 다음 부팅 한 번만 선택했습니다. 실패하면 다음 전원부터 기본 이미지로 돌아옵니다. drivers/files/touchscreen/spi-gtch/README.md",
+      "path": "drivers/files/touchscreen/spi-gtch/README.md"
     },
     {
       "group": "HARDWARE",
       "title": "카메라 FPS·색감·노이즈",
       "status": "pending",
-      "label": "37.5fps · 기본 부팅 재검증 완료",
+      "label": "1080p 37.5fps 확인 · CMA 512M 다음 부팅 적용",
       "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다. 재부팅 후 새 모듈 08EF7452B0F555AA15FA25F 로드를 확인했습니다. 마지막 FPS: 37.46, 37.59, 37.48.",
-      "next": "기본 부팅에서 ov02c10 08EF7452B0F555AA15FA25F(fast_video=Y)로 720p 90프레임 평균 37.46fps를 재확인했습니다. sensor helper 경고는 깜빡임으로 롤백한 libcamera 패치 때문이며 예상된 상태입니다. 노이즈·1080p·시스템 색 보정 통합은 보류입니다.",
+      "next": "캡처 실패 원인은 CMA 128MB 고갈(드라이버가 부팅 때 약 112MB 점유, 조각화)이었습니다. system heap만 쓰면 720p·1080p 모두 37.5fps입니다. cma=512M을 GRUB·서명 스크립트·번들에 반영해 다음 부팅부터 적용됩니다. 노이즈는 soft ISP에 디노이즈가 없는 한계로, 18.8fps(저노이즈)와 37.5fps 중 선택이 남았습니다.",
       "path": "drivers/files/camera-quality/research/RESULTS.md"
     },
     {
       "group": "WIRELESS",
       "title": "Wi-Fi·Bluetooth",
-      "status": "pending",
-      "label": "Bluetooth 복구 유지 · Wi-Fi 장기 확인",
+      "status": "ok",
+      "label": "Wi-Fi·Bluetooth 정상",
       "finding": "Bluetooth가 자동 복구돼 powered on입니다. Wi-Fi station 절전을 켠 뒤 공유기 응답 5/5 성공, 평균 약 5ms, 관찰 중 ath12k 오류는 없었습니다.",
-      "next": "Bluetooth 자동 복구는 유지합니다. Wi-Fi regulatory 수정 적용과 반복 HTTPS 검사는 통과했고, 재부팅·절전 후 안정성은 확인 대기입니다.",
+      "next": "재부팅·절전 뒤 Wi-Fi 재연결과 Bluetooth 전원(Powered: yes)을 확인했습니다. Bluetooth 자동 복구는 유지합니다.",
       "path": "drivers/files/bluetooth/README.md"
     },
     {
       "group": "DESKTOP",
       "title": "Fluent·GNOME·터미널",
-      "status": "pending",
-      "label": "Open Bar ACTIVE · 하단 창 미리보기 적용",
+      "status": "ok",
+      "label": "Open Bar · Symbola 시스템 설치",
       "finding": "GNOME 48 지원 Open Bar 49를 오프라인 보관·설치했습니다. 밝은 패널, 짙은 글자, 파란 강조색, 둥근 모서리와 메뉴를 설정했습니다. Vitals·Caffeine·트레이를 유지합니다. 하단 Dash to Dock은 밝은 둥근 배경·40px 아이콘·파란 실행 표시를 실시간 적용했습니다. 여러 창이 있는 앱을 클릭하면 창 미리보기에서 선택합니다. 터미널에서 ⏵(U+23F5) 등 미디어 기호가 두부로 보이던 문제는 해당 글리프를 가진 폰트가 없어서였습니다. Debian fonts-symbola를 오프라인 패키지로 추가했고 현재 계정에 적용해 fallback으로 Symbola가 잡히는 것을 확인했습니다.",
-      "next": "재로그인 후 Open Bar 49 ACTIVE를 확인했습니다. 외관 만족 여부는 사용자 확인이 필요합니다. 시스템 전역 fonts-symbola 설치는 다음 desktop/setup.sh 실행 시 반영됩니다.",
+      "next": "fonts-symbola를 시스템 전역에 설치했고 사용자 확인으로 ⏵ 표시가 정상입니다. Open Bar 49와 하단 독 미리보기가 적용돼 있습니다.",
       "path": "desktop/files/topbar/README.md"
     },
     {
@@ -130,10 +130,10 @@
     {
       "group": "RESTORE",
       "title": "Surface 설치 재현 범위",
-      "status": "pending",
+      "status": "ok",
       "label": "모듈화 · 오프라인 검증",
       "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다. 로고·폰트·GPU 펌웨어 hook, Wi-Fi PS 및 카카오 로그인·키보드·라이트 모드 설정도 각 설치 단계에 반영했습니다.",
-      "next": "CPU9 DTB·SCMI 주파수 조절·Wi-Fi regulatory·카메라 FPS 보정이 기본 설치 입력에 반영됐습니다. 개인 데이터·완전한 Steam 런타임·미해결 하드웨어까지 복원한다는 뜻은 아닙니다.",
+      "next": "CPU9 DTB, SCMI, Wi-Fi regulatory, 카메라 FPS, spi-hid v2, PCIe3-off DTB, Symbola, cma=512M이 설치 입력에 반영돼 있습니다. 개인 데이터와 Steam 전체 런타임은 범위 밖입니다.",
       "path": "README.md"
     },
     {
@@ -148,10 +148,10 @@
     {
       "group": "MIGRATION",
       "title": "Nextcloud DAV → OxiCloud",
-      "status": "pending",
-      "label": "도구 검증 완료 · 실제 이전 미완료",
+      "status": "ok",
+      "label": "이전 완료",
       "finding": "repository/tools에 dav-migrate.py.tmp와 README.md.tmp를 만들었습니다. Nextcloud read-only 백업, hash 검증, OxiCloud dry-run과 명시적 restore를 제공합니다.",
-      "next": "실제 내보내기는 서버 접속 장애로 중단됐으며 완료된 백업이나 복원이 아닙니다. 관련 도구는 repository/tools의 tmp 파일로 유지합니다.",
+      "next": "2026-11-12 Nextcloud 백업(9개 컬렉션·120개)을 검증하고 캘린더 4개·연락처를 OxiCloud에 옮겼습니다. 연락처는 OxiCloud 파서 형식에 맞게 재구성했습니다. ../repository/tools/README.md.tmp",
       "path": "../repository/tools/README.md.tmp"
     },
     {
@@ -184,19 +184,19 @@
     {
       "group": "POWER",
       "title": "120Hz 유지와 전력 최적화",
-      "status": "pending",
-      "label": "120Hz 유지 · 세 CPU 클러스터 DVFS 복구",
+      "status": "ok",
+      "label": "120Hz 유지 · 전력 측정 완료",
       "finding": "세 클러스터에 ondemand 정책과 710.4–3417.6MHz 범위를 복구하고 실제 주파수 변화를 확인했습니다. 화면 120Hz, NVMe APST, PCIe ASPM, USB 자동 절전, Wi-Fi 절전은 유지합니다.",
-      "next": "영구 CPU 상한 제한을 추가하지 않았습니다. 배터리 사용시간 개선량은 아직 비교 측정하지 않았습니다. 터치스크린·deep 복귀 지연·간헐적 오디오 오류는 별도 미해결입니다.",
+      "next": "120Hz와 CPU DVFS를 유지한 채 평균 4.9–5.3W(이전 7.64W)입니다. 복귀 지연은 1.41초로 해결됐습니다.",
       "path": "drivers/files/power/OPTIMIZATION.md"
     },
     {
       "group": "PROGRAMS",
       "title": "카카오톡 알림 본문",
       "status": "pending",
-      "label": "빈 동반 알림 확인 · 필터 적용",
+      "label": "필터 설치 확인 · 실제 메시지 대기",
       "finding": "실제 수신 로그에서 quiet_new_message는 제목·본문이 비어 있고 new_message_v4는 내용이 정상 전달됐습니다. 카카오톡의 완전히 빈 동반 알림만 GNOME에 보내지 않도록 수정하고 세션을 재시작했습니다.",
-      "next": "가드 회귀 시험은 통과했습니다. 수정 후 실제 알림이 내용 있는 것 하나만 표시되는지 사용자 확인을 기다립니다. 대화 원문·로그 덤프는 저장하지 않았습니다.",
+      "next": "Waydroid notification_manager의 빈 알림 가드가 설치돼 있습니다(원본 백업 유지). 실제 수신 메시지 1건의 표시 확인만 남았습니다.",
       "path": "programs/kakaotalk/NOTIFICATIONS.md"
     },
     {
@@ -211,10 +211,10 @@
     {
       "group": "DAV",
       "title": "Nextcloud 백업 → OxiCloud",
-      "status": "open",
-      "label": "도구 검증 · 서버 접근 차단",
+      "status": "ok",
+      "label": "임시 토큰 폐기 완료",
       "finding": "백업/복원 진입점 분리와 브라우저 로그인 모의 시험은 통과했습니다. 실제 내보내기는 HTTPS 시간 초과로 중단됐고 최종 manifest가 없어 복원에 사용할 수 없습니다. 허용된 infra 읽기 전용 SSH도 연결 시간 초과입니다.",
-      "next": "서버 접근이 복구되면 새 디렉토리로 다시 내보내야 합니다. 임시 로그인 앱 암호 폐기는 확인되지 않았으므로 계정 보안에서 폐기 확인이 필요합니다. 실제 OxiCloud 반영은 하지 않았습니다.",
+      "next": "11/12 중단된 내보내기의 \"Nextcloud DAV offline backup\" 토큰(id 124)을 occ로 폐기했습니다. 새 내보내기의 임시 토큰은 자동 폐기됐습니다.",
       "path": "../repository/tools/README.md.tmp"
     },
     {
