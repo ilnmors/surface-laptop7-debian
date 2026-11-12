@@ -45,3 +45,11 @@ Source https://apk.gold/download?split=621182/3544335/kakaotalk-free-calls-and-t
 ## Waydroid shared-storage initialization
 
 MediaProvider/StorageManager timed out while IOmx/IOmxStore attempted to start a service absent from the MAINLINE vendor image. The supported vendor overlay now removes that orphan declaration only. Source, baseline manifest, exact preconditions and rollback are in programs/waydroid/files/media-fix/. This follows the same diagnosed mechanism as https://gist.github.com/jstockdale/36c4b6a858726d08dc6b1e93f6b37473 after checking local service absence and logs; no Samsung/QTI binary imports were copied. Original system/vendor images remain unmodified.
+
+## Post-reboot evaluation, boot artwork and power configuration
+
+2026-11-12 boot verified Secure Boot integrity mode and the actual replacement USB/SoundWire srcversions. User reports much improved touchpad behavior. The next manual deep/audio validation remains pending.
+
+Debian desktop-base logo-text.svg is the source of desktop/files/boot-art/debian-wordmark-source.svg; render.py changes neutral grey to off-white and rasterizes through librsvg/cairo. COPYRIGHT is retained. The post-Plymouth initramfs hook preserves the custom watermark and includes static/fallback fonts. Both original artwork source and transformation are recorded, with no site credentials. GPU firmware inclusion copies the already installed gen70500 files unmodified; sources retain the existing firmware provenance.
+
+WCN7850 power-save uses the existing driver's supported station PS, persisted by NetworkManager rather than replacing firmware or kernel code. The short link check passed; no claimed runtime extension has been measured. KakaoTalk login/background settings are normal user/Android settings; sources and rollback are in programs/kakaotalk/README.md and drivers/files/power/OPTIMIZATION.md.

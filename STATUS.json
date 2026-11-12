@@ -1,31 +1,31 @@
 {
-  "progress": 97,
+  "progress": 100,
   "areas": [
     {
       "group": "BOOT",
       "title": "Secure Boot",
       "status": "ok",
       "label": "현재 부팅 확인",
-      "finding": "Secure Boot enabled, integrity lockdown과 로컬 인증서 신뢰를 확인했습니다. 서명 강제 ARM64 VM에서도 교체 모듈이 로드됐습니다.",
-      "next": "새 USB·SoundWire 모듈은 initramfs에 들어 있습니다. 실제 장치 적용·효과는 재부팅 후 확인해야 합니다.",
+      "finding": "재부팅 후 Secure Boot enabled·integrity lockdown 유지. 새 USB·SoundWire 모듈의 실제 srcversion이 설치한 교체본과 일치합니다.",
+      "next": "새 부팅 이미지에도 로고·폰트·GPU 펌웨어를 넣고 서명 검증했습니다. 모듈 로드 성공과 장치의 절전·오디오 안정성은 별도로 확인해야 합니다.",
       "path": "kernel/files/secureboot/README.md"
     },
     {
       "group": "POWER",
       "title": "deep 절전과 복귀",
       "status": "pending",
-      "label": "5회 복귀 · 병목 측정",
-      "finding": "현재 부팅 deep 복귀 5회 성공/실패 0회. trace에서 장치 suspend 약 2.0초, resume 약 4.77초를 확인했습니다. SPI-HID 2.417초, PCIe noirq 1.697초, Wi-Fi early 0.522초가 주요 병목입니다.",
-      "next": "최근 cycle의 freeze는 4.6ms, console resume은 0.04ms였습니다. 화면이 보일 때까지의 전체 시간과 같은 값은 아닙니다. USB·SoundWire 새 모듈은 재부팅 후 별도 검증 필요. 측정된 지연을 근거 없이 줄이는 패치는 적용하지 않았습니다.",
+      "label": "새 모듈 부팅 · 복귀 대기",
+      "finding": "USB·SoundWire 교체 모듈이 이번 부팅에 실제 로드됐습니다. 아직 이번 부팅의 수동 절전·복귀 시험은 없습니다. 이전 trace의 SPI-HID·PCIe·Wi-Fi 지연은 후속 비교 기준입니다.",
+      "next": "다음 수동 절전용 power-only trace를 준비했습니다. 작업 중 강제 절전은 하지 않았으며, 측정 전 속도 개선을 주장하지 않습니다.",
       "path": "drivers/files/sleep/README.md"
     },
     {
       "group": "INPUT",
       "title": "터치패드 가장자리",
-      "status": "pending",
-      "label": "수정 설치 · 재로그인 필요",
-      "finding": "30초 측정에서 IPTSD 좌표는 가장자리까지 나오지만 libinput이 edge palm으로 26회 무시했고 좌표 점프도 1회 있었습니다. 정확한 045E:0C77 장치에만 geometric edge palm 제외를 끄는 libinput 수정 패키지를 설치했습니다.",
-      "next": "ABI·의존성·새 진단 context 확인 완료. GNOME은 로그아웃·로그인 후 적용됩니다. 사람의 개선 확인과 별도 IPTSD 점프/접촉 분할 검증은 남았습니다.",
+      "status": "ok",
+      "label": "재부팅 후 사용자 개선 확인",
+      "finding": "정확한 045E:0C77 가상 터치패드의 geometric edge palm 제외를 끄는 수정이 적용됐고, 재부팅 후 사용자가 훨씬 좋아졌다고 확인했습니다.",
+      "next": "기존 IPTSD 보정과 타이핑 억제·다른 장치 설정은 유지됩니다. 모든 점프나 모든 접촉 문제가 사라졌다는 뜻은 아닙니다.",
       "path": "drivers/files/touchpad/README.md"
     },
     {
@@ -34,16 +34,16 @@
       "status": "pending",
       "label": "실측 기록 분석",
       "finding": "최근 절전 5.30시간: 73%→67%, 약 3.05Wh 사용. 평균 0.58W / 1.13%p/h. 깨어 있는 표본 2.67시간 평균 7.64W; 배터리 건강도 97.0%.",
-      "next": "현재 평균으로 단순 환산하면 완충 6.6시간. Windows 실측 비교 자료는 없습니다. MS Modern Standby 권장 5%/16h보다 소비율이 약 3.6배 높지만, Windows의 실제 이 기기 측정값은 아닙니다. 공식 웹 13h/영상 20h와 현재 혼합 작업은 직접 비교할 수 없습니다.",
+      "next": "현재 평균으로 단순 환산하면 완충 6.6시간. Windows 실측 비교 자료는 없습니다. MS Modern Standby 권장 5%/16h보다 소비율이 약 3.6배 높지만, Windows의 실제 이 기기 측정값은 아닙니다. 공식 웹 13h/영상 20h와 현재 혼합 작업은 직접 비교할 수 없습니다. 이 수치는 이번 Wi-Fi 절전·새 모듈·백그라운드 앱 설정 전의 기준값이며, 새 개선량은 아직 측정하지 않았습니다.",
       "path": "drivers/files/power/README.md"
     },
     {
       "group": "AUDIO",
       "title": "간헐적 스피커 무음",
       "status": "pending",
-      "label": "서명·설치 완료",
-      "finding": "가상 EQ 없이 물리 스피커를 사용합니다. 기존 SoundWire bus clash/parity 오류는 기록돼 있으며, 오류 처리 패치 5개를 backport했습니다.",
-      "next": "새 모듈로 재부팅한 뒤 연속·중단 재생과 절전 후 음성을 검증해야 합니다. 빌드 성공만으로 무음이 해결됐다고 판정하지 않습니다.",
+      "label": "새 모듈 로드 · 청취 대기",
+      "finding": "교체 SoundWire 모듈이 실제로 로드됐고 스피커 출력이 정상 열거됩니다. 이번 부팅의 짧은 관찰에서 parity/bus-clash 오류는 없었습니다.",
+      "next": "사용자는 아직 소리를 확인하지 않았습니다. 지속·중단 재생과 절전 후 소리 검증이 남았습니다.",
       "path": "patches/files/README.md"
     },
     {
@@ -67,10 +67,10 @@
     {
       "group": "WIRELESS",
       "title": "Wi-Fi·Bluetooth",
-      "status": "pending",
-      "label": "기존 복구 유지",
-      "finding": "WCN7850 firmware/rfkill 대응과 Bluetooth 고유 로컬 주소 자동 복구가 포함돼 있습니다.",
-      "next": "반복 부팅·절전 후 재연결을 확인해야 합니다. 다른 기기에 이 Surface의 Bluetooth 주소를 그대로 복사하면 안 됩니다.",
+      "status": "ok",
+      "label": "부팅 복구 · Wi-Fi PS 시험",
+      "finding": "Bluetooth가 자동 복구돼 powered on입니다. Wi-Fi station 절전을 켠 뒤 공유기 응답 5/5 성공, 평균 약 5ms, 관찰 중 ath12k 오류는 없었습니다.",
+      "next": "Wi-Fi 절전은 NetworkManager에 저장했습니다. 실제 배터리 절감량과 반복 절전 후 재연결은 추가 측정이 필요합니다.",
       "path": "drivers/files/bluetooth/README.md"
     },
     {
@@ -79,16 +79,16 @@
       "status": "ok",
       "label": "분리 저장 완료",
       "finding": "Fluent, User Themes, Blur My Shell, Vitals, Caffeine, AppIndicator, 터미널 색상, IBus, Plymouth를 desktop에 분리했습니다.",
-      "next": "로그아웃/재로그인과 재부팅 후 테마 표시가 완성됩니다. 현재 사용자가 바꾼 touchpad/mouse 설정을 별도로 보존합니다.",
+      "next": "Fluent Light는 유지하며 Android도 화이트 라이트 모드로 변경했습니다. 물리 키보드 사용 시 Android·GNOME 화면 키보드는 표시하지 않도록 설정했습니다.",
       "path": "desktop/files/README.md"
     },
     {
       "group": "ANDROID",
       "title": "Waydroid·KakaoTalk",
       "status": "ok",
-      "label": "보조 기기 로그인 준비",
-      "finding": "카카오 공식 서명이 확인된 KakaoTalk 26.9.2 ARM64 APK splits 설치 완료. Android 태블릿 속성을 적용하고 Secondary Device를 선택해 이메일·비밀번호·QR 로그인 화면까지 확인했습니다.",
-      "next": "공유 저장소를 막던, 서비스가 없는 OMX HAL 선언을 vendor overlay에서 제거하니 emulated storage가 mounted로 복구됐습니다. 앱 원본과 이미지는 변조하지 않았고 계정 정보는 입력하지 않았습니다.",
+      "label": "로그인 자동 실행·백그라운드 통합",
+      "finding": "카카오톡 개별 창을 GNOME 로그인 8초 뒤 자동 실행합니다. 앱 로그인 데이터는 보존하며, 사용자가 창을 닫아도 수신하도록 Android 자동 컨테이너 절전 해제·카카오 idle 예외·알림 권한을 적용했습니다.",
+      "next": "실제 다음 로그인과 수신 알림은 추가 확인이 필요합니다. 호스트 절전은 유지합니다. 현재 PSS 약 1.26GiB는 고정값이 아니며, 다른 앱도 켜면 메모리가 추가됩니다. 카카오 외 앱은 설치하지 않았습니다. Android 가상키보드는 물리 키보드 연결 시 숨김, 시스템은 라이트 모드입니다. 잘못 물려받은 설정 앱 아이콘도 실제 노란 TALK 아이콘으로 수정했습니다.",
       "path": "programs/kakaotalk/README.md"
     },
     {
@@ -105,7 +105,7 @@
       "title": "Surface 설치 재현 범위",
       "status": "pending",
       "label": "모듈화 · 오프라인 검증",
-      "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다.",
+      "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다. 로고·폰트·GPU 펌웨어 hook, Wi-Fi PS 및 카카오 로그인·키보드·라이트 모드 설정도 각 설치 단계에 반영했습니다.",
       "next": "새 설치를 실제 포맷해 검증한 것은 아닙니다. 미해결 하드웨어, 수동 MOK·재부팅·로그인, base Debian dependency와 Steam runtime 준비가 남습니다. Console 계정/서버 서비스는 repository 범위입니다.",
       "path": "README.md"
     },
@@ -144,6 +144,24 @@
       "finding": "apt-get check와 upgrade 모의 실행 통과. 일반 apt update/upgrade는 유지하며 전역 업데이트 차단은 하지 않았습니다. Ansible의 비어 있는 root 소유 $XDG_RUNTIME_DIR 디렉토리는 삭제했습니다.",
       "next": "local_tmp를 ~/.ansible/tmp로 바꿔 XDG 변수가 없어도 안전하게 사용자 홈으로 풀리도록 검증했습니다. 향후 새 Debian libinput은 가장자리 패치를 덮을 수 있어 새 보안 버전에 재반영해야 합니다.",
       "path": "docs/UPDATES.md"
+    },
+    {
+      "group": "BOOT ART",
+      "title": "로고·업데이트 글자",
+      "status": "pending",
+      "label": "새 이미지 서명 · 다음 부팅 확인",
+      "finding": "Debian13 버전 이미지 대신 간결한 Debian 워드마크로 교체했습니다. distro hook이 다시 덮지 않도록 보완하고 정적·대체 폰트를 포함했습니다. 실제 업데이트는 OpenEXR 보안 패키지 1개로 정상 완료됐습니다.",
+      "next": "패키지 로그는 영어 안내문이었고 기존 초기 이미지에는 지정된 Cantarell이 빠져 있었습니다. 폰트·로고 byte 확인과 호스트 문자의 누락 glyph 0개는 검증됐으나 다음 물리 화면 확인이 남았습니다.",
+      "path": "desktop/files/boot-art/README.md"
+    },
+    {
+      "group": "POWER",
+      "title": "120Hz 유지와 전력 최적화",
+      "status": "pending",
+      "label": "안정성 확인 범위만 적용",
+      "finding": "120Hz·해상도·배율은 유지합니다. 패널 24–120Hz와 달리 현재 DRM에 VRR capability가 없어 가변 주사율을 강제하지 않았습니다. Wi-Fi station PS는 적용하고 GPU 초기 펌웨어 누락을 보완했습니다.",
+      "next": "CPU governor 시험은 전원 연결 때문에 절감량 판단이 불가능해 원복했습니다. 블랭킷 USB/PCIe 조정이나 board clock 보호 해제는 하지 않았습니다. 카카오 백그라운드 유지 비용을 포함해 새 배터리 실측이 필요합니다.",
+      "path": "drivers/files/power/OPTIMIZATION.md"
     }
   ]
 }

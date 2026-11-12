@@ -4,9 +4,9 @@ When the user says "계속", read CURRENT.md and this file, inspect the current 
 
 ## Pending hardware verification
 
-0. After GNOME logout/login, repeat the edge test for the newly installed libinput geometric-palm exception. Retain diagnosis logs and compare against 26 edge exclusions / one jump warning; do not claim upstream contact fragmentation fixed.
+0. Touchpad edge-palm correction survived reboot and the user reports much improved behavior. Investigate remaining jumps only if they are still reported; do not undo the confirmed improvement blindly.
 
-1. After a user-controlled reboot, confirm Secure Boot enabled and the new dwc3_qcom / soundwire_qcom modules loaded from updates/surface. Test one user-initiated deep sleep/wake cycle and sustained/interrupted speaker playback. Do not force suspend during active work.
+1. Secure Boot and actual replacement USB/SoundWire srcversions are verified after the 2026-11-12 reboot. Next: a user-initiated deep cycle and sustained/interrupted speaker playback. Fresh power-only trace is armed; save it after the cycle. Do not force sleep during active work.
 2. If audio fails, capture timestamped SoundWire/WSA884x errors before changing routes. The five installed SoundWire patches improve error/IRQ handling but are not proven to fix parity faults.
 3. CPU: current online CPUs 0-8; CPU9 failed PSCI with -22. scmi-cpufreq now loads and provides policy0 only. Investigate X1P64100 SCMI sustained-frequency/turbo classification and the CPU DT topology without inventing firmware values. SCMI perf is builtin, so its source patch needs a proper matched kernel build.
 4. Touchscreen: Romulus13 I2C 0x34 does not acknowledge; v2 GPIO38 overlay is active. Compare v1 reset GPIO31 evidence and exact hardware variant before further GPIO/power changes. Do not substitute 15-inch QSPI wiring.
@@ -36,3 +36,11 @@ Console Caddy/code-server roles were applied successfully. The old operational S
 ## Resume in this same conversation
 
 The user will type "계속" in this session. Read this file and CURRENT.md, check the latest Git commits and current boot, then resume unresolved hardware investigations. At the 5% limit notification, new investigation was stopped; documentation, verification and commits were completed/recorded separately. Kopia was not deployed.
+
+## Latest desktop/program verification
+
+- Next physical boot/offline update: verify minimal Debian wordmark and readable update text. The rebuilt initramfs contains the exact custom watermark, static/fallback fonts and GPU firmware; signed-image verification passed.
+- Confirm KakaoTalk login autostart and real incoming messages after closing its window. Background Android is explicitly enabled by user choice; this trades power/RAM for availability. Keep physical host sleep unchanged.
+- Android keyboard popup is suppressed with a physical keyboard; Android light mode is selected. No Discord/other personal apps were installed.
+- Preserve 120Hz. Panel VRR range alone is insufficient: current MSM connector has no vrr_capable property.
+- Wi-Fi PS is now on; monitor reconnection and test battery discharge with matched brightness/120Hz/apps. Old 0.575W sleep and 7.64W awake figures are pre-change baselines. Governor was restored because charging invalidated comparison.

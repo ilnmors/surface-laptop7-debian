@@ -1,36 +1,40 @@
 # Current Surface configuration
 
-- Debian 13 ARM64, GNOME 48, kernel 7.3.0-31-qcom-x1e. Console UID 3000, primary group svadmins GID 2000.
-- Secure Boot repair: the local public certificate is inserted into the existing kernel's reserved builtin certificate slot, then the inner kernel and Surface wrapper are signed. Original instructions and existing CA certificates are preserved. The update hooks repeat this automatically.
-- Verification passed: Linux reference insertion tool comparison, inner/outer image signatures, and an isolated ARM64 boot with module signature enforcement. The unsigned module was rejected; the existing locally signed module loaded. Physical Surface boot verified on 2026-11-11: SecureBoot enabled, kernel lockdown integrity mode, and the local builtin certificate loaded. The MOK certificate is enrolled and trust permission is enabled.
-- Bluetooth uses the persistent unique local-address recovery helper. Existing touchpad calibration remains installed.
-- Touchscreen: overlay is active, but client 10-0034 does not answer HID probing. Touch input remains unresolved.
-- Audio uses the physical speaker output directly, with no Windows EQ virtual sink. User confirmed continuous audible playback after this change. Earlier SoundWire/parity errors remain diagnostic evidence; this is not proof the underlying driver faults cannot recur.
-- Fluent Light has a rounded translucent top bar. Vitals 86 shows CPU/memory every five seconds; Caffeine 61 is manual/off by default; AppIndicator 66 provides tray icons. All are active.
-- Plymouth shows a Debian logo and spinner with quiet boot settings.
-- Sleep remains deep. EFI pstore confirms a suspend-entry NULL dereference in dwc3_qcom_suspend after an xHCI probe timeout. Power-button/GPIO-key wakeup is enabled. The matching USB NULL-guard patch and five Qualcomm SoundWire fixes are installed for the next boot. Successful physical suspend/resume and audio reliability remain unverified. See drivers/files/sleep/diagnostics/2026-11-11/. The earlier user-session-freeze trial remains installed and is not a fix for this USB fault.
-- kernel/, drivers/, patches/, desktop/ and programs/ contain categorized offline payloads and component installers. Site-specific CA, VPN and server access material is excluded. No signing private key is included.
+Updated after the 2026-11-12 09:31 KST reboot. Debian 13 ARM64 GNOME; Surface Laptop 7 13.8-inch Romulus13 X Plus. Console UID 3000 / svadmins GID 2000.
 
-- New modules: patches/files/ contains matching sources, upstream messages, backports, headers, unsigned reusable modules and build/install helpers. Local installed copies are signed. ARM64 signature-enforcement VM accepted both replacement drivers; physical devices still use old loaded modules until reboot.
-- CPU: scmi-cpufreq was not loaded; it is now loaded and persisted. Policy0 exists; remaining cluster policies and the CPU9 PSCI failure remain unresolved.
-- Android: Waydroid 1.6.3, Vanilla ARM64 images, Binder, hardware freedreno/Adreno X1-85 rendering and multiwindow apps verified. Individual app launchers are installed. No Google Play or x86 translation. Session starts on demand.
-- Scrolling is unchanged by user decision. Samsung integration is not installed.
-- setup.py and setup.sh orchestrate the same component shell implementations. PORTABILITY.md separates board-specific and portable Debian settings.
+## Boot and drivers
 
-## 2026-11-12 continuation
+- Secure Boot is enabled; kernel lockdown is integrity. Kernel remains 7.3.0-31-qcom-x1e. The offline update installed only the OpenEXR security fix, not a new kernel.
+- The actual loaded replacement modules are now verified: dwc3_qcom srcversion 8554A2970EC29806E65733C; soundwire_qcom 3D22555E212EACB6FA11473. Signature/ABI tests and real boot loading passed. No failed system services were found.
+- Touchpad: the libinput edge-palm exception is active after reboot; user reports much improved behavior. Existing Windows-analysis-based IPTSD contact tracking/calibration remains. This does not certify every contact/jump case fixed.
+- Bluetooth automatically recovered and is powered on. Speaker output exists and no SoundWire parity/bus-clash error appeared during this boot's short observation. User has not yet confirmed audio; sustained playback and new-module deep resume remain pending.
+- Touchscreen still has no usable input device. CPU9 still fails PSCI -22; only policy0 for CPUs 0–3 is exposed by SCMI. Camera quality patch remains rolled back. These are not solved by the successful boot.
 
-- Modular SH/Python entry points and payload directories are in place. No live full reinstallation was run during the refactor. Account migration/Console services remain in repository scope.
-- Current boot still uses original loaded USB/SoundWire modules; replacement modules are present in initramfs and signed boot images. Five deep cycles succeeded, but callback delay remains under investigation. An isolated power-only trace captured the next user-initiated cycle and was saved.
-- Steam SDK path repair is confirmed by SteamAPI initialization. FEX Korean fonts were added; visual confirmation and RimWorld-only touchpad click investigation are paused at the user's request.
-- KakaoTalk: the initial APKPure ARMv7 candidate was rejected; an official-signer-verified ARM64 bundle was subsequently acquired and installed.
+## Power and sleep
 
-- Touchpad: the live 30-second edge test confirmed 26 libinput geometric palm exclusions and one jump warning. libinput10 1.28.1-1+deb13u1+surface1 now disables only edge exclusion for the exact virtual 045E:0C77 device; ABI/linkage and matching diagnostic context passed. GNOME needs logout/login; human improvement is pending.
-- HTML is now tracked in Git, superseding the earlier untracked-report instruction. STATUS.json and tools/report.py regenerate it.
+- Native display remains 2304x1536 / 120Hz / 1.5 scale by user request. The panel reports 24–120Hz, but the current DRM connector has no vrr_capable property. Dynamic refresh was not enabled without driver capability.
+- WCN7850 station power saving is enabled and persisted through NetworkManager. Short link test: 5/5 gateway replies, ~5ms mean, no ath12k error/crash/timeout during observation. Repeated deep resume and clean battery comparison remain pending.
+- Ondemand governor retained. A short schedutil test changed frequency correctly, but external power invalidated power readings; no permanent CPU cap/governor change was made.
+- Previous-boot baseline: ~5.296h sleep lost ~6 percentage points (~3.046Wh, 0.575W); sampled awake mean ~7.64W. It predates current changes and is not a measured improvement. See drivers/files/power/.
+- Previous power trace identified SPI-HID ~2.417s plus PCIe/Wi-Fi resume delays. A fresh power-only trace is armed for the next user-controlled deep cycle. No forced suspend was initiated.
 
-## Latest verified results
+## Desktop and boot appearance
 
-- KakaoTalk 26.9.2 ARM64 official-signer verification and split install passed. Tablet property is active; Secondary Device was selected and the empty email/password/QR login screen verified. No credentials entered.
-- Waydroid storage now mounts after removing an orphan OMX HAL declaration whose service was absent. Only the vendor overlay changes; original images remain intact. Future vendor updates require overlay review.
-- Five deep cycles succeeded. Recorded resume callback phases total ~4.77s: SPI-HID ~2.417s, PCIe noirq ~1.697s and Wi-Fi early ~0.522s dominate. This is not full screen-visible latency.
-- Latest ~5.296h sleep lost ~6 percentage points (~3.046Wh, 0.575W). Awake sampled average ~7.64W. See drivers/files/power/ for calculation/Windows comparison limits.
-- apt-get check and upgrade simulation pass; updates remain enabled. No actual apt upgrade was run.
+- Fluent Light, GNOME extensions, terminal palette and Korean IBus remain installed.
+- Plymouth now uses an unversioned off-white Debian vector wordmark on a near-black background and the bundled spinner. The custom watermark, static/fallback fonts and gen70500 GPU firmware are verified in the rebuilt initramfs; the signed image passes sbverify. Physical appearance on next boot/update remains pending.
+- The offline update's square glyphs were not an update failure. PackageKit reports successful OpenEXR update and English progress messages. Earlier initramfs lacked the Cantarell font selected by the theme. Static DejaVu and explicit fallback inclusion address this mismatch; the exact physical symptom is not conclusively reproduced.
+
+## Personal programs
+
+- Waydroid Vanilla ARM64 and genuine signed KakaoTalk 26.9.2 splits are installed. Secondary Device login screen was verified earlier; account data is preserved.
+- KakaoTalk is registered in GNOME's app grid and login autostart (8-second delay). Only its individual window opens. Launcher and setup are separate; startup never reinstalls or resets the app. The icon now uses the real exported yellow TALK artwork rather than an inherited settings icon.
+- By user choice Android stays running when all windows close; KakaoTalk is exempt from Android idle optimization and notifications are permitted. This has background RAM/power cost; Linux host suspend remains unchanged. Real incoming-message/notification delivery still needs a user test.
+- Physical-keyboard mode: Android show_ime_with_hard_keyboard=0; GNOME accessibility screen keyboard disabled. IBus/input methods remain installed. Android UI is explicitly light/white (night mode no).
+- Waydroid measured ~1.26GiB PSS with 90 processes in one snapshot. Shared services are reused; additional apps still allocate private memory. No Discord or other additional personal APK was installed.
+- Steam SDK repair is verified; FEX Korean fonts are installed. Game-only click/Korean visual verification remains paused at user request.
+
+## Reproduction and scope
+
+kernel/, drivers/, patches/, desktop/ and programs/ contain component SH/Python installers and offline payloads. A Git clone alone excludes binary payloads and is not a complete offline backup. Setup does not restore user data or a complete Steam runtime, repartition disks, or replace Console infrastructure roles. Initial MOK enrollment, firmware settings, reboot and login remain manual.
+
+HTML, generation script, status data, documents, configuration and patches are tracked in Git. Private signing keys, site CA/VPN/server credentials and raw binary payloads are excluded. Console/Caddy/Kopia/code-server are managed in the separate repository.

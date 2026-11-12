@@ -57,3 +57,7 @@ desktop/files/rootfs/usr/share/plymouth/themes/surface-debian/*.png
 **/build-debs/lock
 **/packages/lock
 **/tools/lock
+
+desktop/files/boot-art/*.png
+
+programs/kakaotalk/files/*.png
