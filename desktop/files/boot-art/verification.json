@@ -1,0 +1,9 @@
+{
+  "initramfs_custom_watermark_matches": true,
+  "required_fonts_present": true,
+  "gpu_firmware_present": true,
+  "signed_kernel_sbverify_passed": true,
+  "visual_boot_verification_pending": true,
+  "actual_update_language": "en_US.UTF-8; PackageKit logged English progress text",
+  "font_diagnosis": "Theme selected Cantarell, but earlier initramfs only contained DejaVu. Static DejaVu selected and Cantarell/CJK fallback explicitly included; fix requires next physical update/boot verification."
+}

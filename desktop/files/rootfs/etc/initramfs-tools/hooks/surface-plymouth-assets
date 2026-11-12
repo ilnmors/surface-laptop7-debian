@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+case "${1:-}" in prereqs) echo plymouth; exit 0;; esac
+. /usr/share/initramfs-tools/hook-functions
+for font in /usr/share/fonts/truetype/dejavu/DejaVuSans.ttf /usr/share/fonts/opentype/cantarell/Cantarell-VF.otf /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc; do
+  if [ -f "$font" ] && [ ! -e "$DESTDIR$font" ]; then copy_file font "$font"; fi
+done
+# The distro two-step hook otherwise replaces custom watermarks with its versioned logo.
+art=/usr/share/plymouth/themes/surface-debian/watermark.png
+if [ -f "$art" ]; then
+ mkdir -p "$DESTDIR/usr/share/plymouth/themes/surface-debian"
+ cp "$art" "$DESTDIR/usr/share/plymouth/themes/surface-debian/watermark.png"
+fi
+fc-cache -s -y "$DESTDIR" >/dev/null 2>&1
