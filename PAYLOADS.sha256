@@ -1,5 +1,5 @@
 43e795847c5807d7966d87f3061c14e0bbeff0f759b83156e037d8ff2b0759e1  desktop/PLAN.txt
-4b45403b0373b4604cecd10f121e037d075ff8463b67acd5400668cd31bf1f6c  desktop/files/README.md
+ece5ee6c6e7459146a0baf0b51cfb764f67b42c419e29270cdafe4bd81351ea6  desktop/files/README.md
 474f3db7ac1b9d38202735b496c959b20b499559a02379ab314c93395373f34b  desktop/files/backgrounds/sl7-debian-light.svg
 c9c12f21d96f6a65c5c4a59b8feabdcf822050a3ce3450d21031fcce204d95bf  desktop/files/backgrounds/sl7-debian.svg
 52bfc5207e6ea57f81e6a38cd97de10e38c149d7ad21b6abf448d4a217235e6f  desktop/files/boot-art/COPYRIGHT
@@ -697,6 +697,7 @@ a7057489101226a01a02b88109daf86e51d8aa027f2b036f6b04010c07cceaf1  desktop/files/
 cd8b21b99ccb453d6fc4cfe3b5bda0c63f18284c19d6183214dff83106654428  desktop/files/extensions/openbar@neuromorph/stylesheets.js
 dc15946671912d9b7262dddcee87b1d5bca0b489f39ac62ce33493f71e29ee9b  desktop/files/extensions/openbar@neuromorph/utils.js
 d83a6cf5fbb5cc17f91d9674b6ccc2447beaa2953628042e2ad3124249f2192f  desktop/files/packages/cups-pk-helper_0.2.6-2.1_arm64.deb
+a773d7a853d88f4d34b4b5f314024b11cebaa3d536e410d8f80879d39d7c49f0  desktop/files/packages/fonts-symbola_2.60-2_all.deb
 a9639ea443e3e3f61069ffbb0e17a152a1f21097911e087d54c298c8e6b31e08  desktop/files/packages/gir1.2-gtop-2.0_2.41.3-1+b2_arm64.deb
 77bed4feb016638cc8a0015e354050d41fcd7bc32fd9557827f7ead88d97d3ee  desktop/files/packages/gnome-shell-extension-user-theme_48.2-1_all.deb
 01227d4630c311dfe06ff6657afbd560343a572b88a9249858ee5018657a4ab7  desktop/files/packages/gnome-shell-extensions-common_48.2-1_all.deb

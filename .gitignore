@@ -64,6 +64,7 @@ programs/kakaotalk/files/*.png
 
 # Local workspace guidance.
 AGENT.md
+CLAUDE.md
 
 # Raw upstream research data remains in the offline bundle.
 drivers/files/touchscreen/research/*.dsl

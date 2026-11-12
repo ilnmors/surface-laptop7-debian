@@ -4,6 +4,7 @@
 - Blur My Shell version 77 is included under extensions/ and enabled by setup.sh. Panel blur uses the dark style and light text, with static blur.
 - settings/ contains GNOME and terminal snapshots. The terminal uses a dark navy background, bright text and saturated ANSI colors.
 - packages/ includes User Themes, the common extension files, unzip and cups-pk-helper. The latter fixes the missing authorization component in GNOME's printer settings.
+- packages/ also includes fonts-symbola. The terminal font (DejaVu Sans Mono via Monospace) and the other installed fonts lack media-control symbols such as U+23F5 ⏵, so they rendered as tofu boxes. Symbola covers U+23F4–U+23FA and the wider symbol blocks; fontconfig uses it automatically as fallback, without changing the terminal font. Check with `fc-list ':charset=23f5' family`.
 - Site-specific printer addresses, CA and VPN settings belong outside this bundle.
 
 Fluent source https://github.com/vinceliuice/Fluent-gtk-theme
