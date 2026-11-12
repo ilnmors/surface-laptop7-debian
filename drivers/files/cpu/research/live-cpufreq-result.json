@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-11-12 16:16:43 +0900",
+  "loaded_srcversion": "3A225A33A62E1578048E341",
+  "policies": [
+    {
+      "policy": "policy0",
+      "affected_cpus": "0 1 2 3",
+      "scaling_governor": "ondemand",
+      "scaling_min_freq": "710400",
+      "scaling_max_freq": "3417600",
+      "scaling_cur_freq": "3417600"
+    },
+    {
+      "policy": "policy4",
+      "affected_cpus": "4 5 6",
+      "scaling_governor": "ondemand",
+      "scaling_min_freq": "710400",
+      "scaling_max_freq": "3417600",
+      "scaling_cur_freq": "3417600"
+    },
+    {
+      "policy": "policy7",
+      "affected_cpus": "7 8",
+      "scaling_governor": "ondemand",
+      "scaling_min_freq": "710400",
+      "scaling_max_freq": "3417600",
+      "scaling_cur_freq": "806400"
+    }
+  ],
+  "cpu_caps_added": false
+}

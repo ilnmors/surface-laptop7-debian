@@ -13,4 +13,4 @@ depmod -a "$kernel"
 if [[ ${1:-} != --no-refresh ]]; then
   /usr/local/sbin/surface-secureboot-update
 fi
-echo 'USB and SoundWire modules installed for the next boot; active hardware was not unbound.'
+echo 'USB, SoundWire, SCMI cpufreq and ath12k modules installed for the next boot; active hardware was not unbound.'

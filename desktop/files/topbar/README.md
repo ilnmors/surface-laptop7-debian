@@ -1,9 +1,9 @@
-# Fluent top bar
+# Fluent Light top bar
 
-Fluent Light now uses an inset, rounded, translucent pale panel, dark text, blue hover accents and rounded buttons. Blur My Shell remains enabled with radius 14; forced light text and background overrides are disabled. The clock shows weekday and date. No extra extension was installed.
+Open Bar 49, GNOME 48 compatible package from https://extensions.gnome.org/extension/6580/open-bar/ (version tag 65598). Upstream: https://github.com/neuromorph/openbar . Offline zip and unpacked extension are included.
 
-panel.css is appended to the bundled Fluent-Light Shell CSS. setup.sh installs that theme and restores the updated Blur My Shell and interface snapshots. The running Shell reloaded the theme without stylesheet errors. Visual appearance still needs user confirmation.
+Preset: 32px floating light panel, 6px margin, 14px corners, dark text, blue accents and matching light menus. App/GTK/Flatpak theming and automatic wallpaper recoloring are off. Blur My Shell stays disabled. Vitals uses five-second polling; Caffeine and tray indicators remain available. No per-extension memory attribution was measured.
 
-The previous CSS and panel settings are saved here. To restore, copy gnome-shell.before.css to ~/.themes/Fluent-Light/gnome-shell/gnome-shell.css, reset only /org/gnome/shell/extensions/blur-my-shell/panel/, then dconf load that path from panel.before.dconf. Toggle the User Themes setting to reload.
+`desktop/setup.sh` installs the extension and restores `settings/openbar.dconf`. A new login is required to discover a newly installed extension on this running Wayland session. The preset has been saved; visual verification after login is pending.
 
-Additional widgets: Vitals 86 (CPU/memory, five-second polling), Caffeine 61 (manual only, automatic fullscreen/media activation disabled), AppIndicator 66 (tray icons). The reviewed GNOME 48 extension files and GTop dependencies are bundled. All three extensions are active; no per-extension RAM attribution was measured.
+Rollback: `gnome-extensions disable openbar@neuromorph`. The prior enabled extensions and settings are in `before-openbar.dconf`; avoid loading that entire snapshot over later unrelated changes. Fluent theme CSS is retained underneath.

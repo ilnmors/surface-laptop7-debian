@@ -1,14 +1,23 @@
 {
-  "progress": 95,
+  "progress": 70,
   "areas": [
     {
       "group": "RECOVERY",
       "title": "Wi-Fi 실기기 장애 복구",
-      "status": "ok",
-      "label": "기존 모듈 · Wi-Fi HTTPS 검증",
-      "finding": "새 ath12k 재빌드가 로드된 부팅에서 Hard blocked=yes·무선 사용 불가가 발생했습니다. 기존 A98E5140E078A5920DAC05E로 재로드하자 차단 해제·자동 연결됐고 Wi-Fi 인터페이스 지정 HTTPS 요청이 200 응답했습니다.",
-      "next": "실험 모듈은 기본 build/install·모듈 선택·초기 부팅 이미지에서 제외했습니다. 테더링은 연결 검증 중 유지했고 전역 네트워크 설정을 초기화하지 않았습니다.",
-      "path": "patches/files/wifi-regulatory/README.md"
+      "status": "pending",
+      "label": "regulatory 수정 적용 · 반복 장애 추적",
+      "finding": "Surface RFKILL 보정 두 개를 보존한 ath12k D044C56077CC5357DC3F5BF를 서명·로드했습니다. 차단 없음·인증·IP 할당·반복 Wi-Fi 지정 HTTPS 200을 확인했고 오프라인 재빌드도 같은 srcversion을 재현했습니다.",
+      "next": "regulatory 이벤트가 버려질 때 완료 통지가 누락되는 상류 수정을 적용했습니다. 비콘 손실과 송신 큐 오류의 최초 원인은 아직 확정하지 못했습니다. 재부팅·절전 후 재발 확인이 필요합니다.",
+      "path": "patches/files/wifi-regulatory/known-good/README.md"
+    },
+    {
+      "group": "CPU",
+      "title": "CPU 클러스터·CPU9",
+      "status": "pending",
+      "label": "DVFS 복구 완료 · 10번째 코어 시험 부팅",
+      "finding": "SCMI cpufreq 보정으로 정책 하나에서 세 개로 복구했습니다. 현재 online은 0-8이며, CPU9용 물리 코어 주소 수정 DTB는 별도 서명 이미지에 준비했습니다.",
+      "next": "GRUB이 시험 이미지를 한 번 선택한 뒤 다음 부팅부터 안정 이미지로 돌아오도록 설정했습니다. 실제 0-9 online과 주파수 정책 확인 전에는 해결 완료로 표시하지 않습니다.",
+      "path": "drivers/files/cpu/README.md"
     },
     {
       "group": "URGENT",
@@ -32,9 +41,9 @@
       "group": "POWER",
       "title": "deep 절전과 복귀",
       "status": "pending",
-      "label": "Wi-Fi 패치 철회 · 기존 모듈 복구",
+      "label": "regulatory 수정 후 절전 비교 대기",
       "finding": "이번 부팅에서 deep 약 65분 뒤 복귀 성공 1회·실패 0회입니다. Wi-Fi regulatory 대기·PCIe L2 timeout이 남았고, 복귀 종료부터 Wi-Fi 인증 시작까지 약 11.4초였습니다.",
-      "next": "상류 수정 재빌드가 실기기에서 hard-rfkill 차단을 일으켰습니다. 기존 sl7 모듈로 복구해 Wi-Fi 연결·해당 인터페이스의 HTTPS 200을 확인했습니다. 기본 설치에서 제외했고 기존 절전 지연은 미해결입니다. VM 시험을 실기기 검증으로 대체하지 않습니다.",
+      "next": "Surface 전용 RFKILL 보정을 보존한 regulatory 수정본이 현재 로드됐습니다. 이번 변경 뒤 deep 절전 비교는 아직 하지 않았습니다. CPU9·카메라 부팅 시험과 절전 검증을 혼동하지 않습니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md"
     },
     {
@@ -75,30 +84,30 @@
     },
     {
       "group": "HARDWARE",
-      "title": "CPU·카메라",
-      "status": "open",
-      "label": "일부 미해결",
-      "finding": "CPU9는 미해결입니다. 카메라 재빌드는 실기기 37.45fps 수집했으나 crop 조회 오류 3개가 있어 기본 설치에서 제외했습니다. 현재 사용 중이라 강제 언로드하지 않았고 다음 부팅 이미지에는 기존 sl7 드라이버를 복원했습니다.",
-      "next": "재부팅 뒤 기존 카메라 srcversion C8AE6F17BF899E4A937A808과 수집·crop 오류를 비교해야 합니다. 카메라 화질·저조도 개선은 검증되지 않았습니다. CPU·터치스크린을 해결했다고 표시하지 않습니다.",
-      "path": "patches/files/CAMERA-FRAME-TIMING.md"
+      "title": "카메라 FPS·색감·노이즈",
+      "status": "pending",
+      "label": "중립 색감 개선 · 노이즈 작업 보류",
+      "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다.",
+      "next": "커뮤니티 CCM은 분홍색 때문에 제외했습니다. 고게인 15.5x·노이즈 제거 부재를 확인했고 OV02C10 게인 간격 패치를 별도 시험했습니다. 1080p·노이즈 제거·시스템 통합은 사용자 요청으로 보류합니다. 현재 일반 앱의 시스템 libcamera는 기존 버전입니다.",
+      "path": "drivers/files/camera-quality/research/RESULTS.md"
     },
     {
       "group": "WIRELESS",
       "title": "Wi-Fi·Bluetooth",
-      "status": "ok",
-      "label": "부팅 복구 · Wi-Fi PS 시험",
+      "status": "pending",
+      "label": "Bluetooth 복구 유지 · Wi-Fi 장기 확인",
       "finding": "Bluetooth가 자동 복구돼 powered on입니다. Wi-Fi station 절전을 켠 뒤 공유기 응답 5/5 성공, 평균 약 5ms, 관찰 중 ath12k 오류는 없었습니다.",
-      "next": "Wi-Fi 절전은 NetworkManager에 저장했습니다. 실제 배터리 절감량과 반복 절전 후 재연결은 추가 측정이 필요합니다.",
+      "next": "Bluetooth 자동 복구는 유지합니다. Wi-Fi regulatory 수정 적용과 반복 HTTPS 검사는 통과했고, 재부팅·절전 후 안정성은 확인 대기입니다.",
       "path": "drivers/files/bluetooth/README.md"
     },
     {
       "group": "DESKTOP",
       "title": "Fluent·GNOME·터미널",
-      "status": "ok",
-      "label": "분리 저장 완료",
-      "finding": "Fluent, User Themes, Blur My Shell, Vitals, Caffeine, AppIndicator, 터미널 색상, IBus, Plymouth를 desktop에 분리했습니다.",
-      "next": "Fluent Light는 유지하며 Android도 화이트 라이트 모드로 변경했습니다. 물리 키보드 사용 시 Android·GNOME 화면 키보드는 표시하지 않도록 설정했습니다.",
-      "path": "desktop/files/README.md"
+      "status": "pending",
+      "label": "Open Bar 설정 완료 · 다음 로그인 대기",
+      "finding": "GNOME 48 지원 Open Bar 49를 오프라인 보관·설치했습니다. 밝은 패널, 짙은 글자, 파란 강조색, 둥근 모서리와 메뉴를 설정했습니다. Vitals·Caffeine·트레이를 유지합니다.",
+      "next": "다음 로그인에 새 확장 인식과 외관을 확인해야 합니다. Blur My Shell은 비활성 상태이며 앱 전체 테마 변경은 하지 않습니다.",
+      "path": "desktop/files/topbar/README.md"
     },
     {
       "group": "ANDROID",
@@ -106,7 +115,7 @@
       "status": "ok",
       "label": "로그인 자동 실행·백그라운드 통합",
       "finding": "카카오톡 개별 창을 GNOME 로그인 8초 뒤 자동 실행합니다. 앱 로그인 데이터는 보존하며, 사용자가 창을 닫아도 수신하도록 Android 자동 컨테이너 절전 해제·카카오 idle 예외·알림 권한을 적용했습니다.",
-      "next": "실제 다음 로그인과 수신 알림은 추가 확인이 필요합니다. 호스트 절전은 유지합니다. 현재 PSS 약 1.26GiB는 고정값이 아니며, 다른 앱도 켜면 메모리가 추가됩니다. 카카오 외 앱은 설치하지 않았습니다. Android 가상키보드는 물리 키보드 연결 시 숨김, 시스템은 라이트 모드입니다. 잘못 물려받은 설정 앱 아이콘도 실제 노란 TALK 아이콘으로 수정했습니다.",
+      "next": "채팅 설정의 Press Enter to Send가 꺼져 있던 것을 확인했고 사용자가 수정 후 정상 전송을 확인했습니다. 개인 계정·대화 데이터는 Surface에 보관하지 않습니다.",
       "path": "programs/kakaotalk/README.md"
     },
     {
@@ -124,7 +133,7 @@
       "status": "pending",
       "label": "모듈화 · 오프라인 검증",
       "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다. 로고·폰트·GPU 펌웨어 hook, Wi-Fi PS 및 카카오 로그인·키보드·라이트 모드 설정도 각 설치 단계에 반영했습니다.",
-      "next": "새 설치를 실제 포맷해 검증한 것은 아닙니다. 미해결 하드웨어, 수동 MOK·재부팅·로그인, base Debian dependency와 Steam runtime 준비가 남습니다. Console 계정/서버 서비스는 repository 범위입니다.",
+      "next": "CPU 주파수 조절·Wi-Fi 수정은 기본 패치 설치와 오프라인 빌드에 반영했습니다. CPU9 토폴로지와 카메라 고속 드라이버는 1회 시험 부팅 단계이며 기본 설치 완료로 간주하지 않습니다. 색 보정은 별도 미리보기만 제공됩니다.",
       "path": "README.md"
     },
     {
@@ -139,10 +148,10 @@
     {
       "group": "MIGRATION",
       "title": "Nextcloud DAV → OxiCloud",
-      "status": "ok",
-      "label": "도구·모의 검증 완료",
+      "status": "pending",
+      "label": "도구 검증 완료 · 실제 이전 미완료",
       "finding": "repository/tools에 dav-migrate.py.tmp와 README.md.tmp를 만들었습니다. Nextcloud read-only 백업, hash 검증, OxiCloud dry-run과 명시적 restore를 제공합니다.",
-      "next": "실제 서버 backup/restore는 실행하지 않았습니다. UUID rediscovery, 중단 후 재개, 원격 수정 보호와 손상 거부 등을 mock test로 확인했습니다. ACL·공유·외부 첨부파일은 별도입니다.",
+      "next": "실제 내보내기는 서버 접속 장애로 중단됐으며 완료된 백업이나 복원이 아닙니다. 관련 도구는 repository/tools의 tmp 파일로 유지합니다.",
       "path": "../repository/tools/README.md.tmp"
     },
     {
@@ -176,9 +185,9 @@
       "group": "POWER",
       "title": "120Hz 유지와 전력 최적화",
       "status": "pending",
-      "label": "드라이버 절전 확인 · CPU 유지",
-      "finding": "120Hz는 유지합니다. NVMe APST(100ms→PS4), SSD·Wi-Fi ASPM L1/L1.1/L1.2, USB root hub runtime suspend가 이미 활성화됐습니다. Wi-Fi station PS도 유지됩니다.",
-      "next": "4코어 부하 시험에서는 약 3GHz 제한 시 전력 21%·처리량 11% 감소가 관찰됐지만 일상 사용시간 예측은 아닙니다. 요청대로 ondemand·최대 3.4176GHz를 복원하고 영구 CPU 제한은 설치하지 않았습니다.",
+      "label": "120Hz 유지 · 세 CPU 클러스터 DVFS 복구",
+      "finding": "세 클러스터에 ondemand 정책과 710.4–3417.6MHz 범위를 복구하고 실제 주파수 변화를 확인했습니다. 화면 120Hz, NVMe APST, PCIe ASPM, USB 자동 절전, Wi-Fi 절전은 유지합니다.",
+      "next": "영구 CPU 상한 제한을 추가하지 않았습니다. 배터리 사용시간 개선량은 아직 비교 측정하지 않았습니다. 터치스크린·deep 복귀 지연·간헐적 오디오 오류는 별도 미해결입니다.",
       "path": "drivers/files/power/OPTIMIZATION.md"
     },
     {
@@ -194,9 +203,9 @@
       "group": "CONSOLE",
       "title": "code-server Python 도구",
       "status": "ok",
-      "label": "공식 ARM64 PET 복구",
+      "label": "PET 복구 · 환경 확장 설정 활성화",
       "finding": "Open VSX universal 확장에 없던 PET를 동일 버전 Microsoft 공식 linux-arm64 VSIX에서 복구했습니다. 실행·실제 Python 발견·중복 설치 방지 확인을 통과했습니다.",
-      "next": "현재 편집기 창은 Reload Window가 필요할 수 있습니다. 역할과 서비스 시작 시 복구도 반영했으며 새 교정 커밋 없이 원래 저장소 커밋에 합쳤습니다.",
+      "next": "실제 workspace 설정의 python.useEnvironmentsExtension=false를 true로 수정했습니다. repository packages 역할도 workspace·repository 두 경로에 설정을 배포하도록 반영했습니다.",
       "path": "../repository/docs/console.md"
     },
     {

@@ -25,7 +25,7 @@ fi
 mkdir -p "$HOME/.local/share/gnome-shell/extensions" "$HOME/.config/pipewire/pipewire.conf.d"
 cp -a desktop/files/extensions/. "$HOME/.local/share/gnome-shell/extensions/"
 install -D -m 644 desktop/files/sl7-ibus.desktop "$HOME/.config/autostart/sl7-ibus.desktop"
-for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/desktop/input-sources org/gnome/desktop/peripherals/touchpad org/gnome/desktop/peripherals/mouse org/gnome/shell/extensions/dash-to-dock org/gnome/shell/extensions/blur-my-shell org/gnome/shell/extensions/vitals org/gnome/shell/extensions/caffeine org/gnome/shell/extensions/appindicator org/gnome/terminal/legacy; do
+for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/desktop/input-sources org/gnome/desktop/peripherals/touchpad org/gnome/desktop/peripherals/mouse org/gnome/shell/extensions/dash-to-dock org/gnome/shell/extensions/blur-my-shell org/gnome/shell/extensions/openbar org/gnome/shell/extensions/vitals org/gnome/shell/extensions/caffeine org/gnome/shell/extensions/appindicator org/gnome/terminal/legacy; do
   snapshot="desktop/files/settings/${entry##*/}.dconf"
   if [[ -s $snapshot ]]; then dconf load "/$entry/" < "$snapshot"; fi
 done
@@ -34,7 +34,7 @@ python3 - <<'PY'
 from gi.repository import Gio
 settings = Gio.Settings.new("org.gnome.shell")
 enabled = settings.get_strv("enabled-extensions")
-for extension in ("dash-to-dock@micxgx.gmail.com", "user-theme@gnome-shell-extensions.gcampax.github.com", "blur-my-shell@aunetx", "Vitals@CoreCoding.com", "caffeine@patapon.info", "appindicatorsupport@rgcjonas.gmail.com"):
+for extension in ("dash-to-dock@micxgx.gmail.com", "user-theme@gnome-shell-extensions.gcampax.github.com", "openbar@neuromorph", "Vitals@CoreCoding.com", "caffeine@patapon.info", "appindicatorsupport@rgcjonas.gmail.com"):
     if extension not in enabled:
         enabled.append(extension)
 assert settings.set_strv("enabled-extensions", enabled)

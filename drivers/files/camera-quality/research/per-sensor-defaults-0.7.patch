@@ -1,0 +1,108 @@
+--- a/src/ipa/simple/algorithms/adjust.h
++++ b/src/ipa/simple/algorithms/adjust.h
+@@ -42,6 +42,9 @@
+ 		     ControlList &metadata) override;
+ 
+ private:
++	float defaultGamma_ = kDefaultGamma;
++	float defaultContrast_ = 1.0f;
++	float defaultSaturation_ = 1.0f;
+ 	void applySaturation(Matrix<float, 3, 3> &ccm, float saturation);
+ };
+ 
+--- a/src/ipa/simple/algorithms/adjust.cpp
++++ b/src/ipa/simple/algorithms/adjust.cpp
+@@ -24,24 +24,27 @@
+ 
+ LOG_DEFINE_CATEGORY(IPASoftAdjust)
+ 
+-int Adjust::init(IPAContext &context, [[maybe_unused]] const ValueNode &tuningData)
++int Adjust::init(IPAContext &context, const ValueNode &tuningData)
+ {
++	defaultGamma_ = std::clamp(tuningData["gamma"].get<float>().value_or(kDefaultGamma), 0.1f, 10.0f);
++	defaultContrast_ = std::clamp(tuningData["contrast"].get<float>().value_or(kDefaultContrast), 0.0f, 2.0f);
++	defaultSaturation_ = std::clamp(tuningData["saturation"].get<float>().value_or(kDefaultSaturation), 0.0f, 2.0f);
+ 	context.ctrlMap[&controls::Gamma] =
+-		ControlInfo(0.1f, 10.0f, kDefaultGamma);
++		ControlInfo(0.1f, 10.0f, defaultGamma_);
+ 	context.ctrlMap[&controls::Contrast] =
+-		ControlInfo(0.0f, 2.0f, kDefaultContrast);
++		ControlInfo(0.0f, 2.0f, defaultContrast_);
+ 	if (context.ccmEnabled)
+ 		context.ctrlMap[&controls::Saturation] =
+-			ControlInfo(0.0f, 2.0f, kDefaultSaturation);
++			ControlInfo(0.0f, 2.0f, defaultSaturation_);
+ 	return 0;
+ }
+ 
+ int Adjust::configure(IPAContext &context,
+ 		      [[maybe_unused]] const IPAConfigInfo &configInfo)
+ {
+-	context.activeState.knobs.gamma = kDefaultGamma;
+-	context.activeState.knobs.contrast = std::optional<float>();
+-	context.activeState.knobs.saturation = std::optional<float>();
++	context.activeState.knobs.gamma = defaultGamma_;
++	context.activeState.knobs.contrast = defaultContrast_;
++	context.activeState.knobs.saturation = defaultSaturation_;
+ 
+ 	return 0;
+ }
+--- a/src/ipa/simple/algorithms/agc.h
++++ b/src/ipa/simple/algorithms/agc.h
+@@ -19,12 +19,15 @@
+ 	Agc();
+ 	~Agc() = default;
+ 
++	int init(IPAContext &context, const ValueNode &tuningData) override;
++
+ 	void process(IPAContext &context, const uint32_t frame,
+ 		     IPAFrameContext &frameContext,
+ 		     const SwIspStats *stats,
+ 		     ControlList &metadata) override;
+ 
+ private:
++	float exposureTarget_ = 2.5f;
+ 	void updateExposure(IPAContext &context, IPAFrameContext &frameContext, double exposureMSV);
+ };
+ 
+--- a/src/ipa/simple/algorithms/agc.cpp
++++ b/src/ipa/simple/algorithms/agc.cpp
+@@ -8,6 +8,7 @@
+ #include "agc.h"
+ 
+ #include <stdint.h>
++#include <algorithm>
+ 
+ #include <libcamera/base/log.h>
+ 
+@@ -41,6 +42,12 @@
+ {
+ }
+ 
++int Agc::init([[maybe_unused]] IPAContext &context, const ValueNode &tuningData)
++{
++	exposureTarget_ = std::clamp(tuningData["exposureTarget"].get<float>().value_or(kExposureOptimal), 0.0f, static_cast<float>(kExposureBinsCount));
++	return 0;
++}
++
+ void Agc::updateExposure(IPAContext &context, IPAFrameContext &frameContext, double exposureMSV)
+ {
+ 	/*
+@@ -54,7 +61,7 @@
+ 	int32_t &exposure = frameContext.sensor.exposure;
+ 	double &again = frameContext.sensor.gain;
+ 
+-	if (exposureMSV < kExposureOptimal - kExposureSatisfactory) {
++	if (exposureMSV < exposureTarget_ - kExposureSatisfactory) {
+ 		if (exposure < context.configuration.agc.exposureMax) {
+ 			int32_t next = exposure * kExpNumeratorUp / kExpDenominator;
+ 			if (next - exposure < 1)
+@@ -70,7 +77,7 @@
+ 		}
+ 	}
+ 
+-	if (exposureMSV > kExposureOptimal + kExposureSatisfactory) {
++	if (exposureMSV > exposureTarget_ + kExposureSatisfactory) {
+ 		if (again > context.configuration.agc.again10) {
+ 			double next = again * kExpNumeratorDown / kExpDenominator;
+ 			if (again - next < context.configuration.agc.againMinStep)

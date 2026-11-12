@@ -57,3 +57,10 @@ WCN7850 power-save uses the existing driver's supported station PS, persisted by
 ## Regulatory and camera follow-up
 
 ath12k f2576dc0 comes unmodified from the upstream WireGuard Linux kernel mirror; matching source snapshot, header packages and rebuild inputs are retained in patches/files. The OV02C10 fast_video change is a local Romulus13 policy using the already declared minimum VTS; it is not the rejected libcamera gain helper or a manufacturer color calibration. See patches/files/CAMERA-FRAME-TIMING.md. GPIO31 reset evidence came from the published Romulus13 touchscreen v1; a one-off trial failed and is not replayed by setup. Diagnostic gpiod/libgpiod3 packages were downloaded through authenticated Debian APT and extracted locally under /var/tmp, with original .deb payloads retained in drivers/files/touchscreen/tools.
+
+## 2026-11-12 follow-up
+
+- CPU: `drivers/files/cpu/README.md` records the X1P64100 report, upstream pull request, baseline source and local topology trial.
+- Wi-Fi: `patches/files/wifi-regulatory/known-good/README.md` records the upstream completion fix, preserved Surface guards and the retracted beacon-loss regression claim.
+- Camera: `drivers/files/camera-quality/research/RESULTS.md` records exact tested/rejected color profiles, public OV02C10 patches, isolated Debian 0.7.1 packages and deferred GPU-denoise research.
+- Open Bar 49: GNOME Extensions version tag 65598, source https://github.com/neuromorph/openbar , offline zip + source under desktop. No app or Flatpak recoloring enabled.

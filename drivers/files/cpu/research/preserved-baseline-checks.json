@@ -1,0 +1,26 @@
+[
+  {
+    "module": "scmi_cpufreq",
+    "active_baseline_srcversion": "24B5EF49ACC4EC1301CA34B",
+    "candidate_srcversion": "3A225A33A62E1578048E341",
+    "shared_import_crcs_matched": 48,
+    "sha256": "66a77eb1846bdb565bcd4bb74a9dc2bd1ce05375970adda24ccc02250a93de26",
+    "installed": true
+  },
+  {
+    "module": "ov02c10",
+    "active_baseline_srcversion": "C8AE6F17BF899E4A937A808",
+    "candidate_srcversion": "08EF7452B0F555AA15FA25F",
+    "shared_import_crcs_matched": 61,
+    "sha256": "77818e9362a2f43dcbbd1296cdd73caf524697071e3b0e356f23ab7dfd6b0422",
+    "installed": false
+  },
+  {
+    "module": "ath12k",
+    "active_baseline_srcversion": "A98E5140E078A5920DAC05E",
+    "candidate_srcversion": "D044C56077CC5357DC3F5BF",
+    "shared_import_crcs_matched": 345,
+    "sha256": "54ea1740aad45c4d2a5182fb7f1de6d20d938283923eb476d27f9ea32bbd8d64",
+    "installed": true
+  }
+]

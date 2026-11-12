@@ -1,0 +1,11 @@
+{
+  "exit": 0,
+  "frames": 120,
+  "mean_fps": 18.782268907563026,
+  "error_count": 0,
+  "missing_helper_warning": false,
+  "mode": "cpu",
+  "profile": "community CCM; control16 helper",
+  "images_saved": false,
+  "installed_system_packages": false
+}

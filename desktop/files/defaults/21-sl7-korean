@@ -3,5 +3,5 @@ sources=[('xkb', 'us'), ('ibus', 'hangul')]
 
 [org/freedesktop/ibus/engine/hangul]
 hangul-keyboard='2'
-initial-input-mode='hangul'
+initial-input-mode='latin'
 switch-keys='Hangul,Shift+space'

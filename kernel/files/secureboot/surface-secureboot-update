@@ -82,7 +82,7 @@ def sign_modules(kernel, state):
     run("depmod", "-a", kernel)
     print(f"Signed {count} modules for {kernel}", flush=True)
 
-def build_kernel(kernel, state):
+def build_kernel(kernel, state, dtb_path, output, update_bootloader=True):
     blob = bytearray((Path("/boot") / ("vmlinuz-" + kernel)).read_bytes())
     pe = struct.unpack_from("<I", blob, 0x3c)[0]
     count = struct.unpack_from("<H", blob, pe + 6)[0]
@@ -113,7 +113,7 @@ def build_kernel(kernel, state):
         signed_inner = folder / "linux-signed.efi"
         inner.write_bytes(insert_certificate(bytes(blob[offset:offset + size]), kernel, (state / "MOK.der").read_bytes()))
         sign(inner, signed_inner, state)
-        dtb = Path("/boot/surface-sl7-xplus.dtb").read_bytes()
+        dtb = dtb_path.read_bytes()
         if dtb[:4] != bytes.fromhex("d00dfeed"):
             raise ValueError("Invalid Surface DTB")
         for position, section in sections:
@@ -140,13 +140,15 @@ def build_kernel(kernel, state):
         struct.pack_into("<II", blob, optional + 112 + 4 * 8, 0, 0)
         image = folder / "surface.efi"
         image.write_bytes(blob)
-        output = Path("/boot/secureboot")
-        output.mkdir(exist_ok=True)
+        output.mkdir(parents=True, exist_ok=True)
         staged = output / "vmlinuz-surface-signed.efi.new"
         sign(image, staged, state)
         staged.replace(output / "vmlinuz-surface-signed.efi")
         shutil.copyfile(Path("/boot") / ("initrd.img-" + kernel),
                         output / ("initrd.img-" + kernel))
+    if not update_bootloader:
+        print(f"Signed trial image written to {output}; boot configuration unchanged", flush=True)
+        return
     root_uuid = subprocess.check_output(
         ["findmnt", "-n", "-o", "UUID", "-T", "/"], text=True).strip()
     boot_uuid = subprocess.check_output(
@@ -177,7 +179,14 @@ def build_kernel(kernel, state):
 parser = argparse.ArgumentParser()
 parser.add_argument("kernel", nargs="?", default=os.uname().release)
 parser.add_argument("--skip-module-signing", action="store_true")
+parser.add_argument("--dtb", type=Path, default=Path("/boot/surface-sl7-xplus.dtb"))
+parser.add_argument("--output-directory", type=Path, default=Path("/boot/secureboot"))
+parser.add_argument("--no-bootloader-update", action="store_true")
 arguments = parser.parse_args()
+if arguments.no_bootloader_update and arguments.output_directory.resolve() == Path("/boot/secureboot"):
+    parser.error("Trial images require a separate output directory")
+if not arguments.no_bootloader_update and arguments.output_directory.resolve() != Path("/boot/secureboot"):
+    parser.error("Custom output requires --no-bootloader-update")
 if os.geteuid() != 0:
     parser.error("Run as root")
 state = Path("/var/lib/surface-secureboot")
@@ -187,4 +196,5 @@ if not arguments.skip_module_signing:
     sign_modules(arguments.kernel, state)
     environment = dict(os.environ, SURFACE_SECUREBOOT_BUILDING="1")
     run("update-initramfs", "-u", "-k", arguments.kernel, env=environment)
-build_kernel(arguments.kernel, state)
+build_kernel(arguments.kernel, state, arguments.dtb, arguments.output_directory,
+             not arguments.no_bootloader_update)

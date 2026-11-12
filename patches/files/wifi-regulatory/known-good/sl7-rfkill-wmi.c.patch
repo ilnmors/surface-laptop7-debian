@@ -1,0 +1,16 @@
+--- a/drivers/net/wireless/ath/ath12k/wmi.c
++++ b/drivers/net/wireless/ath/ath12k/wmi.c
+@@ -9454,6 +9454,13 @@
+ 	const void **tb;
+ 	int ret;
+ 
++	/* Romulus13 has an unusable WCN7850 hardware rfkill input. */
++	if (ab->hw_rev == ATH12K_HW_WCN7850_HW20 &&
++	    of_machine_is_compatible("microsoft,romulus13")) {
++		ath12k_info(ab, "SL7: ignoring unusable hardware rfkill state event\n");
++		return;
++	}
++
+ 	tb = ath12k_wmi_tlv_parse(ab, skb);
+ 	if (IS_ERR(tb)) {
+ 		ret = PTR_ERR(tb);

@@ -1,0 +1,21 @@
+--- a/src/ipa/libipa/camera_sensor_helper.cpp
++++ b/src/ipa/libipa/camera_sensor_helper.cpp
+@@ -779,6 +779,18 @@
+ };
+ REGISTER_CAMERA_SENSOR_HELPER("ov8865", CameraSensorHelperOv8865)
+ 
++/* Romulus13 driver: V4L2 gain 16 is unity; register write shifts it by four. */
++class CameraSensorHelperOv02c10 : public CameraSensorHelper
++{
++public:
++	CameraSensorHelperOv02c10()
++	{
++		blackLevel_ = 4096;
++		gain_ = AnalogueGainLinear{ 1, 0, 0, 16 };
++	}
++};
++REGISTER_CAMERA_SENSOR_HELPER("ov02c10", CameraSensorHelperOv02c10)
++
+ class CameraSensorHelperOv13858 : public CameraSensorHelper
+ {
+ public:

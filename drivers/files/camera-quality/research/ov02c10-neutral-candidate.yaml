@@ -1,0 +1,11 @@
+version: 1
+algorithms:
+- BlackLevel:
+    blackLevel: 4096
+- Awb: null
+- Adjust:
+    gamma: 2.2
+    contrast: 1.0
+    saturation: 1.0
+- Agc:
+    exposureTarget: 2.5

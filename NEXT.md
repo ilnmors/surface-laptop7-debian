@@ -1,3 +1,17 @@
+# Current continuation — 2026-11-12, before one-shot reboot
+
+Read this section before historical notes below.
+
+1. A one-shot signed CPU9/camera boot is selected in /boot/grub/grubenv. Confirm boot ID, online CPUs (expected 0-9), three ondemand policies, Secure Boot and actual module srcversions. Stable and pre-change images remain selectable. Do not promote until hardware checks pass.
+2. Expected active ath12k D044C56077CC5357DC3F5BF retains both Surface rfkill guards. It passed repeated Wi-Fi-bound HTTPS checks before reboot. Repeated beacon loss root cause remains open; see known-good/README.md. The regulatory fix does not establish a beacon-loss fix.
+3. Expected trial ov02c10 08EF7452B0F555AA15FA25F preserves crop metadata and defaults to faster frames. Test frame rate/errors. Do not forcibly unload the sensor. Neutral isolated libcamera color was user-approved, noise remains. Longer camera quality/1080p/denoise work is DEFERRED by the user.
+4. Open Bar 49 is installed/enabled with a light floating preset, awaiting new login. Verify extension state/errors and visual appearance. Blur My Shell remains disabled.
+5. Kakao Enter-to-send is confirmed fixed by the user. Code-server setting is enabled live and its repository role now deploys workspace + repository settings; repository change is not committed yet.
+6. Update STATUS.json and regenerate hardware-report.html after checks. CPU/camera trial has not yet been promoted into default DTB/camera installer. All scripts/configs and source notes are in surface; ignored offline binaries must be copied too.
+
+---
+Historical notes (superseded where they conflict with the section above):
+
 # Immediate post-recovery verification
 
 - Verify Wi-Fi stays unblocked/connected with original ath12k A98E5140E078A5920DAC05E; test traffic bound to Wi-Fi, not tethering. Never reinstall rejected wifi-regulatory rebuild via setup.

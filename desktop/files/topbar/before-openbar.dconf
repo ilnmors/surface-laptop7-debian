@@ -1,0 +1,51 @@
+[/]
+app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.Calendar.desktop': <{'position': <4>}>, 'simple-scan.desktop': <{'position': <5>}>, 'gparted.desktop': <{'position': <6>}>, 'org.gnome.Totem.desktop': <{'position': <7>}>, 'org.gnome.Snapshot.desktop': <{'position': <8>}>, 'org.gnome.Characters.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'System': <{'position': <11>}>, 'org.gnome.Calculator.desktop': <{'position': <12>}>, 'Waydroid.desktop': <{'position': <13>}>, 'yelp.desktop': <{'position': <14>}>, 'org.gnome.Software.desktop': <{'position': <15>}>, 'org.gnome.TextEditor.desktop': <{'position': <16>}>}]
+disabled-extensions=['blur-my-shell@aunetx']
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'caffeine@patapon.info', 'appindicatorsupport@rgcjonas.gmail.com']
+favorite-apps=['firefox-esr.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'steam.desktop', 'waydroid.com.kakao.talk.desktop', 'org.gnome.Settings.desktop']
+welcome-dialog-last-shown-version='48'
+
+[extensions/blur-my-shell]
+settings-version=8
+
+[extensions/blur-my-shell/panel]
+blur=true
+corner-radius=14
+force-light-text=false
+override-background=false
+static-blur=true
+style-panel=2
+
+[extensions/caffeine]
+cli-toggle=false
+enable-fullscreen=false
+enable-mpris=false
+indicator-position-max=2
+restore-state=false
+user-enabled=false
+
+[extensions/dash-to-dock]
+autohide=true
+background-opacity=0.88
+dash-max-icon-size=44
+dock-fixed=false
+dock-position='BOTTOM'
+extend-height=false
+intellihide=true
+show-mounts=false
+show-trash=false
+transparency-mode='FIXED'
+
+[extensions/user-theme]
+name='Fluent-Light'
+
+[extensions/vitals]
+battery-colors=@as []
+gpu-colors=@as []
+hot-sensors=['_processor_usage_', '_memory_usage_']
+position-in-panel=2
+show-battery=false
+update-time=5
+
+[world-clocks]
+locations=@av []

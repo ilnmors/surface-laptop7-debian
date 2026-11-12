@@ -24,3 +24,7 @@ Run `python3 programs/kakaotalk/integrate.py` to install only desktop/startup in
 The user requested messages after closing the window: persist.waydroid.suspend=false, Android device-idle whitelist for com.kakao.talk and POST_NOTIFICATIONS permission are applied and reproduced by setup.sh. Physical Linux suspend still suspends the device; background delivery is not promised while the Surface sleeps. Additional background power/RAM is expected; actual receipt/notifications need a real incoming message. Source: https://docs.waydro.id/usage/waydroid-prop-options . No other personal Android app was installed.
 
 Icon: files/kakaotalk-icon.png is the actual installed KakaoTalk icon exported by Waydroid (yellow TALK bubble), not the unrelated generic Android ic_launcher resource. integrate.py copies it to the user's hicolor icons and uses that explicit path. It does not inherit stale icons from an old desktop entry.
+
+## Physical keyboard Enter
+
+Settings → Chats → Keyboard → Press Enter to Send must be enabled. It was off; the user confirmed the corrected behavior on 2026-11-12. This is an app preference, not a Linux key remap. Keep it in the authenticated app profile; no chat database or account secrets are bundled.

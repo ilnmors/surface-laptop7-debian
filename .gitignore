@@ -61,3 +61,10 @@ desktop/files/rootfs/usr/share/plymouth/themes/surface-debian/*.png
 desktop/files/boot-art/*.png
 
 programs/kakaotalk/files/*.png
+
+# Local workspace guidance.
+AGENT.md
+
+# Raw upstream research data remains in the offline bundle.
+drivers/files/touchscreen/research/*.dsl
+drivers/files/camera-quality/research/issue-*-comments.json
