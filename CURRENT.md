@@ -1,4 +1,6 @@
-# Current state — spi-hid v2 trial installed 21:47 (reboot pending)
+# Current state — spi-hid v2 verified 2026-11-12 23:59
+
+- v2 boot and lid cycle verified: kernel resume 1.41 s (v1 1.62 s, originally 4.76 s), touchpad restarted 2.3 s after wake, Wi-Fi connected 2.1 s after wake, KakaoTalk running in the background, sleep drain roughly ≤ 0.7 W (1 % over 43 min). See drivers/files/sleep/diagnostics/2026-11-12-231657/README.md.
 
 - Next boot: spi-hid v2 (0923360D0DE94E631C945EE) defers reset+settle entirely; GRUB fallback = verified v1 image (21:16). Old boot images deleted. KakaoTalk login autostart now boots only the Waydroid session (MessengerService runs, no window). Brightness lowered to ~25 % for the sleep-drain test.
 
