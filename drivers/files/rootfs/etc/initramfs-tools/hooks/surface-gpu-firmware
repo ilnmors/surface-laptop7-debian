@@ -2,6 +2,6 @@
 set -eu
 case "${1:-}" in prereqs) exit 0;; esac
 . /usr/share/initramfs-tools/hook-functions
-for file in /usr/lib/firmware/qcom/gen70500_sqe.fw /usr/lib/firmware/qcom/gen70500_gmu.bin; do
+for file in /usr/lib/firmware/qcom/gen70500_sqe.fw /usr/lib/firmware/qcom/gen70500_gmu.bin /usr/lib/firmware/qcom/x1e80100/microsoft/qcdxkmsuc8380.mbn /usr/lib/firmware/qcom/x1e80100/microsoft/Romulus/qcdxkmsuc8380.mbn; do
  if [ -f "$file" ] && [ ! -e "$DESTDIR$file" ]; then copy_file firmware "$file"; fi
 done

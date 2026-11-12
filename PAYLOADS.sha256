@@ -1918,7 +1918,7 @@ b40d87f38e119d0b84b2a00fa1372fdbf04872d7fff3a274de2c843805bae4b8  drivers/files/
 bd5b0662fbfbc0fdff7e3a1fbada2afe7ab0b793fe948b05c0e1a884b493e119  drivers/files/packages/sl7-audio-support_2026.11.10-1_arm64.deb
 c2abeaf74462b9ae0b30f90f5501b4b24f82ac0e18350d4cd111183e79c973eb  drivers/files/packages/sl7-camera-support_2026.11.10-1_arm64.deb
 4c65d614efc4cffae578a0f6b368cfea31079365dbe95d1a09db612157788eef  drivers/files/power/CPU-AND-DRIVER-CHECK.md
-21240ac66573cfa88e2285cb9a8fbd65018923c3c4101546ba5317fbe58f9b58  drivers/files/power/DRIVER-FOLLOWUP.md
+af14952e77459313d0f820ee59ce01e0eb3c4702eeac65e5cf7ac1fccde831ec  drivers/files/power/DRIVER-FOLLOWUP.md
 cf9d6e24cc69f9a6c4bdbf33185cb096d825ce0ef645ce7ddce281efce8f680a  drivers/files/power/OPTIMIZATION.md
 d779fdf859cccf9f57b10d18508aa9605c14f41beda9e6db5b9ce6f9fa6781a5  drivers/files/power/README.md
 38b410193e7b12583c91bec503d2e52451d112b57333c1da8f80792203d00388  drivers/files/power/battery-measurement.json
@@ -1931,7 +1931,7 @@ b8fd85789029b9de6b266445f82563032bb46badb358b10b808277aa989f6aa7  drivers/files/
 c6f306709c9cc04da04ea604ac7e777d5897713812a7869c5c81279cf0528029  drivers/files/power/tools/nvme-cli_2.13-2_arm64.deb
 bfc2c86882ca0bbadf06acb99bb3dd257c60552e9191ea7c5165d091b2a1f8e2  drivers/files/rootfs/etc/NetworkManager/conf.d/20-surface-wifi.conf
 ceba7e3203141ad2ad026471f3b201c3050e4b7af211ef718b3bad5095065854  drivers/files/rootfs/etc/initramfs-tools/hooks/surface-firmware
-18007bc0ca67eb138d53f00244506b3c3cbe4ebddbf69f932c1f7249511be791  drivers/files/rootfs/etc/initramfs-tools/hooks/surface-gpu-firmware
+d84035100b0d867e74eec60d3020258769d80ed4949b27df51b0b23197813f9a  drivers/files/rootfs/etc/initramfs-tools/hooks/surface-gpu-firmware
 bb7dca741dd89d09e08c22969e2c56a0b7e13f163bb4fd467b520d21527e51fd  drivers/files/rootfs/etc/initramfs-tools/hooks/surface-kernel-patches
 2c1ffc2088dd9e65f18e79f1e1b6d3fbcb815e75843ebed8142da6f96f89bbb0  drivers/files/rootfs/etc/iptsd.d/91-calibration-045E-0C77.conf
 8fc0f86a65497f07ae55036a7a1d51e81ff21405a1a5d576166c8f7d8621ce0b  drivers/files/rootfs/etc/modules-load.d/surface-cpufreq.conf

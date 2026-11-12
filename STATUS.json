@@ -2,6 +2,15 @@
   "progress": 95,
   "areas": [
     {
+      "group": "URGENT",
+      "title": "그래픽 깨짐 복구",
+      "status": "pending",
+      "label": "펌웨어 누락 수정 · 재부팅 검증 필요",
+      "finding": "이번 부팅에서 GPU zap shader 누락으로 초기화 실패·GMU timeout이 확인됐습니다. 초기 이미지에 누락 파일을 넣고 재생성·서명 검증했습니다. Waydroid 중지, 카카오 자동 시작 임시 중지, 화면 출력 재설정 완료.",
+      "next": "120Hz·배율은 유지했습니다. 현재 화면 정상 여부와 재부팅 후 GPU 초기화 확인은 남았습니다. 사용 중인 세션을 강제 종료하거나 재부팅하지 않았습니다.",
+      "path": "drivers/files/power/DRIVER-FOLLOWUP.md"
+    },
+    {
       "group": "BOOT",
       "title": "Secure Boot",
       "status": "ok",

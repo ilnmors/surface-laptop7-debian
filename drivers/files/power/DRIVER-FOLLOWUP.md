@@ -11,3 +11,9 @@ References:
 - https://lists.openwall.net/linux-kernel/2026/09/30/627 (touchscreen v2 rationale)
 - https://lists.openwall.net/linux-kernel/2026/11/02/735 (qmp-combo review)
 - matching local source drivers/pci/controller/dwc/pcie-qcom.c and drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+
+## Urgent display recovery after the next reboot
+
+The early GPU hook included gen70500 SQE/GMU but omitted the Microsoft qcdxkmsuc8380.mbn zap shader. The new boot logged zap_shader_load_mdt ENOENT, GPU hardware init failure and GMU OOB timeouts. Root firmware existed but was absent from initramfs. The earlier partial inclusion was insufficient.
+
+Fixed the installed/bundled hook to include both actual Microsoft shader paths, rebuilt initramfs and refreshed the signed kernel. Verified all four firmware entries and kernel signature. Kept 120Hz and original scale; performed temporary scale modeset and panel DPMS cycle. Disabled Night Light and Blur My Shell for recovery. Stopped Waydroid/container and temporarily disabled Kakao autostart (backup beside its desktop file). No session logout/reboot forced because unsaved work may exist. Visual recovery is not confirmed; a clean reboot is needed to verify GPU initialization. Do not restart Android automatically before that verification.
