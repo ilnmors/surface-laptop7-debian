@@ -1,5 +1,5 @@
 {
-  "progress": 70,
+  "progress": 80,
   "areas": [
     {
       "group": "RECOVERY",
@@ -13,10 +13,10 @@
     {
       "group": "CPU",
       "title": "CPU 클러스터·CPU9",
-      "status": "pending",
-      "label": "DVFS 복구 완료 · 10번째 코어 시험 부팅",
-      "finding": "SCMI cpufreq 보정으로 정책 하나에서 세 개로 복구했습니다. 현재 online은 0-8이며, CPU9용 물리 코어 주소 수정 DTB는 별도 서명 이미지에 준비했습니다.",
-      "next": "GRUB이 시험 이미지를 한 번 선택한 뒤 다음 부팅부터 안정 이미지로 돌아오도록 설정했습니다. 실제 0-9 online과 주파수 정책 확인 전에는 해결 완료로 표시하지 않습니다.",
+      "status": "ok",
+      "label": "10코어 검증 · 기본 부팅 승격",
+      "finding": "서명된 시험 이미지로 재부팅해 online 0-9와 세 클러스터 ondemand를 확인했습니다. Secure Boot enabled입니다.",
+      "next": "사용자 승인으로 검증된 DTB를 기본 부팅·오프라인 설치에 반영했습니다. 다음 재부팅은 기본 경로 사용 여부를 확인합니다. 이전 이미지로 복구할 수 있습니다.",
       "path": "drivers/files/cpu/README.md"
     },
     {
@@ -86,9 +86,9 @@
       "group": "HARDWARE",
       "title": "카메라 FPS·색감·노이즈",
       "status": "pending",
-      "label": "중립 색감 개선 · 노이즈 작업 보류",
-      "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다.",
-      "next": "커뮤니티 CCM은 분홍색 때문에 제외했습니다. 고게인 15.5x·노이즈 제거 부재를 확인했고 OV02C10 게인 간격 패치를 별도 시험했습니다. 1080p·노이즈 제거·시스템 통합은 사용자 요청으로 보류합니다. 현재 일반 앱의 시스템 libcamera는 기존 버전입니다.",
+      "label": "37.5fps 검증 · 기본 드라이버 승격",
+      "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다. 재부팅 후 새 모듈 08EF7452B0F555AA15FA25F 로드를 확인했습니다. 마지막 FPS: 37.46, 37.59, 37.48.",
+      "next": "재부팅에서 새 모듈로 90프레임 약 37.5fps·오류 0회를 확인한 뒤 기본 부팅·오프라인 빌드·설치에 반영했습니다. 노이즈·1080p·시스템 색 보정 통합은 보류입니다.",
       "path": "drivers/files/camera-quality/research/RESULTS.md"
     },
     {
@@ -104,9 +104,9 @@
       "group": "DESKTOP",
       "title": "Fluent·GNOME·터미널",
       "status": "pending",
-      "label": "Open Bar 설정 완료 · 다음 로그인 대기",
+      "label": "Open Bar ACTIVE · 하단 창 미리보기 적용",
       "finding": "GNOME 48 지원 Open Bar 49를 오프라인 보관·설치했습니다. 밝은 패널, 짙은 글자, 파란 강조색, 둥근 모서리와 메뉴를 설정했습니다. Vitals·Caffeine·트레이를 유지합니다. 하단 Dash to Dock은 밝은 둥근 배경·40px 아이콘·파란 실행 표시를 실시간 적용했습니다. 여러 창이 있는 앱을 클릭하면 창 미리보기에서 선택합니다.",
-      "next": "하단 독 설정값과 GNOME 스타일 오류 없음을 확인했습니다. 상단 Open Bar는 다음 로그인 후 확장 상태·외관 확인이 필요합니다.",
+      "next": "재로그인 후 Open Bar 49 ACTIVE를 확인했습니다. 외관 만족 여부는 사용자 확인이 필요합니다.",
       "path": "desktop/files/topbar/README.md"
     },
     {
@@ -133,7 +133,7 @@
       "status": "pending",
       "label": "모듈화 · 오프라인 검증",
       "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다. 로고·폰트·GPU 펌웨어 hook, Wi-Fi PS 및 카카오 로그인·키보드·라이트 모드 설정도 각 설치 단계에 반영했습니다.",
-      "next": "CPU 주파수 조절·Wi-Fi 수정은 기본 패치 설치와 오프라인 빌드에 반영했습니다. CPU9 토폴로지와 카메라 고속 드라이버는 1회 시험 부팅 단계이며 기본 설치 완료로 간주하지 않습니다. 색 보정은 별도 미리보기만 제공됩니다.",
+      "next": "CPU9 DTB·SCMI 주파수 조절·Wi-Fi regulatory·카메라 FPS 보정이 기본 설치 입력에 반영됐습니다. 개인 데이터·완전한 Steam 런타임·미해결 하드웨어까지 복원한다는 뜻은 아닙니다.",
       "path": "README.md"
     },
     {

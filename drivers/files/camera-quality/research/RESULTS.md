@@ -16,3 +16,7 @@ https://patchwork.libcamera.org/cover/28173/ and https://patchwork.libcamera.org
 https://patchwork.libcamera.org/cover/28096/ and https://patchwork.libcamera.org/patch/28103/ — GPU temporal denoise/frame-duration work for OV32C4, rejected upstream and not tested on this Surface. Requires a noise model and GPU-path validation; not installed.
 
 Deferred at user request: 1080p CMA allocation, validated temporal/spatial denoise, frame-duration/exposure tradeoff, integration into Firefox/PipeWire without disturbing working audio. No stored preview image or personal video is included.
+
+## Promoted after reboot verification
+
+The candidate loaded successfully after reboot and delivered approximately 37.5 fps over 90 frames with zero capture errors. On explicit user approval it was promoted into the standard signed boot and offline patch installer. Baseline source and 06-camera-fast-default.patch allow rebuilding it. This promotes frame timing only; noisy/pink experimental color profiles are not installed system-wide. Camera noise/1080p work stays deferred.

@@ -59,6 +59,14 @@
 #define OV02C10_REG_TEST_PATTERN		CCI_REG8(0x4503)
 #define OV02C10_TEST_PATTERN_ENABLE		BIT(7)
 
+/* Sensor readout and active image bounds for libcamera selection queries. */
+static const struct v4l2_rect ov02c10_native_area = {
+	.left = 0, .top = 0, .width = 1936, .height = 1096,
+};
+static const struct v4l2_rect ov02c10_active_area = {
+	.left = 4, .top = 2, .width = 1928, .height = 1092,
+};
+
 struct ov02c10_mode {
 	/* Frame width in pixels */
 	u32 width;
@@ -710,6 +718,7 @@ static int ov02c10_set_format(struct v4l2_subdev *sd,
 
 	ov02c10_update_pad_format(mode, &fmt->format);
 	*v4l2_subdev_state_get_format(sd_state, fmt->pad) = fmt->format;
+	*v4l2_subdev_state_get_crop(sd_state, fmt->pad) = ov02c10_active_area;
 
 	if (fmt->which == V4L2_SUBDEV_FORMAT_TRY)
 		return 0;
@@ -723,6 +732,28 @@ static int ov02c10_set_format(struct v4l2_subdev *sd,
 	__v4l2_ctrl_modify_range(ov02c10->hblank, h_blank, h_blank, 1, h_blank);
 
 	return 0;
+}
+
+static int ov02c10_get_selection(struct v4l2_subdev *sd,
+				struct v4l2_subdev_state *state,
+				struct v4l2_subdev_selection *sel)
+{
+	if (sel->pad != 0)
+		return -EINVAL;
+	switch (sel->target) {
+	case V4L2_SEL_TGT_CROP:
+		sel->r = *v4l2_subdev_state_get_crop(state, sel->pad);
+		return 0;
+	case V4L2_SEL_TGT_CROP_DEFAULT:
+		sel->r = ov02c10_active_area;
+		return 0;
+	case V4L2_SEL_TGT_CROP_BOUNDS:
+	case V4L2_SEL_TGT_NATIVE_SIZE:
+		sel->r = ov02c10_native_area;
+		return 0;
+	default:
+		return -EINVAL;
+	}
 }
 
 static int ov02c10_enum_mbus_code(struct v4l2_subdev *sd,
@@ -756,12 +787,10 @@ static int ov02c10_enum_frame_size(struct v4l2_subdev *sd,
 }
 
 static int ov02c10_init_state(struct v4l2_subdev *sd,
-			      struct v4l2_subdev_state *sd_state)
+			      struct v4l2_subdev_state *state)
 {
-	ov02c10_update_pad_format(&supported_modes[0],
-				  v4l2_subdev_state_get_format(sd_state, 0));
-
-	return 0;
+	struct v4l2_subdev_format fmt = { .which = V4L2_SUBDEV_FORMAT_TRY };
+	return ov02c10_set_format(sd, state, &fmt);
 }
 
 static const struct v4l2_subdev_video_ops ov02c10_video_ops = {
@@ -771,6 +800,7 @@ static const struct v4l2_subdev_video_ops ov02c10_video_ops = {
 static const struct v4l2_subdev_pad_ops ov02c10_pad_ops = {
 	.set_fmt = ov02c10_set_format,
 	.get_fmt = v4l2_subdev_get_fmt,
+	.get_selection = ov02c10_get_selection,
 	.enum_mbus_code = ov02c10_enum_mbus_code,
 	.enum_frame_size = ov02c10_enum_frame_size,
 	.enable_streams = ov02c10_enable_streams,

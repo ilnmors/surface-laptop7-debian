@@ -13,8 +13,9 @@ patch --batch --fuzz=0 -d "$work/source" -p1 < "$folder/../../drivers/files/cpu/
 printf 'obj-m += scmi-cpufreq.o\n' > "$work/source/drivers/cpufreq/Makefile"
 printf 'obj-m += dwc3-qcom.o\n' > "$work/source/drivers/usb/dwc3/Makefile"
 printf 'obj-m += soundwire-qcom.o\nsoundwire-qcom-y := qcom.o\n' > "$work/source/drivers/soundwire/Makefile"
+printf 'obj-m += ov02c10.o\n' > "$work/source/drivers/media/i2c/Makefile"
 headers=$work/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e
-for sub in drivers/usb/dwc3 drivers/soundwire drivers/cpufreq; do
+for sub in drivers/usb/dwc3 drivers/soundwire drivers/cpufreq drivers/media/i2c; do
   make -C "$headers" M="$work/source/$sub" CC="${CC:-gcc-14}" -j4 modules
 done
 echo 'Unsigned modules built. Install and sign them with the target machine key before rebooting.'

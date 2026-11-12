@@ -1,0 +1,20 @@
+{
+  "cpu_online": "0-9",
+  "policies": [
+    "0-3 ondemand",
+    "4-6 ondemand",
+    "7-9 ondemand"
+  ],
+  "secure_boot": true,
+  "open_bar": "ACTIVE",
+  "wifi_https": 200,
+  "camera_last_fps": [
+    "37.42",
+    "37.32",
+    "37.46",
+    "37.59",
+    "37.48"
+  ],
+  "camera_errors": 0,
+  "boot": "one-shot trial; not promoted"
+}

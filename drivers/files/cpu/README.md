@@ -11,3 +11,7 @@ CPU9: the current DTB addresses physical 20300, which firmware rejects with PSCI
 `/boot/secureboot/trial-cpu-camera/` contains a separately signed kernel, corrected CPU DTB and trial camera module in its initramfs. GRUB next_entry selects it once and clears the selection before boot. Subsequent boots default to the stable image. A previous image is retained under `/boot/secureboot/rollback-20261112/` and appears in the four-second GRUB menu. The installed signing helper supports separate output/DTB with `--no-bootloader-update`.
 
 After reboot: check `/sys/devices/system/cpu/online` (expected 0-9), three cpufreq policies, Secure Boot, Wi-Fi, camera frames and Open Bar extension errors. Do not promote the trial DTB merely because its signature verifies. Run `restore-previous-boot.sh` as root only to restore the pre-trial boot snapshot and remove these three overrides.
+
+## Promotion after hardware verification
+
+The one-shot boot succeeded with CPUs 0-9 online, three ondemand policies, Secure Boot enabled, Wi-Fi HTTPS 200 and the camera at 37.5 fps over 90 frames without errors. The user authorized promotion. The verified topology is now /boot/surface-sl7-xplus.dtb and the kernel installer's offline DTB payload. The preserved-metadata camera module is now in the default patches payload and offline build. The normal signed image/initramfs is rebuilt; no one-shot selection remains. Previous working signed images and restore-previous-boot scripts remain available.

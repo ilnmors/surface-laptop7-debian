@@ -167,6 +167,12 @@ def build_kernel(kernel, state, dtb_path, output, update_bootloader=True):
         f" initrd {boot_prefix}/secureboot/initrd.img-{kernel}\n"
         "}\n"
     )
+    rollback = output / "rollback-20261112"
+    if (rollback / "vmlinuz-surface-signed.efi").exists() and (rollback / ("initrd.img-" + kernel)).exists():
+        entry = grub[grub.index("menuentry"):]
+        grub += entry.replace("Debian Surface - signed kernel", "Surface previous working image").replace(
+            "/secureboot/vmlinuz-", "/secureboot/rollback-20261112/vmlinuz-").replace(
+            "/secureboot/initrd.", "/secureboot/rollback-20261112/initrd.")
     (output / "grub.cfg").write_text(grub)
     run("grub-script-check", str(output / "grub.cfg"))
     efi_config = Path("/boot/efi/EFI/debian/grub.cfg")
