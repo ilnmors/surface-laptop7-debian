@@ -1,0 +1,22 @@
+{
+  "boot": "2026-11-12 09:31:05",
+  "secure_boot": true,
+  "lockdown": "integrity",
+  "dwc3_qcom_srcversion": "8554A2970EC29806E65733C",
+  "soundwire_qcom_srcversion": "3D22555E212EACB6FA11473",
+  "touchpad_user_feedback": "much improved after reboot",
+  "display_hz": 120,
+  "panel_vrr_range": [
+    24,
+    120
+  ],
+  "drm_vrr_capable_property": false,
+  "wifi_ps_trial": "enabled; link remains connected; no driver failure/crash/timeout logged so far",
+  "governor": "ondemand restored after temporary schedutil test; charging prevents energy comparison",
+  "offline_update": {
+    "package": "libopenexr-3-1-30",
+    "from": "3.1.13-2",
+    "to": "3.2.12-1~deb13u1",
+    "success": true
+  }
+}

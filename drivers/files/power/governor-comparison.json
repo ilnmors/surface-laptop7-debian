@@ -1,0 +1,130 @@
+{
+  "original_governor": "ondemand",
+  "note": "Short sequential observation; workloads are not controlled, so watt deltas are not a proven saving.",
+  "ondemand": [
+    {
+      "freq_khz": 1440000,
+      "power_w": 40.947,
+      "load1": 0.4013671875
+    },
+    {
+      "freq_khz": 3417600,
+      "power_w": 40.947,
+      "load1": 0.4013671875
+    },
+    {
+      "freq_khz": 2188800,
+      "power_w": 40.947,
+      "load1": 0.4013671875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.4013671875
+    },
+    {
+      "freq_khz": 3417600,
+      "power_w": 40.947,
+      "load1": 0.4013671875
+    },
+    {
+      "freq_khz": 998400,
+      "power_w": 40.947,
+      "load1": 0.369140625
+    },
+    {
+      "freq_khz": 1440000,
+      "power_w": 40.947,
+      "load1": 0.369140625
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.369140625
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.369140625
+    },
+    {
+      "freq_khz": 998400,
+      "power_w": 40.947,
+      "load1": 0.369140625
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.33935546875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.33935546875
+    }
+  ],
+  "schedutil": [
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.33935546875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.33935546875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.33935546875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.31201171875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.31201171875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.31201171875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.31201171875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.31201171875
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.28662109375
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.28662109375
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.28662109375
+    },
+    {
+      "freq_khz": 806400,
+      "power_w": 40.947,
+      "load1": 0.28662109375
+    }
+  ],
+  "power_measurement_valid": false,
+  "power_caveat": "External power/charging was present; absolute battery power is charging power, not system drain. Do not compare these watt readings or claim a battery saving."
+}

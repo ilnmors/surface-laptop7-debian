@@ -43,7 +43,12 @@ for a,b in zip(rate,rate[1:]):
  if 0<dt<=120 and a[2]==b[2]==2 and a[1]>0 and b[1]>0 and not any(a[0]<end and b[0]>start for start,end in sleeps):
   energy+=(a[1]+b[1])/2*dt;seconds+=dt;samples+=1
 result={'captured_at':datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),'full_wh':full,'design_wh':design,'health_percent':full/design*100,'current_energy_wh':value('energy_now')/1e6,'instant_power_w':abs(value('power_now')/1e6),'sleep_intervals':rows,'awake_weighted_mean_w':energy/seconds if seconds else None,'awake_sampled_hours':seconds/3600,'awake_intervals':samples,'method':'UPower discharging intervals only; rate trapezoids <=120s, excluding any suspend overlap. Sleep charge samples must be within 120s of both boundaries; >=10 minute sessions only. Percent is quantized; estimates include boundary transition uncertainty.','sources':['https://learn.microsoft.com/en-us/surface/tech-specs/surface-laptop-snapdragon-tech-specs','https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/modern-standby-sleepstudy','https://learn.microsoft.com/en-us/windows-hardware/test/hlk/testref/36463e42-7d6e-408e-933f-dbf56ea41e65']}
-folder=r/'drivers/files/power';folder.mkdir(exist_ok=True);(folder/'battery-measurement.json').write_text(json.dumps(result,indent=2)+'\n')
+folder=r/'drivers/files/power';folder.mkdir(exist_ok=True)
+archive=folder/'measurements';archive.mkdir(exist_ok=True)
+(archive/(datetime.now().strftime('%Y-%m-%d-%H%M%S')+'.json')).write_text(json.dumps(result,indent=2)+'\n')
+if result['awake_weighted_mean_w'] is not None and any(row.get('eligible') for row in rows):
+ (folder/'battery-measurement.json').write_text(json.dumps(result,indent=2)+'\n')
+else:print('No complete discharging sleep/awake comparison: preserving the previous report baseline.')
 print(json.dumps({k:v for k,v in result.items() if k!='sleep_intervals'},indent=2))
 for row in rows:
  if row.get('eligible'):print('SLEEP',json.dumps(row))
