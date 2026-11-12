@@ -1,4 +1,8 @@
-# Current state — promoted 2026-11-12, default boot verified 19:25
+# Current state — next boot is a spi-hid/PCIe3 trial (installed 19:41)
+
+- Installed for the next boot: deferred-resume spi-hid.ko (F78320E76D9CB9AFF42A4E8) and DTB with unused pcie3 (1bd0000) disabled; signed image/initramfs rebuilt. The 19:25 verified image is GRUB "Surface previous working image" (/boot/secureboot/rollback-20261112); the pre-CPU image moved to rollback-20261112-pre-cpu (no menu entry).
+
+## Verified before the trial
 
 - Default boot verified: signed default image (not trial), CPUs 0-9 with three ondemand policies, Secure Boot, ath12k D044C56077CC5357DC3F5BF / ov02c10 08EF7452B0F555AA15FA25F (fast_video=Y), camera 720p 37.46 fps over 90 frames, Wi-Fi-bound HTTPS 200 (kernel log later read as root: no beacon loss; regulatory/L2/APM warnings listed in drivers/files/sleep/diagnostics/2026-11-12-192713), Open Bar 49 ACTIVE, dock click-action=previews. The IPASoft sensor-helper warning is expected (helper patch rolled back after flicker).
 - Deep cycle 19:27 succeeded: kernel resume 4.76 s (spi_hid fixed 2 s wait 2.455 s, empty PCIe 1bd0000 1.07 s), Wi-Fi reconnect ~2.1 s, no audio errors. See drivers/files/sleep/diagnostics/2026-11-12-192713/README.md.

@@ -1,4 +1,11 @@
-# Next (after 19:25 default-boot verification)
+# Next: verify the spi-hid/PCIe3 trial boot
+
+1. After reboot: cmdline default image; CPU 0-9; Secure Boot; spi_hid srcversion F78320E76D9CB9AFF42A4E8; no pcie 1bd0000 device; Wi-Fi HTTPS; touchpad works after boot.
+2. Manual lid cycle: touchpad works ~2 s after wake; resume phases (expect dpm_resume ≈ 0.1 s, noirq ≈ 0.6 s); Wi-Fi reconnect; audio. Save the armed trace (pkexec).
+3. If it fails: GRUB → "Surface previous working image", then pkexec bash drivers/files/touchpad/spi-hid-resume/restore.sh.
+4. Once the new image is confirmed good: DELETE the old boot images (user decision): /boot/secureboot/rollback-20261112 ("previous working image"), rollback-20261112-pre-cpu, previous/ and trial-cpu-camera/, and drop the GRUB rollback entry from surface-secureboot-update. Then switch kernel/setup.sh to drivers/files/pcie/surface-sl7-xplus-pcie3-off.dtb and the spi-hid patch into the offline installer.
+
+# Earlier (after 19:25 default-boot verification)
 
 - Default-boot verification is complete; see CURRENT.md. Deep cycle verified 19:27 (see sleep/diagnostics/2026-11-12-192713). Candidate resume fixes: move spi_hid fixed msleep(2000) out of the system resume callback (rebuild/sign spi-hid.ko, keep rollback); investigate empty PCIe 1bd0000 before any DT disable. Remaining: battery discharge with matched conditions, camera noise/1080p (deferred), touchscreen (open), Fn lock (open), Kakao notification body (pending).
 

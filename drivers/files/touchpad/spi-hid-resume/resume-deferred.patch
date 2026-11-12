@@ -1,0 +1,68 @@
+--- a/spi-hid-core.c	2026-11-04 15:58:47.000000000 +0900
++++ b/spi-hid-core.c	2026-11-12 19:37:43.891152928 +0900
+@@ -514,6 +514,7 @@
+ }
+ 
+ static int spi_hid_create_device(struct spi_hid *shid);
++static void spi_hid_resume_work(struct work_struct *work);
+ 
+ static void spi_hid_reset_work(struct work_struct *work)
+ {
+@@ -977,6 +978,7 @@
+ 	complete(&shid->output_done);
+ 
+ 	INIT_WORK(&shid->reset_work, spi_hid_reset_work);
++	INIT_WORK(&shid->resume_work, spi_hid_resume_work);
+ 	INIT_WORK(&shid->create_device_work, spi_hid_create_device_work);
+ 	INIT_WORK(&shid->refresh_device_work, spi_hid_refresh_device_work);
+ 
+@@ -1069,6 +1071,7 @@
+ static void spi_hid_quiesce(struct spi_hid *shid)
+ {
+ 	WRITE_ONCE(shid->suspended, true);
++	cancel_work_sync(&shid->resume_work);
+ 
+ 	/* Drain a raw request already holding the request mutex. */
+ 	mutex_lock(&shid->lock);
+@@ -1110,7 +1113,10 @@
+ 		spi_hid_power_down(shid);
+ 		goto out;
+ 	}
+-	msleep(2000);
++	/* Firmware still needs 2 s after reset; wait in resume_work instead
++	 * of blocking the whole system resume.
++	 */
++	shid->settle_until = jiffies + msecs_to_jiffies(2000);
+ 
+ 	shid->attempts = 0;
+ 	shid->bus_error_count = 0;
+@@ -1158,6 +1164,18 @@
+ 		return;
+ 	shid->resume_pending = false;
+ 	WRITE_ONCE(shid->suspended, false);
++	schedule_work(&shid->resume_work);
++}
++
++static void spi_hid_resume_work(struct work_struct *work)
++{
++	struct spi_hid *shid = container_of(work, struct spi_hid, resume_work);
++	long left = (long)(shid->settle_until - jiffies);
++
++	if (left > 0)
++		msleep(jiffies_to_msecs(left));
++	if (READ_ONCE(shid->suspended))
++		return;
+ 	if (!cmpxchg(&shid->irq_enabled, false, true))
+ 		enable_irq(shid->spi->irq);
+ 
+--- a/spi-hid-core.h	2026-11-04 15:58:47.000000000 +0900
++++ b/spi-hid-core.h	2026-11-12 19:37:20.605045645 +0900
+@@ -126,6 +126,8 @@
+ 	struct pinctrl_state *pinctrl_active;
+ 	struct pinctrl_state *pinctrl_sleep;
+ 	struct work_struct reset_work;
++	struct work_struct resume_work;
++	unsigned long settle_until;
+ 	struct work_struct create_device_work;
+ 	struct work_struct refresh_device_work;
+ 
