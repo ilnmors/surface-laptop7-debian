@@ -7,16 +7,16 @@
       "status": "pending",
       "label": "regulatory 수정 적용 · 반복 장애 추적",
       "finding": "Surface RFKILL 보정 두 개를 보존한 ath12k D044C56077CC5357DC3F5BF를 서명·로드했습니다. 차단 없음·인증·IP 할당·반복 Wi-Fi 지정 HTTPS 200을 확인했고 오프라인 재빌드도 같은 srcversion을 재현했습니다.",
-      "next": "regulatory 이벤트가 버려질 때 완료 통지가 누락되는 상류 수정을 적용했습니다. 비콘 손실과 송신 큐 오류의 최초 원인은 아직 확정하지 못했습니다. 재부팅·절전 후 재발 확인이 필요합니다.",
+      "next": "기본 부팅에서 ath12k D044C56077CC5357DC3F5BF로 Wi-Fi 지정 HTTPS 200을 확인했고 이번 부팅 비콘 손실·송신 오류 로그는 0건입니다. 최초 원인은 미확정이므로 절전 복귀 후 재발 여부를 계속 확인합니다.",
       "path": "patches/files/wifi-regulatory/known-good/README.md"
     },
     {
       "group": "CPU",
       "title": "CPU 클러스터·CPU9",
       "status": "ok",
-      "label": "10코어 검증 · 기본 부팅 승격",
+      "label": "10코어 · 기본 부팅 재검증 완료",
       "finding": "서명된 시험 이미지로 재부팅해 online 0-9와 세 클러스터 ondemand를 확인했습니다. Secure Boot enabled입니다.",
-      "next": "사용자 승인으로 검증된 DTB를 기본 부팅·오프라인 설치에 반영했습니다. 다음 재부팅은 기본 경로 사용 여부를 확인합니다. 이전 이미지로 복구할 수 있습니다.",
+      "next": "2026-11-12 19:25 기본 서명 이미지(vmlinuz-surface-signed.efi)로 부팅해 online 0-9, 세 정책 ondemand 710–3417MHz, Secure Boot 활성을 재확인했습니다. 커널 err 로그 0건. 이전 이미지는 복구용으로 유지합니다.",
       "path": "drivers/files/cpu/README.md"
     },
     {
@@ -86,9 +86,9 @@
       "group": "HARDWARE",
       "title": "카메라 FPS·색감·노이즈",
       "status": "pending",
-      "label": "37.5fps 검증 · 기본 드라이버 승격",
+      "label": "37.5fps · 기본 부팅 재검증 완료",
       "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다. 재부팅 후 새 모듈 08EF7452B0F555AA15FA25F 로드를 확인했습니다. 마지막 FPS: 37.46, 37.59, 37.48.",
-      "next": "재부팅에서 새 모듈로 90프레임 약 37.5fps·오류 0회를 확인한 뒤 기본 부팅·오프라인 빌드·설치에 반영했습니다. 노이즈·1080p·시스템 색 보정 통합은 보류입니다.",
+      "next": "기본 부팅에서 ov02c10 08EF7452B0F555AA15FA25F(fast_video=Y)로 720p 90프레임 평균 37.46fps를 재확인했습니다. sensor helper 경고는 깜빡임으로 롤백한 libcamera 패치 때문이며 예상된 상태입니다. 노이즈·1080p·시스템 색 보정 통합은 보류입니다.",
       "path": "drivers/files/camera-quality/research/RESULTS.md"
     },
     {

@@ -1,4 +1,8 @@
-# Next: verify the promoted default boot
+# Next (after 19:25 default-boot verification)
+
+- Default-boot verification is complete; see CURRENT.md. Remaining: user-initiated suspend cycle (Wi-Fi/audio/beacon loss after resume), battery discharge with matched conditions, camera noise/1080p (deferred), touchscreen (open), Fn lock (open), Kakao notification body (pending).
+
+Previous checklist (completed):
 
 - User authorized promotion after the one-shot CPU/camera boot succeeded. Verify /proc/cmdline uses /secureboot/vmlinuz-surface-signed.efi (not trial-cpu-camera), CPU online 0-9, three ondemand policies, Secure Boot, camera 37.5fps and Wi-Fi HTTPS.
 - Open Bar is ACTIVE after login. Bottom dock has light styling and click-action=previews.
