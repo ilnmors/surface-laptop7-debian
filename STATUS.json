@@ -114,7 +114,7 @@
       "title": "console.yaml · console.md",
       "status": "ok",
       "label": "저장소 역할 분리",
-      "finding": "Caddy·code-server·확장 설정은 repository에 있습니다. Kopia의 workspace 백업 정책·공통 시간표·Persistent timer는 repository에만 추가했고 현재 Surface에는 적용하지 않았습니다.",
+      "finding": "Caddy·code-server·확장 설정은 repository에 있습니다. Kopia의 workspace 백업 정책·공통 시간표·Persistent timer는 repository에만 추가했고 현재 Surface에는 적용하지 않았습니다. code-server 기본 확장 4개는 이제 서비스 inventory 대신 packages role 내부에서 관리합니다.",
       "next": "console playbook 전체는 현재 일부 적용된 서비스보다 범위가 넓고 SSH CA 변경 등도 포함됩니다. Surface 하드웨어/테마/Android를 대신 설치하지 않습니다.",
       "path": "../repository/docs/console.md"
     },
