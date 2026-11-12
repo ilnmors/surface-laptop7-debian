@@ -24,3 +24,9 @@ Rollback at boot: choose "Surface previous working image" in GRUB (hold Esc). Af
 ## Result (21:22 lid cycle)
 
 Kernel resume (machine_suspend → thaw) 1.617 s, down from 4.76 s: noirq 0.628 s, early 0.520 s, dpm_resume 0.443 s. spi_hid callback 0.415 s (reset assert + power-up only). Touchpad hidraw present within 6 s of wake; Wi-Fi reconnected 2.0 s after NetworkManager wake. kernel/setup.sh installs this module over the kernel package copy.
+
+## v2 (installed 21:47, next-boot trial)
+
+The 21:22 result still spent 0.415 s in the spi_hid resume callback (300 ms reset assert + power-up). v2 moves the whole hardware restart into resume_work: resume() only resets driver state and marks the re-probe pending; resume_work (queued from .complete) asserts reset 300 ms, powers up, waits 2 s, enables the IRQ and queues reset_work. Expected callback time ≈ 0 and kernel resume ≈ 1.2 s; touchpad ready ≈ 2.3 s after wake. srcversion 0923360D0DE94E631C945EE; resume-deferred.patch is now the cumulative v2 change against source/. The module is stripped of debug info (44 KB instead of 715 KB) before signing.
+
+install.sh now copies whatever signed image is running into /boot/secureboot/rollback-20261112 (GRUB "Surface previous working image") before installing. At 21:47 that is the verified v1 image (spi-hid F78320E76D9CB9AFF42A4E8). Older images (pre-cpu, previous, trial-cpu-camera, 19:25 rollback) were deleted at the user's request; /boot went from 47 % to 33 % used.

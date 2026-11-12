@@ -17,7 +17,7 @@ Verification: official signer, ABI, Android version, installed base/splits and t
 
 ## GNOME login integration
 
-setup.sh now installs launch.py/launch.sh into ~/.local/share/surface/programs/kakaotalk, creates ~/.local/bin/kakaotalk, updates the existing individual app desktop entry, and adds ~/.config/autostart/kakaotalk.desktop. Login waits eight seconds before starting the session/app. This launcher does not install APKs, reset app data, or open the full Android desktop. Existing account state is retained.
+setup.sh now installs launch.py/launch.sh into ~/.local/share/surface/programs/kakaotalk, creates ~/.local/bin/kakaotalk, updates the existing individual app desktop entry, and adds ~/.config/autostart/kakaotalk.desktop. Login waits eight seconds, then starts only the Waydroid session; no KakaoTalk window opens. Verified 2026-11-12: after a session start without app launch, com.kakao.talk runs with .service.MessengerService and no activity (boot receiver path). Opening the app from GNOME still uses the same launcher without --autostart. This launcher does not install APKs, reset app data, or open the full Android desktop. Existing account state is retained.
 
 Run `python3 programs/kakaotalk/integrate.py` to install only desktop/startup integration without reinstalling the app. Add --disable-autostart to disable login startup. A startup call with an existing session was verified; the next physical GNOME login remains to be observed.
 

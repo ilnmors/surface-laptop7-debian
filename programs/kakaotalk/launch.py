@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Start KakaoTalk's individual Waydroid window, preserving Android app data."""
+"""Start KakaoTalk's individual Waydroid window, preserving Android app data.
+
+--autostart only boots the Waydroid session: KakaoTalk's boot receiver then starts its
+MessengerService in the background without opening a window."""
 from pathlib import Path
 import argparse,fcntl,os,subprocess,time
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--autostart',action='store_true');a=p.parse_args()
@@ -17,4 +20,5 @@ with (state/'launch.lock').open('w') as lock:
   if ready.returncode==0 and ready.stdout.strip()=='1':break
   time.sleep(1)
  else:raise SystemExit('Waydroid did not become ready; inspect '+str(state/'waydroid-session.log'))
+ if a.autostart:raise SystemExit(0)
  subprocess.run(['waydroid','app','launch','com.kakao.talk'],check=True)

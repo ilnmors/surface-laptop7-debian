@@ -1,4 +1,12 @@
-# Next: spi-hid/PCIe3 trial verified (21:22) — remaining
+# Next: verify spi-hid v2 and measure sleep drain
+
+1. After reboot: spi_hid srcversion 0923360D0DE94E631C945EE, touchpad works, Kakao window does NOT open but com.kakao.talk + MessengerService run (pkexec waydroid shell), Secure Boot, CPU 0-9, no pcie3.
+2. Lid cycle: spi_hid callback ≈ 0, kernel resume ≈ 1.2 s, touchpad back ≈ 2.3 s.
+3. Sleep drain: record energy_now before closing the lid, keep it closed ≥ 30 min on battery, compare on wake (Wi-Fi off/on not changed).
+4. Failure: GRUB "Surface previous working image" (v1), then pkexec bash drivers/files/touchpad/spi-hid-resume/restore.sh.
+Old boot images were already deleted (step 4 of the v1 checklist below is done).
+
+# Earlier: spi-hid/PCIe3 trial verified (21:22)
 
 Done: steps 1-2 below (resume 1.62 s). Pending: discharge measurement on battery with matched brightness/apps; user confirmation, then step 4 deletion of old boot images.
 

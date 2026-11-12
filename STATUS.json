@@ -40,10 +40,10 @@
     {
       "group": "POWER",
       "title": "deep 절전과 복귀",
-      "status": "ok",
-      "label": "deep 복귀 4.76초 → 1.62초",
+      "status": "pending",
+      "label": "1.62초 확인 · v2(추가 0.4초 단축) 재부팅 대기",
       "finding": "터치패드 spi_hid의 고정 2초 대기를 작업 큐로 옮기고 장치 없는 pcie3를 DTB에서 껐습니다. 21:22 절전 복귀에서 커널 복귀 1.62초(이전 4.76초), spi_hid 0.415초, Wi-Fi 재연결 약 2.0초, 터치패드 정상 복귀를 확인했습니다.",
-      "next": "오프라인 설치(kernel/setup.sh)에 새 DTB·모듈을 반영했습니다. 사용자 확인 후 이전 부팅 이미지(previous working image 등)를 삭제합니다.",
+      "next": "터치패드 리셋 300ms까지 작업 큐로 옮긴 v2(0923360…)를 서명 이미지에 넣었습니다. 재부팅·절전 1회로 확인합니다. 이전 부팅 이미지는 삭제했고 v1 이미지를 GRUB 복구 항목으로 유지합니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-192713/README.md"
     },
     {
@@ -113,9 +113,9 @@
       "group": "ANDROID",
       "title": "Waydroid·KakaoTalk",
       "status": "ok",
-      "label": "로그인 자동 실행·백그라운드 통합",
+      "label": "카카오톡 로그인 시 백그라운드 시작",
       "finding": "카카오톡 개별 창을 GNOME 로그인 8초 뒤 자동 실행합니다. 앱 로그인 데이터는 보존하며, 사용자가 창을 닫아도 수신하도록 Android 자동 컨테이너 절전 해제·카카오 idle 예외·알림 권한을 적용했습니다.",
-      "next": "채팅 설정의 Press Enter to Send가 꺼져 있던 것을 확인했고 사용자가 수정 후 정상 전송을 확인했습니다. 개인 계정·대화 데이터는 Surface에 보관하지 않습니다.",
+      "next": "로그인 자동 시작은 Waydroid 세션만 올리고 카카오톡 창을 띄우지 않습니다. 세션 재시작 시 MessengerService가 창 없이 실행되는 것을 확인했습니다. 실제 수신 알림은 다음 메시지로 확인합니다.",
       "path": "programs/kakaotalk/README.md"
     },
     {

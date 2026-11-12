@@ -1,4 +1,8 @@
-# Current state — spi-hid/PCIe3 change verified 21:22
+# Current state — spi-hid v2 trial installed 21:47 (reboot pending)
+
+- Next boot: spi-hid v2 (0923360D0DE94E631C945EE) defers reset+settle entirely; GRUB fallback = verified v1 image (21:16). Old boot images deleted. KakaoTalk login autostart now boots only the Waydroid session (MessengerService runs, no window). Brightness lowered to ~25 % for the sleep-drain test.
+
+## Verified 21:22 (v1)
 
 - Verified 21:16 boot + 21:22 lid cycle: kernel resume 1.62 s (was 4.76 s), CPU 0-9, Secure Boot, spi_hid F78320E76D9CB9AFF42A4E8, no pcie3 device, Wi-Fi HTTPS 200 and reconnect ~2.0 s, touchpad back after wake. Installer now uses the PCIe3-off DTB and this module. Boot-time panel-edp "unknown panel" WARN noted (unrelated driver; not yet compared with earlier boots). Battery comparison pending (was charging).
 - Installed: deferred-resume spi-hid.ko (F78320E76D9CB9AFF42A4E8) and DTB with unused pcie3 (1bd0000) disabled; signed image/initramfs rebuilt. The 19:25 verified image is GRUB "Surface previous working image" (/boot/secureboot/rollback-20261112); the pre-CPU image moved to rollback-20261112-pre-cpu (no menu entry).

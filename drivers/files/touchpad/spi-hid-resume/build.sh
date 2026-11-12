@@ -9,4 +9,5 @@ for package in "$here"/../../../../patches/files/headers/*.deb; do dpkg-deb -x "
 cp -a "$here/source" "$work/spi-hid"
 patch --batch --fuzz=0 -d "$work/spi-hid" -p1 < "$here/resume-deferred.patch"
 make -C "$work/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e" M="$work/spi-hid" CC="${CC:-gcc-14}" modules
+strip --strip-debug "$work/spi-hid/spi-hid.ko"
 echo "$work/spi-hid/spi-hid.ko"

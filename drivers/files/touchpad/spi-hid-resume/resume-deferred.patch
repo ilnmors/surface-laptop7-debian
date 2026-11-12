@@ -1,5 +1,5 @@
---- a/spi-hid-core.c	2026-11-04 15:58:47.000000000 +0900
-+++ b/spi-hid-core.c	2026-11-12 19:37:43.891152928 +0900
+--- a/spi-hid-core.c	2026-11-12 19:39:22.440370182 +0900
++++ b/spi-hid-core.c	2026-11-12 21:46:34.119337322 +0900
 @@ -514,6 +514,7 @@
  }
  
@@ -24,19 +24,55 @@
  
  	/* Drain a raw request already holding the request mutex. */
  	mutex_lock(&shid->lock);
-@@ -1110,7 +1113,10 @@
- 		spi_hid_power_down(shid);
+@@ -1087,9 +1090,13 @@
+ 	shid->power_state = SPI_HID_POWER_MODE_OFF;
+ }
+ 
+-static int spi_hid_resume(struct device *dev)
++/* Reset and power the touchpad, then give its firmware 2 s to boot.
++ * Runs from resume_work so the reset (300 ms) and settle (2 s) do not
++ * block system resume.
++ */
++static int spi_hid_restart_hw(struct spi_hid *shid)
+ {
+-	struct spi_hid *shid = dev_get_drvdata(dev);
++	struct device *dev = &shid->spi->dev;
+ 	int ret;
+ 
+ 	/* The parent controller resumes before its SPI child. */
+@@ -1111,6 +1118,15 @@
  		goto out;
  	}
--	msleep(2000);
-+	/* Firmware still needs 2 s after reset; wait in resume_work instead
-+	 * of blocking the whole system resume.
-+	 */
-+	shid->settle_until = jiffies + msecs_to_jiffies(2000);
+ 	msleep(2000);
++	dev_info(dev, "Surface PM: hardware restarted\n");
++out:
++	pm_runtime_put(dev->parent);
++	return ret;
++}
++
++static int spi_hid_resume(struct device *dev)
++{
++	struct spi_hid *shid = dev_get_drvdata(dev);
  
  	shid->attempts = 0;
  	shid->bus_error_count = 0;
-@@ -1158,6 +1164,18 @@
+@@ -1122,12 +1138,10 @@
+ 	shid->power_state = SPI_HID_POWER_MODE_ACTIVE;
+ 	complete_all(&shid->output_done);
+ 
+-	/* Do not register a new HID child while device resume is in progress. */
++	/* Hardware restart and HID re-probe run from resume_work after .complete. */
+ 	shid->resume_pending = true;
+-	dev_info(dev, "Surface PM: hardware restarted; HID re-probe pending\n");
+-out:
+-	pm_runtime_put(dev->parent);
+-	return ret;
++	dev_info(dev, "Surface PM: hardware restart deferred; HID re-probe pending\n");
++	return 0;
+ }
+ 
+ static int spi_hid_suspend(struct device *dev)
+@@ -1158,6 +1172,21 @@
  		return;
  	shid->resume_pending = false;
  	WRITE_ONCE(shid->suspended, false);
@@ -46,23 +82,25 @@
 +static void spi_hid_resume_work(struct work_struct *work)
 +{
 +	struct spi_hid *shid = container_of(work, struct spi_hid, resume_work);
-+	long left = (long)(shid->settle_until - jiffies);
++	int ret;
 +
-+	if (left > 0)
-+		msleep(jiffies_to_msecs(left));
++	ret = spi_hid_restart_hw(shid);
++	if (ret) {
++		dev_err(&shid->spi->dev, "Surface PM: hardware restart failed: %d\n", ret);
++		return;
++	}
 +	if (READ_ONCE(shid->suspended))
 +		return;
  	if (!cmpxchg(&shid->irq_enabled, false, true))
  		enable_irq(shid->spi->irq);
  
---- a/spi-hid-core.h	2026-11-04 15:58:47.000000000 +0900
-+++ b/spi-hid-core.h	2026-11-12 19:37:20.605045645 +0900
-@@ -126,6 +126,8 @@
+--- a/spi-hid-core.h	2026-11-12 19:39:22.440449400 +0900
++++ b/spi-hid-core.h	2026-11-12 21:46:34.119200760 +0900
+@@ -126,6 +126,7 @@
  	struct pinctrl_state *pinctrl_active;
  	struct pinctrl_state *pinctrl_sleep;
  	struct work_struct reset_work;
 +	struct work_struct resume_work;
-+	unsigned long settle_until;
  	struct work_struct create_device_work;
  	struct work_struct refresh_device_work;
  
