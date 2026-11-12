@@ -41,3 +41,5 @@ Gio.Settings.sync()
 PY
 sudo plymouth-set-default-theme surface-debian
 if [[ -d /lib/modules/$(uname -r) ]]; then sudo update-initramfs -u -k "$(uname -r)"; fi
+
+gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false

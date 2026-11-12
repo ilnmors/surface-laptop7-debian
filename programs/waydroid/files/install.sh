@@ -19,6 +19,7 @@ p=Path('/var/lib/waydroid/waydroid.cfg');c=configparser.ConfigParser();c.read(p)
 if not c.has_section('properties'):c.add_section('properties')
 c['properties']['persist.waydroid.multi_windows']='true'
 c['properties']['ro.build.characteristics']='tablet'
+c['properties']['persist.waydroid.suspend']='false'
 with p.open('w') as f:c.write(f)
 CONFIG
 waydroid upgrade -o
