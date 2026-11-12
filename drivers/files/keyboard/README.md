@@ -1,9 +1,13 @@
-# Function keys
+# Function row and Fn toggle
 
-This machine uses the Surface Aggregator HID keyboard, Microsoft 045E:006C. The installed Linux driver exposes no fn_lock/fn_mode setting in sysfs and no Fn LED control through the input LEDs.
+Hardware: Surface Aggregator HID keyboard, Microsoft 045E:006C.
 
-Tap the physical Fn key to toggle the keyboard's Fn Lock, then check that a top-row key produces F1-F12 without holding Fn. The Fn indicator identifies the selected mode. Hold Fn when the alternate top-row action is needed.
+User requirement: media/brightness actions by default, F1–F12 only while holding Fn; tapping Fn must not toggle the mode, with a fixed indicator state.
 
-No software remapping or boot-time firmware command was installed. Persistence across shutdown/resume has not been verified on this unit.
+A physical test confirmed that Fn currently toggles its indicator and top-row behavior. That proves ordinary firmware Fn Lock works, not the requested permanent non-toggling mode.
 
-Reference: https://support.microsoft.com/en-us/surface/accessories/cover-keyboard/special-keys-and-function-keys-for-surface-keyboards-or-type-covers
+The live HID descriptor exposes the lock indicator as an INPUT report (ID 0x5b, Generic Desktop usage 0x99). Output LEDs cover Num/Caps/Scroll only. The Linux driver exposes no fn_lock/fn_mode sysfs switch and the input keyboard does not report KEY_FN. No supported writable permanent-lock command has been identified. GNOME key remapping cannot prevent a toggle already handled by the keyboard controller or hold its physical LED on.
+
+No misleading LED-only patch, media-to-F-key remap or guessed vendor HID write was installed. This exact request remains unresolved; currently select media mode with the physical Fn toggle, then hold Fn for F1–F12. LED permanence is not implemented.
+
+Reference: https://support.microsoft.com/en-us/surface/accessories/cover-keyboard/special-keys-and-function-keys-for-surface-keyboards-or-type-covers . Device-specific evidence is the running report_descriptor and driver source drivers/hid/surface-hid/surface_hid.c.

@@ -1,0 +1,45 @@
+make: Entering directory '/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e'
+make[1]: Entering directory '/var/tmp/surface-camera-fast'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-linux-gnu-gcc (Ubuntu 15.3.0-4ubuntu1) 15.3.0
+  You are using:           gcc-14 (Debian 14.2.0-19) 14.2.0
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 131
+  You are using:             0
+  CC [M]  ov02c10.o
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/device/driver.h:21,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/device.h:32,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/acpi.h:15,
+                 from ov02c10.c:4:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/swap.h:9,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/suspend.h:5,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/regulator/consumer.h:35,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/i2c.h:19,
+                 from ov02c10.c:8:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/memcontrol.h:148:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+  148 |         struct mem_cgroup_threshold entries[] __counted_by(size);
+      |                ^~~~~~~~~~~~~~~~~~~~
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/i2c.h:21:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/irqdomain.h:196:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+  196 |         struct irq_data __rcu           *revmap[] __counted_by(revmap_size);
+      |                ^~~~~~~~
+  MODPOST Module.symvers
+  CC [M]  ov02c10.mod.o
+In file included from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from ov02c10.mod.c:1:
+/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+  LD [M]  ov02c10.ko
+  BTF [M] ov02c10.ko
+Skipping BTF generation for ov02c10.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/var/tmp/surface-camera-fast'
+make: Leaving directory '/var/tmp/surface-kernel-patches/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e'

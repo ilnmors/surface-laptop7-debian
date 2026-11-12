@@ -19,3 +19,7 @@ The replacement USB module is installed and signed; physical resume verification
 ## Measure the next manual suspend
 
 `sudo python3 drivers/files/sleep/trace-resume.py arm` enables only power callback events in an isolated trace instance (256 KiB per CPU). Suspend/resume manually. Then run the same command with `save`; use `disarm` to remove the instance. It does not suspend, change sleep mode, or trace keyboard/network data. Monotonic timestamps separate device callback delays from time spent asleep. Four successful deep cycles were recorded in the current boot; no physical performance claim is made for the pending USB/SoundWire replacements.
+
+## Persistent tracking
+
+The bundled surface-resume-trace.service arms power-only callbacks at boot, with 256KiB per CPU and no running userspace monitor. On orderly service stop/shutdown it saves /var/log/surface-resume/<boot-id>/power-trace.txt (private umask 0077). It never suspends the machine. For a live result, run sudo /usr/local/libexec/surface-resume-trace save --output /var/log/surface-resume/manual/power-trace.txt, then arm again before the next manual cycle. Abrupt power loss cannot guarantee a saved trace.

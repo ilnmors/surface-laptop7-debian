@@ -63,3 +63,7 @@ User confirmed normal graphics after reboot with complete GPU firmware. KakaoTal
 ## Next comparison after verified deep return
 
 One post-repair deep cycle succeeded. Save the newly armed trace after the next manual cycle; do not re-arm before saving. Track Wi-Fi regulatory completion/L2 timeout, ~11.4s authentication-start delay, and the post-resume WSA parity warning. User currently reports working speakers; do not reset audio blindly. Camera stays ~18.8fps; CPU9 and touchscreen remain open. See drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md.
+
+## Next boot: staged regulatory/camera fixes
+
+Expect ath12k srcversion D61DA424018CF1563587D2E; verify ov02c10 srcversion against installed payload and fast_video=Y. Both modules are signed and embedded in initramfs with the complete GPU firmware. Measure real camera FPS and brightness/flicker; compare deep and Wi-Fi timing. Boot tracing is now enabled. Fn non-toggling media-default/fixed LED, CPU9 and touchscreen remain unresolved (GPIO31 trial did not bind). No extra SoundWire change: the loaded backport already disables/waits for its IRQ before clock gating, so adding another synchronize_irq would be redundant. Current good speaker routing is preserved.

@@ -1,0 +1,40 @@
+--- a/drivers/media/i2c/ov02c10.c
++++ b/drivers/media/i2c/ov02c10.c
+@@ -7,6 +7,7 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/i2c.h>
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/regmap.h>
+ #include <media/v4l2-cci.h>
+@@ -15,6 +16,11 @@
+ #include <media/v4l2-fwnode.h>
+ 
+ #define OV02C10_LINK_FREQ_400MHZ	400000000ULL
++/* Surface policy: expose the sensor's validated minimum frame interval. */
++static bool fast_video = true;
++module_param(fast_video, bool, 0444);
++MODULE_PARM_DESC(fast_video, "Use minimum supported VBLANK for faster video (shorter maximum exposure)");
++
+ #define OV02C10_MCLK			19200000
+ #define OV02C10_RGB_DEPTH		10
+ 
+@@ -517,7 +523,7 @@
+ 	 * For default multiple min by number of lanes to keep the default
+ 	 * FPS the same indepenedent of the lane count.
+ 	 */
+-	vts_def = mode->vts_min * ov02c10->mipi_lanes;
++	vts_def = mode->vts_min * ((fast_video && of_machine_is_compatible("microsoft,romulus13")) ? 1 : ov02c10->mipi_lanes);
+ 
+ 	vblank_min = mode->vts_min - mode->height;
+ 	vblank_max = OV02C10_VTS_MAX - mode->height;
+@@ -715,7 +721,7 @@
+ 		return 0;
+ 
+ 	/* Update limits and set FPS to default */
+-	vblank_def = mode->vts_min * ov02c10->mipi_lanes - mode->height;
++	vblank_def = mode->vts_min * ((fast_video && of_machine_is_compatible("microsoft,romulus13")) ? 1 : ov02c10->mipi_lanes) - mode->height;
+ 	__v4l2_ctrl_modify_range(ov02c10->vblank, mode->vts_min - mode->height,
+ 				 OV02C10_VTS_MAX - mode->height, 1, vblank_def);
+ 	__v4l2_ctrl_s_ctrl(ov02c10->vblank, vblank_def);

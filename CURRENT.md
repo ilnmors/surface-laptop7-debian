@@ -46,3 +46,7 @@ The earlier GPU initramfs hook omitted the Microsoft zap shader. It now includes
 ## Latest deep-sleep and hardware check
 
 This boot completed one deep cycle (success 1/fail 0). Entry 10:59:18, exit 12:04:55. Wi-Fi regulatory and PCIe L2 warnings remain; authentication began 11.4s after suspend exit. Fresh device power trace is armed. User reports working speakers but one later codec parity error remains. Camera streamed 90/90 frames at 720p, ~18.8fps; touchscreen and CPU9 remain unresolved. See drivers/files/power/HARDWARE-RECHECK.md. These later observations supersede earlier statements that no cycle occurred.
+
+## Staged hardware fixes before automatic reboot
+
+Wi-Fi regulatory completion commit f2576dc0 is installed with ath12k srcversion D61DA424018CF1563587D2E. Romulus13-only minimum-frame-period camera policy is installed with ov02c10 srcversion BFE86F0F9657EDF53C56CD3 (fast_video=Y). Both signed modules loaded in the matched signature-enforcing ARM64 guest; initial image contains exact installed modules and complete GPU firmware. Live hardware still uses previous modules until reboot. After reboot verify those versions, camera FPS/brightness/flicker, deep callbacks/Wi-Fi reconnection and audio errors. Power callback tracing is boot-enabled. Fn non-toggling media-default/fixed LED, CPU9 and touchscreen remain unresolved.

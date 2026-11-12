@@ -15,3 +15,7 @@ Verification: unsigned test module rejected, existing signed module accepted, re
 Rollback: remove only updates/surface/dwc3-qcom.ko and updates/surface/soundwire-qcom.ko, run sudo depmod -a 7.3.0-31-qcom-x1e and sudo surface-secureboot-update, then reboot. The previous packaged modules are retained.
 
 Physical deep-resume and intermittent audio reliability remain pending. The first xHCI probe timeout and codec parity faults are not proven fixed merely by loading these modules.
+
+## Additional Wi-Fi and camera modules
+
+The shared installer/build entries now also include ath12k regulatory completion (wifi-regulatory/README.md) and the Romulus13-only faster video policy (CAMERA-FRAME-TIMING.md). Their reusable modules/ copies are unsigned; the destination updater signs them. The depmod override is restored by both drivers/setup.sh and this installer. Existing sl7 modules remain for rollback. Real post-reboot Wi-Fi/deep-resume and camera quality validation is still required.

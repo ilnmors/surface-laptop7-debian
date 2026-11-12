@@ -1,0 +1,13 @@
+[Unit]
+Description=Surface power callback trace
+After=local-fs.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+UMask=0077
+ExecStart=/usr/local/libexec/surface-resume-trace arm
+ExecStop=/usr/local/libexec/surface-resume-trace save --output /var/log/surface-resume/%b/power-trace.txt
+
+[Install]
+WantedBy=multi-user.target

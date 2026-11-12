@@ -1,5 +1,5 @@
 {
-  "progress": 100,
+  "progress": 95,
   "areas": [
     {
       "group": "URGENT",
@@ -23,9 +23,9 @@
       "group": "POWER",
       "title": "deep 절전과 복귀",
       "status": "pending",
-      "label": "deep 복귀 1회 성공 · 지연 추적",
+      "label": "Wi-Fi 서명 패치 설치 · 재부팅 대기",
       "finding": "이번 부팅에서 deep 약 65분 뒤 복귀 성공 1회·실패 0회입니다. Wi-Fi regulatory 대기·PCIe L2 timeout이 남았고, 복귀 종료부터 Wi-Fi 인증 시작까지 약 11.4초였습니다.",
-      "next": "진입·복귀 활성 시간 합계는 약 7.39초이며 화면 켜짐 시간이나 복귀 단독 시간이 아닙니다. 다음 수동 절전용 장치별 power trace를 켰습니다. Wi-Fi completion 수정은 후보이며 아직 적용하지 않았습니다.",
+      "next": "상류 ath12k regulatory completion 수정을 빌드·설치했고, 기존 wifi7 모듈과 서명 강제 ARM64 시험에서 함께 로드됐습니다. 실제 절전 지연 개선은 재부팅 뒤 비교해야 합니다. 장치별 power trace는 부팅 자동 시작으로 추가했습니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md"
     },
     {
@@ -61,7 +61,7 @@
       "status": "open",
       "label": "미해결",
       "finding": "Romulus13 I2C 0x34가 HID probe에 응답하지 않습니다. DT overlay만 켜졌다고 터치가 작동하는 것은 아닙니다.",
-      "next": "보드 변형과 reset 배선 근거를 더 확인해야 합니다. 15인치 또는 Intel 배선을 섞어 적용하지 않았습니다.",
+      "next": "공개된 같은 Romulus13의 GPIO31 리셋까지 시험했지만 ENXIO가 유지됐습니다. 영구 DTB에 추가하지 않았습니다. 현재 장치의 정확한 reset·전원·펌웨어 증거가 더 필요합니다.",
       "path": "drivers/files/touchscreen/README.md"
     },
     {
@@ -69,9 +69,9 @@
       "title": "CPU·카메라",
       "status": "open",
       "label": "일부 미해결",
-      "finding": "CPU9의 PSCI -22와 online 0–8은 그대로이며 CPU 설정은 유지했습니다. 카메라는 절전 복귀 후 720p 90프레임 정상 수집, 평균 약 18.8fps로 이전 수준입니다.",
-      "next": "터치스크린도 여전히 드라이버 미연결입니다. 카메라 영상은 저장하지 않았고 화질 향상을 확인하지 못했습니다. 이전 flicker 패치는 롤백 상태를 유지합니다.",
-      "path": "drivers/files/power/HARDWARE-RECHECK.md"
+      "finding": "CPU9 PSCI -22는 미해결입니다. 카메라의 표준 최소 VBLANK 시험은 18.8→37.4fps로 증가했습니다. Romulus13에만 더 짧은 기본 프레임 간격을 쓰는 서명 모듈을 설치했고 재부팅 대기입니다.",
+      "next": "카메라 최대 노출이 짧아져 저조도 밝기·노이즈·깜빡임 확인이 필요합니다. 이전 gain helper는 재적용하지 않았습니다. CPU 코어 주소의 펌웨어 근거는 아직 없고 Secure Boot가 /dev/mem 접근을 차단하므로 추측 주소를 영구 적용하지 않았습니다.",
+      "path": "patches/files/CAMERA-FRAME-TIMING.md"
     },
     {
       "group": "WIRELESS",
@@ -198,6 +198,15 @@
       "finding": "백업/복원 진입점 분리와 브라우저 로그인 모의 시험은 통과했습니다. 실제 내보내기는 HTTPS 시간 초과로 중단됐고 최종 manifest가 없어 복원에 사용할 수 없습니다. 허용된 infra 읽기 전용 SSH도 연결 시간 초과입니다.",
       "next": "서버 접근이 복구되면 새 디렉토리로 다시 내보내야 합니다. 임시 로그인 앱 암호 폐기는 확인되지 않았으므로 계정 보안에서 폐기 확인이 필요합니다. 실제 OxiCloud 반영은 하지 않았습니다.",
       "path": "../repository/tools/README.md.tmp"
+    },
+    {
+      "group": "KEYBOARD",
+      "title": "Fn 고정 모드",
+      "status": "open",
+      "label": "요구 확인 · 영구 토글 차단 미지원",
+      "finding": "사용자는 미디어 기능 기본, Fn을 누른 동안에만 F1~F12, 짧은 Fn 입력으로 잠금 전환 금지·표시등 고정을 요청했습니다. 일반 Fn 토글 동작은 사용자 시험으로 확인됐습니다.",
+      "next": "실제 HID에서 잠금 표시가 읽기 전용 입력으로 노출되며 KEY_FN·Fn 설정 sysfs·표시등 출력 제어가 확인되지 않았습니다. 허위 고정이나 다른 기능을 깨는 키 매핑은 적용하지 않았습니다. 요청한 영구 모드는 미해결입니다.",
+      "path": "drivers/files/keyboard/README.md"
     }
   ]
 }

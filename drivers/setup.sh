@@ -15,6 +15,7 @@ sudo sh -c 'for module in gpi spi-geni-qcom spi-hid uinput ath12k ath12k_wifi7; 
   grep -qxF "$module" /etc/initramfs-tools/modules || echo "$module" >> /etc/initramfs-tools/modules
 done'
 sudo systemctl daemon-reload
+sudo systemctl enable surface-resume-trace.service
 sudo udevadm control --reload-rules
 if [[ -x /usr/local/sbin/surface-secureboot-update ]]; then
   sudo /usr/local/sbin/surface-secureboot-update "$kernel"
