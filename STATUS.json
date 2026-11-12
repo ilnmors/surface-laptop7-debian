@@ -59,9 +59,9 @@
       "group": "BATTERY",
       "title": "절전·평균 배터리 소비",
       "status": "pending",
-      "label": "실측 기록 분석",
-      "finding": "19:30 측정: 밝기 50%, Firefox·Waydroid 실행 상태에서 약 5.6–5.9W 방전(이전 기준 7.64W). Wi-Fi·NVMe는 ASPM L1.2, USB 루트 허브는 autosuspend, CPU는 대부분 806MHz에 머뭅니다. 장치 없는 pcie3가 켜져 있어 이번 시험에서 끕니다. Waydroid 백그라운드 유지는 사용자 선택입니다.",
-      "next": "21:19 재측정은 충전 중(입력 약 38–48W)이라 비교 불가했습니다. 어댑터 분리 후 같은 밝기·앱 조건으로 pcie3 비활성 효과를 비교합니다.",
+      "label": "방전 약 5.2W · 구성 요소 측정",
+      "finding": "2026-11-12 21:3x 배터리 45%, pcie3 비활성·밝기 50%·120Hz·Firefox·Waydroid 상태에서 1분 평균 5.2–5.3W(초기 기록 50%/2시간≈12W, 이전 기준 7.64W). A/B: Waydroid 일시정지 −0.45W, 밝기 80% +2.1W. CPU는 cpu-sleep 79–85%, GPU 300MHz 최저, Wi-Fi·NVMe ASPM L1.2. 완충 50.8Wh(설계 52.3Wh, 97%) 기준 약 9.5–10시간에 해당합니다.",
+      "next": "Windows 공식 수치(로컬 동영상 최대 약 20시간)보다 소비가 큽니다. 남은 요인은 Linux 쪽 패널 PSR·USB 컨트롤러 런타임 PM 등 드라이버 성숙도입니다. Waydroid 백그라운드는 사용자 선택으로 유지합니다.",
       "path": "drivers/files/power/README.md"
     },
     {
