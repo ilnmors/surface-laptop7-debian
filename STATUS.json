@@ -105,8 +105,8 @@
       "title": "Fluent·GNOME·터미널",
       "status": "pending",
       "label": "Open Bar 설정 완료 · 다음 로그인 대기",
-      "finding": "GNOME 48 지원 Open Bar 49를 오프라인 보관·설치했습니다. 밝은 패널, 짙은 글자, 파란 강조색, 둥근 모서리와 메뉴를 설정했습니다. Vitals·Caffeine·트레이를 유지합니다.",
-      "next": "다음 로그인에 새 확장 인식과 외관을 확인해야 합니다. Blur My Shell은 비활성 상태이며 앱 전체 테마 변경은 하지 않습니다.",
+      "finding": "GNOME 48 지원 Open Bar 49를 오프라인 보관·설치했습니다. 밝은 패널, 짙은 글자, 파란 강조색, 둥근 모서리와 메뉴를 설정했습니다. Vitals·Caffeine·트레이를 유지합니다. 하단 Dash to Dock은 밝은 둥근 배경·40px 아이콘·파란 실행 표시를 실시간 적용했습니다. 여러 창이 있는 앱을 클릭하면 창 미리보기에서 선택합니다.",
+      "next": "하단 독 설정값과 GNOME 스타일 오류 없음을 확인했습니다. 상단 Open Bar는 다음 로그인 후 확장 상태·외관 확인이 필요합니다.",
       "path": "desktop/files/topbar/README.md"
     },
     {
@@ -225,6 +225,15 @@
       "finding": "사용자는 미디어 기능 기본, Fn을 누른 동안에만 F1~F12, 짧은 Fn 입력으로 잠금 전환 금지·표시등 고정을 요청했습니다. 일반 Fn 토글 동작은 사용자 시험으로 확인됐습니다.",
       "next": "실제 HID에서 잠금 표시가 읽기 전용 입력으로 노출되며 KEY_FN·Fn 설정 sysfs·표시등 출력 제어가 확인되지 않았습니다. 허위 고정이나 다른 기능을 깨는 키 매핑은 적용하지 않았습니다. 요청한 영구 모드는 미해결입니다.",
       "path": "drivers/files/keyboard/README.md"
+    },
+    {
+      "group": "GIT",
+      "title": "GitHub 비공개 업로드",
+      "status": "ok",
+      "label": "두 저장소 최초 업로드 완료",
+      "finding": "ilnmors/repository와 ilnmors/surface-laptop7-debian의 main 업로드 및 private=true를 확인했습니다.",
+      "next": "새 하단 독 변경은 로컬 커밋으로 보관하고 최종 확인 전에는 push하지 않습니다. 오프라인 바이너리는 Git에 포함되지 않습니다.",
+      "path": "desktop/files/dock/README.md"
     }
   ]
 }

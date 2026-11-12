@@ -6,7 +6,7 @@ Read this section before historical notes below.
 2. Expected active ath12k D044C56077CC5357DC3F5BF retains both Surface rfkill guards. It passed repeated Wi-Fi-bound HTTPS checks before reboot. Repeated beacon loss root cause remains open; see known-good/README.md. The regulatory fix does not establish a beacon-loss fix.
 3. Expected trial ov02c10 08EF7452B0F555AA15FA25F preserves crop metadata and defaults to faster frames. Test frame rate/errors. Do not forcibly unload the sensor. Neutral isolated libcamera color was user-approved, noise remains. Longer camera quality/1080p/denoise work is DEFERRED by the user.
 4. Open Bar 49 is installed/enabled with a light floating preset, awaiting new login. Verify extension state/errors and visual appearance. Blur My Shell remains disabled.
-5. Kakao Enter-to-send is confirmed fixed by the user. Code-server setting is enabled live and its repository role now deploys workspace + repository settings; repository change is not committed yet.
+5. Kakao Enter-to-send is confirmed fixed by the user. Code-server setting is enabled live and its repository role now deploys workspace + repository settings; repository change is committed and uploaded. New dock styling and click-action=previews are applied live; their push requires final confirmation.
 6. Update STATUS.json and regenerate hardware-report.html after checks. CPU/camera trial has not yet been promoted into default DTB/camera installer. All scripts/configs and source notes are in surface; ignored offline binaries must be copied too.
 
 ---
