@@ -55,3 +55,7 @@ The user will type "계속" in this session. Read this file and CURRENT.md, chec
 ## Notification follow-up
 
 Real incoming-message evidence confirmed an empty quiet_new_message companion plus a correctly forwarded message notification. The narrow host filter is installed and the Waydroid session restarted. Await a new real message to verify the display; see programs/kakaotalk/NOTIFICATIONS.md. No chat content retained. Driver follow-up: drivers/files/power/DRIVER-FOLLOWUP.md.
+
+## Display recovery complete
+
+User confirmed normal graphics after reboot with complete GPU firmware. KakaoTalk autostart restored; earlier temporary-autostart-disable instructions are superseded. New incoming-message notification verification remains pending.

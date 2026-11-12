@@ -1,13 +1,13 @@
 {
-  "progress": 95,
+  "progress": 100,
   "areas": [
     {
       "group": "URGENT",
       "title": "그래픽 깨짐 복구",
-      "status": "pending",
-      "label": "펌웨어 누락 수정 · 재부팅 검증 필요",
-      "finding": "이번 부팅에서 GPU zap shader 누락으로 초기화 실패·GMU timeout이 확인됐습니다. 초기 이미지에 누락 파일을 넣고 재생성·서명 검증했습니다. Waydroid 중지, 카카오 자동 시작 임시 중지, 화면 출력 재설정 완료.",
-      "next": "120Hz·배율은 유지했습니다. 현재 화면 정상 여부와 재부팅 후 GPU 초기화 확인은 남았습니다. 사용 중인 세션을 강제 종료하거나 재부팅하지 않았습니다.",
+      "status": "ok",
+      "label": "재부팅 후 사용자 복구 확인",
+      "finding": "누락된 Microsoft GPU zap shader를 initramfs에 포함한 뒤 재부팅했고 사용자가 그래픽 정상 복귀를 확인했습니다. 현재 Secure Boot enabled이며 GMU 펌웨어 로드가 확인됐고 이전 zap shader 누락·GPU 초기화 실패·GMU OOB timeout은 이번 부팅 로그에 없습니다.",
+      "next": "카카오톡 로그인 자동 시작을 다시 활성화했습니다. 복구 중 껐던 Night Light·Blur My Shell은 현재 상태를 유지했습니다. 알림 필터의 실제 수신 표시 검증은 별도입니다.",
       "path": "drivers/files/power/DRIVER-FOLLOWUP.md"
     },
     {

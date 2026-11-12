@@ -38,3 +38,7 @@ Updated after the 2026-11-12 09:31 KST reboot. Debian 13 ARM64 GNOME; Surface La
 kernel/, drivers/, patches/, desktop/ and programs/ contain component SH/Python installers and offline payloads. A Git clone alone excludes binary payloads and is not a complete offline backup. Setup does not restore user data or a complete Steam runtime, repartition disks, or replace Console infrastructure roles. Initial MOK enrollment, firmware settings, reboot and login remain manual.
 
 HTML, generation script, status data, documents, configuration and patches are tracked in Git. Private signing keys, site CA/VPN/server credentials and raw binary payloads are excluded. Console/Caddy/Kopia/code-server are managed in the separate repository.
+
+## Display recovery verified
+
+The earlier GPU initramfs hook omitted the Microsoft zap shader. It now includes qcdxkmsuc8380.mbn alongside SQE/GMU firmware. After reboot the user confirmed normal graphics; Secure Boot remains enabled and previous GPU init errors are absent from this boot. KakaoTalk autostart has been restored. Night Light and Blur My Shell remain disabled from recovery.
