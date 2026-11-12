@@ -51,3 +51,7 @@ The user will type "계속" in this session. Read this file and CURRENT.md, chec
 - Nextcloud actual DAV export incomplete; HTTPS and approved infra SSH timed out. Retry only after access returns; verify/revoke the temporary browser-login app password. Tools remain repository/tools/*.tmp.
 - PET repaired locally and in the repository role; existing commits amended, no corrective commit added. Reload the editor window if needed.
 - Kakao notification body unresolved; see programs/kakaotalk/NOTIFICATIONS.md.
+
+## Notification follow-up
+
+Real incoming-message evidence confirmed an empty quiet_new_message companion plus a correctly forwarded message notification. The narrow host filter is installed and the Waydroid session restarted. Await a new real message to verify the display; see programs/kakaotalk/NOTIFICATIONS.md. No chat content retained. Driver follow-up: drivers/files/power/DRIVER-FOLLOWUP.md.

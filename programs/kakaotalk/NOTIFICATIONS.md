@@ -1,9 +1,22 @@
-# Notification body investigation
+# KakaoTalk blank notification companion
 
-GNOME notifications and banners are enabled. The installed Linux notification manager forwards summary/body received from Android without truncation. The user sees banners but usually no body; Android-side display has not been compared.
+## Verified on this device, 2026-11-12
 
-Upstream Android WayDroidService reads EXTRA_TITLE and EXTRA_TEXT using Bundle.getString. It has no MessagingStyle/BigText fallback in this path. Empty text or a CharSequence type mismatch is a candidate, not a confirmed diagnosis for this device. Also check KakaoTalk notification preview settings. No chat text or private database was collected; no Android framework replacement was installed.
+With permission, Android logcat and unredacted notification state were inspected in memory. No chat text or raw dump was saved. A temporary D-Bus monitor reported only timestamps, desktop ID, replacement ID and title/body lengths.
 
-Source: https://github.com/waydroid/android_frameworks_waydroid/blob/lineage-20/services/java/id/waydro/server/WayDroidService.java (onNotificationPosted).
+A real incoming message created two records:
 
-Keep background reception enabled as requested. Do not fabricate bodies from old messages or install a polling bridge merely to hide empty banners. A complete fix needs metadata-only reproduction and an Android-side correction if that path is confirmed.
+- `quiet_new_message`: null title and text; Waydroid sent an empty GNOME notification.
+- `new_message_v4`: title and text present, MessagingStyle; the nonempty body reached GNOME.
+
+Thus the empty companion is a confirmed source of blank boxes. No body loss was observed for the real message in this test. Earlier suspicion about MessagingStyle/getString was not reproduced and is not the fix applied.
+
+## Fix
+
+`sudo python3 programs/kakaotalk/fix-notifications.py` inserts a narrow guard into `/usr/lib/waydroid/tools/services/notification_manager.py`: for `com.kakao.talk` only, skip notifications whose title AND body are empty/whitespace. Return the existing ID_NONE constant. Real title-only/body-only messages and other apps are unchanged. A backup `.surface-original` is retained beside the system file. The Python installer refuses unfamiliar source layout and is idempotent; `fix-notifications.sh` calls it.
+
+The filter was installed and the user Waydroid session restarted, then KakaoTalk reopened without reinstalling or resetting data. Guard regression checks passed. A real post-fix incoming-message/display check is pending.
+
+The KakaoTalk setup entry includes this filter. A Waydroid package upgrade may overwrite it: rerun the helper and restart the Waydroid session as the desktop user. To undo, remove the three marked guard lines and restart the session; use the original backup only if the installed package version has not changed. Do not replace a newly upgraded module with an old backup.
+
+Sources: installed Waydroid `tools/services/notification_manager.py` (GPL-3.0-or-later); https://github.com/waydroid/android_frameworks_waydroid/blob/lineage-20/services/java/id/waydro/server/WayDroidService.java . No framework image replacement, conversation database read, polling bridge or additional background service is needed.
