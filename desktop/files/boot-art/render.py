@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render Debian's existing vector wordmark; no external artwork or fonts."""
+"""Render Debian's existing swirl vector; no external artwork or fonts."""
 from pathlib import Path
 import gi,cairo
 import xml.etree.ElementTree as ET
@@ -8,16 +8,16 @@ gi.require_foreign('cairo')
 gi.require_version('Rsvg','2.0')
 from gi.repository import Rsvg
 here=Path(__file__).resolve().parent
-root=ET.parse(here/'debian-wordmark-source.svg').getroot()
+root=ET.parse(here/'debian-logo-source.svg').getroot()
 for node in root.iter():
  style=node.get('style','')
  for gray in ['#e6e6e6','#d1d1d1','#666666']:style=style.replace(gray,'#f2f3f5')
  style=style.replace('opacity:0.71','opacity:1')
  if style:node.set('style',style)
-svg=ET.tostring(root,encoding='utf-8');(here/'debian-wordmark.svg').write_bytes(svg)
+svg=ET.tostring(root,encoding='utf-8');(here/'debian-logo.svg').write_bytes(svg)
 handle=Rsvg.Handle.new_from_data(svg)
 image=cairo.ImageSurface(cairo.FORMAT_ARGB32,480,240);cr=cairo.Context(image)
-rect=Rsvg.Rectangle();rect.x=40;rect.y=30;rect.width=400;rect.height=176
+rect=Rsvg.Rectangle();rect.x=156;rect.y=28;rect.width=168;rect.height=168
 handle.render_document(cr,rect)
 image.write_to_png(str(here/'watermark.png'))
 # A preview of layout only; actual Plymouth rendering is validated after reboot.

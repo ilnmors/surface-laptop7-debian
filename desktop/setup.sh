@@ -16,6 +16,7 @@ if ! grep -qxF system-db:local /etc/dconf/profile/user 2>/dev/null; then
   printf '%s\n' system-db:local | sudo tee -a /etc/dconf/profile/user >/dev/null
 fi
 sudo dconf update
+if [[ -x /usr/share/gdm/generate-config ]]; then sudo /usr/share/gdm/generate-config; fi
 mkdir -p "$HOME/.themes" "$HOME/.config"
 cp -a desktop/files/themes/Fluent-Light "$HOME/.themes/"
 if [[ ! -e "$HOME/.config/gtk-4.0" && ! -L "$HOME/.config/gtk-4.0" ]]; then

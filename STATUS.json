@@ -2,6 +2,15 @@
   "progress": 95,
   "areas": [
     {
+      "group": "RECOVERY",
+      "title": "Wi-Fi 실기기 장애 복구",
+      "status": "ok",
+      "label": "기존 모듈 · Wi-Fi HTTPS 검증",
+      "finding": "새 ath12k 재빌드가 로드된 부팅에서 Hard blocked=yes·무선 사용 불가가 발생했습니다. 기존 A98E5140E078A5920DAC05E로 재로드하자 차단 해제·자동 연결됐고 Wi-Fi 인터페이스 지정 HTTPS 요청이 200 응답했습니다.",
+      "next": "실험 모듈은 기본 build/install·모듈 선택·초기 부팅 이미지에서 제외했습니다. 테더링은 연결 검증 중 유지했고 전역 네트워크 설정을 초기화하지 않았습니다.",
+      "path": "patches/files/wifi-regulatory/README.md"
+    },
+    {
       "group": "URGENT",
       "title": "그래픽 깨짐 복구",
       "status": "ok",
@@ -23,9 +32,9 @@
       "group": "POWER",
       "title": "deep 절전과 복귀",
       "status": "pending",
-      "label": "Wi-Fi 서명 패치 설치 · 재부팅 대기",
+      "label": "Wi-Fi 패치 철회 · 기존 모듈 복구",
       "finding": "이번 부팅에서 deep 약 65분 뒤 복귀 성공 1회·실패 0회입니다. Wi-Fi regulatory 대기·PCIe L2 timeout이 남았고, 복귀 종료부터 Wi-Fi 인증 시작까지 약 11.4초였습니다.",
-      "next": "상류 ath12k regulatory completion 수정을 빌드·설치했고, 기존 wifi7 모듈과 서명 강제 ARM64 시험에서 함께 로드됐습니다. 실제 절전 지연 개선은 재부팅 뒤 비교해야 합니다. 장치별 power trace는 부팅 자동 시작으로 추가했습니다.",
+      "next": "상류 수정 재빌드가 실기기에서 hard-rfkill 차단을 일으켰습니다. 기존 sl7 모듈로 복구해 Wi-Fi 연결·해당 인터페이스의 HTTPS 200을 확인했습니다. 기본 설치에서 제외했고 기존 절전 지연은 미해결입니다. VM 시험을 실기기 검증으로 대체하지 않습니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md"
     },
     {
@@ -69,8 +78,8 @@
       "title": "CPU·카메라",
       "status": "open",
       "label": "일부 미해결",
-      "finding": "CPU9 PSCI -22는 미해결입니다. 카메라의 표준 최소 VBLANK 시험은 18.8→37.4fps로 증가했습니다. Romulus13에만 더 짧은 기본 프레임 간격을 쓰는 서명 모듈을 설치했고 재부팅 대기입니다.",
-      "next": "카메라 최대 노출이 짧아져 저조도 밝기·노이즈·깜빡임 확인이 필요합니다. 이전 gain helper는 재적용하지 않았습니다. CPU 코어 주소의 펌웨어 근거는 아직 없고 Secure Boot가 /dev/mem 접근을 차단하므로 추측 주소를 영구 적용하지 않았습니다.",
+      "finding": "CPU9는 미해결입니다. 카메라 재빌드는 실기기 37.45fps 수집했으나 crop 조회 오류 3개가 있어 기본 설치에서 제외했습니다. 현재 사용 중이라 강제 언로드하지 않았고 다음 부팅 이미지에는 기존 sl7 드라이버를 복원했습니다.",
+      "next": "재부팅 뒤 기존 카메라 srcversion C8AE6F17BF899E4A937A808과 수집·crop 오류를 비교해야 합니다. 카메라 화질·저조도 개선은 검증되지 않았습니다. CPU·터치스크린을 해결했다고 표시하지 않습니다.",
       "path": "patches/files/CAMERA-FRAME-TIMING.md"
     },
     {
@@ -158,9 +167,9 @@
       "group": "BOOT ART",
       "title": "로고·업데이트 글자",
       "status": "pending",
-      "label": "새 이미지 서명 · 다음 부팅 확인",
-      "finding": "Debian13 버전 이미지 대신 간결한 Debian 워드마크로 교체했습니다. distro hook이 다시 덮지 않도록 보완하고 정적·대체 폰트를 포함했습니다. 실제 업데이트는 OpenEXR 보안 패키지 1개로 정상 완료됐습니다.",
-      "next": "패키지 로그는 영어 안내문이었고 기존 초기 이미지에는 지정된 Cantarell이 빠져 있었습니다. 폰트·로고 byte 확인과 호스트 문자의 누락 glyph 0개는 검증됐으나 다음 물리 화면 확인이 남았습니다.",
+      "label": "부팅·로그인 소용돌이만 적용",
+      "finding": "Plymouth 워터마크와 GDM 로고·대체 로고를 Debian 소용돌이 SVG로 교체했습니다. Debian13 및 Debian 글자는 없습니다. 실제 렌더링 미리보기를 확인하고 초기 이미지와 GDM 컴파일 설정을 검증했습니다.",
+      "next": "Secure Boot 서명 검증은 통과했습니다. 부팅과 로그인 화면의 물리 표시 확인은 다음 재부팅 뒤에 남습니다.",
       "path": "desktop/files/boot-art/README.md"
     },
     {

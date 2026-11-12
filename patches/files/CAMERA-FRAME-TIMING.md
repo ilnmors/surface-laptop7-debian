@@ -1,3 +1,7 @@
+# DISABLED — camera experiment withdrawn from default setup
+
+The faster rebuilt module captured ~37.45fps but emitted three unsupported crop-selection ioctl errors on this real boot. The retained sl7 driver has not yet been compared in this boot: live removal of the experiment was refused as in use, and no forced unload was attempted. Its on-disk replacement/override and default build/install were removed. The next signed initramfs restores the original sl7 module C8AE6F17BF899E4A937A808. Recheck after reboot before attributing every crop error to the rebuild. Fast-video experiment files remain historical only under rejected/. No permanent frame-timing change is enabled by setup.
+
 # Surface OV02C10 faster video policy
 
 Local policy, not an upstream image-quality fix. Existing libcamera gain helper remains rolled back because it previously flickered.

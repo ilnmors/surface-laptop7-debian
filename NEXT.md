@@ -1,3 +1,12 @@
+# Immediate post-recovery verification
+
+- Verify Wi-Fi stays unblocked/connected with original ath12k A98E5140E078A5920DAC05E; test traffic bound to Wi-Fi, not tethering. Never reinstall rejected wifi-regulatory rebuild via setup.
+- Verify original ov02c10 C8AE6F17BF899E4A937A808 after reboot; compare streaming/crop-selection errors. The fast-video module was in use and was NOT forcibly unloaded.
+- Verify physical boot/login show the swirl only, without Debian13 text. No GDM restart was forced.
+- A matching source fingerprint, ABI/signature checks and staged real-device functional checks are distinct requirements. Guest loading alone must not be called hardware validation or justify silently replacing a working boot/network driver. The original Wi-Fi source fingerprint mismatch was material and was not handled adequately.
+
+Earlier notes below are historical and may be superseded by these recovery instructions.
+
 # Continue investigation
 
 When the user says "계속", read CURRENT.md and this file, inspect the current boot, then continue unfinished investigation. Do not repeat completed installations. Keep documentation, installer inputs, checksums and Git commits synchronized. Do not copy infrastructure credentials into this bundle.

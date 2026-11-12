@@ -1,3 +1,3 @@
 #!/bin/sh
-set -eu
-exec bash "$(dirname -- "$0")/../build.sh" "$@"
+echo "Rejected hardware-regression build: Wi-Fi remains on the retained sl7 module. See README.md." >&2
+exit 1

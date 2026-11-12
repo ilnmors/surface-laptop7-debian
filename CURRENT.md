@@ -1,3 +1,7 @@
+# Latest recovery status — supersedes staged experiments below
+
+Wi-Fi experiment rejected after hardware rfkill regression. Current loaded/next-boot ath12k is original sl7 A98E5140E078A5920DAC05E; unblocked, automatically connected and Wi-Fi-bound HTTPS 200 verified. Camera experiment is removed from disk/default setup but still loaded until reboot because in-use removal was refused; next boot restores sl7 C8AE6F17BF899E4A937A808. Both experiments are excluded from automatic installation. Boot/login use only the Debian swirl; initrd and compiled GDM settings checked.
+
 # Current Surface configuration
 
 Updated after the 2026-11-12 09:31 KST reboot. Debian 13 ARM64 GNOME; Surface Laptop 7 13.8-inch Romulus13 X Plus. Console UID 3000 / svadmins GID 2000.

@@ -1,3 +1,7 @@
+# REJECTED — Wi-Fi hardware regression
+
+Do not install this rebuild. On the real Surface after boot, the replacement reported HARD rfkill blocked and Wi-Fi was unavailable. Reloading the retained sl7 module (A98E5140E078A5920DAC05E) restored hardware-unblocked state, automatic connection and Wi-Fi-bound HTTPS 200. It has been removed from active modules, depmod overrides, default build/install and initramfs. The patch/source remain reference material only. VM signature/CRC tests did not validate hardware behavior; the rebuilt baseline source fingerprint differed from the working module and should have blocked default deployment.
+
 # ath12k regulatory completion fix
 
 Upstream commit f2576dc0f894ef33045ba7ed057ec417988bba8a, Baochen Qiang, accepted by Jeff Johnson. Source: https://git.zx2c4.com/wireguard-linux/commit/?id=f2576dc0f894ef33045ba7ed057ec417988bba8a . The archived f2576dc0.patch is the unmodified upstream patch. It assigns pdev_idx before validation and bounds-checks it so dropped regulatory events can still signal completion. Upstream tested WCN7850 hw2.0 with this machine's exact firmware build.

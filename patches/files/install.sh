@@ -9,9 +9,8 @@ for module in modules/"$kernel"/*.ko; do
   install -D -m644 "$module" "/lib/modules/$kernel/updates/surface/${module##*/}"
 done
 install -m755 ../../drivers/files/rootfs/etc/initramfs-tools/hooks/surface-kernel-patches /etc/initramfs-tools/hooks/surface-kernel-patches
-install -D -m644 ../../drivers/files/rootfs/etc/depmod.d/surface-kernel-patches.conf /etc/depmod.d/surface-kernel-patches.conf
 depmod -a "$kernel"
 if [[ ${1:-} != --no-refresh ]]; then
   /usr/local/sbin/surface-secureboot-update
 fi
-echo 'USB, SoundWire, Wi-Fi and camera modules installed for the next boot; active hardware was not unbound.'
+echo 'USB and SoundWire modules installed for the next boot; active hardware was not unbound.'

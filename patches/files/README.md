@@ -16,6 +16,6 @@ Rollback: remove only updates/surface/dwc3-qcom.ko and updates/surface/soundwire
 
 Physical deep-resume and intermittent audio reliability remain pending. The first xHCI probe timeout and codec parity faults are not proven fixed merely by loading these modules.
 
-## Additional Wi-Fi and camera modules
+## Withdrawn Wi-Fi/camera experiments
 
-The shared installer/build entries now also include ath12k regulatory completion (wifi-regulatory/README.md) and the Romulus13-only faster video policy (CAMERA-FRAME-TIMING.md). Their reusable modules/ copies are unsigned; the destination updater signs them. The depmod override is restored by both drivers/setup.sh and this installer. Existing sl7 modules remain for rollback. Real post-reboot Wi-Fi/deep-resume and camera quality validation is still required.
+Default build/install contains USB and SoundWire replacements only. Wi-Fi rebuild caused a real hard-rfkill regression and is rejected; the camera rebuild was withdrawn pending investigation of crop-selection errors. Original sl7 modules remain selected. Signature/ABI guest tests are not hardware validation. References are retained under wifi-regulatory/ and rejected/, not installed by setup.

@@ -1,0 +1,3 @@
+[org/gnome/login-screen]
+logo='/usr/share/pixmaps/surface-debian-logo.svg'
+fallback-logo='/usr/share/pixmaps/surface-debian-logo.svg'
