@@ -1,0 +1,149 @@
+{
+  "progress": 97,
+  "areas": [
+    {
+      "group": "BOOT",
+      "title": "Secure Boot",
+      "status": "ok",
+      "label": "현재 부팅 확인",
+      "finding": "Secure Boot enabled, integrity lockdown과 로컬 인증서 신뢰를 확인했습니다. 서명 강제 ARM64 VM에서도 교체 모듈이 로드됐습니다.",
+      "next": "새 USB·SoundWire 모듈은 initramfs에 들어 있습니다. 실제 장치 적용·효과는 재부팅 후 확인해야 합니다.",
+      "path": "kernel/files/secureboot/README.md"
+    },
+    {
+      "group": "POWER",
+      "title": "deep 절전과 복귀",
+      "status": "pending",
+      "label": "5회 복귀 · 병목 측정",
+      "finding": "현재 부팅 deep 복귀 5회 성공/실패 0회. trace에서 장치 suspend 약 2.0초, resume 약 4.77초를 확인했습니다. SPI-HID 2.417초, PCIe noirq 1.697초, Wi-Fi early 0.522초가 주요 병목입니다.",
+      "next": "최근 cycle의 freeze는 4.6ms, console resume은 0.04ms였습니다. 화면이 보일 때까지의 전체 시간과 같은 값은 아닙니다. USB·SoundWire 새 모듈은 재부팅 후 별도 검증 필요. 측정된 지연을 근거 없이 줄이는 패치는 적용하지 않았습니다.",
+      "path": "drivers/files/sleep/README.md"
+    },
+    {
+      "group": "INPUT",
+      "title": "터치패드 가장자리",
+      "status": "pending",
+      "label": "수정 설치 · 재로그인 필요",
+      "finding": "30초 측정에서 IPTSD 좌표는 가장자리까지 나오지만 libinput이 edge palm으로 26회 무시했고 좌표 점프도 1회 있었습니다. 정확한 045E:0C77 장치에만 geometric edge palm 제외를 끄는 libinput 수정 패키지를 설치했습니다.",
+      "next": "ABI·의존성·새 진단 context 확인 완료. GNOME은 로그아웃·로그인 후 적용됩니다. 사람의 개선 확인과 별도 IPTSD 점프/접촉 분할 검증은 남았습니다.",
+      "path": "drivers/files/touchpad/README.md"
+    },
+    {
+      "group": "BATTERY",
+      "title": "절전·평균 배터리 소비",
+      "status": "pending",
+      "label": "실측 기록 분석",
+      "finding": "최근 절전 5.30시간: 73%→67%, 약 3.05Wh 사용. 평균 0.58W / 1.13%p/h. 깨어 있는 표본 2.67시간 평균 7.64W; 배터리 건강도 97.0%.",
+      "next": "현재 평균으로 단순 환산하면 완충 6.6시간. Windows 실측 비교 자료는 없습니다. MS Modern Standby 권장 5%/16h보다 소비율이 약 3.6배 높지만, Windows의 실제 이 기기 측정값은 아닙니다. 공식 웹 13h/영상 20h와 현재 혼합 작업은 직접 비교할 수 없습니다.",
+      "path": "drivers/files/power/README.md"
+    },
+    {
+      "group": "AUDIO",
+      "title": "간헐적 스피커 무음",
+      "status": "pending",
+      "label": "서명·설치 완료",
+      "finding": "가상 EQ 없이 물리 스피커를 사용합니다. 기존 SoundWire bus clash/parity 오류는 기록돼 있으며, 오류 처리 패치 5개를 backport했습니다.",
+      "next": "새 모듈로 재부팅한 뒤 연속·중단 재생과 절전 후 음성을 검증해야 합니다. 빌드 성공만으로 무음이 해결됐다고 판정하지 않습니다.",
+      "path": "patches/files/README.md"
+    },
+    {
+      "group": "INPUT",
+      "title": "터치스크린",
+      "status": "open",
+      "label": "미해결",
+      "finding": "Romulus13 I2C 0x34가 HID probe에 응답하지 않습니다. DT overlay만 켜졌다고 터치가 작동하는 것은 아닙니다.",
+      "next": "보드 변형과 reset 배선 근거를 더 확인해야 합니다. 15인치 또는 Intel 배선을 섞어 적용하지 않았습니다.",
+      "path": "drivers/files/touchscreen/README.md"
+    },
+    {
+      "group": "HARDWARE",
+      "title": "CPU·카메라",
+      "status": "open",
+      "label": "일부 미해결",
+      "finding": "scmi-cpufreq 정책 일부를 복구했지만 CPU9 PSCI 실패와 나머지 클러스터 정책은 남았습니다. 카메라 flicker를 유발한 품질 패치는 롤백 상태입니다.",
+      "next": "CPU DT/펌웨어와 전력 측정이 더 필요합니다. Windows 대비 배터리나 카메라 품질을 동등하게 만들었다고 검증하지 않았습니다.",
+      "path": "HARDWARE.md"
+    },
+    {
+      "group": "WIRELESS",
+      "title": "Wi-Fi·Bluetooth",
+      "status": "pending",
+      "label": "기존 복구 유지",
+      "finding": "WCN7850 firmware/rfkill 대응과 Bluetooth 고유 로컬 주소 자동 복구가 포함돼 있습니다.",
+      "next": "반복 부팅·절전 후 재연결을 확인해야 합니다. 다른 기기에 이 Surface의 Bluetooth 주소를 그대로 복사하면 안 됩니다.",
+      "path": "drivers/files/bluetooth/README.md"
+    },
+    {
+      "group": "DESKTOP",
+      "title": "Fluent·GNOME·터미널",
+      "status": "ok",
+      "label": "분리 저장 완료",
+      "finding": "Fluent, User Themes, Blur My Shell, Vitals, Caffeine, AppIndicator, 터미널 색상, IBus, Plymouth를 desktop에 분리했습니다.",
+      "next": "로그아웃/재로그인과 재부팅 후 테마 표시가 완성됩니다. 현재 사용자가 바꾼 touchpad/mouse 설정을 별도로 보존합니다.",
+      "path": "desktop/files/README.md"
+    },
+    {
+      "group": "ANDROID",
+      "title": "Waydroid·KakaoTalk",
+      "status": "ok",
+      "label": "보조 기기 로그인 준비",
+      "finding": "카카오 공식 서명이 확인된 KakaoTalk 26.9.2 ARM64 APK splits 설치 완료. Android 태블릿 속성을 적용하고 Secondary Device를 선택해 이메일·비밀번호·QR 로그인 화면까지 확인했습니다.",
+      "next": "공유 저장소를 막던, 서비스가 없는 OMX HAL 선언을 vendor overlay에서 제거하니 emulated storage가 mounted로 복구됐습니다. 앱 원본과 이미지는 변조하지 않았고 계정 정보는 입력하지 않았습니다.",
+      "path": "programs/kakaotalk/README.md"
+    },
+    {
+      "group": "PROGRAMS",
+      "title": "Steam·RimWorld",
+      "status": "held",
+      "label": "게임 작업 보류",
+      "finding": "Steam SDK 경로 수정 뒤 SteamAPI 로드는 성공했습니다. FEX 환경에 Noto CJK 폰트를 추가했습니다.",
+      "next": "사용자 요청으로 게임 클릭·한글 표시 확인은 보류했습니다. Steam 전체 런타임과 게임 데이터는 이 bundle에 포함되지 않습니다.",
+      "path": "programs/steam/README.md"
+    },
+    {
+      "group": "RESTORE",
+      "title": "Surface 설치 재현 범위",
+      "status": "pending",
+      "label": "모듈화 · 오프라인 검증",
+      "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다.",
+      "next": "새 설치를 실제 포맷해 검증한 것은 아닙니다. 미해결 하드웨어, 수동 MOK·재부팅·로그인, base Debian dependency와 Steam runtime 준비가 남습니다. Console 계정/서버 서비스는 repository 범위입니다.",
+      "path": "README.md"
+    },
+    {
+      "group": "CONSOLE",
+      "title": "console.yaml · console.md",
+      "status": "ok",
+      "label": "저장소 역할 분리",
+      "finding": "Caddy·code-server·확장 설정은 repository에 있습니다. Kopia의 workspace 백업 정책·공통 시간표·Persistent timer는 repository에만 추가했고 현재 Surface에는 적용하지 않았습니다.",
+      "next": "console playbook 전체는 현재 일부 적용된 서비스보다 범위가 넓고 SSH CA 변경 등도 포함됩니다. Surface 하드웨어/테마/Android를 대신 설치하지 않습니다.",
+      "path": "../repository/docs/console.md"
+    },
+    {
+      "group": "MIGRATION",
+      "title": "Nextcloud DAV → OxiCloud",
+      "status": "ok",
+      "label": "도구·모의 검증 완료",
+      "finding": "repository/tools에 dav-migrate.py.tmp와 README.md.tmp를 만들었습니다. Nextcloud read-only 백업, hash 검증, OxiCloud dry-run과 명시적 restore를 제공합니다.",
+      "next": "실제 서버 backup/restore는 실행하지 않았습니다. UUID rediscovery, 중단 후 재개, 원격 수정 보호와 손상 거부 등을 mock test로 확인했습니다. ACL·공유·외부 첨부파일은 별도입니다.",
+      "path": "../repository/tools/README.md.tmp"
+    },
+    {
+      "group": "MOBILE",
+      "title": "Samsung 연동",
+      "status": "held",
+      "label": "설치 보류",
+      "finding": "GSConnect/KDE Connect 계열로 알림·파일·클립보드 공유를 구성할 수 있습니다. 삼성 전용 Windows Phone Link/자동 핫스팟과 동일한 기능 범위는 아닙니다.",
+      "next": "사용자 요청에 따라 설치하지 않았습니다. 자동 핫스팟·잠금화면 동작은 휴대폰 버전과 앱 권한별 검증이 필요합니다.",
+      "path": "PORTABILITY.md"
+    },
+    {
+      "group": "MAINTENANCE",
+      "title": "APT·Ansible 임시 경로",
+      "status": "ok",
+      "label": "검증 완료",
+      "finding": "apt-get check와 upgrade 모의 실행 통과. 일반 apt update/upgrade는 유지하며 전역 업데이트 차단은 하지 않았습니다. Ansible의 비어 있는 root 소유 $XDG_RUNTIME_DIR 디렉토리는 삭제했습니다.",
+      "next": "local_tmp를 ~/.ansible/tmp로 바꿔 XDG 변수가 없어도 안전하게 사용자 홈으로 풀리도록 검증했습니다. 향후 새 Debian libinput은 가장자리 패치를 덮을 수 있어 새 보안 버전에 재반영해야 합니다.",
+      "path": "docs/UPDATES.md"
+    }
+  ]
+}

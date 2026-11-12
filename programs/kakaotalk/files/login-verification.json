@@ -1,0 +1,14 @@
+{
+  "package": "com.kakao.talk",
+  "tablet_property": true,
+  "secondary_device_selected": true,
+  "screen_text": [
+    "Welcome to KakaoTalk",
+    "This will be your Secondary Device for KakaoTalk.",
+    "Email or phone number",
+    "Password",
+    "Log In",
+    "QR Code Log In"
+  ],
+  "credentials_entered": false
+}

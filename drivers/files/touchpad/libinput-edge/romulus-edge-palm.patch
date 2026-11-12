@@ -1,0 +1,23 @@
+--- a/src/evdev-mt-touchpad.c
++++ b/src/evdev-mt-touchpad.c
+@@ -3363,6 +3363,20 @@
+ 	    !tp_is_tpkb_combo_below(device))
+ 		return;
+ 
++	/* IPTSD already filters invalid contacts. Its edge fits can be split
++	 * into short contacts, which the geometric palm zones then suppress.
++	 * Scope this exception to the Romulus virtual touchpad only; retain
++	 * touch-size/pressure, typing and thumb handling unchanged.
++	 */
++	if (evdev_device_get_id_bustype(device) == BUS_VIRTUAL &&
++	    evdev_device_get_id_vendor(device) == 0x045e &&
++	    evdev_device_get_id_product(device) == 0x0c77 &&
++	    streq(evdev_device_get_name(device),
++	          "IPTSD Virtual Touchpad 045E:0C77")) {
++		evdev_log_debug(device, "palm: IPTSD 045E:0C77 edge exclusion disabled\n");
++		return;
++	}
++
+ 	/* Edge palm detection hurts more than it helps on Apple touchpads. */
+ 	if (evdev_device_has_model_quirk(device, QUIRK_MODEL_APPLE_TOUCHPAD))
+ 		return;

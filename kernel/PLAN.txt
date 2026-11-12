@@ -1,0 +1,1 @@
+Install matching kernel, board DTB and signed EFI boot chain. First-time MOK enrollment and reboot remain manual.

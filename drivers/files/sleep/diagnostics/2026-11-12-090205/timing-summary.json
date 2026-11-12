@@ -1,0 +1,163 @@
+{
+  "stage_milliseconds": {
+    "sync_filesystems[0]": 13.282,
+    "freeze_processes[0]": 4.565,
+    "suspend_enter[3]": 48.368,
+    "dpm_prepare[2]": 6.397,
+    "dpm_suspend[2]": 1988.425,
+    "dpm_suspend_late[2]": 95.164,
+    "dpm_suspend_noirq[2]": 71.88,
+    "CPU_OFF[8]": 4.822,
+    "CPU_OFF[7]": 2.468,
+    "CPU_OFF[6]": 2.795,
+    "CPU_OFF[5]": 2.655,
+    "CPU_OFF[4]": 2.332,
+    "CPU_OFF[3]": 3.112,
+    "CPU_OFF[2]": 2.976,
+    "CPU_OFF[1]": 3.09,
+    "syscore_suspend[0]": 0.035,
+    "machine_suspend[3]": 0.0,
+    "syscore_resume[0]": 0.066,
+    "CPU_ON[1]": 1.44,
+    "CPU_ON[2]": 1.127,
+    "CPU_ON[3]": 1.227,
+    "CPU_ON[4]": 3.831,
+    "CPU_ON[5]": 1.064,
+    "CPU_ON[6]": 1.096,
+    "CPU_ON[7]": 3.808,
+    "CPU_ON[8]": 1.34,
+    "dpm_resume_noirq[16]": 1697.082,
+    "dpm_resume_early[16]": 521.601,
+    "dpm_resume[16]": 2497.676,
+    "dpm_complete[16]": 37.365,
+    "console_resume_all[3]": 0.036,
+    "thaw_processes[0]": 3.01
+  },
+  "slowest_callbacks": [
+    {
+      "device": "spi_hid spi0.0",
+      "phase": "dpm_resume[16]",
+      "milliseconds": 2417.323
+    },
+    {
+      "device": "ieee80211 phy0",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 1898.649
+    },
+    {
+      "device": "qcom-pcie 1bd0000.pcie",
+      "phase": "dpm_resume_noirq[16]",
+      "milliseconds": 1070.168
+    },
+    {
+      "device": "ath12k_wifi7_pci 0004:01:00.0",
+      "phase": "dpm_resume_early[16]",
+      "milliseconds": 518.529
+    },
+    {
+      "device": "qcom-pcie 1bf8000.pcie",
+      "phase": "dpm_resume_noirq[16]",
+      "milliseconds": 312.08
+    },
+    {
+      "device": "qcom-pcie 1c08000.pcie",
+      "phase": "dpm_resume_noirq[16]",
+      "milliseconds": 311.807
+    },
+    {
+      "device": "ath12k_wifi7_pci 0004:01:00.0",
+      "phase": "dpm_suspend_late[2]",
+      "milliseconds": 82.348
+    },
+    {
+      "device": "surface_serial_hub serial1-0",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 53.68
+    },
+    {
+      "device": "surface_serial_hub serial1-0",
+      "phase": "dpm_resume[16]",
+      "milliseconds": 53.279
+    },
+    {
+      "device": "surface_serial_hub serial1-0",
+      "phase": "dpm_complete[16]",
+      "milliseconds": 34.276
+    },
+    {
+      "device": "nvme 0006:01:00.0",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 30.653
+    },
+    {
+      "device": "usb usb2",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 20.996
+    },
+    {
+      "device": "usb usb4",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 20.963
+    },
+    {
+      "device": "usb usb6",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 20.868
+    },
+    {
+      "device": "usb usb2",
+      "phase": "dpm_resume[16]",
+      "milliseconds": 20.463
+    },
+    {
+      "device": "usb usb6",
+      "phase": "dpm_resume[16]",
+      "milliseconds": 20.43
+    },
+    {
+      "device": "usb usb4",
+      "phase": "dpm_resume[16]",
+      "milliseconds": 20.198
+    },
+    {
+      "device": "qcom-pcie 1c08000.pcie",
+      "phase": "dpm_suspend_noirq[2]",
+      "milliseconds": 13.124
+    },
+    {
+      "device": "nvme 0006:01:00.0",
+      "phase": "dpm_suspend_noirq[2]",
+      "milliseconds": 13.054
+    },
+    {
+      "device": "pcieport 0003:00:00.0",
+      "phase": "dpm_suspend_noirq[2]",
+      "milliseconds": 12.577
+    },
+    {
+      "device": "ath12k_wifi7_pci 0004:01:00.0",
+      "phase": "dpm_suspend_noirq[2]",
+      "milliseconds": 12.41
+    },
+    {
+      "device": "pcieport 0006:00:00.0",
+      "phase": "dpm_suspend_noirq[2]",
+      "milliseconds": 12.146
+    },
+    {
+      "device": "pcieport 0004:00:00.0",
+      "phase": "dpm_suspend_noirq[2]",
+      "milliseconds": 12.111
+    },
+    {
+      "device": "pcieport 0003:00:00.0",
+      "phase": "dpm_suspend[2]",
+      "milliseconds": 12.078
+    },
+    {
+      "device": "qcom_mhi_qrtr mhi0_IPCR",
+      "phase": "dpm_suspend_late[2]",
+      "milliseconds": 10.7
+    }
+  ]
+}

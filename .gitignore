@@ -27,10 +27,29 @@ archive/
 *.otf
 *.pyc
 __pycache__/
-files/rootfs/usr/lib/firmware/
-files/rootfs/lib/firmware/
-files/rootfs/usr/local/libexec/surface-iptsd/iptsd
-files/secureboot/sign-file
+drivers/files/rootfs/usr/lib/firmware/
+drivers/files/rootfs/lib/firmware/
+drivers/files/rootfs/usr/local/libexec/surface-iptsd/iptsd
+kernel/files/secureboot/sign-file
 *.key
 *.gpg
-# The HTML report deliberately remains untracked, not ignored.
+# The generated HTML report is tracked by user request.
+
+*.ttc
+*.apk
+*.xapk
+*.apkm
+drivers/files/rootfs/usr/lib/firmware/
+drivers/files/rootfs/lib/firmware/
+drivers/files/rootfs/usr/local/libexec/surface-iptsd/iptsd
+kernel/files/secureboot/sign-file
+
+*.download
+
+# Raw measurements remain local; aggregate findings are documented.
+drivers/files/touchpad/diagnostics/**/raw-touchpad.json
+drivers/files/touchpad/diagnostics/**/libinput.txt
+drivers/files/sleep/diagnostics/**/power-trace.txt
+
+# Boot artwork remains in the local offline payload.
+desktop/files/rootfs/usr/share/plymouth/themes/surface-debian/*.png

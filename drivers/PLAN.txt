@@ -1,0 +1,1 @@
+Install matching firmware, touchpad/audio/camera support and persistent device configuration; rebuild initramfs.

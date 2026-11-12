@@ -1,0 +1,16 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.kakao.talk",
+      "sha256_cert_fingerprints": [
+        "7E:E7:78:79:CC:5B:62:35:5F:BB:06:19:E9:C1:B2:72:7B:9A:98:40:6B:3F:B3:34:31:D3:E6:54:4C:CA:C7:63",
+        "2B:06:CC:3D:47:78:2D:7C:49:7C:07:F1:7C:B5:F8:59:CD:6B:BC:B6:68:29:F3:E6:7B:96:B7:A4:48:20:D2:CE"
+      ]
+    }
+  }
+]

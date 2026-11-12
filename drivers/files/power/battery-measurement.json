@@ -1,0 +1,113 @@
+{
+  "captured_at": "2026-11-12T09:02:27.575261+09:00",
+  "full_wh": 50.78,
+  "design_wh": 52.33,
+  "health_percent": 97.03802789986624,
+  "current_energy_wh": 32.499,
+  "instant_power_w": 7.728,
+  "sleep_intervals": [
+    {
+      "start": 1794406501.630899,
+      "end": 1794406685.648721,
+      "hours": 0.05111606167422401,
+      "before_sample": [
+        1794406484,
+        43.99960614415124,
+        2
+      ],
+      "after_sample": [
+        1794406905,
+        42.99921228830248,
+        2
+      ],
+      "before_gap_seconds": 17.63089895248413,
+      "after_gap_seconds": 219.35127902030945,
+      "eligible": false
+    },
+    {
+      "start": 1794409101.751678,
+      "end": 1794413185.475109,
+      "hours": 1.1343676197528838,
+      "before_sample": [
+        1794408948,
+        33.99960614415124,
+        2
+      ],
+      "after_sample": [
+        1794413185,
+        32.00078771169752,
+        2
+      ],
+      "before_gap_seconds": 153.75167798995972,
+      "after_gap_seconds": -0.4751091003417969,
+      "eligible": false
+    },
+    {
+      "start": 1794413210.616113,
+      "end": 1794413269.006761,
+      "hours": 0.016219624479611713,
+      "before_sample": [
+        1794413185,
+        32.00078771169752,
+        2
+      ],
+      "after_sample": [
+        1794420492,
+        78.99960614415123,
+        2
+      ],
+      "before_gap_seconds": 25.61611294746399,
+      "after_gap_seconds": 7222.993238925934,
+      "eligible": false
+    },
+    {
+      "start": 1794416329.669783,
+      "end": 1794420422.814703,
+      "hours": 1.1369846999645232,
+      "before_sample": [
+        1794413185,
+        32.00078771169752,
+        2
+      ],
+      "after_sample": [
+        1794420492,
+        78.99960614415123,
+        2
+      ],
+      "before_gap_seconds": 3144.669783115387,
+      "after_gap_seconds": 69.1852970123291,
+      "eligible": false
+    },
+    {
+      "start": 1794422028.108371,
+      "end": 1794441093.025434,
+      "hours": 5.295810295277172,
+      "before_sample": [
+        1794421993,
+        72.99921228830249,
+        2
+      ],
+      "after_sample": [
+        1794441093,
+        67.00078771169751,
+        2
+      ],
+      "before_gap_seconds": 35.1083710193634,
+      "after_gap_seconds": -0.025434017181396484,
+      "eligible": true,
+      "drop_percentage_points": 5.998424576604975,
+      "estimated_wh": 3.0460000000000065,
+      "mean_w": 0.5751716602682017,
+      "percentage_points_per_hour": 1.1326736121862973
+    }
+  ],
+  "awake_weighted_mean_w": 7.644074700364769,
+  "awake_sampled_hours": 2.665277777777778,
+  "awake_intervals": 319,
+  "method": "UPower discharging intervals only; rate trapezoids <=120s, excluding any suspend overlap. Sleep charge samples must be within 120s of both boundaries; >=10 minute sessions only. Percent is quantized; estimates include boundary transition uncertainty.",
+  "sources": [
+    "https://learn.microsoft.com/en-us/surface/tech-specs/surface-laptop-snapdragon-tech-specs",
+    "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/modern-standby-sleepstudy",
+    "https://learn.microsoft.com/en-us/windows-hardware/test/hlk/testref/36463e42-7d6e-408e-933f-dbf56ea41e65"
+  ]
+}

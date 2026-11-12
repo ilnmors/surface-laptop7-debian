@@ -1,0 +1,5 @@
+{
+  "source": "https://d.apkpure.net/b/XAPK/com.kakao.talk?versionCode=29260920",
+  "sha256": "cd113fb0a7af53dcc5f3e3942d8e154303a6dae3626efbed595e61ec1e019108",
+  "reason": "Only armeabi-v7a native split; incompatible with ARM64-only CPU; never installed."
+}

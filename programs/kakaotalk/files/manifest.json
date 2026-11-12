@@ -1,0 +1,16 @@
+{
+  "package": "com.kakao.talk",
+  "version": "26.9.2",
+  "version_code": 29260920,
+  "min_sdk": 29,
+  "abi": "arm64-v8a",
+  "source_page": "https://apk.gold/download?split=621182/3544335/kakaotalk-free-calls-and-text",
+  "archive_sha256": "377ff35febd1d60498efb160caaec29a02ed94d8eb073f3b038c59a3f3d255f0",
+  "verification": "All four APKs passed apksigner verify; signer SHA256 matched official kakao.com assetlinks; aapt confirmed package/version/min SDK and ARM64 split.",
+  "files": {
+    "KakaoTalk-26.9.2.apk": "8ce382bb8fa441bf92ab166e7f06e7c51f784a9f86a71d339309fedd40cc3366",
+    "config.arm64_v8a.apk": "09f8c7f82cddb1c3a4d157a1da606e2441cb03fc78b473384a3e9d5a4576d4a5",
+    "config.en.apk": "ef19484dada4cd31cb2b400c857ee0088996f7a843f6dc6b816f93894aeb3ef2",
+    "config.xxhdpi.apk": "252d482fc3e4040b30b0d62b2f8cfe36f393bfd312ce58a43671d67d829294f6"
+  }
+}

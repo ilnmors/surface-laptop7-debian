@@ -1,0 +1,7 @@
+Exported ABI symbols preserved. Runtime linkage resolved. Patched independent libinput context logs the exact 045E:0C77 edge-exclusion exception. GNOME restart and human edge verification remain pending.
+libinput version: 1.28.1
+event10 - IPTSD Virtual Touchpad 045E:0C77: is tagged by udev as: Touchpad
+  ... event10 - palm: IPTSD 045E:0C77 edge exclusion disabled
+  ... event10 - thumb: enabled thumb detection (area)
+event10 - IPTSD Virtual Touchpad 045E:0C77: device is a touchpad
+-event10  DEVICE_ADDED                 IPTSD Virtual Touchpad 045E:0C77  seat0 default group1  cap:pg  size 120x80mm tap (dl off) left scroll-nat scroll-2fg-edge click-buttonareas-clickfinger dwtp-on

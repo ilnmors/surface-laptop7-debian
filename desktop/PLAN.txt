@@ -1,0 +1,1 @@
+Install GNOME theme/extensions, IBus, terminal and Plymouth; restore dconf snapshots without account migration.

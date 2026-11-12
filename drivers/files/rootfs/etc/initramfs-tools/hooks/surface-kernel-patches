@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+case "${1:-}" in prereqs) exit 0 ;; esac
+. /usr/share/initramfs-tools/hook-functions
+# Include replacements selected by depmod, without forcing early device probing.
+if [ -d "/lib/modules/${version}/updates/surface" ]; then
+    manual_add_modules dwc3_qcom soundwire_qcom
+fi
