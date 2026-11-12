@@ -1,5 +1,5 @@
 {
-  "progress": 100,
+  "progress": 90,
   "areas": [
     {
       "group": "BOOT",
@@ -60,8 +60,8 @@
       "title": "CPU·카메라",
       "status": "open",
       "label": "일부 미해결",
-      "finding": "scmi-cpufreq 정책 일부를 복구했지만 CPU9 PSCI 실패와 나머지 클러스터 정책은 남았습니다. 카메라 flicker를 유발한 품질 패치는 롤백 상태입니다.",
-      "next": "CPU DT/펌웨어와 전력 측정이 더 필요합니다. Windows 대비 배터리나 카메라 품질을 동등하게 만들었다고 검증하지 않았습니다.",
+      "finding": "CPU9 시작 실패(-22)는 DTB가 보존한 cpu@20300 대상으로 PSCI 요청이 거부되는 문제로 좁혔습니다. 이전 DTB 생성기는 코어 수만 검사했고 이 기기의 실제 활성 코어 주소를 검증하지 않았습니다.",
+      "next": "정확한 펌웨어 코어 매핑은 미확인입니다. CPU를 유지하라는 요청에 따라 DTB·주파수·hotplug 변경은 하지 않았습니다. 카메라 품질 패치는 롤백 상태입니다.",
       "path": "HARDWARE.md"
     },
     {
@@ -158,10 +158,37 @@
       "group": "POWER",
       "title": "120Hz 유지와 전력 최적화",
       "status": "pending",
-      "label": "안정성 확인 범위만 적용",
-      "finding": "120Hz·해상도·배율은 유지합니다. 패널 24–120Hz와 달리 현재 DRM에 VRR capability가 없어 가변 주사율을 강제하지 않았습니다. Wi-Fi station PS는 적용하고 GPU 초기 펌웨어 누락을 보완했습니다.",
-      "next": "CPU governor 시험은 전원 연결 때문에 절감량 판단이 불가능해 원복했습니다. 블랭킷 USB/PCIe 조정이나 board clock 보호 해제는 하지 않았습니다. 카카오 백그라운드 유지 비용을 포함해 새 배터리 실측이 필요합니다.",
+      "label": "드라이버 절전 확인 · CPU 유지",
+      "finding": "120Hz는 유지합니다. NVMe APST(100ms→PS4), SSD·Wi-Fi ASPM L1/L1.1/L1.2, USB root hub runtime suspend가 이미 활성화됐습니다. Wi-Fi station PS도 유지됩니다.",
+      "next": "4코어 부하 시험에서는 약 3GHz 제한 시 전력 21%·처리량 11% 감소가 관찰됐지만 일상 사용시간 예측은 아닙니다. 요청대로 ondemand·최대 3.4176GHz를 복원하고 영구 CPU 제한은 설치하지 않았습니다.",
       "path": "drivers/files/power/OPTIMIZATION.md"
+    },
+    {
+      "group": "PROGRAMS",
+      "title": "카카오톡 알림 본문",
+      "status": "open",
+      "label": "전달 경로 점검 · 원인 미확정",
+      "finding": "GNOME 알림은 켜져 있고 Linux 전달부는 받은 본문을 그대로 전달합니다. Waydroid Android 소스는 EXTRA_TITLE·EXTRA_TEXT만 getString으로 읽으며 MessagingStyle·BigText 대체 처리가 없습니다.",
+      "next": "앱의 내용 미리보기 설정과 Android 알림 형식 중 어느 쪽인지 아직 확정하지 못했습니다. 대화 내용은 수집하지 않았고 Android 시스템 이미지를 임의 교체하지 않았습니다.",
+      "path": "programs/kakaotalk/NOTIFICATIONS.md"
+    },
+    {
+      "group": "CONSOLE",
+      "title": "code-server Python 도구",
+      "status": "ok",
+      "label": "공식 ARM64 PET 복구",
+      "finding": "Open VSX universal 확장에 없던 PET를 동일 버전 Microsoft 공식 linux-arm64 VSIX에서 복구했습니다. 실행·실제 Python 발견·중복 설치 방지 확인을 통과했습니다.",
+      "next": "현재 편집기 창은 Reload Window가 필요할 수 있습니다. 역할과 서비스 시작 시 복구도 반영했으며 새 교정 커밋 없이 원래 저장소 커밋에 합쳤습니다.",
+      "path": "../repository/docs/console.md"
+    },
+    {
+      "group": "DAV",
+      "title": "Nextcloud 백업 → OxiCloud",
+      "status": "open",
+      "label": "도구 검증 · 서버 접근 차단",
+      "finding": "백업/복원 진입점 분리와 브라우저 로그인 모의 시험은 통과했습니다. 실제 내보내기는 HTTPS 시간 초과로 중단됐고 최종 manifest가 없어 복원에 사용할 수 없습니다. 허용된 infra 읽기 전용 SSH도 연결 시간 초과입니다.",
+      "next": "서버 접근이 복구되면 새 디렉토리로 다시 내보내야 합니다. 임시 로그인 앱 암호 폐기는 확인되지 않았으므로 계정 보안에서 폐기 확인이 필요합니다. 실제 OxiCloud 반영은 하지 않았습니다.",
+      "path": "../repository/tools/README.md.tmp"
     }
   ]
 }

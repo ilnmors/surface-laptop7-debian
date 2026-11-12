@@ -1,0 +1,259 @@
+{
+  "original": {
+    "scaling_max_freq": "3417600",
+    "scaling_governor": "ondemand"
+  },
+  "affected_cpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "note": "Whole-system battery gauge under four pinned CPU workers; short sequential samples, not a full runtime benchmark. Other clusters are not controlled.",
+  "phases": [
+    {
+      "cap_khz": 3417600,
+      "seconds": 12.02947327700008,
+      "jobs_per_second": 1569.3953978929376,
+      "mean_system_w": 30.093,
+      "frequency_range_khz": [
+        3417600,
+        3417600
+      ],
+      "samples": [
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 30.093,
+          "frequency_khz": 3417600
+        }
+      ]
+    },
+    {
+      "cap_khz": 2976000,
+      "seconds": 12.035673798000062,
+      "jobs_per_second": 1366.9363490670366,
+      "mean_system_w": 22.401,
+      "frequency_range_khz": [
+        2976000,
+        2976000
+      ],
+      "samples": [
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        },
+        {
+          "power_w": 22.401,
+          "frequency_khz": 2976000
+        }
+      ]
+    },
+    {
+      "cap_khz": 2515200,
+      "seconds": 12.037363745999983,
+      "jobs_per_second": 1154.0732915557455,
+      "mean_system_w": 17.15,
+      "frequency_range_khz": [
+        2515200,
+        2515200
+      ],
+      "samples": [
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        },
+        {
+          "power_w": 17.15,
+          "frequency_khz": 2515200
+        }
+      ]
+    },
+    {
+      "cap_khz": 3417600,
+      "seconds": 12.040195204000156,
+      "jobs_per_second": 1486.6038047334443,
+      "mean_system_w": 26.896,
+      "frequency_range_khz": [
+        3417600,
+        3417600
+      ],
+      "samples": [
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        },
+        {
+          "power_w": 26.896,
+          "frequency_khz": 3417600
+        }
+      ]
+    }
+  ],
+  "restored": {
+    "scaling_max_freq": "3417600",
+    "scaling_governor": "ondemand"
+  }
+}

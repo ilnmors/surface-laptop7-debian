@@ -44,3 +44,10 @@ The user will type "계속" in this session. Read this file and CURRENT.md, chec
 - Android keyboard popup is suppressed with a physical keyboard; Android light mode is selected. No Discord/other personal apps were installed.
 - Preserve 120Hz. Panel VRR range alone is insufficient: current MSM connector has no vrr_capable property.
 - Wi-Fi PS is now on; monitor reconnection and test battery discharge with matched brightness/120Hz/apps. Old 0.575W sleep and 7.64W awake figures are pre-change baselines. Governor was restored because charging invalidated comparison.
+
+## Latest follow-up (2026-11-12)
+
+- CPU left unchanged after the comparison; see drivers/files/power/CPU-AND-DRIVER-CHECK.md. Driver APST/ASPM/USB power saving already enabled. CPU9 topology remains unresolved; do not guess DTB addresses.
+- Nextcloud actual DAV export incomplete; HTTPS and approved infra SSH timed out. Retry only after access returns; verify/revoke the temporary browser-login app password. Tools remain repository/tools/*.tmp.
+- PET repaired locally and in the repository role; existing commits amended, no corrective commit added. Reload the editor window if needed.
+- Kakao notification body unresolved; see programs/kakaotalk/NOTIFICATIONS.md.
