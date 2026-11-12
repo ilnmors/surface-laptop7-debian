@@ -2070,6 +2070,7 @@ eba574ac745431dbf0a4463f0451a2dee27b0c9199a3502ae3033c864ce5181f  drivers/files/
 7e316d82480e46a61915b7061f4a3044fdfb01a9d138d6c7bf856913050bb059  drivers/files/sleep/diagnostics/2026-11-11/README.md
 aae9077058cf365f578873707a7d6eaa5a3d00bbdc47a905a3cb814c88cc1fce  drivers/files/sleep/diagnostics/2026-11-12-090205/power-trace.txt
 592be5a6e3dc851ce067312dcc0ed93a34e631beac5ebb846b2b7973cf86d416  drivers/files/sleep/diagnostics/2026-11-12-090205/timing-summary.json
+88af545819823c9fe9488b9df371d25d7f2b94fdb8ebbe0f22cf4ac4601cf692  drivers/files/sleep/diagnostics/2026-11-12-192713/README.md
 71b35f405ccd8a15e6e1e0cd577ad63ce118c8773e17b1583b4450f42ab8b884  drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md
 d6d3ae299c3e3e56b21f32290bbe84eae39cb3dc479b385f53dc164fedd58b77  drivers/files/sleep/trace-resume.py
 d2ca7d84e07b0087f4099385392741c0784a27c097df7841596386a6a741c3b0  drivers/files/touchpad/README.md

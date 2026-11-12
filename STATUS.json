@@ -7,7 +7,7 @@
       "status": "pending",
       "label": "regulatory 수정 적용 · 반복 장애 추적",
       "finding": "Surface RFKILL 보정 두 개를 보존한 ath12k D044C56077CC5357DC3F5BF를 서명·로드했습니다. 차단 없음·인증·IP 할당·반복 Wi-Fi 지정 HTTPS 200을 확인했고 오프라인 재빌드도 같은 srcversion을 재현했습니다.",
-      "next": "기본 부팅에서 ath12k D044C56077CC5357DC3F5BF로 Wi-Fi 지정 HTTPS 200을 확인했고 이번 부팅 비콘 손실·송신 오류 로그는 0건입니다. 최초 원인은 미확정이므로 절전 복귀 후 재발 여부를 계속 확인합니다.",
+      "next": "기본 부팅에서 ath12k D044C56077CC5357DC3F5BF로 Wi-Fi 지정 HTTPS 200을 확인했고 root 권한으로 읽은 이번 부팅 로그에 비콘 손실은 없고, 절전 직전 regulatory 설정 실패 2건과 L2 진입 타임아웃 1건이 있습니다. 최초 원인은 미확정이므로 절전 복귀 후 재발 여부를 계속 확인합니다.",
       "path": "patches/files/wifi-regulatory/known-good/README.md"
     },
     {
@@ -16,7 +16,7 @@
       "status": "ok",
       "label": "10코어 · 기본 부팅 재검증 완료",
       "finding": "서명된 시험 이미지로 재부팅해 online 0-9와 세 클러스터 ondemand를 확인했습니다. Secure Boot enabled입니다.",
-      "next": "2026-11-12 19:25 기본 서명 이미지(vmlinuz-surface-signed.efi)로 부팅해 online 0-9, 세 정책 ondemand 710–3417MHz, Secure Boot 활성을 재확인했습니다. 커널 err 로그 0건. 이전 이미지는 복구용으로 유지합니다.",
+      "next": "2026-11-12 19:25 기본 서명 이미지(vmlinuz-surface-signed.efi)로 부팅해 online 0-9, 세 정책 ondemand 710–3417MHz, Secure Boot 활성을 재확인했습니다. 이전 이미지는 복구용으로 유지합니다.",
       "path": "drivers/files/cpu/README.md"
     },
     {
@@ -41,10 +41,10 @@
       "group": "POWER",
       "title": "deep 절전과 복귀",
       "status": "pending",
-      "label": "regulatory 수정 후 절전 비교 대기",
-      "finding": "이번 부팅에서 deep 약 65분 뒤 복귀 성공 1회·실패 0회입니다. Wi-Fi regulatory 대기·PCIe L2 timeout이 남았고, 복귀 종료부터 Wi-Fi 인증 시작까지 약 11.4초였습니다.",
-      "next": "Surface 전용 RFKILL 보정을 보존한 regulatory 수정본이 현재 로드됐습니다. 이번 변경 뒤 deep 절전 비교는 아직 하지 않았습니다. CPU9·카메라 부팅 시험과 절전 검증을 혼동하지 않습니다.",
-      "path": "drivers/files/sleep/diagnostics/2026-11-12-post-reboot-review.md"
+      "label": "deep 복귀 4.76초 · 원인 2개 특정",
+      "finding": "2026-11-12 19:27 기본 부팅 deep 절전 1회 성공. 커널 복귀 4.76초 중 터치패드 spi_hid 고정 2초 대기 2.455초, 장치 없는 PCIe 1bd0000 링크 탐색 1.07초가 가장 큽니다. Wi-Fi는 복귀 후 약 2.1초 만에 재연결(이전 약 11.4초), 오디오 오류는 없었습니다.",
+      "next": "spi_hid의 2초 대기를 시스템 복귀 경로 밖으로 옮기는 모듈 재빌드(서명·롤백 유지)와 빈 PCIe 포트 확인이 다음 후보입니다.",
+      "path": "drivers/files/sleep/diagnostics/2026-11-12-192713/README.md"
     },
     {
       "group": "INPUT",

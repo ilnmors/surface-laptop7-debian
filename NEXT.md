@@ -1,6 +1,6 @@
 # Next (after 19:25 default-boot verification)
 
-- Default-boot verification is complete; see CURRENT.md. Remaining: user-initiated suspend cycle (Wi-Fi/audio/beacon loss after resume), battery discharge with matched conditions, camera noise/1080p (deferred), touchscreen (open), Fn lock (open), Kakao notification body (pending).
+- Default-boot verification is complete; see CURRENT.md. Deep cycle verified 19:27 (see sleep/diagnostics/2026-11-12-192713). Candidate resume fixes: move spi_hid fixed msleep(2000) out of the system resume callback (rebuild/sign spi-hid.ko, keep rollback); investigate empty PCIe 1bd0000 before any DT disable. Remaining: battery discharge with matched conditions, camera noise/1080p (deferred), touchscreen (open), Fn lock (open), Kakao notification body (pending).
 
 Previous checklist (completed):
 
