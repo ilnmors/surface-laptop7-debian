@@ -40,10 +40,10 @@
     {
       "group": "POWER",
       "title": "deep 절전과 복귀",
-      "status": "pending",
-      "label": "복귀 단축 시험 이미지 설치 · 재부팅 대기",
-      "finding": "2026-11-12 19:27 기본 부팅 deep 절전 1회 성공. 커널 복귀 4.76초 중 터치패드 spi_hid 고정 2초 대기 2.455초, 장치 없는 PCIe 1bd0000 링크 탐색 1.07초가 가장 큽니다. Wi-Fi는 복귀 후 약 2.1초 만에 재연결(이전 약 11.4초), 오디오 오류는 없었습니다.",
-      "next": "터치패드 2초 대기를 작업 큐로 옮긴 spi-hid(F78320E…)와 빈 pcie3를 끈 DTB를 서명 이미지에 넣었습니다. 재부팅 후 절전 1회로 복귀 시간·터치패드 동작을 확인합니다. 실패 시 GRUB \"Surface previous working image\" 또는 restore.sh로 되돌립니다. 정상 확인 후 이전 부팅 이미지들은 삭제 예정입니다.",
+      "status": "ok",
+      "label": "deep 복귀 4.76초 → 1.62초",
+      "finding": "터치패드 spi_hid의 고정 2초 대기를 작업 큐로 옮기고 장치 없는 pcie3를 DTB에서 껐습니다. 21:22 절전 복귀에서 커널 복귀 1.62초(이전 4.76초), spi_hid 0.415초, Wi-Fi 재연결 약 2.0초, 터치패드 정상 복귀를 확인했습니다.",
+      "next": "오프라인 설치(kernel/setup.sh)에 새 DTB·모듈을 반영했습니다. 사용자 확인 후 이전 부팅 이미지(previous working image 등)를 삭제합니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-192713/README.md"
     },
     {
@@ -61,7 +61,7 @@
       "status": "pending",
       "label": "실측 기록 분석",
       "finding": "19:30 측정: 밝기 50%, Firefox·Waydroid 실행 상태에서 약 5.6–5.9W 방전(이전 기준 7.64W). Wi-Fi·NVMe는 ASPM L1.2, USB 루트 허브는 autosuspend, CPU는 대부분 806MHz에 머뭅니다. 장치 없는 pcie3가 켜져 있어 이번 시험에서 끕니다. Waydroid 백그라운드 유지는 사용자 선택입니다.",
-      "next": "재부팅 후 같은 조건(밝기·앱)으로 방전 전력을 다시 재 pcie3 비활성 효과를 비교합니다. USB 컨트롤러 런타임 PM 강제 활성은 USB 복귀 수정 이력 때문에 바꾸지 않았습니다.",
+      "next": "21:19 재측정은 충전 중(입력 약 38–48W)이라 비교 불가했습니다. 어댑터 분리 후 같은 밝기·앱 조건으로 pcie3 비활성 효과를 비교합니다.",
       "path": "drivers/files/power/README.md"
     },
     {

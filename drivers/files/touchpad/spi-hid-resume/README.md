@@ -1,4 +1,4 @@
-# spi-hid deferred resume settle (next-boot trial, 2026-11-12)
+# spi-hid deferred resume settle (verified 2026-11-12 21:22, installer default)
 
 The installed community spi-hid.ko (srcversion A2DC44A5E473B534676E1E3, rebuilt byte-for-byte from archive/hardware/source/surface-xplus-project.zip → kernel/modules/spi-hid) slept msleep(2000) inside the system resume callback after reset. That fixed wait was 2.455 s of a 4.76 s kernel resume (see drivers/files/sleep/diagnostics/2026-11-12-192713).
 
@@ -20,3 +20,7 @@ Expected: system resume ~2.4 s shorter; touchpad ready about 2 s after wake, as 
 | restore.sh | Root: put back the saved module, DTB and signed image. |
 
 Rollback at boot: choose "Surface previous working image" in GRUB (hold Esc). After a successful check the older images are to be deleted (see NEXT.md).
+
+## Result (21:22 lid cycle)
+
+Kernel resume (machine_suspend → thaw) 1.617 s, down from 4.76 s: noirq 0.628 s, early 0.520 s, dpm_resume 0.443 s. spi_hid callback 0.415 s (reset assert + power-up only). Touchpad hidraw present within 6 s of wake; Wi-Fi reconnected 2.0 s after NetworkManager wake. kernel/setup.sh installs this module over the kernel package copy.

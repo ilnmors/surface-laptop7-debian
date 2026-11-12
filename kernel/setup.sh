@@ -7,7 +7,10 @@ boot_uuid=$(sudo grub-probe --target=fs_uuid /boot)
 root_uuid=$(findmnt -n -o UUID -T /)
 boot_prefix=$(sudo grub-mkrelpath /boot); boot_prefix=${boot_prefix%/}
 test -n "$root_uuid"
-sudo install -m644 drivers/files/touchscreen/surface-sl7-xplus-touchscreen.dtb /boot/surface-sl7-xplus.dtb
+sudo install -m644 drivers/files/pcie/surface-sl7-xplus-pcie3-off.dtb /boot/surface-sl7-xplus.dtb
+# Deferred-resume touchpad module replaces the kernel package copy; secureboot/install.sh signs it.
+sudo install -m644 drivers/files/touchpad/spi-hid-resume/spi-hid.ko /lib/modules/$kernel/updates/sl7/spi-hid.ko
+sudo depmod -a "$kernel"
 cat <<GRUB | sudo tee /etc/grub.d/09_surface >/dev/null
 #!/bin/sh
 cat <<'ENTRY'
