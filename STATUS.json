@@ -67,11 +67,11 @@
     {
       "group": "AUDIO",
       "title": "간헐적 스피커 무음",
-      "status": "ok",
-      "label": "재발 없음",
-      "finding": "사용자는 스피커가 정상인 것 같다고 확인했습니다. 기본 스피커 출력도 존재합니다. 다만 deep 복귀 뒤 12:11:26에 wsa884x Parity error 1회가 기록됐습니다.",
-      "next": "이번 부팅과 deep 절전 3회에서 SoundWire/WSA parity 오류가 없고 스피커 출력이 정상입니다. 재발하면 patches/files/README.md 절차로 오류 시각을 대조합니다.",
-      "path": "patches/files/README.md"
+      "status": "pending",
+      "label": "재부팅 후 소리 복구 · 원인 미확정",
+      "finding": "기존 무음 중 SoundWire 버스 충돌 2회를 확인했습니다. 초기 검색이 clsh 표기를 놓쳤습니다. 이후 코덱·카드 재등록 중 DSP timeout·PM·parity 오류가 추가됐고 무음은 지속됐습니다. ADSP 복구 시도 직후 비정상 재부팅이 발생했으며, 재부팅 후 사용자가 소리 복구를 확인했습니다.",
+      "next": "soft-mixer 시험은 실패해 제거했습니다. 정확한 재부팅 원인과 최초 버스 충돌 원인은 미확정입니다. 추가 장치 초기화 없이 현재 상태를 유지합니다. 사고 기록에 실패한 시도·로그·판단 한계와 재발 시 확인 항목을 정리했습니다.",
+      "path": "drivers/files/audio/diagnostics/2026-11-13/README.md"
     },
     {
       "group": "INPUT",

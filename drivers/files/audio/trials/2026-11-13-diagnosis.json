@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-13T21:45:03.574857+09:00",
+  "commit_completed": "c5bcf7d (Waydroid only; not pushed)",
+  "card": "X1E80100-Romulus",
+  "speaker_codec": "wsa884x-codec",
+  "speaker_sink": "alsa_output.platform-sound.HiFi__Speaker__sink",
+  "deleted_virtual_default_removed": true,
+  "playback_test": {
+    "alsa_state": "RUNNING",
+    "rate": 48000,
+    "channels": 2,
+    "soundwire_speaker_master_and_slaves": "active",
+    "output_monitor_peak": 900,
+    "output_monitor_rms": 625.09,
+    "heard_before_soft_mixer": false
+  },
+  "soft_mixer_trial": {
+    "applied": false,
+    "user_config": ".config/wireplumber/wireplumber.conf.d/60-surface-soft-mixer.conf",
+    "left_right_pa_before": [
+      1,
+      1
+    ],
+    "left_right_pa_after": [
+      6,
+      6
+    ],
+    "kernel_pa_limit": 6,
+    "kernel_pa_limit_db": 0,
+    "kernel_digital_limit": 81,
+    "kernel_digital_limit_db": -3,
+    "volume_change_keeps_pa_6": true,
+    "audible_result": "failed: user heard no sound; active user configuration removed",
+    "installed_by_setup": false
+  },
+  "sources": [
+    "https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/alsa.html",
+    "https://raw.githubusercontent.com/torvalds/linux/master/sound/soc/qcom/x1e80100.c",
+    "https://tangled.org/overby.me/overby.me/commit/03759aae6924e3b000a2e7f03cef85687eef2062"
+  ],
+  "initial_error_search_corrected": "Initial search missed clsh; previous boot contains two SoundWire clashes before hardware resets. See ../diagnostics/2026-11-13/.",
+  "outcome": "Audible recovery after unexpected host reboot following ADSP reset attempt; exact cause unresolved."
+}

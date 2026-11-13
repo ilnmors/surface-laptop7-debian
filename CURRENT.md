@@ -28,3 +28,7 @@ Use one continuous opaque Mainland top bar: 34px high, zero outer margin/radius/
 ## Waydroid downloads
 
 Waydroid setup creates `<XDG Downloads>/waydroid` after Android boot readiness, using the shared SH/Python helper in `programs/waydroid/download-link.*`. It grants narrowly scoped ACL access with the current desktop UID while preserving Android owners. The ACL package is bundled for offline installation. Existing correct setup is idempotent; `--check` is read-only. The current `~/Downloads/waydroid` link and inherited ACLs passed live verification.
+
+## Audio investigation (2026-11-13)
+
+User confirmed sound returned after an unexpected host reboot following the live ADSP recovery attempt. Initial SoundWire clashes were missed in the first log search; codec/card rebinds then added DSP timeouts, runtime-PM and parity errors without restoring sound. Soft-mixer trial failed and was removed. No permanent fix or exact reboot mechanism is established. Preserve working audio; do not repeat live hardware resets automatically. See [incident record](drivers/files/audio/diagnostics/2026-11-13/README.md) and saved journals for chronology and evidence. These findings supersede the earlier error-free-kernel and pending-trial claims.
