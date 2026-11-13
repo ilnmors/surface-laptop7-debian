@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Mount online account file shares
+Exec=sh -c "exec /usr/bin/python3 -I \\$HOME/.local/bin/goa-webdav-mount"
+OnlyShowIn=GNOME;
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=5

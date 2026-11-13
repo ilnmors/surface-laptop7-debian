@@ -15,3 +15,7 @@ Blur My Shell source https://extensions.gnome.org/extension/3193/blur-my-shell/
 Plymouth uses the stock two-step spinner with the Debian logo on a black background. Theme files and plymouthd.conf are under desktop/files/rootfs; packages/ includes Plymouth, its themes, label plugin and libplymouth5. setup.sh selects surface-debian. The signed boot updater keeps quiet/splash, hides service status and gives GRUB a hidden one-second timeout. Escape in Plymouth reveals boot details. The initramfs and signed image must be rebuilt after theme changes. Actual appearance requires a reboot.
 
 The current boot artwork and font repair are documented in boot-art/README.md. The unversioned Debian wordmark replaces the distro versioned watermark. A post-Plymouth hook ensures that image is not overwritten and carries static/fallback fonts. See boot-art/README.md for source/rendering details.
+
+## OxiCloud WebDAV auto-mount
+
+`goa-webdav-mount.py` (installed as `~/.local/bin/goa-webdav-mount`) and `goa-webdav-mount.desktop` (autostart) mount the GNOME Online Accounts WebDAV volumes at login with the keyring credentials, retrying every 15 s for up to 10 minutes. gvfs buffers WebDAV uploads in memory, so copy multi-GB files with a WebDAV client instead of the mount.
