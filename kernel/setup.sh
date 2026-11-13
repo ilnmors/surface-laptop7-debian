@@ -7,7 +7,7 @@ boot_uuid=$(sudo grub-probe --target=fs_uuid /boot)
 root_uuid=$(findmnt -n -o UUID -T /)
 boot_prefix=$(sudo grub-mkrelpath /boot); boot_prefix=${boot_prefix%/}
 test -n "$root_uuid"
-sudo install -m644 drivers/files/pcie/surface-sl7-xplus-pcie3-off.dtb /boot/surface-sl7-xplus.dtb
+sudo install -m644 drivers/files/touchscreen/spi-gtch/surface-sl7-xplus-gtch.dtb /boot/surface-sl7-xplus.dtb
 # Deferred-resume touchpad module replaces the kernel package copy; secureboot/install.sh signs it.
 sudo install -m644 drivers/files/touchpad/spi-hid-resume/spi-hid.ko /lib/modules/$kernel/updates/sl7/spi-hid.ko
 sudo depmod -a "$kernel"
@@ -19,7 +19,7 @@ menuentry 'Debian 13 - Surface Laptop 7 X Plus' --id surface-debian {
   insmod fdt
   search --no-floppy --fs-uuid --set=root $boot_uuid
   cutmem 0x8800000000 0x8fffffffff
-  linux $boot_prefix/vmlinuz-$kernel root=UUID=$root_uuid ro clk_ignore_unused pd_ignore_unused cma=512M arm64.nopauth stubble.dtb_override=false console=tty0
+  linux $boot_prefix/vmlinuz-$kernel root=UUID=$root_uuid ro clk_ignore_unused pd_ignore_unused cma=0 arm64.nopauth stubble.dtb_override=false console=tty0
   devicetree $boot_prefix/surface-sl7-xplus.dtb
   initrd $boot_prefix/initrd.img-$kernel
 }
