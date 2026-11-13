@@ -162,7 +162,7 @@ def build_kernel(kernel, state, dtb_path, output, update_bootloader=True):
         "menuentry 'Debian Surface - signed kernel' {\n"
         f" search --no-floppy --fs-uuid --set=root {boot_uuid}\n"
         f" linux {boot_prefix}/secureboot/vmlinuz-surface-signed.efi "
-        f"root=UUID={root_uuid} ro clk_ignore_unused pd_ignore_unused cma=512M "
+        f"root=UUID={root_uuid} ro clk_ignore_unused pd_ignore_unused cma=0 "
         "arm64.nopauth stubble.dtb_override=true console=tty0 quiet splash loglevel=3 systemd.show_status=false rd.systemd.show_status=false vt.global_cursor_default=0\n"
         f" initrd {boot_prefix}/secureboot/initrd.img-{kernel}\n"
         "}\n"
