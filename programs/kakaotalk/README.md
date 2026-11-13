@@ -28,3 +28,9 @@ Icon: files/kakaotalk-icon.png is the actual installed KakaoTalk icon exported b
 ## Physical keyboard Enter
 
 Settings → Chats → Keyboard → Press Enter to Send must be enabled. It was off; the user confirmed the corrected behavior on 2026-11-12. This is an app preference, not a Linux key remap. Keep it in the authenticated app profile; no chat database or account secrets are bundled.
+
+## Host download access
+
+The Linux download folder contains `waydroid`, a symlink to `~/.local/share/waydroid/data/media/0/Download`. The actual current link is `~/Downloads/waydroid`. Android file ownership was preserved. A Polkit authentication dialog authorized ACL access: the console user has traverse-only access on `data`, `data/media` and `data/media/0`, and read/write/traverse access on the Download subtree. Default directory ACLs allow future downloaded files to inherit access. Use the current user UID when reproducing these ACLs on another machine; do not recursively chown Android data. Linux read/write access was tested with a temporary file. No chat content or downloaded-file names were inspected or recorded.
+
+Automatic reproduction: the Waydroid setup now calls `programs/waydroid/download-link.sh` (Python implementation: `download-link.py`) after Android shared storage is ready. Run either directly to repair the link/access without reinstalling KakaoTalk; use `--check` to verify only. See `../waydroid/files/README.md`.

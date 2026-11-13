@@ -24,3 +24,7 @@
 ## Desktop refresh (2026-11-13)
 
 Use one continuous opaque Mainland top bar: 34px high, zero outer margin/radius/border, 100% background opacity. Trilands was removed after the user reported the transparent gaps between white component groups. Keep CPU/RAM on the left, clock in the center and notification/input/system controls on the right. The alpine photo and teal GTK3/GTK4 app theme remain; Shell stays Fluent-Light. Settings were refreshed live; appearance awaits user confirmation. The wallpaper, app theme and panel settings are documented separately in `desktop/files/topbar/ALPINE-THEME.md`.
+
+## Waydroid downloads
+
+Waydroid setup creates `<XDG Downloads>/waydroid` after Android boot readiness, using the shared SH/Python helper in `programs/waydroid/download-link.*`. It grants narrowly scoped ACL access with the current desktop UID while preserving Android owners. The ACL package is bundled for offline installation. Existing correct setup is idempotent; `--check` is read-only. The current `~/Downloads/waydroid` link and inherited ACLs passed live verification.
