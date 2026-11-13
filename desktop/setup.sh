@@ -34,7 +34,7 @@ python3 - <<'PY'
 from gi.repository import Gio
 settings = Gio.Settings.new("org.gnome.shell")
 enabled = settings.get_strv("enabled-extensions")
-for extension in ("dash-to-dock@micxgx.gmail.com", "user-theme@gnome-shell-extensions.gcampax.github.com", "openbar@neuromorph", "Vitals@CoreCoding.com", "caffeine@patapon.info", "appindicatorsupport@rgcjonas.gmail.com"):
+for extension in ("dash-to-dock@micxgx.gmail.com", "user-theme@gnome-shell-extensions.gcampax.github.com", "openbar@neuromorph", "Vitals@CoreCoding.com", "caffeine@patapon.info", "appindicatorsupport@rgcjonas.gmail.com", "surface-notifications@example.internal"):
     if extension not in enabled:
         enabled.append(extension)
 assert settings.set_strv("enabled-extensions", enabled)

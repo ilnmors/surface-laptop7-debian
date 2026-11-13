@@ -1,0 +1,7 @@
+{
+  "uuid": "surface-notifications@example.internal",
+  "name": "Surface Notifications",
+  "description": "Bell button with the unread notification count on the right of the top bar; opens the notification list.",
+  "shell-version": ["48"],
+  "version": 1
+}

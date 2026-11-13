@@ -19,6 +19,7 @@ force-straight-corner=true
 height-fraction=0.80000000000000004
 intellihide=false
 running-indicator-style='DASHES'
+show-apps-always-in-the-edge=false
 show-apps-at-top=true
 show-mounts=false
 show-trash=false

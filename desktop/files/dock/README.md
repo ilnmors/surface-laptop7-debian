@@ -15,3 +15,5 @@ With autohide + intellihide + pressure reveal, a finger on the GTCH touchscreen 
 - `dock.css` (appended to the Fluent-Light shell theme): flat bar, 1 px top border, no radius/margin/shadow.
 
 Settings are in `settings/dash-to-dock.dconf`. To go back to the floating auto-hide dock, load `before.dconf` and restore the previous CSS block from git history.
+
+The app grid button stays next to the centered icons (`show-apps-always-in-the-edge=false`), like the Windows 11 Start button.
