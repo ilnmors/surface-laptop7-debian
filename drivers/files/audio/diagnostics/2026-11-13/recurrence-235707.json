@@ -1,0 +1,176 @@
+{
+  "time": "2026-11-13T23:57:04.007487+09:00",
+  "user_report": "silent now",
+  "mixer": [
+    "numid=2,iface=MIXER,name='Speakers Volume'\n  ; type=INTEGER,access=rw---R--,values=2,min=0,max=6,step=0\n  : values=1,1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+    "numid=106,iface=MIXER,name='SpkrLeft PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+    "numid=114,iface=MIXER,name='SpkrRight PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+    "numid=129,iface=MIXER,name='WSA WSA_RX0 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+    "numid=125,iface=MIXER,name='WSA WSA_RX0 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+    "numid=131,iface=MIXER,name='WSA WSA_RX0_MIX Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+    "numid=130,iface=MIXER,name='WSA WSA_RX1 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+    "numid=126,iface=MIXER,name='WSA WSA_RX1 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+    "numid=132,iface=MIXER,name='WSA WSA_RX1_MIX Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+    "numid=167,iface=MIXER,name='WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2'\n  ; type=BOOLEAN,access=rw------,values=2\n  : values=on,off\n"
+  ],
+  "nodes": [
+    {
+      "id": 72,
+      "state": "suspended",
+      "props": {
+        "node.name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+        "node.pause-on-idle": false
+      },
+      "Props": [
+        {
+          "volume": 1.0,
+          "mute": false,
+          "channelVolumes": [
+            0.00925,
+            0.00925
+          ],
+          "channelMap": [
+            "FL",
+            "FR"
+          ],
+          "softMute": false,
+          "softVolumes": [
+            0.021934,
+            0.021934
+          ],
+          "monitorMute": false,
+          "monitorVolumes": [
+            1.0,
+            1.0
+          ],
+          "params": [
+            "monitor.channel-volumes",
+            false,
+            "channelmix.disable",
+            false,
+            "channelmix.min-volume",
+            0.0,
+            "channelmix.max-volume",
+            10.0,
+            "channelmix.normalize",
+            false,
+            "channelmix.mix-lfe",
+            true,
+            "channelmix.upmix",
+            true,
+            "channelmix.lfe-cutoff",
+            0.0,
+            "channelmix.fc-cutoff",
+            0.0,
+            "channelmix.rear-delay",
+            0.0,
+            "channelmix.stereo-widen",
+            0.0,
+            "channelmix.hilbert-taps",
+            0,
+            "channelmix.upmix-method",
+            "none",
+            "resample.quality",
+            4,
+            "resample.disable",
+            false,
+            "dither.noise",
+            0,
+            "dither.method",
+            "none",
+            "debug.wav-path",
+            "",
+            "channelmix.lock-volumes",
+            false,
+            "audioconvert.filter-graph.disable",
+            false,
+            "audioconvert.filter-graph",
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "state": "idle",
+      "props": {
+        "application.name": "Firefox",
+        "node.latency": "3600/48000",
+        "node.name": "Firefox",
+        "node.rate": "1/48000"
+      },
+      "Props": [
+        {
+          "volume": 1.0,
+          "mute": false,
+          "channelVolumes": [
+            1.0,
+            1.0
+          ],
+          "channelMap": [
+            "FL",
+            "FR"
+          ],
+          "softMute": false,
+          "softVolumes": [
+            1.0,
+            1.0
+          ],
+          "monitorMute": false,
+          "monitorVolumes": [
+            1.0,
+            1.0
+          ],
+          "params": [
+            "monitor.channel-volumes",
+            false,
+            "channelmix.disable",
+            false,
+            "channelmix.min-volume",
+            0.0,
+            "channelmix.max-volume",
+            10.0,
+            "channelmix.normalize",
+            false,
+            "channelmix.mix-lfe",
+            true,
+            "channelmix.upmix",
+            true,
+            "channelmix.lfe-cutoff",
+            0.0,
+            "channelmix.fc-cutoff",
+            0.0,
+            "channelmix.rear-delay",
+            0.0,
+            "channelmix.stereo-widen",
+            0.0,
+            "channelmix.hilbert-taps",
+            0,
+            "channelmix.upmix-method",
+            "none",
+            "resample.quality",
+            4,
+            "resample.disable",
+            false,
+            "dither.noise",
+            0,
+            "dither.method",
+            "none",
+            "debug.wav-path",
+            "",
+            "channelmix.lock-volumes",
+            false,
+            "audioconvert.filter-graph.disable",
+            false,
+            "audioconvert.filter-graph",
+            ""
+          ]
+        }
+      ]
+    }
+  ],
+  "pcm": "closed\n",
+  "volume": "Volume: 0.21\n",
+  "kernel_since_boot_initialization": "2026-11-13T23:56:21+09:00 surface kernel: qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected\n\n",
+  "kernel_read_return": 0
+}

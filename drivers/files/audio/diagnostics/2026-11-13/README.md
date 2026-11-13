@@ -48,3 +48,7 @@ The failed user config was moved out of the active WirePlumber directory to ~/.l
 - [Trial diagnostics](../../trials/2026-11-13-diagnosis.json).
 - [Kernel AudioReach command definitions](https://raw.githubusercontent.com/torvalds/linux/master/sound/soc/qcom/qdsp6/audioreach.h).
 - [Same-codec Surface Pro 11 reference](https://tangled.org/overby.me/overby.me/commit/03759aae6924e3b000a2e7f03cef85687eef2062): supporting research, not a validated Laptop 7 fix.
+
+## Subsequent recurrence
+
+SoundWire clash recurred at 23:56:21 after spontaneous audible recovery. See [stabilization review](STABILIZATION.md) and its saved snapshot. Reboot recovery was temporary, not a confirmed fix.

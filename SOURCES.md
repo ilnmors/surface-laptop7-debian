@@ -77,3 +77,7 @@ The `Fluent-teal-Light` variant was built from the already archived Fluent sourc
 Waydroid host downloads: local `programs/waydroid/download-link.py` and `.sh` integrate the shared-storage path documented at https://docs.waydro.id/faq/setting-up-a-shared-folder . Access uses a per-user ACL instead of changing Android owners. Debian trixie `acl` is retained under `programs/waydroid/files/packages/`; exact package/hash and reproduction are in `programs/waydroid/files/README.md`.
 
 Audio trial (2026-11-13): official WirePlumber ALSA `api.alsa.soft-mixer` documentation at https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/alsa.html and the kernel x1e80100 speaker caps at https://raw.githubusercontent.com/torvalds/linux/master/sound/soc/qcom/x1e80100.c . A same-codec Surface Pro 11 report is linked in `drivers/files/audio/README.md`; it is supporting evidence, not a verified Laptop 7 fix.
+
+## Audio recurrence case review — 2026-11-14
+
+[Cases, primary links and applicability](drivers/files/audio/diagnostics/2026-11-14/CASES-AND-PROPOSAL.md) compare the X1 IRQ/clock fix, X13s stability series, Surface Laptop 7 UCM enablement and Surface Pro 11 configuration attempts with retained local source and measurements. No new patch or payload installed; proposed runtime-PM mitigation remains unconfirmed.

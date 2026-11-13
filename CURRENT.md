@@ -32,3 +32,11 @@ Waydroid setup creates `<XDG Downloads>/waydroid` after Android boot readiness, 
 ## Audio investigation (2026-11-13)
 
 User confirmed sound returned after an unexpected host reboot following the live ADSP recovery attempt. Initial SoundWire clashes were missed in the first log search; codec/card rebinds then added DSP timeouts, runtime-PM and parity errors without restoring sound. Soft-mixer trial failed and was removed. No permanent fix or exact reboot mechanism is established. Preserve working audio; do not repeat live hardware resets automatically. See [incident record](drivers/files/audio/diagnostics/2026-11-13/README.md) and saved journals for chronology and evidence. These findings supersede the earlier error-free-kernel and pending-trial claims.
+
+Audio follow-up: a new SoundWire clash occurred at 23:56:21 without further resets. Recovery was temporary. Stabilization candidates and applicability limits are in [STABILIZATION.md](drivers/files/audio/diagnostics/2026-11-13/STABILIZATION.md); none is installed.
+
+2026-11-14 cause investigation: original driver already enables 3-second autosuspend. A user-approved 90-second controller-on trial was reported normal; auto was restored, with later user-reported silence/recovery. Runtime controller power transition is the leading hypothesis, not a confirmed unique code defect. All private traces were removed; no permanent mitigation installed. See [cause assessment](drivers/files/audio/diagnostics/2026-11-14/README.md).
+
+2026-11-14 external-case review: the closest X1 SoundWire IRQ/clock-stop fix is already present in the archived base source. Older X13s stability fixes support the failure class; Surface Pro 11 gain/routing changes are not a verified cure for this machine. Proposed next step is a longer controller-only runtime-PM comparison with power measurement, followed by a signed boot-time stock/custom module comparison only if necessary. Research did not change the live system. See [cases and proposal](drivers/files/audio/diagnostics/2026-11-14/CASES-AND-PROPOSAL.md).
+
+2026-11-14 user decision: audio investigation is held until recurrence. Preserve current settings. A finite read-only capture helper and [resume procedure](drivers/files/audio/RESUME.md) are ready; no monitor or automatic recovery was installed.

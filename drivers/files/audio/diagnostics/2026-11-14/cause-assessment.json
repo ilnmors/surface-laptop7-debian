@@ -1,0 +1,34 @@
+{
+  "scope": "Read-only cause investigation plus explicitly approved, bounded 90-second controller power/control=on comparison; restore auto afterward.",
+  "confirmed": [
+    "SoundWire bus clash recorded at 2026-11-13 23:56:21 KST on controller 6b10000.soundwire.",
+    "User identifies pause/video-switch followed by playback as the trigger.",
+    "Existing source already contains the October 9 IRQ disable/enable fix; adding the older synchronize_irq variant is not a demonstrated missing fix.",
+    "Filtered baseline collected 191 playback snapshots and 168 RPM events with no trace buffer loss.",
+    "In baseline, controller resume returned zero in about 3.2 ms and both codecs were active within about 12.5 ms; no new clash during that test.",
+    "A silent-report snapshot had Firefox idle and PCM closed; it cannot establish silent RUNNING playback."
+  ],
+  "comparison": {
+    "baseline_user_report": "silence recurred",
+    "controller_on_user_report": "normal",
+    "automatic_restore": "verified: auto restored after 90.053 seconds; all trace instances removed",
+    "controller_on_limit": "Only one full codec-suspend/restart cycle was captured while controller stayed active; other short stop/start cycles did not reach codec suspend.",
+    "restored_auto_user_report": "Initially normal, then silent again, then spontaneous recovery; user reports are not precisely aligned to individual trace events.",
+    "restored_auto_telemetry": "Bus resume returned success with no new clash in the 55-second window. The only running stream in that window was Mutter; Firefox remained idle, so this is not a valid captured Firefox playback A2 trial. Subsequent user report of silence was outside the synchronized window."
+  },
+  "causal_limit": "Controller runtime suspend/resume is the leading hypothesis, strengthened by user-reported A/B/A outcomes. It is not a confirmed unique cause or a specific proven code defect: only one full codec suspend/resume was captured under on; no synchronized new clash appeared during the short baseline; restored-auto video playback was outside the captured window. Old clash state, firmware/codec timing and application stream behavior remain distinguishable possibilities.",
+  "references": [
+    "https://lists.openwall.net/linux-kernel/2026/10/09/721",
+    "https://docs.kernel.org/power/runtime_pm.html",
+    "https://docs.kernel.org/trace/ftrace.html"
+  ],
+  "default_policy_origin": {
+    "source": "patches/files/sources/drivers/soundwire/qcom.c:1692-1696",
+    "unpatched_driver_behavior": "Sets autosuspend delay to 3000 ms, enables autosuspend and runtime PM.",
+    "local_override_scan": "No soundwire/power-control overrides found in inspected /etc/udev/rules.d, /etc/modprobe.d, /etc/systemd/system-sleep, /etc/tlp.d or /etc/wireplumber. No matching earlier custom controller power policy found in archived installation scripts.",
+    "historical_limit": "No first-install sysfs snapshot found; cannot assert its measured policy at that time. Current auto policy predates this test and is consistent with the original driver behavior."
+  },
+  "current_policy": "auto (verified restored); no permanent mitigation installed",
+  "workflow_status": "held by user on 2026-11-14 until recurrence",
+  "resume_document": "../../RESUME.md"
+}

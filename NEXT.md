@@ -1,5 +1,11 @@
 # Remaining work — 2026-11-13 reviewed handoff
 
+## Audio — held until recurrence (2026-11-14)
+
+The user paused audio work pending another failure. Start with [drivers/files/audio/RESUME.md](drivers/files/audio/RESUME.md) and its read-only snapshot helper while silence is still present. Preserve `auto`/3000 ms. Do not resume experimental power or driver changes during routine maintenance.
+
+## Other remaining work
+
 1. At the next authorized reboot, verify the promoted **default** `/secureboot/vmlinuz-surface-signed.efi` and `cma=0`, CPU 0-9, Secure Boot, GTCH touchscreen, GNOME/PipeWire camera, Wi-Fi and audio. Current live command line is still the earlier trial-touch/cma=512M boot.
 2. Camera low-light noise remains. Keep production black-level tuning; do not reinstall the rejected gain-helper/color experiments blindly. Additional denoise work remains deferred.
 3. Long sleep/drain comparison: use direct energy telemetry over several hours with matched brightness/120Hz/background apps. The short 43-minute 1-percentage-point result is an approximate 0.7 W estimate, not a rigorous upper bound or a Windows comparison.

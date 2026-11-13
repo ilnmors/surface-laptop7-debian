@@ -1,0 +1,4797 @@
+{
+  "start": "2026-11-14T00:11:00.149285+09:00",
+  "trial": "passive observation after restoring controller auto policy",
+  "samples": [
+    {
+      "monotonic": 6918.511442203,
+      "time": "2026-11-14T00:11:00.149330+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6919.031100172,
+      "time": "2026-11-14T00:11:00.668993+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6919.549728766,
+      "time": "2026-11-14T00:11:01.187625+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6920.067541786,
+      "time": "2026-11-14T00:11:01.705439+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6920.586078036,
+      "time": "2026-11-14T00:11:02.223977+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6921.105359598,
+      "time": "2026-11-14T00:11:02.743258+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6921.624666109,
+      "time": "2026-11-14T00:11:03.262566+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6922.142742098,
+      "time": "2026-11-14T00:11:03.780642+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6922.661630848,
+      "time": "2026-11-14T00:11:04.299528+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6923.179155691,
+      "time": "2026-11-14T00:11:04.817051+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6923.695926316,
+      "time": "2026-11-14T00:11:05.333823+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6924.213210535,
+      "time": "2026-11-14T00:11:05.851109+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6924.73388793,
+      "time": "2026-11-14T00:11:06.371786+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6925.252983138,
+      "time": "2026-11-14T00:11:06.890879+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6925.769537565,
+      "time": "2026-11-14T00:11:07.407434+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6926.286990065,
+      "time": "2026-11-14T00:11:07.924887+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6926.804820377,
+      "time": "2026-11-14T00:11:08.442718+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6927.321548971,
+      "time": "2026-11-14T00:11:08.959447+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6927.839184648,
+      "time": "2026-11-14T00:11:09.477080+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6928.356182564,
+      "time": "2026-11-14T00:11:09.994080+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6928.875457252,
+      "time": "2026-11-14T00:11:10.513353+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6929.394517408,
+      "time": "2026-11-14T00:11:11.032416+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6929.914781314,
+      "time": "2026-11-14T00:11:11.552679+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6930.431127095,
+      "time": "2026-11-14T00:11:12.069025+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6930.94815923,
+      "time": "2026-11-14T00:11:12.586057+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6931.466264699,
+      "time": "2026-11-14T00:11:13.104162+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6931.987426573,
+      "time": "2026-11-14T00:11:13.625329+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6932.506540896,
+      "time": "2026-11-14T00:11:14.144438+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6933.02652824,
+      "time": "2026-11-14T00:11:14.664423+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6933.545063448,
+      "time": "2026-11-14T00:11:15.182961+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6934.064749281,
+      "time": "2026-11-14T00:11:15.702648+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6934.582601624,
+      "time": "2026-11-14T00:11:16.220500+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6934.581113760\ndelay       : 2305\navail       : 1535\navail_max   : 2271\n-----\nhw_ptr      : 4319\nappl_ptr    : 6624\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "running",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        },
+        {
+          "id": 106,
+          "state": "running",
+          "name": "Mutter",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6935.102345791,
+      "time": "2026-11-14T00:11:16.740241+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6935.100740322\ndelay       : 1921\navail       : 1919\navail_max   : 2463\n-----\nhw_ptr      : 29279\nappl_ptr    : 31200\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6935.62146902,
+      "time": "2026-11-14T00:11:17.259364+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6935.620643239\ndelay       : 1537\navail       : 2303\navail_max   : 2527\n-----\nhw_ptr      : 54239\nappl_ptr    : 55776\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6936.140763395,
+      "time": "2026-11-14T00:11:17.778662+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6936.140747770\ndelay       : 2177\navail       : 1663\navail_max   : 2591\n-----\nhw_ptr      : 79199\nappl_ptr    : 81376\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6936.662135374,
+      "time": "2026-11-14T00:11:18.300034+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6936.660823863\ndelay       : 1793\navail       : 2047\navail_max   : 2591\n-----\nhw_ptr      : 104159\nappl_ptr    : 105952\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6937.180942457,
+      "time": "2026-11-14T00:11:18.818841+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6937.180826780\ndelay       : 1409\navail       : 2431\navail_max   : 2591\n-----\nhw_ptr      : 129119\nappl_ptr    : 130528\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6937.699605738,
+      "time": "2026-11-14T00:11:19.337504+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6937.690815373\ndelay       : 2529\navail       : 1311\navail_max   : 2623\n-----\nhw_ptr      : 153599\nappl_ptr    : 156128\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6938.218625113,
+      "time": "2026-11-14T00:11:19.856521+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6938.210996154\ndelay       : 2145\navail       : 1695\navail_max   : 2623\n-----\nhw_ptr      : 178559\nappl_ptr    : 180704\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6938.7361323,
+      "time": "2026-11-14T00:11:20.374031+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6938.730813394\ndelay       : 1761\navail       : 2079\navail_max   : 2591\n-----\nhw_ptr      : 203519\nappl_ptr    : 205280\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6939.253826362,
+      "time": "2026-11-14T00:11:20.891723+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6939.250827768\ndelay       : 2401\navail       : 1439\navail_max   : 2591\n-----\nhw_ptr      : 228479\nappl_ptr    : 230880\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6939.772368497,
+      "time": "2026-11-14T00:11:21.410264+09:00",
+      "pcm": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 6934.492923604\ntstamp      : 6939.770704070\ndelay       : 2017\navail       : 1823\navail_max   : 2591\n-----\nhw_ptr      : 253439\nappl_ptr    : 255456\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "idle",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6940.290932247,
+      "time": "2026-11-14T00:11:21.928829+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6940.81325657,
+      "time": "2026-11-14T00:11:22.451155+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6941.331480632,
+      "time": "2026-11-14T00:11:22.969377+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6941.848667403,
+      "time": "2026-11-14T00:11:23.486562+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6942.36695308,
+      "time": "2026-11-14T00:11:24.004851+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6942.889478652,
+      "time": "2026-11-14T00:11:24.527377+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6943.408920475,
+      "time": "2026-11-14T00:11:25.046819+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6943.927737871,
+      "time": "2026-11-14T00:11:25.565636+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6944.447102298,
+      "time": "2026-11-14T00:11:26.084999+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6944.966165475,
+      "time": "2026-11-14T00:11:26.604063+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6945.486387402,
+      "time": "2026-11-14T00:11:27.124284+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6946.006116985,
+      "time": "2026-11-14T00:11:27.644015+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6946.524753703,
+      "time": "2026-11-14T00:11:28.162648+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6947.042155786,
+      "time": "2026-11-14T00:11:28.680050+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6947.56209714,
+      "time": "2026-11-14T00:11:29.199996+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6948.079523859,
+      "time": "2026-11-14T00:11:29.717422+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6948.598810838,
+      "time": "2026-11-14T00:11:30.236707+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6949.117753754,
+      "time": "2026-11-14T00:11:30.755651+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6949.635553702,
+      "time": "2026-11-14T00:11:31.273452+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6950.153460733,
+      "time": "2026-11-14T00:11:31.791360+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6950.671469691,
+      "time": "2026-11-14T00:11:32.309364+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6951.188820472,
+      "time": "2026-11-14T00:11:32.826718+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6951.708249899,
+      "time": "2026-11-14T00:11:33.346149+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6952.226722399,
+      "time": "2026-11-14T00:11:33.864621+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6952.743522659,
+      "time": "2026-11-14T00:11:34.381420+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6953.263939482,
+      "time": "2026-11-14T00:11:34.901838+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6953.782776617,
+      "time": "2026-11-14T00:11:35.420675+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6954.300461252,
+      "time": "2026-11-14T00:11:35.938356+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6954.81704969,
+      "time": "2026-11-14T00:11:36.454948+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6955.334768752,
+      "time": "2026-11-14T00:11:36.972667+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6955.852595262,
+      "time": "2026-11-14T00:11:37.490494+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6956.370381199,
+      "time": "2026-11-14T00:11:38.008278+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6956.888181512,
+      "time": "2026-11-14T00:11:38.526080+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6957.406276564,
+      "time": "2026-11-14T00:11:39.044172+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6957.926300574,
+      "time": "2026-11-14T00:11:39.564198+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6958.446392344,
+      "time": "2026-11-14T00:11:40.084291+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6958.967655782,
+      "time": "2026-11-14T00:11:40.605554+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6959.486308073,
+      "time": "2026-11-14T00:11:41.124206+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6960.005393958,
+      "time": "2026-11-14T00:11:41.643292+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6960.523611875,
+      "time": "2026-11-14T00:11:42.161508+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6961.043307135,
+      "time": "2026-11-14T00:11:42.681202+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6961.560823593,
+      "time": "2026-11-14T00:11:43.198721+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6962.078420156,
+      "time": "2026-11-14T00:11:43.716319+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6962.595933437,
+      "time": "2026-11-14T00:11:44.233832+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6963.113061249,
+      "time": "2026-11-14T00:11:44.750960+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6963.631576874,
+      "time": "2026-11-14T00:11:45.269476+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6964.150057915,
+      "time": "2026-11-14T00:11:45.787954+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6964.667310207,
+      "time": "2026-11-14T00:11:46.305207+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6965.184422602,
+      "time": "2026-11-14T00:11:46.822321+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6965.701177915,
+      "time": "2026-11-14T00:11:47.339072+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6966.219587706,
+      "time": "2026-11-14T00:11:47.857483+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6966.738493539,
+      "time": "2026-11-14T00:11:48.376392+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6967.25697432,
+      "time": "2026-11-14T00:11:48.894873+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6967.77554557,
+      "time": "2026-11-14T00:11:49.413443+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6968.293870205,
+      "time": "2026-11-14T00:11:49.931768+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6968.810377132,
+      "time": "2026-11-14T00:11:50.448275+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6969.331161924,
+      "time": "2026-11-14T00:11:50.969061+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6969.850336194,
+      "time": "2026-11-14T00:11:51.488233+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6970.370981298,
+      "time": "2026-11-14T00:11:52.008880+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6970.888890048,
+      "time": "2026-11-14T00:11:52.526788+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6971.411719371,
+      "time": "2026-11-14T00:11:53.049616+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6971.930615673,
+      "time": "2026-11-14T00:11:53.568514+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "monotonic": 6972.448376037,
+      "time": "2026-11-14T00:11:54.086275+09:00",
+      "pcm": "closed\n",
+      "nodes": [
+        {
+          "id": 72,
+          "state": "suspended",
+          "name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                0.00925,
+                0.00925
+              ],
+              "softMute": false,
+              "softVolumes": [
+                0.021934,
+                0.021934
+              ]
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "state": "idle",
+          "name": "Firefox",
+          "volumes": [
+            {
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "trace": {
+    "policy": "auto",
+    "start_monotonic": 6918.511304391,
+    "trace": "# tracer: nop\n#\n# entries-in-buffer/entries-written: 109/109   #P:10\n#\n#                                _-----=> irqs-off/BH-disabled\n#                               / _----=> need-resched\n#                              | / _---=> hardirq/softirq\n#                              || / _--=> preempt-depth\n#                              ||| / _-=> migrate-disable\n#                              |||| /     delay\n#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION\n#              | |         |   |||||     |         |\n          <idle>-0       [003] dNh2.  6920.648832: rpm_suspend: sdw:1:0:0217:0204:00:0 flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n          <idle>-0       [003] dNh2.  6920.648844: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:0 ret=0\n          <idle>-0       [003] dNh2.  6920.648848: rpm_suspend: sdw:1:0:0217:0204:00:1 flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n          <idle>-0       [003] dNh2.  6920.648850: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:1 ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.648964: rpm_suspend: sdw:1:0:0217:0204:00:0 flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.648967: rpm_status: sdw:1:0:0217:0204:00:0 status=RPM_SUSPENDING\n   kworker/u41:2-12908   [001] d..1.  6920.648995: rpm_status: sdw:1:0:0217:0204:00:0 status=RPM_SUSPENDED\n   kworker/u41:2-12908   [001] d..1.  6920.648997: rpm_idle: sdw-master-1-0 flags-1 cnt-0  dep-0  auto-1 p-0 irq-0 child-1\n   kworker/u41:2-12908   [001] d..1.  6920.648998: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=-16\n   kworker/u41:2-12908   [001] d..1.  6920.649043: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:0 ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649045: rpm_suspend: sdw:1:0:0217:0204:00:1 flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649046: rpm_status: sdw:1:0:0217:0204:00:1 status=RPM_SUSPENDING\n   kworker/u41:2-12908   [001] d..1.  6920.649064: rpm_status: sdw:1:0:0217:0204:00:1 status=RPM_SUSPENDED\n   kworker/u41:2-12908   [001] d..1.  6920.649066: rpm_idle: sdw-master-1-0 flags-1 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649067: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649068: rpm_suspend: sdw-master-1-0 flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649077: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw-master-1-0 ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649086: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:1 ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649087: rpm_suspend: sdw-master-1-0 flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649089: rpm_status: sdw-master-1-0 status=RPM_SUSPENDING\n   kworker/u41:2-12908   [001] d..1.  6920.649091: rpm_status: sdw-master-1-0 status=RPM_SUSPENDED\n   kworker/u41:2-12908   [001] d..1.  6920.649092: rpm_idle: 6b10000.soundwire flags-1 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649094: rpm_return_int: rpm_idle+0x118/0x540:6b10000.soundwire ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649095: rpm_suspend: 6b10000.soundwire flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649097: rpm_return_int: rpm_suspend+0x148/0x6c0:6b10000.soundwire ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649098: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw-master-1-0 ret=0\n   kworker/u41:2-12908   [001] d..1.  6920.649099: rpm_suspend: 6b10000.soundwire flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:2-12908   [001] d..1.  6920.649101: rpm_status: 6b10000.soundwire status=RPM_SUSPENDING\n   kworker/u41:2-12908   [001] d..1.  6920.649659: rpm_status: 6b10000.soundwire status=RPM_SUSPENDED\n   kworker/u41:2-12908   [001] d..1.  6920.649670: rpm_return_int: rpm_suspend+0x148/0x6c0:6b10000.soundwire ret=0\n        pipewire-918     [001] d..1.  6934.462574: rpm_resume: sdw:1:0:0217:0204:00:0 flags-4 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.462577: rpm_resume: sdw-master-1-0 flags-0 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.462578: rpm_resume: 6b10000.soundwire flags-0 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.462580: rpm_status: 6b10000.soundwire status=RPM_RESUMING\n        pipewire-918     [001] d..1.  6934.466838: rpm_status: 6b10000.soundwire status=RPM_ACTIVE\n        pipewire-918     [001] d..1.  6934.466839: rpm_idle: 6b10000.soundwire flags-1 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.466840: rpm_return_int: rpm_idle+0x118/0x540:6b10000.soundwire ret=-11\n        pipewire-918     [001] d..1.  6934.466842: rpm_return_int: rpm_resume+0x140/0x758:6b10000.soundwire ret=0\n        pipewire-918     [001] d..1.  6934.466843: rpm_status: sdw-master-1-0 status=RPM_RESUMING\n        pipewire-918     [001] d..1.  6934.466845: rpm_status: sdw-master-1-0 status=RPM_ACTIVE\n        pipewire-918     [001] d..1.  6934.466846: rpm_idle: sdw-master-1-0 flags-1 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.466847: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=-11\n        pipewire-918     [001] d..1.  6934.466848: rpm_idle: 6b10000.soundwire flags-5 cnt-0  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6934.466849: rpm_return_int: rpm_idle+0x118/0x540:6b10000.soundwire ret=-16\n        pipewire-918     [001] d..1.  6934.466850: rpm_return_int: rpm_resume+0x140/0x758:sdw-master-1-0 ret=0\n        pipewire-918     [001] d..1.  6934.466851: rpm_status: sdw:1:0:0217:0204:00:0 status=RPM_RESUMING\n        pipewire-918     [001] d..1.  6934.468655: rpm_status: sdw:1:0:0217:0204:00:0 status=RPM_ACTIVE\n        pipewire-918     [001] d..1.  6934.468657: rpm_idle: sdw:1:0:0217:0204:00:0 flags-1 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.468658: rpm_return_int: rpm_idle+0x118/0x540:sdw:1:0:0217:0204:00:0 ret=-11\n        pipewire-918     [001] d..1.  6934.468659: rpm_idle: sdw-master-1-0 flags-5 cnt-0  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6934.468660: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=-16\n        pipewire-918     [001] d..1.  6934.468661: rpm_return_int: rpm_resume+0x140/0x758:sdw:1:0:0217:0204:00:0 ret=0\n        pipewire-918     [001] d..1.  6934.468663: rpm_resume: sdw:1:0:0217:0204:00:1 flags-4 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.468664: rpm_resume: sdw-master-1-0 flags-0 cnt-1  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6934.468665: rpm_return_int: rpm_resume+0x140/0x758:sdw-master-1-0 ret=1\n        pipewire-918     [001] d..1.  6934.468666: rpm_status: sdw:1:0:0217:0204:00:1 status=RPM_RESUMING\n        pipewire-918     [001] d..1.  6934.470991: rpm_status: sdw:1:0:0217:0204:00:1 status=RPM_ACTIVE\n        pipewire-918     [001] d..1.  6934.470993: rpm_idle: sdw:1:0:0217:0204:00:1 flags-1 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6934.470994: rpm_return_int: rpm_idle+0x118/0x540:sdw:1:0:0217:0204:00:1 ret=-11\n        pipewire-918     [001] d..1.  6934.470995: rpm_idle: sdw-master-1-0 flags-5 cnt-0  dep-0  auto-1 p-0 irq-0 child-2\n        pipewire-918     [001] d..1.  6934.470996: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=-16\n        pipewire-918     [001] d..1.  6934.470997: rpm_return_int: rpm_resume+0x140/0x758:sdw:1:0:0217:0204:00:1 ret=0\n        pipewire-918     [001] d..1.  6934.470998: rpm_resume: 6b10000.soundwire flags-4 cnt-1  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6934.470999: rpm_return_int: rpm_resume+0x140/0x758:6b10000.soundwire ret=1\n        pipewire-918     [001] d..1.  6934.471027: rpm_resume: 6b10000.soundwire flags-4 cnt-2  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6934.471028: rpm_return_int: rpm_resume+0x140/0x758:6b10000.soundwire ret=1\n   kworker/u41:0-21899   [003] d..1.  6934.484015: rpm_resume: sdw:1:0:0217:0204:00:1 flags-4 cnt-2  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:0-21899   [003] d..1.  6934.484017: rpm_return_int: rpm_resume+0x140/0x758:sdw:1:0:0217:0204:00:1 ret=1\n   kworker/u41:5-16995   [002] dl.1.  6934.484020: rpm_resume: sdw:1:0:0217:0204:00:0 flags-4 cnt-2  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [002] dl.1.  6934.484021: rpm_return_int: rpm_resume+0x140/0x758:sdw:1:0:0217:0204:00:0 ret=1\n   kworker/u41:5-16995   [003] .....  6939.946102: rpm_usage: sdw:1:0:0217:0204:00:1 flags-5 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:0-21899   [002] .....  6939.946102: rpm_usage: sdw:1:0:0217:0204:00:0 flags-5 cnt-1  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] .....  6939.953653: rpm_usage: 6b10000.soundwire flags-d cnt-1  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6939.957216: rpm_suspend: sdw:1:0:0217:0204:00:0 flags-d cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6939.957220: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:0 ret=0\n        pipewire-918     [001] d..1.  6939.957221: rpm_suspend: sdw:1:0:0217:0204:00:1 flags-d cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n        pipewire-918     [001] d..1.  6939.957223: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:1 ret=0\n        pipewire-918     [001] d..1.  6939.957224: rpm_suspend: 6b10000.soundwire flags-d cnt-0  dep-0  auto-1 p-0 irq-0 child-1\n        pipewire-918     [001] d..1.  6939.957225: rpm_return_int: rpm_suspend+0x148/0x6c0:6b10000.soundwire ret=-16\n          <idle>-0       [001] dNh2.  6943.658108: rpm_suspend: sdw:1:0:0217:0204:00:0 flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n          <idle>-0       [001] dNh2.  6943.658117: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:0 ret=0\n          <idle>-0       [001] dNh2.  6943.658119: rpm_suspend: sdw:1:0:0217:0204:00:1 flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n          <idle>-0       [001] dNh2.  6943.658122: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:1 ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658223: rpm_suspend: sdw:1:0:0217:0204:00:0 flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658226: rpm_status: sdw:1:0:0217:0204:00:0 status=RPM_SUSPENDING\n   kworker/u41:5-16995   [000] d..1.  6943.658253: rpm_status: sdw:1:0:0217:0204:00:0 status=RPM_SUSPENDED\n   kworker/u41:5-16995   [000] d..1.  6943.658255: rpm_idle: sdw-master-1-0 flags-1 cnt-0  dep-0  auto-1 p-0 irq-0 child-1\n   kworker/u41:5-16995   [000] d..1.  6943.658256: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=-16\n   kworker/u41:5-16995   [000] d..1.  6943.658269: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:0 ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658271: rpm_suspend: sdw:1:0:0217:0204:00:1 flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658272: rpm_status: sdw:1:0:0217:0204:00:1 status=RPM_SUSPENDING\n   kworker/u41:5-16995   [000] d..1.  6943.658290: rpm_status: sdw:1:0:0217:0204:00:1 status=RPM_SUSPENDED\n   kworker/u41:5-16995   [000] d..1.  6943.658291: rpm_idle: sdw-master-1-0 flags-1 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658293: rpm_return_int: rpm_idle+0x118/0x540:sdw-master-1-0 ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658294: rpm_suspend: sdw-master-1-0 flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658296: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw-master-1-0 ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658305: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw:1:0:0217:0204:00:1 ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658306: rpm_suspend: sdw-master-1-0 flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658308: rpm_status: sdw-master-1-0 status=RPM_SUSPENDING\n   kworker/u41:5-16995   [000] d..1.  6943.658309: rpm_status: sdw-master-1-0 status=RPM_SUSPENDED\n   kworker/u41:5-16995   [000] d..1.  6943.658311: rpm_idle: 6b10000.soundwire flags-1 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658313: rpm_return_int: rpm_idle+0x118/0x540:6b10000.soundwire ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658314: rpm_suspend: 6b10000.soundwire flags-9 cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658315: rpm_return_int: rpm_suspend+0x148/0x6c0:6b10000.soundwire ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658316: rpm_return_int: rpm_suspend+0x148/0x6c0:sdw-master-1-0 ret=0\n   kworker/u41:5-16995   [000] d..1.  6943.658318: rpm_suspend: 6b10000.soundwire flags-a cnt-0  dep-0  auto-1 p-0 irq-0 child-0\n   kworker/u41:5-16995   [000] d..1.  6943.658319: rpm_status: 6b10000.soundwire status=RPM_SUSPENDING\n   kworker/u41:5-16995   [000] d..1.  6943.658723: rpm_status: 6b10000.soundwire status=RPM_SUSPENDED\n   kworker/u41:5-16995   [000] d..1.  6943.658736: rpm_return_int: rpm_suspend+0x148/0x6c0:6b10000.soundwire ret=0\n",
+    "trace_instance_removed": true,
+    "power_transitions": [
+      {
+        "monotonic": 6918.511394026,
+        "controller_left_right": [
+          "active",
+          "active",
+          "active"
+        ]
+      },
+      {
+        "monotonic": 6920.724879911,
+        "controller_left_right": [
+          "suspended",
+          "suspended",
+          "suspended"
+        ]
+      },
+      {
+        "monotonic": 6934.498157614,
+        "controller_left_right": [
+          "active",
+          "active",
+          "active"
+        ]
+      },
+      {
+        "monotonic": 6943.752094225,
+        "controller_left_right": [
+          "suspended",
+          "suspended",
+          "suspended"
+        ]
+      }
+    ],
+    "final_policy": "auto",
+    "kernel_audio": [
+      "[   14.817029] surface kernel: qcom-apm gprsvc:service:2:1: CMD timeout for [1001021] opcode",
+      "[ 6039.906041] surface kernel: qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected"
+    ]
+  },
+  "returncode": 0,
+  "stderr": ""
+}
