@@ -20,3 +20,7 @@
 - Workspace generation/editing/checks run as console. Root-owned entries in repository (47) were returned to console:svadmins; Surface already had console ownership. System-installed files retain required root ownership.
 - `console` ran the installer plan and offline checksum verification. Raw upstream data/offline payloads remain local as before.
 - No push or reboot was performed by this handoff review. Future pushes require final user confirmation; local AGENT.md files carry the workflow and ownership rule.
+
+## Desktop refresh (2026-11-13)
+
+The top panel now matches the fixed light bottom taskbar: full-width 32px Mainland, no outer margin/outline/shadow, compact CPU/RAM with fixed widths, and active-only Caffeine without timer text. The date remains; weekday and seconds are hidden. Notification bell and tray remain active. All 35 keys were read back and the presets are saved for offline desktop setup. Final appearance awaits user feedback because GNOME denied screenshots. Targeted rollback is in `archive/topbar-before-clean-*/restore.sh`.

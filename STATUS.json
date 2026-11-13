@@ -104,9 +104,9 @@
       "group": "DESKTOP",
       "title": "Fluent·GNOME·터미널",
       "status": "ok",
-      "label": "Open Bar · Symbola 시스템 설치",
-      "finding": "Claude 작업에서 Open Bar·Symbola를 유지하고 하단 독을 전체 너비의 고정 작업표시줄로 바꿨습니다. 앱 그리드 버튼은 가운데 아이콘 묶음 바로 왼쪽에 붙어 있고, 상단 바 오른쪽에는 안 읽은 알림 개수를 보여 주는 알림 버튼(로컬 확장 surface-notifications)을 추가했습니다(다음 로그인부터 적용). 아이콘은 가운데 정렬되며 여러 창은 클릭 후 미리보기에서 선택합니다.",
-      "next": "fonts-symbola를 시스템 전역에 설치했고 사용자 확인으로 ⏵ 표시가 정상입니다. Open Bar 49와 하단 독 미리보기가 적용돼 있습니다.",
+      "label": "Fluent 밝은 일자형 상단바 적용",
+      "finding": "상단바를 높이 32px의 전체 너비 밝은 일자형으로 정리했습니다. 외곽 여백·테두리·그림자를 없애고 메뉴를 밝은 색과 12px 모서리로 통일했습니다. CPU·RAM은 고정 폭 숫자와 GNOME 아이콘으로 표시하며 Caffeine은 활성 시에만 표시합니다. 시계는 날짜를 유지하고 요일·초를 숨깁니다. 알림 버튼·트레이·시스템 제어와 하단 작업표시줄의 가운데 정렬·창 미리보기는 유지합니다.",
+      "next": "변경한 35개 설정을 읽어 검증했고 Open Bar·Vitals ACTIVE 및 최근 확장 오류 없음을 확인했습니다. GNOME이 화면 캡처를 허용하지 않아 최종 모양의 사용자 확인은 남아 있습니다. desktop/setup.sh와 setup.py가 같은 프리셋을 복원합니다. 이전 상태는 archive/topbar-before-clean-*/restore.sh로 해당 키만 복원할 수 있습니다. Symbola의 ⏵ 표시는 기존 사용자 확인을 유지합니다.",
       "path": "desktop/files/topbar/README.md"
     },
     {
