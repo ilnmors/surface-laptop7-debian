@@ -2,17 +2,17 @@
 
 Open Bar 49, GNOME 48 compatible package from https://extensions.gnome.org/extension/6580/open-bar/ (version tag 65598). Upstream: https://github.com/neuromorph/openbar . Offline zip and unpacked extension are included.
 
-## Clean light panel (2026-11-13)
+## Balanced light top bar (2026-11-13)
 
-32px full-width Mainland panel, 90% background opacity, zero margin, square outer corners, no outline or bar shadow. Light background, dark text, subtle blue hover, opaque light menus with 12px corners. It matches the existing full-width bottom taskbar. Automatic wallpaper recoloring, app/GTK/Flatpak recoloring and Blur My Shell remain off.
+Open Bar's native Trilands layout separates three rounded light groups: Activities and CPU/RAM on the left, clock/date in the center, notification bell, input source, tray and system controls on the right. CPU/RAM were moved out of the crowded right group. Each group is 34px high with 14px corners, 6px outer spacing, subtle borders and no shadow. No additional extension is required.
 
-Vitals shows CPU and RAM only, with fixed number widths, GNOME-style icons and five-second polling. Public-IP lookup is disabled. Caffeine is visible only while active, with no countdown text. The clock keeps the date and hides weekday/seconds. The notification bell, tray apps and system controls remain available.
+Vitals keeps fixed-width CPU/RAM numbers, GNOME-style icons and five-second polling. Caffeine appears only while active, without timer text. The date remains; weekday/seconds are hidden. The legacy IBus tray icon is disabled; GNOME's native English/Korean indicator and language-switching keys remain available. Existing bottom taskbar and notification behavior are preserved.
 
-`desktop/setup.sh` restores the maintained Open Bar, Vitals, Caffeine and interface presets from `desktop/files/settings/`; `desktop/setup.py` uses the same implementation. Existing extensions take these setting changes immediately. A fresh install needs a new login to discover newly installed extensions.
+`desktop/setup.sh` restores the Open Bar, Vitals, Caffeine, interface and IBus panel presets in `desktop/files/settings/`; `desktop/setup.py` uses the same implementation. Existing extensions take these changes immediately. Open Bar's built-in style refresh was triggered. A fresh install needs a new login only to discover newly installed extensions.
 
-Validation: all 35 changed settings were read back; Open Bar and Vitals report ACTIVE. No new theme/extension error was found in the recent user journal. Screenshot access was denied by GNOME, so the final appearance still needs user confirmation. Open Bar normalizes the background opacity to 90% on bar-type changes; the saved preset uses that same value. No per-extension memory benchmark was performed.
+Validation: live values match the maintained presets. Final appearance needs user feedback because GNOME does not allow an external screenshot. No per-extension memory benchmark was performed.
 
-Rollback: run the matching `archive/topbar-before-clean-*/restore.sh` for this change. It restores only the 35 touched keys, leaving unrelated desktop settings intact. To remove Open Bar styling entirely, use `gnome-extensions disable openbar@neuromorph`. The earlier `before-openbar.dconf` snapshot predates later customizations and should not be restored wholesale.
+Rollback for this layout: run the matching `archive/topbar-before-balanced-*/restore.sh`. It restores only the 18 touched keys. Earlier flat-bar backups remain under `archive/topbar-before-clean-*`. To remove Open Bar styling entirely, use `gnome-extensions disable openbar@neuromorph`; do not restore old full desktop snapshots over unrelated later changes.
 
 ## Notification button (2026-11-13)
 

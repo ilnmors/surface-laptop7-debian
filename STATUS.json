@@ -104,9 +104,9 @@
       "group": "DESKTOP",
       "title": "Fluent·GNOME·터미널",
       "status": "ok",
-      "label": "Fluent 밝은 일자형 상단바 적용",
-      "finding": "상단바를 높이 32px의 전체 너비 밝은 일자형으로 정리했습니다. 외곽 여백·테두리·그림자를 없애고 메뉴를 밝은 색과 12px 모서리로 통일했습니다. CPU·RAM은 고정 폭 숫자와 GNOME 아이콘으로 표시하며 Caffeine은 활성 시에만 표시합니다. 시계는 날짜를 유지하고 요일·초를 숨깁니다. 알림 버튼·트레이·시스템 제어와 하단 작업표시줄의 가운데 정렬·창 미리보기는 유지합니다.",
-      "next": "변경한 35개 설정을 읽어 검증했고 Open Bar·Vitals ACTIVE 및 최근 확장 오류 없음을 확인했습니다. GNOME이 화면 캡처를 허용하지 않아 최종 모양의 사용자 확인은 남아 있습니다. desktop/setup.sh와 setup.py가 같은 프리셋을 복원합니다. 이전 상태는 archive/topbar-before-clean-*/restore.sh로 해당 키만 복원할 수 있습니다. Symbola의 ⏵ 표시는 기존 사용자 확인을 유지합니다.",
+      "label": "상단바 세 영역 분리 · 즉시 새로고침",
+      "finding": "오른쪽에 몰려 있던 CPU·RAM을 왼쪽으로 옮겼습니다. 상단바는 밝은 둥근 세 그룹으로 나뉘며 왼쪽은 작업공간·성능, 가운데는 시계·날짜, 오른쪽은 알림·한영 입력기·트레이·시스템 상태입니다. 그룹 높이는 34px, 모서리 14px, 외곽 여백 6px이며 옅은 테두리와 고정 폭 숫자를 사용합니다. 별도 IBus 트레이 아이콘만 숨겼고 GNOME 한영 전환과 기존 알림 기능은 유지합니다. 하단 작업표시줄은 기존 구성을 유지합니다.",
+      "next": "로그아웃 없이 Open Bar 스타일을 갱신했고 현재 설정과 Surface 프리셋의 일치를 검증했습니다. 실제 배치·모양의 사용자 확인은 남아 있습니다. desktop/setup.sh·setup.py는 IBus panel 설정도 복원합니다. 직전 구성은 archive/topbar-before-balanced-*/restore.sh로 변경한 18개 키만 복원할 수 있습니다.",
       "path": "desktop/files/topbar/README.md"
     },
     {

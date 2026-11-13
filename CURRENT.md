@@ -23,4 +23,4 @@
 
 ## Desktop refresh (2026-11-13)
 
-The top panel now matches the fixed light bottom taskbar: full-width 32px Mainland, no outer margin/outline/shadow, compact CPU/RAM with fixed widths, and active-only Caffeine without timer text. The date remains; weekday and seconds are hidden. Notification bell and tray remain active. All 35 keys were read back and the presets are saved for offline desktop setup. Final appearance awaits user feedback because GNOME denied screenshots. Targeted rollback is in `archive/topbar-before-clean-*/restore.sh`.
+The top bar uses three rounded light groups instead of concentrating every indicator on the right. Left: Activities and fixed-width CPU/RAM. Center: clock/date. Right: notification bell, native English/Korean indicator, tray and system controls. Open Bar Trilands, 34px height, 6px margin, 14px corners. The legacy IBus tray icon is hidden; input sources and switch shortcuts are unchanged. The existing bottom taskbar remains. Settings were applied and refreshed without logout, read back, and saved for offline setup. Appearance awaits user feedback. Targeted rollback: `archive/topbar-before-balanced-*/restore.sh`.

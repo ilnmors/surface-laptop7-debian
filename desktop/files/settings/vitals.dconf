@@ -2,7 +2,7 @@
 battery-colors=@as []
 gpu-colors=@as []
 hot-sensors=['_processor_usage_', '_memory_usage_']
-position-in-panel=2
+position-in-panel=0
 show-battery=false
 update-time=5
 fixed-widths=true
