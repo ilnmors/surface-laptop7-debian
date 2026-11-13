@@ -41,13 +41,16 @@
       "dock": "#f4f8f5",
       "foreground": "#21332b"
     },
-    "resident_processes_added": 0
+    "resident_processes_added": 0,
+    "shell_theme": "Fluent-Light",
+    "panel_style": "Continuous opaque 34px Mainland panel; CPU/RAM left, clock center, notification/input/system right. Fluent-Light Shell is retained alongside teal GTK3/GTK4 apps."
   },
   "validation": {
     "gtk3_gtk4_shell_contain_teal_accent": true,
     "wallpaper_live_copy_hash_matches": true,
     "gtk4_link_matches_theme": true,
     "screen_locked_during_final_application": true,
-    "appearance_confirmation_pending": true
+    "appearance_confirmation_pending": true,
+    "shell_and_openbar_reenabled_after_restore": true
   }
 }

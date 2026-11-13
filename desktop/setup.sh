@@ -33,7 +33,7 @@ for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/
   snapshot="desktop/files/settings/${entry##*/}.dconf"
   if [[ -s $snapshot ]]; then dconf load "/$entry/" < "$snapshot"; fi
 done
-gsettings set org.gnome.shell.extensions.user-theme name Fluent-teal-Light
+gsettings set org.gnome.shell.extensions.user-theme name Fluent-Light
 python3 - <<'PY'
 from gi.repository import Gio
 settings = Gio.Settings.new("org.gnome.shell")

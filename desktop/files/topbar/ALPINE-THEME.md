@@ -2,8 +2,8 @@
 
 - Photo: Luca Bravo, **Boathouse on a mountain lake**, Lago di Braies. [Original](https://unsplash.com/photos/brown-house-near-body-of-water-zAjdgNXsMeg), [Unsplash License](https://unsplash.com/license).
 - Offline image: `desktop/files/backgrounds/alpine-lake-luca-bravo.jpg`, 3200×2134 JPEG, close to the Surface 3:2 display ratio. Provider resize only; no local color edits or crop. Exact URL and SHA256: `alpine-theme.json`.
-- Theme: `Fluent-teal-Light`, built from the existing archived Fluent source. GTK3, GTK4 and Shell use the upstream teal accent (#009688). GNOME's native accent is green, matching the forest/lake palette.
-- Open Bar: retain three groups, with cream/sage surfaces, deep green text and teal hover/selection. The existing fixed bottom taskbar uses a matching pale green background and teal running indicators. Papirus icons and the terminal content palette are retained.
+- Theme: `Fluent-teal-Light`, built from the existing archived Fluent source. GTK3 and GTK4 use the upstream teal accent (#009688). The new Shell variant was tried, then the previous Fluent-Light Shell and Open Bar colors were restored after the user reported an abnormal panel. GNOME's native accent is green, matching the forest/lake palette.
+- Open Bar: use a continuous opaque 34px light Mainland panel, with CPU/RAM on the left and clock centered. The existing fixed bottom taskbar uses a matching pale green background and teal running indicators. Papirus icons and the terminal content palette are retained.
 
 ## Apply offline
 
@@ -22,3 +22,7 @@ Extract `archive/desktop/fluent-source.tar.gz` into a temporary user-owned build
 GTK3, GTK4 and Shell CSS all contain #009688; the previous blue accent is absent from those generated files. The live photo hash matches the offline photo, and the GTK4 symlink targets the new theme. The screen was locked during the final application, so Shell extensions were inactive for the lock-screen session; they are enabled and pick up the new settings on unlock. Final visual confirmation is pending.
 
 Targeted rollback: `archive/alpine-theme-before-*/restore.sh`. It restores the prior wallpaper, selected GTK/Shell theme, panel/dock colors and previous managed GTK4 symlink. Earlier theme folders and wallpaper files remain available.
+
+## Panel recovery
+
+The newly generated Shell theme lacked the existing Surface panel CSS additions. This is a possible contributor, not a confirmed visual diagnosis. The active Shell is restored to the previously used `Fluent-Light`; Open Bar colors are restored from the pre-theme backup and the extension was fully disabled/enabled without logout. GTK3/GTK4, wallpaper and dock settings remain from the alpine palette. Open Bar, User Themes and Vitals report ACTIVE after restoration. User confirmation of the appearance is still pending. The desktop installer now selects the same restored Shell theme.

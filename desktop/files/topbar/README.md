@@ -1,19 +1,25 @@
-# Fluent Light top bar
+# Fluent top bar
 
-Open Bar 49, GNOME 48 compatible package from https://extensions.gnome.org/extension/6580/open-bar/ (version tag 65598). Upstream: https://github.com/neuromorph/openbar . Offline zip and unpacked extension are included.
+Open Bar 49 for GNOME 48, from https://extensions.gnome.org/extension/6580/open-bar/ (version tag 65598). Upstream: https://github.com/neuromorph/openbar . The offline zip and unpacked extension are included.
 
-## Alpine palette and balanced top bar (2026-11-13)
+## Current appearance
 
-Open Bar's native Trilands layout separates three rounded light groups: Activities and CPU/RAM on the left, clock/date in the center, notification bell, input source, tray and system controls on the right. CPU/RAM were moved out of the crowded right group. The Lago di Braies wallpaper and cream/sage/teal Fluent palette are documented in [ALPINE-THEME.md](ALPINE-THEME.md). Each group is 34px high with 14px corners, 6px outer spacing, subtle borders and no shadow. No additional extension is required.
+One continuous 34px opaque light Mainland panel, zero outside margin, zero outer radius/border and no shadow. This removes the wallpaper-visible gaps caused by the earlier Trilands layout. CPU/RAM are on the left, the clock/date is centered, and notifications, native English/Korean input, tray and system controls are on the right.
 
-Vitals keeps fixed-width CPU/RAM numbers, GNOME-style icons and five-second polling. Caffeine appears only while active, without timer text. The date remains; weekday/seconds are hidden. The legacy IBus tray icon is disabled; GNOME's native English/Korean indicator and language-switching keys remain available. Existing bottom taskbar and notification behavior are preserved.
+Vitals uses fixed-width values, GNOME icons and five-second polling. Caffeine appears only while active without timer text. The clock keeps the date and hides weekday/seconds. The legacy IBus tray icon is hidden; native input switching is retained.
 
-`desktop/setup.sh` restores the Open Bar, Vitals, Caffeine, interface and IBus panel presets in `desktop/files/settings/`; `desktop/setup.py` uses the same implementation. Existing extensions take these changes immediately. Open Bar's built-in style refresh was triggered. A fresh install needs a new login only to discover newly installed extensions.
+Keep the established Fluent-Light Shell, including its Surface panel CSS additions. The alpine wallpaper and teal GTK3/GTK4 application theme remain applied. See [ALPINE-THEME.md](ALPINE-THEME.md) for image source, theme build and GTK4 behavior. No additional extension or resident process was introduced for the wallpaper.
 
-Validation: live values match the maintained presets. Final appearance needs user feedback because GNOME does not allow an external screenshot. No per-extension memory benchmark was performed.
+## Apply and verify
 
-Rollback for this layout: run the matching `archive/topbar-before-balanced-*/restore.sh`. It restores only the 18 touched keys. Earlier flat-bar backups remain under `archive/topbar-before-clean-*`. To remove Open Bar styling entirely, use `gnome-extensions disable openbar@neuromorph`; do not restore old full desktop snapshots over unrelated later changes.
+`desktop/setup.sh` and `desktop/setup.py` restore the same maintained Open Bar, Vitals, Caffeine, interface and IBus panel presets in `desktop/files/settings/`. Existing extensions accept setting changes without logout. Open Bar was re-enabled and its stylesheet regenerated live. A fresh install requires a new login only to discover newly installed extensions.
 
-## Notification button (2026-11-13)
+Open Bar resets opacity to 0.9 on a bar-type change; the final live opacity was set back to 1.0 after that callback. Mainland, opacity 1.0, margin 0 and active extensions were read back. Appearance still needs user confirmation; no screenshot or memory benchmark is claimed.
 
-GNOME keeps notifications inside the clock menu and only shows a small dot next to the clock. `extensions/surface-notifications@example.internal` adds a bell button to the left end of the right side of the top bar with the unread count (same rule as the shell's own indicator: unseen notifications minus queued banners). Clicking or tapping it opens the clock menu with the notification list; with Do Not Disturb on, the icon changes to the disabled bell. It is a local extension (no network, GNOME 48 only); a newly installed extension is picked up after the next login on Wayland. It is already active in the current session.
+## Rollback
+
+Targeted backups are in `archive/topbar-before-balanced-*` and `archive/alpine-theme-before-*`. Their `restore.sh` files restore only the recorded keys; the alpine backup also restores the previous managed GTK4 symlink. These backups predate the final Mainland correction. To remove Open Bar styling, use `gnome-extensions disable openbar@neuromorph`. Do not restore old full-desktop snapshots over unrelated later settings.
+
+## Notification button
+
+`surface-notifications@example.internal` adds a bell and unread count on the right. It uses the Shell counting rule: unseen notifications minus queued banners. Clicking it opens the clock notification menu; Do Not Disturb changes the bell icon. It is a local GNOME 48 extension with no network access and is already active in the current session.
