@@ -4,10 +4,10 @@
     {
       "group": "RECOVERY",
       "title": "Wi-Fi 실기기 장애 복구",
-      "status": "ok",
-      "label": "ath12k 안정 · 원인 정리",
-      "finding": "Surface RFKILL 보정 두 개를 보존한 ath12k D044C56077CC5357DC3F5BF를 서명·로드했습니다. 차단 없음·인증·IP 할당·반복 Wi-Fi 지정 HTTPS 200을 확인했고 오프라인 재빌드도 같은 srcversion을 재현했습니다.",
-      "next": "11/12~13 deep 절전 3회 모두 비콘 손실 없이 약 2초 안에 재연결했습니다. \"Failed to set the requested Country regulatory setting\"은 절전 직전 DEAUTH_LEAVING 순간에만 나오는 기본 지역 복귀 거부라 동작에 영향이 없습니다. 23:59 복귀 뒤 00:00:26 재연결은 공유기의 WNM 대역 이동(2.4→5GHz)입니다.",
+      "status": "pending",
+      "label": "ath12k 채널 전환 뒤 이상 · 관찰 중",
+      "finding": "Surface RFKILL 보정 두 개를 보존한 ath12k D044C56077CC5357DC3F5BF를 서명·로드했습니다. 차단 없음·인증·IP 할당·반복 Wi-Fi 지정 HTTPS 200을 확인했고 오프라인 재빌드도 같은 srcversion을 재현했습니다. 2026-11-13 장애 분석: 09:05:40 연결 AP의 채널 전환(CSA, ch36·20MHz) 5초 뒤부터 펌웨어 통계 요청 타임아웃(time out while waiting for fw stats done)이 6초마다 1,296회 이어졌고, 11:20 절전 때 멈춘 뒤 복귀 시 펌웨어 재적재 후에는 0회였습니다. 10:28 단절(약 40초)도 DFS 채널(ch124) 전환 직후였습니다. 11:46 복귀 뒤 새 장소에서는 어느 AP든 몇 초 만에 비콘 손실·해제가 반복됐고(비콘 손실 17·해제 22·TX flush 실패 3), 12:53 재부팅 뒤 같은 계열 AP에서 안정적입니다.",
+      "next": "원인 후보: ath12k의 채널 전환 처리 버그로 펌웨어 또는 호스트 드라이버 상태가 망가짐(채널 전환과의 시간 상관이 뚜렷함). 복귀 뒤 반복 단절은 펌웨어 재적재 후에도 이어져 호스트 쪽 상태 잔존을 의심하지만 미확정입니다. cma 영향은 낮음: qmi dma 할당 실패 메시지는 정상 동작 중인 cma=0 부팅에서도 나옵니다. 재발 시 직전 CHANNEL-SWITCH 여부를 확인하고, 재부팅 대신 ath12k_wifi7 모듈 재적재로 회복되는지 봅니다. 근본 대책 후보는 새 펌웨어(현재 WLAN.HMT.1.1.c7-00108, 2026-03-06)나 ath12k CSA 수정이 들어간 커널이며, 재현을 한 번 더 확보한 뒤 진행합니다. 이전 기록: 11/12~13 deep 절전 3회는 비콘 손실 없이 약 2초 안에 재연결했습니다.",
       "path": "patches/files/wifi-regulatory/known-good/README.md"
     },
     {
