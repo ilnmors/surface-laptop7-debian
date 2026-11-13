@@ -67,3 +67,9 @@ ath12k f2576dc0 comes unmodified from the upstream WireGuard Linux kernel mirror
 - Wi-Fi: `patches/files/wifi-regulatory/known-good/README.md` records the upstream completion fix, preserved Surface guards and the retracted beacon-loss regression claim.
 - Camera: `drivers/files/camera-quality/research/RESULTS.md` records exact tested/rejected color profiles, public OV02C10 patches, isolated Debian 0.7.1 packages and deferred GPU-denoise research.
 - Open Bar 49: GNOME Extensions version tag 65598, source https://github.com/neuromorph/openbar , offline zip + source under desktop. No app or Flatpak recoloring enabled.
+
+## Alpine desktop palette (2026-11-13)
+
+Photo by Luca Bravo: [Boathouse on a mountain lake](https://unsplash.com/photos/brown-house-near-body-of-water-zAjdgNXsMeg), [Unsplash License](https://unsplash.com/license). A 3200×2134 provider-resized JPEG is retained under `desktop/files/backgrounds/`; URL, SHA256 and processing details are in `desktop/files/topbar/alpine-theme.json`.
+
+The `Fluent-teal-Light` variant was built from the already archived Fluent source with the upstream installer (`-t teal -c light -s standard`). Debian trixie arm64 SassC and libsass packages are retained in `desktop/files/topbar/build-tools/`; only the maintained dock CSS is appended after generation. See `desktop/files/topbar/ALPINE-THEME.md` for exact offline reproduction and rollback.

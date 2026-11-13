@@ -1,9 +1,9 @@
 /* Surface Fluent dock */
 /* Windows 11-style taskbar: full width, flush with the bottom edge, centered icons. */
 #dashtodockContainer.bottom #dash .dash-background {
-  background-color: rgba(243, 243, 243, 0.94);
+  background-color: rgba(244, 248, 245, 0.96);
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(33, 62, 52, 0.12);
   border-radius: 0;
   box-shadow: none;
   margin: 0;
@@ -14,5 +14,5 @@
 }
 #dashtodockContainer.bottom #dash .overview-tile:hover,
 #dashtodockContainer.bottom #dash .show-apps:hover {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 150, 136, 0.10);
 }

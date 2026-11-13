@@ -2,9 +2,9 @@
 
 Open Bar 49, GNOME 48 compatible package from https://extensions.gnome.org/extension/6580/open-bar/ (version tag 65598). Upstream: https://github.com/neuromorph/openbar . Offline zip and unpacked extension are included.
 
-## Balanced light top bar (2026-11-13)
+## Alpine palette and balanced top bar (2026-11-13)
 
-Open Bar's native Trilands layout separates three rounded light groups: Activities and CPU/RAM on the left, clock/date in the center, notification bell, input source, tray and system controls on the right. CPU/RAM were moved out of the crowded right group. Each group is 34px high with 14px corners, 6px outer spacing, subtle borders and no shadow. No additional extension is required.
+Open Bar's native Trilands layout separates three rounded light groups: Activities and CPU/RAM on the left, clock/date in the center, notification bell, input source, tray and system controls on the right. CPU/RAM were moved out of the crowded right group. The Lago di Braies wallpaper and cream/sage/teal Fluent palette are documented in [ALPINE-THEME.md](ALPINE-THEME.md). Each group is 34px high with 14px corners, 6px outer spacing, subtle borders and no shadow. No additional extension is required.
 
 Vitals keeps fixed-width CPU/RAM numbers, GNOME-style icons and five-second polling. Caffeine appears only while active, without timer text. The date remains; weekday/seconds are hidden. The legacy IBus tray icon is disabled; GNOME's native English/Korean indicator and language-switching keys remain available. Existing bottom taskbar and notification behavior are preserved.
 

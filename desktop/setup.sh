@@ -18,9 +18,13 @@ fi
 sudo dconf update
 if [[ -x /usr/share/gdm/generate-config ]]; then sudo /usr/share/gdm/generate-config; fi
 mkdir -p "$HOME/.themes" "$HOME/.config"
-cp -a desktop/files/themes/Fluent-Light "$HOME/.themes/"
+for theme in Fluent-Light Fluent-teal-Light; do
+  cp -a "desktop/files/themes/$theme" "$HOME/.themes/"
+done
 if [[ ! -e "$HOME/.config/gtk-4.0" && ! -L "$HOME/.config/gtk-4.0" ]]; then
-  ln -s "$HOME/.themes/Fluent-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
+  ln -s "$HOME/.themes/Fluent-teal-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
+elif [[ -L "$HOME/.config/gtk-4.0" && ( $(readlink -f "$HOME/.config/gtk-4.0") == "$HOME/.themes/Fluent-Light/gtk-4.0" || $(readlink -f "$HOME/.config/gtk-4.0") == "$HOME/.themes/Fluent-teal-Light/gtk-4.0" ) ]]; then
+  ln -sfn "$HOME/.themes/Fluent-teal-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
 fi
 mkdir -p "$HOME/.local/share/gnome-shell/extensions" "$HOME/.config/pipewire/pipewire.conf.d"
 cp -a desktop/files/extensions/. "$HOME/.local/share/gnome-shell/extensions/"
@@ -29,7 +33,7 @@ for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/
   snapshot="desktop/files/settings/${entry##*/}.dconf"
   if [[ -s $snapshot ]]; then dconf load "/$entry/" < "$snapshot"; fi
 done
-gsettings set org.gnome.shell.extensions.user-theme name Fluent-Light
+gsettings set org.gnome.shell.extensions.user-theme name Fluent-teal-Light
 python3 - <<'PY'
 from gi.repository import Gio
 settings = Gio.Settings.new("org.gnome.shell")

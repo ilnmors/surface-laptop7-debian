@@ -69,3 +69,6 @@ CLAUDE.md
 # Raw upstream research data remains in the offline bundle.
 drivers/files/touchscreen/research/*.dsl
 drivers/files/camera-quality/research/issue-*-comments.json
+
+# Downloaded wallpaper is retained locally as an offline payload.
+desktop/files/backgrounds/*.jpg

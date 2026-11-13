@@ -1,0 +1,53 @@
+{
+  "name": "Alpine Lake / Fluent Teal Light",
+  "wallpaper": {
+    "author": "Luca Bravo",
+    "title": "Boathouse on a mountain lake",
+    "location": "Lago di Braies",
+    "source": "https://unsplash.com/photos/brown-house-near-body-of-water-zAjdgNXsMeg",
+    "download": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=max&w=3200&q=95&fm=jpg",
+    "license": "https://unsplash.com/license",
+    "file": "desktop/files/backgrounds/alpine-lake-luca-bravo.jpg",
+    "sha256": "7cfb72ea5f390b4ca6742ea30d5c46d75db9691318e7756ec130c80b29cb1a87",
+    "width": 3200,
+    "height": 2134,
+    "processing": "JPEG resized by the original image CDN; no local crop, recoloring, watermark or overlay."
+  },
+  "theme": {
+    "name": "Fluent-teal-Light",
+    "upstream": "https://github.com/vinceliuice/Fluent-gtk-theme",
+    "source_record": "7a49a464b0188c340101c52965c18190b1c694cf",
+    "source_archive": "archive/desktop/fluent-source.tar.gz",
+    "installer_arguments": [
+      "-t",
+      "teal",
+      "-c",
+      "light",
+      "-s",
+      "standard"
+    ],
+    "build_tools": [
+      {
+        "file": "desktop/files/topbar/build-tools/libsass1_3.6.5+20231221-3+b1_arm64.deb",
+        "sha256": "d55a94f2289849f8528af0063925a4e686086cd485852ced502d64296af69fbb"
+      },
+      {
+        "file": "desktop/files/topbar/build-tools/sassc_3.6.1+20201027-2+b2_arm64.deb",
+        "sha256": "98c9116dc870ec22ad08054f90de0bdf616ae4d759167440b26169d6115c9888"
+      }
+    ],
+    "palette": {
+      "accent": "#009688",
+      "dock": "#f4f8f5",
+      "foreground": "#21332b"
+    },
+    "resident_processes_added": 0
+  },
+  "validation": {
+    "gtk3_gtk4_shell_contain_teal_accent": true,
+    "wallpaper_live_copy_hash_matches": true,
+    "gtk4_link_matches_theme": true,
+    "screen_locked_during_final_application": true,
+    "appearance_confirmation_pending": true
+  }
+}
