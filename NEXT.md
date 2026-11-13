@@ -34,7 +34,7 @@ Done: steps 1-2 below (resume 1.62 s). Pending: discharge measurement on battery
 Previous checklist (completed):
 
 - User authorized promotion after the one-shot CPU/camera boot succeeded. Verify /proc/cmdline uses /secureboot/vmlinuz-surface-signed.efi (not trial-cpu-camera), CPU online 0-9, three ondemand policies, Secure Boot, camera 37.5fps and Wi-Fi HTTPS.
-- Open Bar is ACTIVE after login. Bottom dock has light styling and click-action=previews.
+- Open Bar is ACTIVE after login. Bottom dock is a fixed full-width Windows 11-style taskbar (touch cannot reveal an auto-hidden dock); click-action=previews.
 - Check post-suspend Wi-Fi/audio in a later user-initiated cycle. Noise/1080p camera work is deferred. Battery improvement is not measured.
 - Promotion changes and updated HTML are local; require final confirmation before push.
 - Previous signed image remains in /boot/secureboot/rollback-20261112 and as a GRUB fallback. Restore script remains under drivers/files/cpu.
