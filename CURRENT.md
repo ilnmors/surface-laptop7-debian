@@ -1,4 +1,10 @@
-# Current state — 2026-11-13 maintenance pass
+# Current state — touchscreen promoted, cma=0 (2026-11-13 09:04)
+
+- The GTCH SPI touchscreen works (taps, Firefox scrolling; VTE/Nautilus drag is app behaviour) and is in the default signed image; previous default kept as GRUB "Surface previous working image".
+- cma=512M failed to reserve and disabled the DT CMA pool; the resulting no-CMA state works for everything and fixes camera capture, so it is now explicit `cma=0`.
+- Remaining choices: camera 37.5 vs 18.8 fps (noise), Fn-lock daemon, real KakaoTalk message, boot-screen look.
+
+# Earlier: 2026-11-13 maintenance pass
 
 - Next boot is a one-shot trial (GRUB next_entry=surface-touch-trial): signed image with the GTCH HID-over-SPI touchscreen on spi10 and cma=512M. It clears itself before booting; the default image also carries cma=512M. Restore: drivers/files/touchscreen/spi-gtch/restore.sh; GRUB backup /boot/secureboot/grub.cfg.before-cma512.
 - Camera: capture failures were CMA exhaustion (128 MB, ~112 MB held by drivers); 720p and 1080p run at 37.5 fps with the system heap. cma=512M fixes it from the next boot.

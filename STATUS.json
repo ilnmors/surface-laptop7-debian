@@ -76,19 +76,19 @@
     {
       "group": "INPUT",
       "title": "터치스크린",
-      "status": "pending",
-      "label": "SPI(GTCH) 패널로 판단 · 다음 부팅 one-shot 시험",
-      "finding": "Romulus13 I2C 0x34가 HID probe에 응답하지 않습니다. DT overlay만 켜졌다고 터치가 작동하는 것은 아닙니다.",
-      "next": "이 기기 SSDT는 ITCH(I2C)와 GTCH(SPI) 둘 다 선언하고, I2C 0x34는 응답이 없으며 UEFI가 GTCH 핀(gpio64 전원·gpio48 리셋 high, gpio49/50 QSPI)을 설정해 둡니다. spi10 GTCH overlay를 넣은 서명 시험 이미지를 GRUB next_entry로 다음 부팅 한 번만 선택했습니다. 실패하면 다음 전원부터 기본 이미지로 돌아옵니다. drivers/files/touchscreen/spi-gtch/README.md",
+      "status": "ok",
+      "label": "SPI(GTCH) 터치스크린 동작 · 기본 이미지 반영",
+      "finding": "이 기기는 SPI GTCH 패널입니다. spi10 overlay로 spi_hid가 바인딩되고 iptsd가 터치스크린·스타일러스 장치를 만듭니다. 탭과 Firefox 스크롤이 동작합니다.",
+      "next": "GNOME 터미널(VTE)과 Nautilus의 손가락 끌기 스크롤은 앱 동작상 지원되지 않습니다. 이전 기본 이미지는 GRUB 복구 항목에 있습니다.",
       "path": "drivers/files/touchscreen/spi-gtch/README.md"
     },
     {
       "group": "HARDWARE",
       "title": "카메라 FPS·색감·노이즈",
       "status": "pending",
-      "label": "1080p 37.5fps 확인 · CMA 512M 다음 부팅 적용",
+      "label": "720p·1080p 37.5fps · cma=0 고정",
       "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다. 재부팅 후 새 모듈 08EF7452B0F555AA15FA25F 로드를 확인했습니다. 마지막 FPS: 37.46, 37.59, 37.48.",
-      "next": "캡처 실패 원인은 CMA 128MB 고갈(드라이버가 부팅 때 약 112MB 점유, 조각화)이었습니다. system heap만 쓰면 720p·1080p 모두 37.5fps입니다. cma=512M을 GRUB·서명 스크립트·번들에 반영해 다음 부팅부터 적용됩니다. 노이즈는 soft ISP에 디노이즈가 없는 한계로, 18.8fps(저노이즈)와 37.5fps 중 선택이 남았습니다.",
+      "next": "CMA 고갈이 원인이었고 cma=0으로 일반 메모리를 쓰게 고정했습니다(512M은 4GB 아래 공간 부족으로 예약 실패). 남은 결정은 노이즈를 줄이는 18.8fps 모드로 바꿀지 여부뿐입니다.",
       "path": "drivers/files/camera-quality/research/RESULTS.md"
     },
     {
