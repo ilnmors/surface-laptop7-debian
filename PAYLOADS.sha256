@@ -1927,7 +1927,7 @@ f4c8eec18d279c49d0ba51e8722a0f96836e09102db18eb8e3ba432d34e8f74f  drivers/PLAN.t
 ea53c820e8300b4b56c9df2f22e8459dd750a48fa475e1ac9c18c7336cb473f6  drivers/files/audio/optional-windows-eq/windows-tuning/AUCD_DEV_0C29_SUBSYS_MSHW0462_REV_0A_ADCM_SUBSYS_MSHW0462.xml
 ea44226a3abf5eeea784e538ec258de52f9c006277ea83f92a26d70ce420e004  drivers/files/audio/optional-windows-eq/windows-tuning/AUCD_DEV_0C29_SUBSYS_MSHW0462_REV_0B_ADCM_SUBSYS_MSHW0462.xml
 43ff5078ae3391a18095acb645be2e20b32043271a59044d0e51d41fc742bf3e  drivers/files/bluetooth/README.md
-a46543298ce25438a1a6869b2696fe2bc17b8d425b6e9d20bfa6306cf604dc35  drivers/files/camera-quality/README.md
+bf78dc08d822d5e07599af349e6ede6b20058956f39458e82c1bbd940418dbba  drivers/files/camera-quality/README.md
 7864ca7fb544abed1ae09b9c07f039e043a21fc0d9bbfb866fcbd75b855e6934  drivers/files/camera-quality/backports/ipa/ipa_soft_simple-balanced-candidate.so
 1fff5f2b58a98ee8e8b145b1a4cc574223f9af2699cbec8dfc0bb509b4234c68  drivers/files/camera-quality/backports/ipa/ipa_soft_simple-gain-step-candidate.so
 d22ecc0ee0875d7a62e01fd08771b4c0ebb0c58e5fb021868587cacff87ecdd4  drivers/files/camera-quality/backports/ipa/ipa_soft_simple-preview-tested.so
@@ -1975,6 +1975,8 @@ e3c5228e92ffb8d5f2d78569a4212c518d2cb8b9399ed6ef7970b5c610cc9034  drivers/files/
 4167fbee0686eaa9faa909f104fd9b0f5e48196bb1335b36e9a3ebe3658de4cc  drivers/files/camera-quality/research/per-sensor-defaults-0.7.patch
 3bce75b7cb380edf2653919f26f7c41f5f804cad3fae038893756af3239095a5  drivers/files/camera-quality/research/sensor-gain-step-0.7.patch
 cbe268d0302b493226e00fa18cdae5688192867fe42bfa2bb4dacdabefc06c15  drivers/files/camera-quality/restored-module-check.json
+cdce6128085c57092038668509d45629c420a8e179f8911b5c585ad55f05fb98  drivers/files/camera-quality/user/ov02c10.yaml
+5d6a0a3bf53402ec4e62b54e58587fd19d75a6c3b24d2d1343cd717dcb1a16a7  drivers/files/camera-quality/user/pipewire-libcamera-tuning.conf
 e79ec6630339487db88f51e4cde141dd7a850b44abf3409b02b142129acd9fb5  drivers/files/cpu/README.md
 fef1738a3e4093d8d1274bea8a17fb9b9d7b10cd9d8b97361bd5c24c437e6ffc  drivers/files/cpu/baseline/scmi-cpufreq.c
 66a77eb1846bdb565bcd4bb74a9dc2bd1ce05375970adda24ccc02250a93de26  drivers/files/cpu/candidates/scmi-cpufreq.ko
@@ -2031,6 +2033,7 @@ c9afa0e50e1d68010cb4452e8631a73c57b2438b169bf2af4e6e3127a3022319  drivers/files/
 7c899e0b7588ecc56259781c8769c29eb6169db6fc52f9d36c3e49f77a34b8b6  drivers/files/rootfs/etc/systemd/system/surface-bluetooth-address@.service
 9b34757519a6361660ec8254e2a201d30847a845a7fe6c4d698e7fe3cd1ce205  drivers/files/rootfs/etc/systemd/system/surface-resume-trace.service
 9c87356b177464e995fbbe1af15b9d79a1e4aefd3a9ee21c914e0a34436943c9  drivers/files/rootfs/etc/systemd/system/systemd-suspend.service.d/50-surface-session-freeze.conf
+012c9db580a565f3cd23171aef99d11794555f707a99b85739347dc0f1bc9876  drivers/files/rootfs/etc/udev/rules.d/70-surface-dma-heap.rules
 dcae3d05a83757fea9308abf303581b27012ce6f85ac71ba8630def208a4b1ca  drivers/files/rootfs/etc/udev/rules.d/80-surface-bluetooth-address.rules
 515bf4c9d620a87458e4447fe01a0e9bc384d1c3e0037cc4c3d2037b1ff25525  drivers/files/rootfs/usr/lib/firmware/ath12k/WCN7850/hw2.0/Notice.txt
 43aadfd3df887f27de74020273aee484bac6a31dd53068f91baf2a9b094d6a68  drivers/files/rootfs/usr/lib/firmware/ath12k/WCN7850/hw2.0/amss.bin
@@ -2160,7 +2163,7 @@ ab97dca30e4b8b4f34fa58d356f8e27d3d02324195ab8c223fad301ddfb7b863  drivers/files/
 2d5ad684060696d601559e55792308f2528a18bbe6e9e86759df3f092c482e4e  drivers/files/touchscreen/tools/gpiod_2.2.1-2+deb13u1_arm64.deb
 fd2323e12f32f6762dcb04fb10d643f190c0419fef1bcb1acb549c53b57920d7  drivers/files/touchscreen/tools/libgpiod3_2.2.1-2+deb13u1_arm64.deb
 03c4de5e6d987f7f4a377159998fc78405b3ef357bb9cbf002c59eba9bcaffae  drivers/setup.py
-74e0debfaa00c9df6a8ae06eb1d9a9709676bd384d5bbabe69b04258d5eb107f  drivers/setup.sh
+8d2870e774f99411d6b7f1b276c4dbf7f74bec60c66ceea0c8f657e2a8d2cc55  drivers/setup.sh
 1b5cb6b96cc03a8e19ec1ba6dedf7dc1e9e8840c917c6e8b32e903befb5aa22b  kernel/PLAN.txt
 e73ee0d19713dbf2ddb9c3b5d3065e39581978f520296d1b7d48d68f7acc0636  kernel/files/packages/linux-image-7.3.0-31-qcom-x1e-sl7_7.3.0-31.31+sl7.2_arm64.deb
 ea53f44ce2b4c5e6d32217bff86851fa2c22de31a9433a95a8886c2470875547  kernel/files/secureboot/README.md

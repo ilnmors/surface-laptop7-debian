@@ -85,11 +85,11 @@
     {
       "group": "HARDWARE",
       "title": "카메라 FPS·색감·노이즈",
-      "status": "pending",
-      "label": "720p·1080p 37.5fps · cma=0 고정",
-      "finding": "기존 드라이버에서 VBLANK 조절 시 18.78→37.46fps, 240프레임 오류 0회. 이를 기본값으로 쓰는 보정 보존 드라이버는 1회 시험 부팅에 준비했습니다. 별도 libcamera 0.7 환경의 중립 색감은 사용자가 개선을 확인했지만 노이즈는 남았습니다. 재부팅 후 새 모듈 08EF7452B0F555AA15FA25F 로드를 확인했습니다. 마지막 FPS: 37.46, 37.59, 37.48.",
-      "next": "CMA 고갈이 원인이었고 cma=0으로 일반 메모리를 쓰게 고정했습니다(512M은 4GB 아래 공간 부족으로 예약 실패). 남은 결정은 노이즈를 줄이는 18.8fps 모드로 바꿀지 여부뿐입니다.",
-      "path": "drivers/files/camera-quality/research/RESULTS.md"
+      "status": "ok",
+      "label": "앱 카메라 정상 · 37.5fps · 블랙 레벨 보정",
+      "finding": "GNOME 카메라의 \"카메라 없음\"은 부팅 직후 dma-heap 권한이 없어 soft ISP가 꺼진 것이 원인이었습니다. udev 규칙으로 video 그룹에 system heap을 열었고, ov02c10 블랙 레벨(4096) 보정으로 색·대비가 좋아졌다고 사용자가 확인했습니다. 720p·1080p 37.5fps.",
+      "next": "어두운 곳에서는 노출(1156줄)·게인(15.5배)이 최대라 노이즈가 남습니다. soft ISP에 디노이즈가 없는 한계입니다.",
+      "path": "drivers/files/camera-quality/README.md"
     },
     {
       "group": "WIRELESS",
@@ -193,10 +193,10 @@
     {
       "group": "PROGRAMS",
       "title": "카카오톡 알림 본문",
-      "status": "pending",
-      "label": "필터 설치 확인 · 실제 메시지 대기",
+      "status": "ok",
+      "label": "알림 정상",
       "finding": "실제 수신 로그에서 quiet_new_message는 제목·본문이 비어 있고 new_message_v4는 내용이 정상 전달됐습니다. 카카오톡의 완전히 빈 동반 알림만 GNOME에 보내지 않도록 수정하고 세션을 재시작했습니다.",
-      "next": "Waydroid notification_manager의 빈 알림 가드가 설치돼 있습니다(원본 백업 유지). 실제 수신 메시지 1건의 표시 확인만 남았습니다.",
+      "next": "사용자가 실제 수신 알림이 제대로 표시되는 것을 확인했습니다.",
       "path": "programs/kakaotalk/NOTIFICATIONS.md"
     },
     {
