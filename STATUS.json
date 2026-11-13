@@ -175,10 +175,10 @@
     {
       "group": "BOOT ART",
       "title": "로고·업데이트 글자",
-      "status": "pending",
-      "label": "부팅·로그인 소용돌이만 적용",
+      "status": "ok",
+      "label": "부팅·로그인 화면 정상",
       "finding": "Plymouth 워터마크와 GDM 로고·대체 로고를 Debian 소용돌이 SVG로 교체했습니다. Debian13 및 Debian 글자는 없습니다. 실제 렌더링 미리보기를 확인하고 초기 이미지와 GDM 컴파일 설정을 검증했습니다.",
-      "next": "Secure Boot 서명 검증은 통과했습니다. 부팅과 로그인 화면의 물리 표시 확인은 다음 재부팅 뒤에 남습니다.",
+      "next": "사용자가 실제 부팅 화면이 정상으로 나오는 것을 확인했습니다(2026-11-13).",
       "path": "desktop/files/boot-art/README.md"
     },
     {
