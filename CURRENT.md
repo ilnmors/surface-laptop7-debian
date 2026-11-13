@@ -2,7 +2,7 @@
 
 - The GTCH SPI touchscreen works (taps, Firefox scrolling; VTE/Nautilus drag is app behaviour) and is in the default signed image; previous default kept as GRUB "Surface previous working image".
 - cma=512M failed to reserve and disabled the DT CMA pool; the resulting no-CMA state works for everything and fixes camera capture, so it is now explicit `cma=0`.
-- Camera works in GNOME Camera/PipeWire after the dma-heap udev rule and OV02C10 black-level tuning (user: better color). KakaoTalk notifications confirmed. Remaining: Fn-lock daemon decision, boot-screen look; dim-light noise is a soft-ISP limit.
+- Camera works in GNOME Camera/PipeWire after the dma-heap udev rule and OV02C10 black-level tuning (user: better color). KakaoTalk notifications confirmed. Boot screen confirmed. Fn: native firmware toggle kept by user decision (normalizer daemon removed). Steam game checks and Samsung integration remain held.
 
 # Earlier: 2026-11-13 maintenance pass
 

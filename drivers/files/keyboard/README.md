@@ -11,3 +11,7 @@ The live HID descriptor exposes the lock indicator as an INPUT report (ID 0x5b, 
 No misleading LED-only patch, media-to-F-key remap or guessed vendor HID write was installed. This exact request remains unresolved; currently select media mode with the physical Fn toggle, then hold Fn for F1–F12. LED permanence is not implemented.
 
 Reference: https://support.microsoft.com/en-us/surface/accessories/cover-keyboard/special-keys-and-function-keys-for-surface-keyboards-or-type-covers . Device-specific evidence is the running report_descriptor and driver source drivers/hid/surface-hid/surface_hid.c.
+
+## Decision (2026-11-13)
+
+A user-space normalizer was built and verified (Fn is reported as BTN_0, scan 0x10097, so the top row could follow "Fn held" instead of the firmware lock), but the firmware still toggled the Fn LED and lock on every tap. The user chose to remove it and keep the keyboard's native Fn toggle. No daemon, package or setup step remains. Feature report 0xd4 (vendor page 0xff00, usages 0xe0/0xe1) was read but never written; whether it holds the lock state is unverified.
