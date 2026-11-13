@@ -11,5 +11,5 @@ Boot after installing spi-hid v2 (srcversion 0923360D0DE94E631C945EE) with the P
 
 - spi_hid no longer appears among slow callbacks; "hardware restart deferred" at 23:59:45.58 and "hardware restarted" at 23:59:48.03 (touchpad ready ~2.3 s after wake, as designed). Remaining top callbacks: ath12k 0.510 s, NVMe PCIe 0.314 s, Wi-Fi PCIe 0.312 s.
 - Wi-Fi: CTRL-EVENT-CONNECTED 23:59:47.80, activated 23:59:48.02 (~2.1 s after suspend exit). The roam at 00:00:26 was AP-initiated band steering (WNM disassociation imminent, 2.4 → 5 GHz), not a reconnect failure.
-- Sleep drain: UPower 78 % at 23:11:41 → 77 % at 23:59:45 over a 42.8 min suspend (1 % ≈ 0.5 Wh at 50.8 Wh full). UPower reports whole percents only, so this bounds the drain to roughly ≤ 0.7 W; measure over several hours for a precise figure.
+- Sleep drain: UPower 78 % at 23:11:41 → 77 % at 23:59:45 over a 42.8 min suspend (1 % ≈ 0.5 Wh at 50.8 Wh full). UPower reports whole percents only, so this gives a rough estimate around 0.7 W, not a strict upper bound; measure over several hours for a precise figure.
 - Power-only trace saved to /var/log/surface-resume/manual/ and re-armed.

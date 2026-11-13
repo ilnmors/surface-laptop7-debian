@@ -34,7 +34,7 @@
       "status": "ok",
       "label": "현재 부팅 확인",
       "finding": "재부팅 후 Secure Boot enabled·integrity lockdown 유지. 새 USB·SoundWire 모듈의 실제 srcversion이 설치한 교체본과 일치합니다.",
-      "next": "새 부팅 이미지에도 로고·폰트·GPU 펌웨어를 넣고 서명 검증했습니다. 모듈 로드 성공과 장치의 절전·오디오 안정성은 별도로 확인해야 합니다.",
+      "next": "현재 시험 이미지에서 Secure Boot enabled를 재확인했습니다. 저장된 기본 이미지의 cma=0 경로는 다음 기본 부팅에서 확인합니다.",
       "path": "kernel/files/secureboot/README.md"
     },
     {
@@ -43,7 +43,7 @@
       "status": "ok",
       "label": "deep 복귀 4.76초 → 1.41초",
       "finding": "터치패드 리셋·2초 대기를 모두 작업 큐로 옮긴 spi-hid v2와 pcie3 비활성 DTB로 커널 복귀가 1.41초가 됐습니다. 터치패드는 복귀 2.3초 뒤 재시작, Wi-Fi는 2.1초 만에 연결됩니다.",
-      "next": "절전 중 소모는 43분에 1%(약 0.7W 이하)로 이전 수준입니다. 정밀한 값은 몇 시간 절전으로 다시 잽니다.",
+      "next": "기록의 1.41초는 커널 복귀 단계이며 화면·입력 준비 완료 시간과 다릅니다. 짧은 절전 표본 약 0.7W는 참고치이고 장시간 전력 측정은 남아 있습니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-231657/README.md"
     },
     {
@@ -59,9 +59,9 @@
       "group": "BATTERY",
       "title": "절전·평균 배터리 소비",
       "status": "ok",
-      "label": "사용 약 4.9–5.3W · 절전 ≤0.7W",
-      "finding": "2026-11-12 21:3x 배터리 45%, pcie3 비활성·밝기 50%·120Hz·Firefox·Waydroid 상태에서 1분 평균 5.2–5.3W(초기 기록 50%/2시간≈12W, 이전 기준 7.64W). A/B: Waydroid 일시정지 −0.45W, 밝기 80% +2.1W. CPU는 cpu-sleep 79–85%, GPU 300MHz 최저, Wi-Fi·NVMe ASPM L1.2. 완충 50.8Wh(설계 52.3Wh, 97%) 기준 약 9.5–10시간에 해당합니다.",
-      "next": "밝기 25–50%·Waydroid 상태에서 4.9–5.3W(초기 약 12W), 절전은 43분 1%로 0.7W 이하입니다. USB 컨트롤러 런타임 PM은 auto로 바꿔도 dwc3-qcom이 active로 남아 효과가 없어 원래 값으로 되돌렸습니다. 남은 차이는 패널 PSR 등 드라이버 성숙도이며 안전한 추가 조정은 없습니다.",
+      "label": "기록상 4.9–5.3W · 짧은 절전 표본 약 0.7W",
+      "finding": "2026-11-12 21:3x 배터리 45%, pcie3 비활성·밝기 50%·120Hz·Firefox·Waydroid 상태에서 1분 평균 5.2–5.3W(초기 기록 50%/2시간≈12W, 이전 기준 7.64W). A/B: Waydroid 일시정지 −0.45W, 밝기 80% +2.1W. CPU는 cpu-sleep 79–85%, GPU 300MHz 최저, Wi-Fi·NVMe ASPM L1.2. 완충 50.8Wh 기준 단순 환산은 약 9.5–10시간이며 실제 연속 사용시간을 측정한 값은 아닙니다.",
+      "next": "43분에 잔량 1%p 감소는 약 0.7W의 거친 추정이며, 잔량 반올림 때문에 엄밀한 상한이 아닙니다. 여러 시간의 에너지 계측과 조건을 맞춘 Windows 비교는 미완료입니다. USB 런타임 PM 시험은 효과가 없어 원복한 상태입니다.",
       "path": "drivers/files/power/README.md"
     },
     {
@@ -79,16 +79,16 @@
       "status": "ok",
       "label": "SPI(GTCH) 터치스크린 동작 · 기본 이미지 반영",
       "finding": "이 기기는 SPI GTCH 패널입니다. spi10 overlay로 spi_hid가 바인딩되고 iptsd가 터치스크린·스타일러스 장치를 만듭니다. 탭과 Firefox 스크롤이 동작합니다.",
-      "next": "GNOME 터미널(VTE)과 Nautilus의 손가락 끌기 스크롤은 앱 동작상 지원되지 않습니다. 이전 기본 이미지는 GRUB 복구 항목에 있습니다.",
+      "next": "현재 물리·IPTSD 가상 터치스크린과 스타일러스 등록을 재확인했습니다. GTCH는 기본 이미지·오프라인 설치에 반영됐고, 현재 실행 중인 부팅 경로는 이전 trial-touch입니다.",
       "path": "drivers/files/touchscreen/spi-gtch/README.md"
     },
     {
       "group": "HARDWARE",
       "title": "카메라 FPS·색감·노이즈",
-      "status": "ok",
-      "label": "앱 카메라 정상 · 37.5fps · 블랙 레벨 보정",
+      "status": "pending",
+      "label": "앱 카메라·색 보정 반영 · 저조도 노이즈 잔존",
       "finding": "GNOME 카메라의 \"카메라 없음\"은 부팅 직후 dma-heap 권한이 없어 soft ISP가 꺼진 것이 원인이었습니다. udev 규칙으로 video 그룹에 system heap을 열었고, ov02c10 블랙 레벨(4096) 보정으로 색·대비가 좋아졌다고 사용자가 확인했습니다. 720p·1080p 37.5fps.",
-      "next": "어두운 곳에서는 노출(1156줄)·게인(15.5배)이 최대라 노이즈가 남습니다. soft ISP에 디노이즈가 없는 한계입니다.",
+      "next": "저조도 노이즈는 미해결이며 추가 작업은 보류입니다. 현재 cma=512M 예약 실패로 CMA가 없는 시험 부팅이고, 기본 이미지는 cma=0으로 저장돼 있어 다음 부팅에서 검증합니다.",
       "path": "drivers/files/camera-quality/README.md"
     },
     {
@@ -105,7 +105,7 @@
       "title": "Fluent·GNOME·터미널",
       "status": "ok",
       "label": "Open Bar · Symbola 시스템 설치",
-      "finding": "GNOME 48 지원 Open Bar 49를 오프라인 보관·설치했습니다. 밝은 패널, 짙은 글자, 파란 강조색, 둥근 모서리와 메뉴를 설정했습니다. Vitals·Caffeine·트레이를 유지합니다. 하단 Dash to Dock은 터치로 숨김 해제가 불가능해 Windows 11식 작업 표시줄로 바꿨습니다(항상 표시, 화면 전체 폭, 가운데 아이콘, 왼쪽 앱 그리드 버튼, 36px 아이콘, 대시형 실행 표시). 여러 창이 있는 앱을 클릭하면 창 미리보기에서 선택합니다. 터미널에서 ⏵(U+23F5) 등 미디어 기호가 두부로 보이던 문제는 해당 글리프를 가진 폰트가 없어서였습니다. Debian fonts-symbola를 오프라인 패키지로 추가했고 현재 계정에 적용해 fallback으로 Symbola가 잡히는 것을 확인했습니다.",
+      "finding": "Claude 작업에서 Open Bar·Symbola를 유지하고 하단 독을 전체 너비의 고정 작업표시줄로 바꿨습니다. 아이콘은 가운데 정렬되며 여러 창은 클릭 후 미리보기에서 선택합니다.",
       "next": "fonts-symbola를 시스템 전역에 설치했고 사용자 확인으로 ⏵ 표시가 정상입니다. Open Bar 49와 하단 독 미리보기가 적용돼 있습니다.",
       "path": "desktop/files/topbar/README.md"
     },
@@ -133,7 +133,7 @@
       "status": "ok",
       "label": "모듈화 · 오프라인 검증",
       "finding": "상위 진입점이 kernel → drivers → patches → desktop → programs를 호출합니다. 각 단계에 SH/Python 진입점과 범위별 payload가 있습니다. 로고·폰트·GPU 펌웨어 hook, Wi-Fi PS 및 카카오 로그인·키보드·라이트 모드 설정도 각 설치 단계에 반영했습니다.",
-      "next": "CPU9 DTB, SCMI, Wi-Fi regulatory, 카메라 FPS, spi-hid v2, PCIe3-off DTB, Symbola, cma=512M이 설치 입력에 반영돼 있습니다. 개인 데이터와 Steam 전체 런타임은 범위 밖입니다.",
+      "next": "console 계정으로 설치 계획과 오프라인 페이로드 검증을 실행했습니다. 전체 재설치는 하지 않았습니다. 기본 cma=0 부팅 확인과 남은 저조도 품질 검증은 별도입니다.",
       "path": "README.md"
     },
     {
@@ -213,7 +213,7 @@
       "title": "Nextcloud 백업 → OxiCloud",
       "status": "ok",
       "label": "임시 토큰 폐기 완료",
-      "finding": "백업/복원 진입점 분리와 브라우저 로그인 모의 시험은 통과했습니다. 실제 내보내기는 HTTPS 시간 초과로 중단됐고 최종 manifest가 없어 복원에 사용할 수 없습니다. 허용된 infra 읽기 전용 SSH도 연결 시간 초과입니다.",
+      "finding": "초기 중단된 내보내기는 이력이며, 후속 백업에서 9개 컬렉션·120개 항목을 검증하고 이전을 완료한 것으로 기록돼 있습니다. 초기 미완성 백업을 완료본으로 사용하지 않습니다.",
       "next": "11/12 중단된 내보내기의 \"Nextcloud DAV offline backup\" 토큰(id 124)을 occ로 폐기했습니다. 새 내보내기의 임시 토큰은 자동 폐기됐습니다.",
       "path": "../repository/tools/README.md.tmp"
     },
@@ -232,7 +232,7 @@
       "status": "ok",
       "label": "두 저장소 최초 업로드 완료",
       "finding": "ilnmors/repository와 ilnmors/surface-laptop7-debian의 main 업로드 및 private=true를 확인했습니다.",
-      "next": "새 하단 독 변경은 로컬 커밋으로 보관하고 최종 확인 전에는 push하지 않습니다. 오프라인 바이너리는 Git에 포함되지 않습니다.",
+      "next": "이번 검토 전 두 저장소 HEAD와 로컬 origin/main 참조가 일치했습니다. 이번 상태 갱신은 로컬 변경이며 최종 확인 전 push하지 않습니다. 새 원격 fetch는 하지 않았습니다.",
       "path": "desktop/files/dock/README.md"
     }
   ]
