@@ -81,3 +81,7 @@ Audio trial (2026-11-13): official WirePlumber ALSA `api.alsa.soft-mixer` docume
 ## Audio recurrence case review — 2026-11-14
 
 [Cases, primary links and applicability](drivers/files/audio/diagnostics/2026-11-14/CASES-AND-PROPOSAL.md) compare the X1 IRQ/clock fix, X13s stability series, Surface Laptop 7 UCM enablement and Surface Pro 11 configuration attempts with retained local source and measurements. No new patch or payload installed; proposed runtime-PM mitigation remains unconfirmed.
+
+## Physical click state (2026-11-15)
+
+Local source fix in drivers/files/touchpad/click-drag/physical-button-state.patch, applied after edge-contact.patch to the same archived vendor IPTSD ZIP. No downloads. The production TouchDevice header reproduces seven failures before the fix and passes all 13 synthetic regression checks after it. Source and binary hashes, the comparable but unresolved SLS2 issue 208, offline build/test entry points and rollback are documented in click-drag/README.md and verification.json. This is not a Windows force-calibration change or an upstream-verified ARM patch.

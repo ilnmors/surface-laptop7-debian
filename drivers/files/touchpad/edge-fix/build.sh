@@ -19,6 +19,7 @@ with ZipFile(sys.argv[1]) as archive:
 PY
 cd "$work"
 patch -p1 < "$bundle/edge-contact.patch"
+patch -p1 < "$bundle/../click-drag/physical-button-state.patch"
 root=$work/deps
 for package in "$bundle"/build-debs/*.deb; do dpkg-deb -x "$package" "$root"; done
 cat > "$root/usr/share/pkgconfig/Microsoft.GSL.pc" <<'PC'
@@ -32,4 +33,5 @@ export PKG_CONFIG_PATH="$root/usr/lib/aarch64-linux-gnu/pkgconfig:$root/usr/shar
 export PKG_CONFIG_SYSROOT_DIR="$root" CPLUS_INCLUDE_PATH="$root/usr/include"
 meson setup build --prefix=/usr --libdir=lib/aarch64-linux-gnu -Ddebug_tools=[] -Db_lto=false -Dwerror=false --wrap-mode=nofallback
 ninja -C build -j 4 src/iptsd
+strip --strip-debug build/src/iptsd
 install -m 755 build/src/iptsd "$output"

@@ -1,0 +1,1191 @@
+{
+  "scope": "Read-only recurrence investigation; no power, mixer, service, driver or boot changes.",
+  "user_confirmation": "Playback time keeps advancing while silent; confirmed before the 23:07 signal measurement.",
+  "snapshots": [
+    {
+      "file": "20261114T230155.553327+0900.json",
+      "data": {
+        "started": "2026-11-14T23:01:55.553327+09:00",
+        "monotonic_start": 24229.484096329,
+        "reported_audibility": "silent",
+        "kernel": "7.3.0-31-qcom-x1e",
+        "boot_id": "025eac43-634e-495b-b4ee-a4d4c7305eee",
+        "soundwire_srcversion": "3D22555E212EACB6FA11473",
+        "power": {
+          "/sys/bus/platform/devices/6b10000.soundwire": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6769331",
+            "runtime_suspended_time": "17435830"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:0": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6737922",
+            "runtime_suspended_time": "17467230"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:1": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6737017",
+            "runtime_suspended_time": "17468132"
+          }
+        },
+        "pcm": {
+          "/proc/asound/card0/pcm0p/sub0/status": "closed",
+          "/proc/asound/card0/pcm1p/sub0/status": "state: RUNNING\nowner_pid   : 0\ntrigger_time: 24180.442798952\ntstamp      : 24229.480514402\ndelay       : 1761\navail       : 2079\navail_max   : 2623\n-----\nhw_ptr      : 2353919\nappl_ptr    : 2355680"
+        },
+        "pipewire": {
+          "returncode": 255,
+          "error": "can't connect: Operation not permitted\n"
+        },
+        "mixer": {
+          "Speakers Volume": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "SpkrLeft PA Volume": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "SpkrRight PA Volume": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "WSA WSA_RX0 Digital Mute": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "WSA WSA_RX1 Digital Mute": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "WSA WSA_RX0 Digital Volume": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "WSA WSA_RX1 Digital Volume": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          },
+          "WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "Invalid card number '0'.\n"
+          }
+        },
+        "kernel_log": {
+          "entries": [],
+          "visible_recent_entries": 0,
+          "returncode": 0,
+          "stderr": "",
+          "limit": "No entries can mean restricted access or no recent messages; it does not prove no kernel faults."
+        },
+        "finished": "2026-11-14T23:01:55.573713+09:00",
+        "monotonic_end": 24229.504490339
+      }
+    },
+    {
+      "file": "20261114T230222.411039+0900.json",
+      "data": {
+        "started": "2026-11-14T23:02:22.411039+09:00",
+        "monotonic_start": 24256.341807152,
+        "reported_audibility": "silent",
+        "kernel": "7.3.0-31-qcom-x1e",
+        "boot_id": "025eac43-634e-495b-b4ee-a4d4c7305eee",
+        "soundwire_srcversion": "3D22555E212EACB6FA11473",
+        "power": {
+          "/sys/bus/platform/devices/6b10000.soundwire": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6796189",
+            "runtime_suspended_time": "17435830"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:0": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6764780",
+            "runtime_suspended_time": "17467230"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:1": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6763875",
+            "runtime_suspended_time": "17468132"
+          }
+        },
+        "pcm": {
+          "/proc/asound/card0/pcm0p/sub0/status": "closed",
+          "/proc/asound/card0/pcm1p/sub0/status": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 24180.442798952\ntstamp      : 24256.340513454\ndelay       : 1697\navail       : 2143\navail_max   : 2591\n-----\nhw_ptr      : 3643199\nappl_ptr    : 3644896"
+        },
+        "pipewire": {
+          "nodes": [
+            {
+              "id": 71,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Headphones__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 72,
+              "state": "running",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    0.059277,
+                    0.059277
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    0.140574,
+                    0.140574
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 73,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Mic__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 74,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Headset__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 90,
+              "state": "running",
+              "properties": {
+                "application.name": "Firefox",
+                "media.class": "Stream/Output/Audio"
+              },
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            },
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            }
+          ],
+          "returncode": 0,
+          "stderr": ""
+        },
+        "mixer": {
+          "Speakers Volume": {
+            "returncode": 0,
+            "stdout": "numid=2,iface=MIXER,name='Speakers Volume'\n  ; type=INTEGER,access=rw---R--,values=2,min=0,max=6,step=0\n  : values=1,1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrLeft PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=106,iface=MIXER,name='SpkrLeft PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrRight PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=114,iface=MIXER,name='SpkrRight PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=129,iface=MIXER,name='WSA WSA_RX0 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=130,iface=MIXER,name='WSA WSA_RX1 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=125,iface=MIXER,name='WSA WSA_RX0 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=126,iface=MIXER,name='WSA WSA_RX1 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2": {
+            "returncode": 0,
+            "stdout": "numid=167,iface=MIXER,name='WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2'\n  ; type=BOOLEAN,access=rw------,values=2\n  : values=on,off\n",
+            "stderr": ""
+          }
+        },
+        "kernel_log": {
+          "entries": [],
+          "visible_recent_entries": 0,
+          "returncode": 0,
+          "stderr": "",
+          "limit": "No entries can mean restricted access or no recent messages; it does not prove no kernel faults."
+        },
+        "finished": "2026-11-14T23:02:22.453018+09:00",
+        "monotonic_end": 24256.383782048
+      }
+    },
+    {
+      "file": "20261114T230337.430991+0900.json",
+      "data": {
+        "started": "2026-11-14T23:03:37.430991+09:00",
+        "monotonic_start": 24331.361758009,
+        "reported_audibility": "unknown",
+        "kernel": "7.3.0-31-qcom-x1e",
+        "boot_id": "025eac43-634e-495b-b4ee-a4d4c7305eee",
+        "soundwire_srcversion": "3D22555E212EACB6FA11473",
+        "power": {
+          "/sys/bus/platform/devices/6b10000.soundwire": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6871209",
+            "runtime_suspended_time": "17435830"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:0": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6839799",
+            "runtime_suspended_time": "17467230"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:1": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "6838895",
+            "runtime_suspended_time": "17468132"
+          }
+        },
+        "pcm": {
+          "/proc/asound/card0/pcm0p/sub0/status": "closed",
+          "/proc/asound/card0/pcm1p/sub0/status": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 24180.442798952\ntstamp      : 24331.360545978\ndelay       : 2145\navail       : 1695\navail_max   : 2623\n-----\nhw_ptr      : 7244159\nappl_ptr    : 7246304"
+        },
+        "pipewire": {
+          "nodes": [
+            {
+              "id": 71,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Headphones__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 72,
+              "state": "running",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    0.059277,
+                    0.059277
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    0.140574,
+                    0.140574
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 73,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Mic__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 74,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Headset__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 90,
+              "state": "running",
+              "properties": {
+                "application.name": "Firefox",
+                "media.class": "Stream/Output/Audio"
+              },
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            },
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            }
+          ],
+          "returncode": 0,
+          "stderr": ""
+        },
+        "mixer": {
+          "Speakers Volume": {
+            "returncode": 0,
+            "stdout": "numid=2,iface=MIXER,name='Speakers Volume'\n  ; type=INTEGER,access=rw---R--,values=2,min=0,max=6,step=0\n  : values=1,1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrLeft PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=106,iface=MIXER,name='SpkrLeft PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrRight PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=114,iface=MIXER,name='SpkrRight PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=129,iface=MIXER,name='WSA WSA_RX0 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=130,iface=MIXER,name='WSA WSA_RX1 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=125,iface=MIXER,name='WSA WSA_RX0 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=126,iface=MIXER,name='WSA WSA_RX1 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2": {
+            "returncode": 0,
+            "stdout": "numid=167,iface=MIXER,name='WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2'\n  ; type=BOOLEAN,access=rw------,values=2\n  : values=on,off\n",
+            "stderr": ""
+          }
+        },
+        "kernel_log": {
+          "entries": [],
+          "visible_recent_entries": 0,
+          "returncode": 0,
+          "stderr": "",
+          "limit": "No entries can mean restricted access or no recent messages; it does not prove no kernel faults."
+        },
+        "finished": "2026-11-14T23:03:37.469167+09:00",
+        "monotonic_end": 24331.399930821
+      }
+    },
+    {
+      "file": "20261114T230702.760207+0900.json",
+      "data": {
+        "started": "2026-11-14T23:07:02.760207+09:00",
+        "monotonic_start": 24536.690970847,
+        "reported_audibility": "silent",
+        "kernel": "7.3.0-31-qcom-x1e",
+        "boot_id": "025eac43-634e-495b-b4ee-a4d4c7305eee",
+        "soundwire_srcversion": "3D22555E212EACB6FA11473",
+        "power": {
+          "/sys/bus/platform/devices/6b10000.soundwire": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "7076538",
+            "runtime_suspended_time": "17435830"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:0": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "7045129",
+            "runtime_suspended_time": "17467230"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:1": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "7044224",
+            "runtime_suspended_time": "17468132"
+          }
+        },
+        "pcm": {
+          "/proc/asound/card0/pcm0p/sub0/status": "closed",
+          "/proc/asound/card0/pcm1p/sub0/status": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 24180.442798952\ntstamp      : 24536.690552722\ndelay       : 2305\navail       : 1535\navail_max   : 2623\n-----\nhw_ptr      : 17099999\nappl_ptr    : 17102304"
+        },
+        "pipewire": {
+          "nodes": [
+            {
+              "id": 71,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Headphones__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 72,
+              "state": "running",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    0.059277,
+                    0.059277
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    0.140574,
+                    0.140574
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 73,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Mic__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 74,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Headset__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 90,
+              "state": "running",
+              "properties": {
+                "application.name": "Firefox",
+                "media.class": "Stream/Output/Audio"
+              },
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            },
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            }
+          ],
+          "returncode": 0,
+          "stderr": ""
+        },
+        "mixer": {
+          "Speakers Volume": {
+            "returncode": 0,
+            "stdout": "numid=2,iface=MIXER,name='Speakers Volume'\n  ; type=INTEGER,access=rw---R--,values=2,min=0,max=6,step=0\n  : values=1,1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrLeft PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=106,iface=MIXER,name='SpkrLeft PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrRight PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=114,iface=MIXER,name='SpkrRight PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=129,iface=MIXER,name='WSA WSA_RX0 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=130,iface=MIXER,name='WSA WSA_RX1 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=125,iface=MIXER,name='WSA WSA_RX0 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=126,iface=MIXER,name='WSA WSA_RX1 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2": {
+            "returncode": 0,
+            "stdout": "numid=167,iface=MIXER,name='WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2'\n  ; type=BOOLEAN,access=rw------,values=2\n  : values=on,off\n",
+            "stderr": ""
+          }
+        },
+        "kernel_log": {
+          "entries": [],
+          "visible_recent_entries": 0,
+          "returncode": 0,
+          "stderr": "",
+          "limit": "No entries can mean restricted access or no recent messages; it does not prove no kernel faults."
+        },
+        "finished": "2026-11-14T23:07:02.802236+09:00",
+        "monotonic_end": 24536.733013191
+      }
+    },
+    {
+      "file": "20261114T230705.870740+0900.json",
+      "data": {
+        "started": "2026-11-14T23:07:05.870740+09:00",
+        "monotonic_start": 24539.801508606,
+        "reported_audibility": "silent",
+        "kernel": "7.3.0-31-qcom-x1e",
+        "boot_id": "025eac43-634e-495b-b4ee-a4d4c7305eee",
+        "soundwire_srcversion": "3D22555E212EACB6FA11473",
+        "power": {
+          "/sys/bus/platform/devices/6b10000.soundwire": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "7079648",
+            "runtime_suspended_time": "17435830"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:0": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "7048239",
+            "runtime_suspended_time": "17467230"
+          },
+          "/sys/bus/soundwire/devices/sdw:1:0:0217:0204:00:1": {
+            "control": "auto",
+            "runtime_status": "active",
+            "autosuspend_delay_ms": "3000",
+            "runtime_active_time": "7047334",
+            "runtime_suspended_time": "17468132"
+          }
+        },
+        "pcm": {
+          "/proc/asound/card0/pcm0p/sub0/status": "closed",
+          "/proc/asound/card0/pcm1p/sub0/status": "state: RUNNING\nowner_pid   : 918\ntrigger_time: 24180.442798952\ntstamp      : 24539.800513398\ndelay       : 1505\navail       : 2335\navail_max   : 2591\n-----\nhw_ptr      : 17249279\nappl_ptr    : 17250784"
+        },
+        "pipewire": {
+          "nodes": [
+            {
+              "id": 71,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Headphones__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 72,
+              "state": "running",
+              "properties": {
+                "media.class": "Audio/Sink",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_output.platform-sound.HiFi__Speaker__sink",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    0.059277,
+                    0.059277
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    0.140574,
+                    0.140574
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 73,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Mic__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 74,
+              "state": "suspended",
+              "properties": {
+                "media.class": "Audio/Source",
+                "device.id": 70,
+                "node.pause-on-idle": false
+              },
+              "alsa_node_name": "alsa_input.platform-sound.HiFi__Headset__source",
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                },
+                {}
+              ]
+            },
+            {
+              "id": 90,
+              "state": "running",
+              "properties": {
+                "application.name": "Firefox",
+                "media.class": "Stream/Output/Audio"
+              },
+              "volume": [
+                {
+                  "volume": 1.0,
+                  "mute": false,
+                  "channelVolumes": [
+                    1.0,
+                    1.0
+                  ],
+                  "softMute": false,
+                  "softVolumes": [
+                    1.0,
+                    1.0
+                  ]
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            },
+            {
+              "output-node-id": 90,
+              "input-node-id": 72,
+              "state": "active"
+            }
+          ],
+          "returncode": 0,
+          "stderr": ""
+        },
+        "mixer": {
+          "Speakers Volume": {
+            "returncode": 0,
+            "stdout": "numid=2,iface=MIXER,name='Speakers Volume'\n  ; type=INTEGER,access=rw---R--,values=2,min=0,max=6,step=0\n  : values=1,1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrLeft PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=106,iface=MIXER,name='SpkrLeft PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "SpkrRight PA Volume": {
+            "returncode": 0,
+            "stdout": "numid=114,iface=MIXER,name='SpkrRight PA Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=6,step=0\n  : values=1\n  | dBscale-min=-9.00dB,step=1.50dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=129,iface=MIXER,name='WSA WSA_RX0 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Mute": {
+            "returncode": 0,
+            "stdout": "numid=130,iface=MIXER,name='WSA WSA_RX1 Digital Mute'\n  ; type=BOOLEAN,access=rw------,values=1\n  : values=off\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX0 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=125,iface=MIXER,name='WSA WSA_RX0 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA WSA_RX1 Digital Volume": {
+            "returncode": 0,
+            "stdout": "numid=126,iface=MIXER,name='WSA WSA_RX1 Digital Volume'\n  ; type=INTEGER,access=rw---R--,values=1,min=0,max=81,step=0\n  : values=81\n  | dBscale-min=-84.00dB,step=1.00dB,mute=1\n",
+            "stderr": ""
+          },
+          "WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2": {
+            "returncode": 0,
+            "stdout": "numid=167,iface=MIXER,name='WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2'\n  ; type=BOOLEAN,access=rw------,values=2\n  : values=on,off\n",
+            "stderr": ""
+          }
+        },
+        "kernel_log": {
+          "entries": [],
+          "visible_recent_entries": 0,
+          "returncode": 0,
+          "stderr": "",
+          "limit": "No entries can mean restricted access or no recent messages; it does not prove no kernel faults."
+        },
+        "finished": "2026-11-14T23:07:05.907688+09:00",
+        "monotonic_end": 24539.838455221
+      }
+    }
+  ],
+  "silent_signal_levels": {
+    "started": "2026-11-14T23:07:02.807953+09:00",
+    "finished": "2026-11-14T23:07:05.848928+09:00",
+    "reported_audibility": "silent",
+    "report_basis": "User just confirmed playback time advances while silent; no recovery report received during this capture",
+    "source": "physical speaker output monitor only; no microphone",
+    "raw_audio_saved": false,
+    "sample_rate": 48000,
+    "channels": [
+      {
+        "samples": 142336,
+        "peak": 0.7382023334503174,
+        "rms": 0.06410799881618988,
+        "nonzero_samples": 141312
+      },
+      {
+        "samples": 142336,
+        "peak": 0.9628063440322876,
+        "rms": 0.08367910800441308,
+        "nonzero_samples": 141312
+      }
+    ],
+    "returncode": 1,
+    "stderr": ""
+  },
+  "recent_privileged_kernel_query": {
+    "captured": "2026-11-14T23:07:56.793776+09:00",
+    "since": "2026-11-14T22:50:00+09:00",
+    "privileged_reader": "pkexec journalctl",
+    "returncode": 1,
+    "stderr": "",
+    "entries": []
+  },
+  "recent_userservice_query": {
+    "captured": "2026-11-14T23:05:54.997684+09:00",
+    "returncode": 0,
+    "stderr": "",
+    "entries": []
+  },
+  "selected_same_boot_kernel_entries": [
+    {
+      "__REALTIME_TIMESTAMP": "1794575750966332",
+      "__MONOTONIC_TIMESTAMP": "9328444",
+      "MESSAGE": "remoteproc remoteproc0: remote processor adsp is now up",
+      "local_time": "2026-11-13T22:15:50.966332+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794575756454917",
+      "__MONOTONIC_TIMESTAMP": "14817029",
+      "MESSAGE": "qcom-apm gprsvc:service:2:1: CMD timeout for [1001021] opcode",
+      "local_time": "2026-11-13T22:15:56.454917+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794581781543928",
+      "__MONOTONIC_TIMESTAMP": "6039906041",
+      "MESSAGE": "qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected",
+      "local_time": "2026-11-13T23:56:21.543928+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794582772127160",
+      "__MONOTONIC_TIMESTAMP": "7030489273",
+      "MESSAGE": "qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected",
+      "local_time": "2026-11-14T00:12:52.127160+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794584860630994",
+      "__MONOTONIC_TIMESTAMP": "9118993106",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T00:47:40.630994+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794584865509828",
+      "__MONOTONIC_TIMESTAMP": "9120888080",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T00:47:45.509828+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794585319752018",
+      "__MONOTONIC_TIMESTAMP": "9575130270",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T00:55:19.752018+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794611105169165",
+      "__MONOTONIC_TIMESTAMP": "9577055137",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T08:05:05.169165+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794611136006062",
+      "__MONOTONIC_TIMESTAMP": "9607892034",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T08:05:36.006062+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794611197343692",
+      "__MONOTONIC_TIMESTAMP": "9609875947",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T08:06:37.343692+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794615280344135",
+      "__MONOTONIC_TIMESTAMP": "13692876390",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T09:14:40.344135+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794615505761127",
+      "__MONOTONIC_TIMESTAMP": "13694815062",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T09:18:25.761127+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794615547433080",
+      "__MONOTONIC_TIMESTAMP": "13736487015",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T09:19:07.433080+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794640058647721",
+      "__MONOTONIC_TIMESTAMP": "13738359039",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T16:07:38.647721+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794642297486705",
+      "__MONOTONIC_TIMESTAMP": "15977198023",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T16:44:57.486705+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794652800642161",
+      "__MONOTONIC_TIMESTAMP": "15979082197",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T19:40:00.642161+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794656481114983",
+      "__MONOTONIC_TIMESTAMP": "19659555018",
+      "MESSAGE": "PM: suspend entry (deep)",
+      "local_time": "2026-11-14T20:41:21.114983+09:00"
+    },
+    {
+      "__REALTIME_TIMESTAMP": "1794660347476829",
+      "__MONOTONIC_TIMESTAMP": "19661407566",
+      "MESSAGE": "PM: suspend exit",
+      "local_time": "2026-11-14T21:45:47.476829+09:00"
+    }
+  ],
+  "limits": [
+    "First 23:01 snapshot was sandbox-restricted; use the later snapshots for PipeWire and ALSA controls.",
+    "Signal levels come from the digital speaker monitor, not a microphone or hardware probe.",
+    "pw-record was deliberately interrupted after three seconds; its returncode 1 is not an audio-path fault.",
+    "Recent journalctl --grep returned 1 with empty stderr and no matches after successful pkexec authentication; the full privileged same-boot query succeeded.",
+    "No per-second audibility log or onset trace exists; no audible recovery sample has been reported."
+  ]
+}

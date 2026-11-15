@@ -1,0 +1,14 @@
+PASS one-finger unstable fit retains physical click
+PASS repeated held-button sample stays consistent
+PASS physical release ends drag
+PASS two-finger contact handover retains physical click
+PASS remaining finger moves while click is held
+PASS two-finger drag releases normally
+PASS empty contact frame does not invent button release
+PASS raw release works after contact loss
+PASS disable forcibly releases click
+PASS enable does not retain stale debounce state
+PASS palm suppression releases and blocks click
+PASS unblocked physical press can recover
+PASS unrelated device legacy behavior unchanged
+Failures: 0

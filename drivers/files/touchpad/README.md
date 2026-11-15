@@ -31,3 +31,7 @@ To roll back, remove `/etc/systemd/system/iptsd@.service.d/90-surface-edge.conf`
 ## Measured libinput edge suppression
 
 The 2026-11-12 30-second test found 26 geometric edge-palm exclusions while IPTSD emitted valid full-range coordinates. A narrowly matched libinput patch is installed; logout/login is required for GNOME to load it. See libinput-edge/README.md for source, build, validation and rollback. This does not claim to fix the separate single jump warning or all upstream contact fragmentation.
+
+## Physical click-and-drag (2026-11-15)
+
+A contact-tracking release can desynchronize the vendor daemon's physical-button debounce cache. The device-scoped correction, original failing regression cases, offline build and rollback are in [click-drag/README.md](click-drag/README.md). Installed 2026-11-15 at 08:29:44 KST; the user confirmed both one-finger physical drag and held-click/second-finger motion work normally. Existing edge calibration and libinput behavior are retained.

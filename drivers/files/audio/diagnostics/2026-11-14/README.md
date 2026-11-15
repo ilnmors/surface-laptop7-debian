@@ -1,6 +1,6 @@
 # Audio cause investigation — 2026-11-14
 
-**Current workflow: held at the user’s request until recurrence. Start with [the resume procedure](../../RESUME.md); do not begin another comparison automatically.**
+**Latest: silence recurred at 23:01; [23:07 running-PCM and digital-signal evidence](RECURRENCE-2301.md) is now available. The earlier measurements below remain historical. No new power comparison or recovery was performed.**
 
 ## Conclusion and confidence
 

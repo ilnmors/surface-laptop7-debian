@@ -28,7 +28,28 @@
     "local_override_scan": "No soundwire/power-control overrides found in inspected /etc/udev/rules.d, /etc/modprobe.d, /etc/systemd/system-sleep, /etc/tlp.d or /etc/wireplumber. No matching earlier custom controller power policy found in archived installation scripts.",
     "historical_limit": "No first-install sysfs snapshot found; cannot assert its measured policy at that time. Current auto policy predates this test and is consistent with the original driver behavior."
   },
-  "current_policy": "auto (verified restored); no permanent mitigation installed",
-  "workflow_status": "held by user on 2026-11-14 until recurrence",
-  "resume_document": "../../RESUME.md"
+  "current_policy": "Controller/codecs auto/3000 ms; exact-speaker WirePlumber idle suspension disabled (timeout 0), mitigation under evaluation.",
+  "workflow_status": "Normal scheduled reboot completed 2026-11-14 23:24; user confirms audible playback. Read-only comparison complete; long-term stability pending.",
+  "resume_document": "../../RESUME.md",
+  "latest_recurrence": {
+    "report": "RECURRENCE-2301.md",
+    "evidence": "recurrence-2301-evidence.json",
+    "confirmed": [
+      "User reconfirmed playback time advancing while silent.",
+      "Firefox and physical speaker sink running, links active, mutes off.",
+      "ALSA PCM RUNNING with advancing pointers; nonzero digital speaker monitor samples in the same three-second window.",
+      "Controller and speaker codecs active, no suspended-time growth during 23:02–23:07.",
+      "Same-boot clashes at 2026-11-13 23:56:21 and 2026-11-14 00:12:52; no matching new kernel error near this recurrence."
+    ],
+    "limit": "The digital monitor is not an acoustic or hardware-bus probe. This narrows the fault downstream but does not isolate DSP, SoundWire, codec or amplifier; a prior runtime transition remains a hypothesis.",
+    "live_changes": "none; two three-second passive output-monitor measurements, no raw audio retained"
+  },
+  "post_reboot": {
+    "report": "POST-REBOOT.md",
+    "evidence": "post-reboot-evidence.json",
+    "strongest_inference": "Persistent downstream audio-path failure; ordinary service and profile recovery failed, reboot with same kernel/module restored sound.",
+    "causal_limit": "Exact DSP/SoundWire/codec defect and autosuspend causation remain unproven.",
+    "recovery_side_effect": "New WCD bus 6ad0000 clash at 23:20:42 coincides with assistant HiFi profile-off; this is not the original speaker-bus recurrence.",
+    "mixer_comparison": "All eight selected hardware controls identical; different volume and idle post-reboot sample limit causal A/B."
+  }
 }

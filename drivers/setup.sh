@@ -17,6 +17,8 @@ done'
 sudo systemctl daemon-reload
 sudo systemctl enable surface-resume-trace.service
 sudo udevadm control --reload-rules
+# Physical speakers: keep PCM open between streams to avoid repeated idle-resume cycles.
+install -D -m 644 drivers/files/audio/user/51-surface-speaker-no-idle.conf "$HOME/.config/wireplumber/wireplumber.conf.d/51-surface-speaker-no-idle.conf"
 # Camera: OV02C10 black level for libcamera's soft ISP, used by PipeWire (desktop user).
 install -D -m 644 drivers/files/camera-quality/user/ov02c10.yaml "$HOME/.config/libcamera/ipa/simple/ov02c10.yaml"
 install -D -m 644 drivers/files/camera-quality/user/pipewire-libcamera-tuning.conf "$HOME/.config/systemd/user/pipewire.service.d/libcamera-tuning.conf"

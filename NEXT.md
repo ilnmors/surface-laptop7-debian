@@ -1,8 +1,12 @@
 # Remaining work — 2026-11-13 reviewed handoff
 
-## Audio — held until recurrence (2026-11-14)
+## Physical click-and-drag — resolved (2026-11-15)
 
-The user paused audio work pending another failure. Start with [drivers/files/audio/RESUME.md](drivers/files/audio/RESUME.md) and its read-only snapshot helper while silence is still present. Preserve `auto`/3000 ms. Do not resume experimental power or driver changes during routine maintenance.
+[click-drag/README.md](drivers/files/touchpad/click-drag/README.md): the exact-device BTN_LEFT/cache correction is installed and the user confirms both one-finger physical dragging and held-click/second-finger motion are normal. Same source preserves edge tracking; GNOME settings and calibration are unchanged. Regression checks: original 7 failures, patched 13 passes. Offline SH/Python build/test/setup and local rollback are recorded. No additional touchpad changes are pending unless the issue recurs.
+
+## Audio — recovered after scheduled reboot (2026-11-14 23:24)
+
+Read [POST-REBOOT.md](drivers/files/audio/diagnostics/2026-11-14/POST-REBOOT.md). User confirms sound; same kernel/module, identical selected hardware mixers. Keep the exact-speaker idle timeout 0 and observe normal pause/restart behavior; stability and power cost remain unmeasured. Profile off/on coincided with a new separate WCD-bus clash, so do not repeat it as automatic recovery. Do not hot-unbind drivers or restart ADSP. RTKit absence is a separate scheduling finding, not a demonstrated cause of persistent silence.
 
 ## Other remaining work
 

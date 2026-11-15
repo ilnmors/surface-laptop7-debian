@@ -1,0 +1,25 @@
+{
+  "prepared_at": "2026-11-15T08:23:10.374991+09:00",
+  "device": "045E:0C77",
+  "source_zip_sha256": "a81f708418be8698bd46c91ad24227a9b5d98f14ed100c6e46b8b64292dccee3",
+  "original_sha256": "bbc4cd4bfce32bf466799ba44e3dbd9d970eea9cc961ecb8a700f130052c33d1",
+  "candidate_sha256": "750247bc700539bbd8f79f867a129637a0ee840490efaf207041532cca0a8ae1",
+  "tests": {
+    "original_failures": 7,
+    "patched_checks_passed": 13,
+    "method": "actual TouchDevice header; mock uinput output; synthetic contact/button sequences"
+  },
+  "live_status": "installed and running",
+  "user_physical_result": {
+    "one_finger_physical_drag": "normal",
+    "held_click_plus_second_finger_motion": "normal"
+  },
+  "upstream_comparable_report": "https://github.com/linux-surface/iptsd/issues/208",
+  "installed_at": "2026-11-15T08:29:44+09:00",
+  "verified_at": "2026-11-15T08:31:43.518282+09:00",
+  "unit": "iptsd@dev-hidraw1.service",
+  "main_pid": 32986,
+  "service_restarts": 0,
+  "virtual_device": "IPTSD Virtual Touchpad 045E:0C77",
+  "scope": "User confirmed these two reported gestures; long-term reliability was not measured."
+}

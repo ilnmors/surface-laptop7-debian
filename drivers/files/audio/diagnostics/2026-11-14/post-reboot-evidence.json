@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-11-14T23:30:35.098651+09:00",
+  "user_report": "audible after reboot",
+  "previous_boot_id": "025eac43-634e-495b-b4ee-a4d4c7305eee",
+  "current_boot_id": "ad5da1de-571e-4655-9cd2-259a4ef0dab5",
+  "kernel_unchanged": "7.3.0-31-qcom-x1e",
+  "soundwire_srcversion_unchanged": "3D22555E212EACB6FA11473",
+  "previous_clashes": [
+    "2026-11-13T23:56:21.543928+09:00 surface kernel: qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected",
+    "2026-11-14T00:12:52.127160+09:00 surface kernel: qcom-soundwire 6b10000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected",
+    "2026-11-14T23:20:42.321355+09:00 surface kernel: qcom-soundwire 6ad0000.soundwire: qcom_swrm_irq_handler: SWR bus clsh detected"
+  ],
+  "current_clashes_as_of_232709": [],
+  "bus_mapping": {
+    "6b10000.soundwire": "two wsa884x-codec peripherals",
+    "6ad0000.soundwire": "wcd9380-codec peripheral"
+  },
+  "mixer_controls_identical": [
+    "Speakers Volume",
+    "SpkrLeft PA Volume",
+    "SpkrRight PA Volume",
+    "WSA WSA_RX0 Digital Mute",
+    "WSA WSA_RX1 Digital Mute",
+    "WSA WSA_RX0 Digital Volume",
+    "WSA WSA_RX1 Digital Volume",
+    "WSA_CODEC_DMA_RX_0 Audio Mixer MultiMedia2"
+  ],
+  "limits": [
+    "Post-reboot sample was idle after user confirmed sound; different user-facing volume.",
+    "Reboot resets multiple layers; exact defect and autosuspend causation unproven.",
+    "Current-boot journal comparison ends at 23:27:09; not a long-term stability test."
+  ],
+  "policy": {
+    "speaker_suspend_timeout_seconds": 0,
+    "node_pause_on_idle": false,
+    "controller_and_codec_power_control": "auto",
+    "autosuspend_delay_ms": 3000
+  },
+  "normal_reboot_evidence": [
+    "2026-11-14T23:23:58.717491+09:00 surface systemd-logind[711]: System is rebooting (Surface speaker recovery: normal reboot; save open work.).",
+    "2026-11-14T23:24:00.068320+09:00 surface systemd[1]: Reached target reboot.target - System Reboot.",
+    "2026-11-14T23:24:00.107344+09:00 surface systemd-shutdown[1]: Syncing filesystems and block devices.",
+    "2026-11-14T23:24:00.117462+09:00 surface systemd-journald[477]: Journal stopped"
+  ]
+}
