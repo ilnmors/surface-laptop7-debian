@@ -11,6 +11,15 @@
       "path": "drivers/files/touchpad/click-drag/README.md"
     },
     {
+      "group": "USB",
+      "title": "USB 테더링·포트 인식",
+      "status": "held",
+      "label": "충전·MTP 인식 확인 · 테더링 작업 중단",
+      "finding": "사용자가 충전은 정상이라고 정정했고 13:24 재연결 후 MTP/ACM 장치 인식을 확인했습니다. RNDIS/NCM 드라이버는 로드됐지만 휴대폰이 네트워크 인터페이스를 제공하지 않습니다. ModemManager는 비활성입니다.",
+      "next": "사용자가 휴대폰 디버깅을 거절하고 배터리 문제만 진행하도록 요청했습니다. USB 재설정·휴대폰 접근은 여기서 중단합니다. 이전 USB -110 오류 기록은 보존합니다.",
+      "path": "drivers/files/power/2026-11-16-USB-SUSPEND.md"
+    },
+    {
       "group": "RECOVERY",
       "title": "Wi-Fi 실기기 장애 복구",
       "status": "pending",
@@ -52,7 +61,7 @@
       "status": "ok",
       "label": "deep 복귀 4.76초 → 1.41초",
       "finding": "터치패드 리셋·2초 대기를 모두 작업 큐로 옮긴 spi-hid v2와 pcie3 비활성 DTB로 커널 복귀가 1.41초가 됐습니다. 터치패드는 복귀 2.3초 뒤 재시작, Wi-Fi는 2.1초 만에 연결됩니다.",
-      "next": "기록의 1.41초는 커널 복귀 단계이며 화면·입력 준비 완료 시간과 다릅니다. 짧은 절전 표본 약 0.7W는 참고치이고 장시간 전력 측정은 남아 있습니다.",
+      "next": "과거 1.41초는 커널 복귀 단계입니다. 11/15~16 밤에는 16시간 27분 deep 구간에 약 0.88W를 소비했습니다. 11/16 새 부팅은 아직 절전하지 않았으며 전력 영역 체류 상태를 기록할 훅을 설치했습니다.",
       "path": "drivers/files/sleep/diagnostics/2026-11-12-231657/README.md"
     },
     {
@@ -67,11 +76,11 @@
     {
       "group": "BATTERY",
       "title": "절전·평균 배터리 소비",
-      "status": "ok",
-      "label": "기록상 4.9–5.3W · 짧은 절전 표본 약 0.7W",
-      "finding": "2026-11-12 21:3x 배터리 45%, pcie3 비활성·밝기 50%·120Hz·Firefox·Waydroid 상태에서 1분 평균 5.2–5.3W(초기 기록 50%/2시간≈12W, 이전 기준 7.64W). A/B: Waydroid 일시정지 −0.45W, 밝기 80% +2.1W. CPU는 cpu-sleep 79–85%, GPU 300MHz 최저, Wi-Fi·NVMe ASPM L1.2. 완충 50.8Wh 기준 단순 환산은 약 9.5–10시간이며 실제 연속 사용시간을 측정한 값은 아닙니다.",
-      "next": "43분에 잔량 1%p 감소는 약 0.7W의 거친 추정이며, 잔량 반올림 때문에 엄밀한 상한이 아닙니다. 여러 시간의 에너지 계측과 조건을 맞춘 Windows 비교는 미완료입니다. USB 런타임 PM 시험은 효과가 없어 원복한 상태입니다.",
-      "path": "drivers/files/power/README.md"
+      "status": "pending",
+      "label": "USB PHY 절전 패치 설치 · 재부팅 후 측정 대기",
+      "finding": "11/15 16:13→11/16 08:40 deep 절전에서 43→15%, 약 14.41Wh / 평균 0.88W(1.70%p/h)가 소비됐습니다. 추가 PM 복귀 기록 없이 긴 절전에서도 높은 소모가 확인됐습니다. 충전 구간은 제외했습니다.",
+      "next": "11/16 13:53에 Qualcomm 상류 제안(v1) USB PHY 시스템 절전 패치(qmp-combo 41E45FA66B29B5A2C416CBE, qmp-usb 601E8F5D83837191C8575E9)를 서명해 다음 부팅용으로 설치했습니다. 실행 중 PHY는 재적재하지 않았고 현재 부팅은 원본 모듈입니다. 원본 부팅 이미지는 'Surface before PHY sleep patch (2026-11-16)' 메뉴와 setup.py --restore로 되돌립니다. 재부팅 후 자연 절전 2시간 이상을 suspend.jsonl 전후 에너지·Qualcomm 카운터로 비교합니다(기준 0.77–0.88W). clk/pd_ignore_unused 제거는 별도 단일 변수 시험 후보로 남깁니다.",
+      "path": "patches/files/phy-sleep/README.md"
     },
     {
       "group": "AUDIO",
@@ -196,7 +205,7 @@
       "status": "ok",
       "label": "120Hz 유지 · 전력 측정 완료",
       "finding": "세 클러스터에 ondemand 정책과 710.4–3417.6MHz 범위를 복구하고 실제 주파수 변화를 확인했습니다. 화면 120Hz, NVMe APST, PCIe ASPM, USB 자동 절전, Wi-Fi 절전은 유지합니다.",
-      "next": "120Hz와 CPU DVFS를 유지한 채 평균 4.9–5.3W(이전 7.64W)입니다. 복귀 지연은 1.41초로 해결됐습니다.",
+      "next": "11/12 특정 작업 표본은 4.9–5.3W, 11/15 일상 작업 방전 표본 2.25시간은 평균 5.87W입니다. 작업 조건이 달라 직접적인 개선/악화 비교는 하지 않습니다. 기록상 커널 복귀 단계는 1.41초입니다.",
       "path": "drivers/files/power/OPTIMIZATION.md"
     },
     {

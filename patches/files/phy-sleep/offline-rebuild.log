@@ -1,0 +1,84 @@
+patching file phy-qcom-qmp-combo.c
+patching file phy-qcom-qmp-usb.c
+make: Entering directory '/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e'
+make[1]: Entering directory '/home/console/.cache/surface-phy-sleep-replay-20261116/source'
+  CC [M]  phy-qcom-qmp-combo.o
+  CC [M]  phy-qcom-qmp-usb.o
+  MODPOST Module.symvers
+  CC [M]  phy-qcom-qmp-combo.mod.o
+  CC [M]  .module-common.o
+  CC [M]  phy-qcom-qmp-usb.mod.o
+  LD [M]  phy-qcom-qmp-combo.ko
+  BTF [M] phy-qcom-qmp-combo.ko
+  LD [M]  phy-qcom-qmp-usb.ko
+  BTF [M] phy-qcom-qmp-usb.ko
+make[1]: Leaving directory '/home/console/.cache/surface-phy-sleep-replay-20261116/source'
+make: Leaving directory '/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e'
+Unsigned modules: /home/console/.cache/surface-phy-sleep-replay-20261116/source
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: aarch64-linux-gnu-gcc (Ubuntu 15.3.0-4ubuntu1) 15.3.0
+  You are using:           gcc-14 (Debian 14.2.0-19) 14.2.0
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 131
+  You are using:             0
+In file included from phy-qcom-qmp-usb.c:7:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/clk-provider.h:1534:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1534 |         struct clk_hw *hws[] __counted_by(num);
+      |                ^~~~~~
+In file included from phy-qcom-qmp-combo.c:7:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/clk-provider.h:1534:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1534 |         struct clk_hw *hws[] __counted_by(num);
+      |                ^~~~~~
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from phy-qcom-qmp-usb.c:13:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from phy-qcom-qmp-combo.c:13:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/swap.h:9,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/suspend.h:5,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/regulator/consumer.h:35,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/phy/phy.h:17,
+                 from phy-qcom-qmp-usb.c:16:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/memcontrol.h:148:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+  148 |         struct mem_cgroup_threshold entries[] __counted_by(size);
+      |                ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/swap.h:9,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/suspend.h:5,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/regulator/consumer.h:35,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/phy/phy.h:17,
+                 from phy-qcom-qmp-combo.c:17:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/memcontrol.h:148:16: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+  148 |         struct mem_cgroup_threshold entries[] __counted_by(size);
+      |                ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/scripts/module-common.c:3:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from phy-qcom-qmp-combo.mod.c:1:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+Skipping BTF generation for phy-qcom-qmp-combo.ko due to unavailability of vmlinux
+In file included from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/arch/arm64/include/asm/elf.h:141,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/elf.h:6,
+                 from /home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/module.h:20,
+                 from phy-qcom-qmp-usb.mod.c:1:
+/home/console/.cache/surface-phy-sleep-replay-20261116/headers/usr/src/linux-headers-7.3.0-31-qcom-x1e/include/linux/fs.h:1302:9: warning: ‘counted_by’ attribute directive ignored [-Wattributes]
+ 1302 |         unsigned char f_handle[] __counted_by(handle_bytes);
+      |         ^~~~~~~~
+Skipping BTF generation for phy-qcom-qmp-usb.ko due to unavailability of vmlinux

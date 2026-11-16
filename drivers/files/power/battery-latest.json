@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-11-16T13:17:01.375771+09:00",
+  "current": {
+    "status": "Discharging",
+    "energy_now": "33462000",
+    "energy_full": "51480000",
+    "energy_full_design": "52330000",
+    "power_now": "-7091000"
+  },
+  "full_wh": 51.48,
+  "health_percent": 98.37569271928149,
+  "sleep_intervals": [
+    {
+      "start": "2026-11-15T16:13:21.489643+09:00",
+      "end": "2026-11-16T08:40:28.195139+09:00",
+      "hours": 16.45186263777778,
+      "before": [
+        1794726588,
+        42.999,
+        "discharging"
+      ],
+      "after": [
+        1794786028,
+        15.0,
+        "discharging"
+      ],
+      "before_gap_seconds": 213.48964309692383,
+      "after_gap_seconds": -0.19513893127441406,
+      "percentage_points": 27.999000000000002,
+      "estimated_wh": 14.4138852,
+      "mean_w": 0.8761248204748531,
+      "points_per_hour": 1.701874165646568,
+      "strict_120s_boundary_match": false
+    }
+  ],
+  "sleep_total_hours": 16.45186263777778,
+  "sleep_total_points": 27.999000000000002,
+  "sleep_total_wh": 14.4138852,
+  "sleep_mean_w": 0.8761248204748531,
+  "awake_sampled_hours": 0,
+  "awake_weighted_mean_w": null,
+  "kernel_pm_boundaries": [
+    "2026-11-15T16:13:21.489643+09:00 PM: suspend entry (deep)",
+    "2026-11-16T08:40:28.195139+09:00 PM: suspend exit"
+  ],
+  "method": "Nearest UPower discharging charge samples matched to previous-boot PM deep entry/exit. Pre sample 213s old and percent quantized: approximate sleep energy includes boundary uncertainty. Morning charging intervals excluded. No current-boot awake average claimed while USB phone power state is changing.",
+  "previous_day": {
+    "hours": 13.30987148841222,
+    "points": 20.001999999999995,
+    "mean_w": 0.77363854406594
+  },
+  "observations": [
+    "11/15 16:13 → 11/16 08:40, 약 16시간 27분 동안 43→15%입니다. 약 14.41Wh, 평균 0.88W / 1.70%p/h이며 같은 비율이면 8시간에 약 13.6%p입니다.",
+    "이 구간 사이에 추가 PM 복귀 기록은 없습니다. 이후 충전이 섞인 절전 구간은 계산에서 제외했습니다. 현재 부팅은 13:00에 시작돼 아직 절전 0회입니다.",
+    "휴대폰 USB 연결은 밤 절전이 끝난 뒤인 12:57부터 나타납니다. 현재 휴대폰 충전이 밤사이 28%p 감소를 설명하지는 않습니다. USB 컨트롤러·PHY 자체의 대기 소비는 별도 문제입니다.",
+    "시작 잔량 표본은 실제 절전보다 213초 앞서며 약 1%p 단위로 반올림됩니다. 어제 약 0.77W와 오늘 약 0.88W의 차이만으로 새 회귀나 원인 장치를 확정하지 않습니다.",
+    "현재 커널의 QMP combo PHY에는 시스템 절전 콜백이 없습니다. 해당 클록의 절전 누설을 다루는 상류 패치가 있지만 런타임 PM·잠금 처리 검토가 남아 있어 이 장치의 검증된 해결책으로 보지 않습니다.",
+    "다음 절전부터 에너지·Qualcomm 전력 영역 카운터를 자동 기록합니다. 상시 데몬 없이 경계에서만 수집하며 수동 검증 약 22ms, 제한 시간 2초입니다. 실제 pre/post 비교는 다음 절전 후 가능합니다."
+  ],
+  "report_path": "drivers/files/power/2026-11-16-USB-SUSPEND.md",
+  "sources": [
+    "https://lists.openwall.net/linux-kernel/2026/11/02/735",
+    "https://github.com/bryce-hoehn/linux-surface-laptop-7/issues/7"
+  ]
+}

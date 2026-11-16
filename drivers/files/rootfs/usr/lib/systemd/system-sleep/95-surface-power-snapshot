@@ -1,0 +1,4 @@
+#!/bin/sh
+# No daemon, polling, forced sleep, driver resets or policy changes.
+case "$1" in pre|post) ;; *) exit 0 ;; esac
+/usr/bin/timeout --kill-after=1s 2s /usr/bin/python3 -I /usr/local/libexec/surface-power-snapshot.py "$1" "$2" || :

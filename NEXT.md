@@ -20,3 +20,15 @@ Read [POST-REBOOT.md](drivers/files/audio/diagnostics/2026-11-14/POST-REBOOT.md)
 8. Review local changes before committing; obtain final user approval before every push. Do not assume old pending-state lists in Git history describe the current system.
 
 Prior experiments and chronological evidence remain in component READMEs, diagnostics and Git history.
+
+## 2026-11-16 USB and overnight power follow-up
+
+- USB tethering remains unresolved: Samsung mode reconfiguration failed to produce a network interface; another port enumerated then disconnected. RNDIS/NCM load under Secure Boot succeeded. The 45-second root-hub-on test did not restore detection and both hubs are back on auto. User confirmed the same cable/phone work on another PC. Targeted xHCI and UCSI child re-registration completed without detecting the phone; awaiting the requested physical reconnect. If still failing, the documented Microsoft shutdown/20-second power-button procedure is the next physical step; do not silently power off.
+- Overnight deep drain: 43→15% in 16h 27m (~0.88 W / 1.70 pp/h). Do not attribute this to the phone connected only after wake.
+- The passive sleep hook now writes `/var/lib/surface-power/suspend.jsonl`. After the next natural sleep, compare same-boot pre/post battery energy and raw Qualcomm counters. A manual sample succeeded; real sleep-boundary execution is untested. Do not force sleep, reset audio or hot-unbind USB for this check.
+- USB PHY system-sleep clock gating is a researched candidate, not an applied fix. See `drivers/files/power/2026-11-16-USB-SUSPEND.md` for evidence, limits and hook rollback.
+- These follow-up changes are local/uncommitted. Obtain fresh commit/push approval.
+
+Latest steering (2026-11-16): phone charging and MTP enumeration work after reconnect, but tethering remains unavailable. User declined phone debugging and stopped USB work. Focus only on fixing deep-sleep battery drain; Qualcomm PHY system-sleep patch review/build is in progress.
+
+2026-11-16 13:53: the signed USB PHY system-sleep trial is installed for the next boot (current boot still runs the original modules). After reboot, verify srcversions and USB, then compare a natural ≥2 h battery sleep in `/var/lib/surface-power/suspend.jsonl` against 0.77–0.88 W. Rollback: boot menu 'Surface before PHY sleep patch (2026-11-16)' or `setup.py --restore`. See [phy-sleep README](patches/files/phy-sleep/README.md). `clk_ignore_unused`/`pd_ignore_unused` removal remains a separate single-variable candidate, not attempted.

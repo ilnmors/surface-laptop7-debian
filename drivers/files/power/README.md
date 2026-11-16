@@ -1,10 +1,16 @@
 # Battery measurements
 
+Latest: [2026-11-16 USB and suspend review](2026-11-16-USB-SUSPEND.md) — overnight deep sleep 16h 27m, about 28 pp / 0.88 W. Next sleeps automatically record energy and Qualcomm counters. Aggregate inputs: `battery-latest.json`.
+
+Previous: [2026-11-15 analysis](2026-11-15-SUSPEND.md), with original inputs in `measurements/2026-11-15-summary.json`.
+
+## Historical baseline — 2026-11-12
+
 Captured 2026-11-12T09:02:27.575261+09:00. Battery full 50.78 Wh; design 52.33 Wh; reported health 97.04%. This is fuel-gauge telemetry, not an independent power meter.
 
 | Measurement | Result |
 | --- | --- |
-| Latest deep sleep | 11-12 03:33:48 → 11-12 08:51:33 KST (5.296 hours) |
+| Baseline deep sleep | 11-12 03:33:48 → 11-12 08:51:33 KST (5.296 hours) |
 | Charge boundary samples | 73.00% → 67.00% |
 | Sleep energy estimate | 3.046 Wh |
 | Sleep mean | 0.575 W / 1.133 percentage points per hour |

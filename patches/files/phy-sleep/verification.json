@@ -1,0 +1,29 @@
+{
+  "kernel": "7.3.0-31-qcom-x1e",
+  "upstream_status": "v1 proposal; not claimed merged or hardware-verified",
+  "sources": [
+    "https://lists.openwall.net/linux-kernel/2026/10/22/1007",
+    "https://lists.openwall.net/linux-kernel/2026/10/22/1008",
+    "https://lists.openwall.net/linux-kernel/2026/11/02/735"
+  ],
+  "source_archive_sha256": "8a01f1dc6f33b3341bcab634222dd7d5ea3ef07747e6d0d7cfe534fc43ee0956",
+  "modules": {
+    "phy-qcom-qmp-combo": {
+      "srcversion": "41E45FA66B29B5A2C416CBE",
+      "vermagic": "7.3.0-31-qcom-x1e SMP preempt mod_unload modversions aarch64",
+      "depends": "typec,aux-bridge",
+      "sha256_unsigned": "768e4f8a5277b75b2b74e6d64e7d6873bd7f26b2bbf7ac5bb50aa81797b37e05",
+      "sha256_signed": "7837c2e2558f099c2328097adff08a278be1b27aad61fcd3fd13e2f99f9d391f"
+    },
+    "phy-qcom-qmp-usb": {
+      "srcversion": "601E8F5D83837191C8575E9",
+      "vermagic": "7.3.0-31-qcom-x1e SMP preempt mod_unload modversions aarch64",
+      "depends": "",
+      "sha256_unsigned": "3b171511a9cf0467d233f9e8520e7b69abdcf322ad1bfc85b50846d7562b1ca8",
+      "sha256_signed": "2b3e9597953875f4eba445c5b6170b2248fd12cfd720ca74a0bab8f021df3cb4"
+    }
+  },
+  "guest_signature_and_abi": "passed; unsigned rejected, signed PHY modules and dependencies accepted",
+  "offline_rebuild": "matching srcversions",
+  "hardware_power_saving": "pending reboot and sleep measurement"
+}
