@@ -32,3 +32,7 @@ Prior experiments and chronological evidence remain in component READMEs, diagno
 Latest steering (2026-11-16): phone charging and MTP enumeration work after reconnect, but tethering remains unavailable. User declined phone debugging and stopped USB work. Focus only on fixing deep-sleep battery drain; Qualcomm PHY system-sleep patch review/build is in progress.
 
 2026-11-16 13:53: the signed USB PHY system-sleep trial is installed for the next boot (current boot still runs the original modules). After reboot, verify srcversions and USB, then compare a natural ≥2 h battery sleep in `/var/lib/surface-power/suspend.jsonl` against 0.77–0.88 W. Rollback: boot menu 'Surface before PHY sleep patch (2026-11-16)' or `setup.py --restore`. See [phy-sleep README](patches/files/phy-sleep/README.md). `clk_ignore_unused`/`pd_ignore_unused` removal remains a separate single-variable candidate, not attempted.
+
+## 2026-11-16 USB tethering — resolved, port fault remains
+
+Cause: a stale pending USB tethering request inside the phone rejected new requests (error 18); a phone restart fixed it and RNDIS tethering works. Phone developer options and debugging are disabled again. Remaining Surface issue: after abrupt USB data loss the USB-C USB2 path stays dead until the dwc3-qcom controller is rebound. See [tethering report](drivers/files/usb/2026-11-16-TETHERING.md).

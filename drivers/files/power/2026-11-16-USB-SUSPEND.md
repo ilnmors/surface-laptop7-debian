@@ -1,6 +1,10 @@
 # USB tethering and deep-sleep follow-up — 2026-11-16
 
-## USB: unresolved, work stopped at user request
+## USB: resolved later the same day
+
+Superseded by [2026-11-16-TETHERING.md](../usb/2026-11-16-TETHERING.md): the phone held a stale pending tethering request; a phone restart fixed tethering. The notes below are the earlier investigation.
+
+### Earlier notes
 
 - Before the 13:00 reboot, USB-A (`usb 1-2`) failed `SET_CONFIGURATION` twice at 12:57 with error `-110` (timeout). The phone later enumerated on both USB-C controllers. This is an actual communication error, not merely a missing NetworkManager profile.
 - In the new boot, all three xHCI controllers registered. Samsung `04e8:6860` initially exposed one configuration with imaging/MTP and CDC-ACM interfaces only. No RNDIS/NCM network interface was advertised.
