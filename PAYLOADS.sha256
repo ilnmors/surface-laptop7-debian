@@ -2622,6 +2622,7 @@ ff2bc87a11a94c7434060005ebe82a2a9a6b2b1fa302ca0d9cce2e8e0f5c3251  drivers/files/
 2c1ffc2088dd9e65f18e79f1e1b6d3fbcb815e75843ebed8142da6f96f89bbb0  drivers/files/rootfs/etc/iptsd.d/91-calibration-045E-0C77.conf
 8fc0f86a65497f07ae55036a7a1d51e81ff21405a1a5d576166c8f7d8621ce0b  drivers/files/rootfs/etc/modules-load.d/surface-cpufreq.conf
 c9afa0e50e1d68010cb4452e8631a73c57b2438b169bf2af4e6e3127a3022319  drivers/files/rootfs/etc/modules-load.d/surface-touchpad.conf
+213f8128c0461da45febecd3b0fa71483aa47807a8f53b9954513b574fd45d54  drivers/files/rootfs/etc/sysctl.d/90-surface-ping.conf
 2d88fe8f1a2b7560d49a9b5697a331e41adf7f55d0fc1752962805c1f57236cf  drivers/files/rootfs/etc/systemd/system/iptsd@.service.d/90-surface-edge.conf
 7c899e0b7588ecc56259781c8769c29eb6169db6fc52f9d36c3e49f77a34b8b6  drivers/files/rootfs/etc/systemd/system/surface-bluetooth-address@.service
 9b34757519a6361660ec8254e2a201d30847a845a7fe6c4d698e7fe3cd1ce205  drivers/files/rootfs/etc/systemd/system/surface-resume-trace.service
