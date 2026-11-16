@@ -61,3 +61,11 @@ Journal history: tethering worked on 11/12 (boots -13, -12) and 11/13 10:29/11:5
 3. If the Surface shows charging only / no USB device, rebind the dwc3-qcom controller for that port (above) or reboot.
 
 Open item: make the Surface USB2 path survive abrupt data loss (repeater/PHY handling or an automatic re-init), instead of relying on manual rebinding.
+
+## WireGuard MTU over tethering (added 15:20)
+
+With the default route on USB tethering, the homelab tunnel `wg0` (default MTU 1420) passed ping but stalled SSH and HTTPS: larger packets were black-holed. Measured inside the tunnel with DF set: inner IPv4 packets up to 1360 bytes pass (10/10), 1370 fails (0/5); IPv6 results were inconsistent above 1360. 1360 is therefore the largest working value on this path and is also fine on Wi-Fi.
+
+- System: NetworkManager connection `home-vpn` now has `wireguard.mtu=1360`; verified after `nmcli connection up home-vpn` (link MTU 1360, Forgejo HTTPS 200, SSH transfer OK).
+- Bundle: `drivers/files/rootfs/etc/NetworkManager/dispatcher.d/90-surface-wg-mtu` sets MTU 1360 when `wg0` comes up, so a recreated connection gets the same value without storing WireGuard keys in Git.
+- Rollback: `nmcli connection modify home-vpn wireguard.mtu 0` (default 1420) and remove the dispatcher file.

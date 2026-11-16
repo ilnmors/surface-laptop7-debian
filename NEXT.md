@@ -36,3 +36,4 @@ Latest steering (2026-11-16): phone charging and MTP enumeration work after reco
 ## 2026-11-16 USB tethering — resolved, port fault remains
 
 Cause: a stale pending USB tethering request inside the phone rejected new requests (error 18); a phone restart fixed it and RNDIS tethering works. Phone developer options and debugging are disabled again. Remaining Surface issue: after abrupt USB data loss the USB-C USB2 path stays dead until the dwc3-qcom controller is rebound. See [tethering report](drivers/files/usb/2026-11-16-TETHERING.md).
+- WireGuard `wg0` MTU is fixed at 1360 (largest value that passes over phone tethering; 1420 stalled SSH/TLS). Connection setting plus `dispatcher.d/90-surface-wg-mtu`.
