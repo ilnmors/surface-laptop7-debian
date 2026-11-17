@@ -265,10 +265,10 @@
     {
       "group": "DESKTOP",
       "title": "Geary 메일 클라이언트",
-      "status": "pending",
-      "label": "설치 완료 · 메일 계정 추가 대기",
+      "status": "ok",
+      "label": "사용 중 · Thunderbird 제거",
       "finding": "GNOME 온라인 계정과 바로 연동되는 간단한 메일 클라이언트로 Geary 46.0(Debian 13)을 설치했습니다. 함께 설치된 의존 패키지는 libgmime-3.0-0t64, libmessaging-menu0, libytnef0이며, 네 개 모두 desktop/files/packages에 오프라인 설치용으로 넣었습니다. 내부 CA는 /usr/local/share/ca-certificates에 이미 있어 imap/smtp.example.internal 인증서를 신뢰합니다.",
-      "next": "설정 → 온라인 계정에서 메일(IMAP/SMTP) 계정을 추가: IMAP imap.example.internal:993 SSL, SMTP smtp.example.internal:587 STARTTLS, 사용자 il. Geary가 계정을 자동으로 가져오는지 확인한 뒤 Thunderbird 제거 여부를 결정합니다.",
+      "next": "Geary가 GNOME 온라인 계정의 Google 계정과 집 메일(IMAP imap.example.internal 993 SSL, SMTP smtp.example.internal 587 STARTTLS, 사용자 il)을 모두 가져온 것을 확인했습니다. Thunderbird 패키지와 ~/.thunderbird 프로필은 제거됐습니다(패키지는 설정 잔여 rc 상태).",
       "path": "desktop/files/README.md"
     }
   ]
