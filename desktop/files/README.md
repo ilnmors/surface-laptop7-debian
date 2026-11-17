@@ -19,3 +19,7 @@ The current boot artwork and font repair are documented in boot-art/README.md. T
 ## OxiCloud WebDAV auto-mount
 
 `goa-webdav-mount.py` (installed as `~/.local/bin/goa-webdav-mount`) and `goa-webdav-mount.desktop` (autostart) mount the GNOME Online Accounts WebDAV volumes at login with the keyring credentials, retrying every 15 s for up to 10 minutes. gvfs buffers WebDAV uploads in memory, so copy multi-GB files with a WebDAV client instead of the mount.
+
+## Mail (Geary)
+
+Geary 46.0 is the mail client: it picks up the GNOME Online Accounts mail and Google accounts without its own account setup. packages/ includes geary and the dependencies it pulled in on Debian 13 (libgmime-3.0-0t64, libmessaging-menu0, libytnef0). The home mail account is added in Settings → Online Accounts → Email: IMAP `imap.example.internal` 993 (SSL), SMTP `smtp.example.internal` 587 (STARTTLS), user `il`. The internal root CA must be in the system store (site-specific, outside this bundle).

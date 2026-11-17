@@ -1,5 +1,5 @@
 43e795847c5807d7966d87f3061c14e0bbeff0f759b83156e037d8ff2b0759e1  desktop/PLAN.txt
-d9257c7803c5a6d405728e0652c1946eb8de50ee47b1f423ab2e683a55e00649  desktop/files/README.md
+1ca513827b3b45de55f699bf3357fd46681ccf477177b3b757e2e49f55f34d0b  desktop/files/README.md
 7cfb72ea5f390b4ca6742ea30d5c46d75db9691318e7756ec130c80b29cb1a87  desktop/files/backgrounds/alpine-lake-luca-bravo.jpg
 474f3db7ac1b9d38202735b496c959b20b499559a02379ab314c93395373f34b  desktop/files/backgrounds/sl7-debian-light.svg
 c9c12f21d96f6a65c5c4a59b8feabdcf822050a3ce3450d21031fcce204d95bf  desktop/files/backgrounds/sl7-debian.svg
@@ -704,12 +704,16 @@ f6cf40079d07ac1377c23549cbbaaade16c467ca55a6adb344f2ad2a1b3a23cd  desktop/files/
 34f095f2ac51e77ccea38c05fd54a4804be097b11477d2744fb925c6ac1cd730  desktop/files/goa-webdav-mount.py
 d83a6cf5fbb5cc17f91d9674b6ccc2447beaa2953628042e2ad3124249f2192f  desktop/files/packages/cups-pk-helper_0.2.6-2.1_arm64.deb
 a773d7a853d88f4d34b4b5f314024b11cebaa3d536e410d8f80879d39d7c49f0  desktop/files/packages/fonts-symbola_2.60-2_all.deb
+1bfe1c93adc42dd728c768a0d2e8b72e9a749601fa8c4b1536ba478a30765ea4  desktop/files/packages/geary_46.0-7_arm64.deb
 a9639ea443e3e3f61069ffbb0e17a152a1f21097911e087d54c298c8e6b31e08  desktop/files/packages/gir1.2-gtop-2.0_2.41.3-1+b2_arm64.deb
 77bed4feb016638cc8a0015e354050d41fcd7bc32fd9557827f7ead88d97d3ee  desktop/files/packages/gnome-shell-extension-user-theme_48.2-1_all.deb
 01227d4630c311dfe06ff6657afbd560343a572b88a9249858ee5018657a4ab7  desktop/files/packages/gnome-shell-extensions-common_48.2-1_all.deb
+7edb6d7298ac24f01a19df06fdb63acab0ead7ff30584e10aaec4b299158952a  desktop/files/packages/libgmime-3.0-0t64_3.2.15+dfsg-1_arm64.deb
 4a22e24d127e5da5d5da4d066ce5a30ac9505f3a683c592a2a27fcbf227a9ba2  desktop/files/packages/libgtop-2.0-11_2.41.3-1+b2_arm64.deb
 6b3b6d06d9d01a307206f5f68c7dab2b1888edcdae4555c162e6c327251743a7  desktop/files/packages/libgtop2-common_2.41.3-1_all.deb
+c070b9407c1f62c9a9d44a0c86aba8067fb0082a6f9a281fe35dea46e02552b1  desktop/files/packages/libmessaging-menu0_24.5.1-1_arm64.deb
 092d96c7e8a3fe50fd8b57990f0313d3fcdb3c6dda2960b2a6ebfd7f0d891f9e  desktop/files/packages/libplymouth5_24.004.60-5_arm64.deb
+0da72b0b98f23339a5af14d31881f04693902b7b6f07dce38637243ad3e7ca87  desktop/files/packages/libytnef0_2.1.2-1+b2_arm64.deb
 43911e5f380e148bd7c5d8a18919c5c7ad647a9a0ed7a6d9e82a2e742f9e40a3  desktop/files/packages/lm-sensors_1%3a3.6.2-2_arm64.deb
 8b983843bf53af2045fc4425910247b044a5352ab66f8db6d0b0fe9dc57dc21d  desktop/files/packages/plymouth-label_24.004.60-5_arm64.deb
 366ac18211f13ca19ab00be50ca75c691e07c17b5aabbcef42f60627aaa5aecf  desktop/files/packages/plymouth-themes_24.004.60-5_arm64.deb
