@@ -318,11 +318,11 @@
     },
     {
       "group": "MAINTENANCE",
-      "title": "시간 동기화 서비스 없음",
-      "status": "pending",
-      "label": "NTP 클라이언트 미설치",
-      "finding": "timedatectl NTP=no, 동기화 안 됨. systemd-timesyncd·chrony 모두 없습니다.",
-      "next": "오프라인 패키지로 systemd-timesyncd 설치 후 내부 NTP 사용 여부 결정.",
+      "title": "시간 동기화",
+      "status": "ok",
+      "label": "레포 설정으로 관리 · 적용 완료",
+      "finding": "레포 nodes 역할의 timesyncd 작업이 console(control_node)을 건너뛰고 있어 수정했습니다(레포 f7f5604). 이 노트북에는 플레이북 없이 같은 설정을 직접 적용했습니다: systemd-timesyncd, NTP=ntp.example.internal 다음 Debian 공용 풀.",
+      "next": "2026-11-18 18:07 집 NTP(fd00:10::1, stratum 3)에 동기화 확인. 설정 원본은 레포 ansible/roles/nodes/templates/timesyncd/local-ntp.conf.j2.",
       "path": "docs/2026-11-18-HARDWARE-CHECK.md"
     },
     {

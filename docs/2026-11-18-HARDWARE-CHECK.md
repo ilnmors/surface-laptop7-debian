@@ -101,7 +101,7 @@ USB-C monitor hot-plug delay; Wi-Fi power save (`iw` absent); sleep wake source 
 - Video hardware decoder (`iris`) disabled: +4.3 W during 1080p playback.
 - Camera privacy LED not linked to the sensor.
 - USB-C external monitor hot-plug delay.
-- No NTP client.
+- No NTP client — done 2026-11-18: managed by the repository (timesyncd), applied directly.
 - Wi-Fi power save not measurable (`iw` missing).
 - Waydroid shows an Android "physical keyboard" notification (user request, low priority).
 - Waydroid start shows a black window for display calibration (~29 ms at login); hide it if possible (user request).
