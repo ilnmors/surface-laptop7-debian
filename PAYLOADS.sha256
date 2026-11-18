@@ -2604,7 +2604,7 @@ c2abeaf74462b9ae0b30f90f5501b4b24f82ac0e18350d4cd111183e79c973eb  drivers/files/
 b4d00b98b3b141bc204db0632c7eddb845e455e2f1064f0523eebeec0469ee07  drivers/files/pcie/surface-sl7-xplus-pcie3-off.dtb
 14c153861837cbd4b2ae6fe5d124b856058005aab7dbd528485db425a79bf894  drivers/files/power/2026-11-15-SUSPEND.md
 82aac33346055571729e12430cfbff1cf1a45ab4708eaae735bc0695dd5f6b8c  drivers/files/power/2026-11-16-USB-SUSPEND.md
-4a6ba2336cbd0bd715e0dd51cbd88e067b709be300565b91026876a2deaba67b  drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md
+cd8318966ff4afe485475bac44b8d8f1e37fc8b7eb70d4311b4fd9c29fe5f48e  drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md
 4c65d614efc4cffae578a0f6b368cfea31079365dbe95d1a09db612157788eef  drivers/files/power/CPU-AND-DRIVER-CHECK.md
 b4b048fa81f3daa0de031c7bbc19bd1353556fb38bdb51833f2c8cd91630fd6a  drivers/files/power/DRIVER-FOLLOWUP.md
 2e0fee9e68f2ba9a24768db1ebaac545ea2ad20b3657146220b963368c03bcba  drivers/files/power/HARDWARE-RECHECK.md

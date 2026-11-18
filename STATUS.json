@@ -270,6 +270,78 @@
       "finding": "GNOME 온라인 계정과 바로 연동되는 간단한 메일 클라이언트로 Geary 46.0(Debian 13)을 설치했습니다. 함께 설치된 의존 패키지는 libgmime-3.0-0t64, libmessaging-menu0, libytnef0이며, 네 개 모두 desktop/files/packages에 오프라인 설치용으로 넣었습니다. 내부 CA는 /usr/local/share/ca-certificates에 이미 있어 imap/smtp.example.internal 인증서를 신뢰합니다.",
       "next": "Geary가 GNOME 온라인 계정의 Google 계정과 집 메일(IMAP imap.example.internal 993 SSL, SMTP smtp.example.internal 587 STARTTLS, 사용자 il)을 모두 가져온 것을 확인했습니다. Thunderbird 패키지와 ~/.thunderbird 프로필은 제거됐습니다(패키지는 설정 잔여 rc 상태).",
       "path": "desktop/files/README.md"
+    },
+    {
+      "group": "HARDWARE",
+      "title": "1단계 하드웨어 전수 점검",
+      "status": "ok",
+      "label": "자동 점검 + 사용자 확인 완료 (독·이어폰 제외)",
+      "finding": "CPU, 메모리, 온도 센서, SSD, 화면 120Hz·GPU, 키보드(전 키·Fn·백라이트), 터치패드, 터치스크린, 덮개 감지, 스피커 좌우·내장 마이크, 앞면 카메라, Wi-Fi, 블루투스, 배터리·80% 제한, USB-C 두 포트(데이터·충전·모니터), Surface Connect 충전·재연결, USB-A(메모리·마우스·키보드)를 확인했습니다.",
+      "next": "Surface Connect 독과 이어폰 단자는 기기가 없어 미룸. 상세: docs/2026-11-18-HARDWARE-CHECK.md",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "USB",
+      "title": "USB 컨트롤러 a400000 부팅 초기화 실패",
+      "status": "pending",
+      "label": "가끔 실패 · USB-A·Surface Connect 데이터 영향",
+      "finding": "부팅 19~25초, 지연 초기화 시간 초과 메시지 직후 xhci-hcd.1.auto가 -110으로 실패합니다(11/17 13:16, 11/18 10:21 부팅). 진단용 dwc3-qcom 재바인드 1회로 올라왔고 USB-A는 2번 포트(USB3 5Gbps, USB2 마우스·키보드 정상)였습니다.",
+      "next": "자동 복구가 아니라 부팅 초기화 경로 원인 수정. 절전 단계의 sync_state 작업과 같은 경로라 함께 진행합니다.",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "USB",
+      "title": "USB-C 외부 모니터 연결 지연",
+      "status": "pending",
+      "label": "두 포트 모두 출력되지만 느림",
+      "finding": "허브 연결 후 포트1은 HPD까지 39초, 포트2는 HPD 2초 후 GNOME 모드 설정이 13초 반복됐습니다. 포트2에서 SS 허브 리셋(set hub depth failed) 1회. GNOME KMS 스레드는 RealtimeKit이 없어 실시간 우선순위를 못 얻습니다.",
+      "next": "pmic_glink altmode·재타이머(ps883x) HPD 경로 조사.",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "HARDWARE",
+      "title": "카메라 사용 표시등 미연동",
+      "status": "pending",
+      "label": "표시등 하드웨어 정상 · 카메라와 연결 안 됨",
+      "finding": "white:camera-indicator를 직접 켜면 표시등이 켜지지만(사용자 확인) 카메라 사용 중에는 0으로 남습니다. 센서 노드에 privacy-led 연결이 없습니다.",
+      "next": "OV02C10 노드에 leds/led-names=privacy-led를 추가한 DT 시험(재부팅 승인 필요).",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "HARDWARE",
+      "title": "동영상 하드웨어 디코더 비활성",
+      "status": "pending",
+      "label": "iris DT 비활성 · 펌웨어 있음",
+      "finding": "video-codec@aa00000(qcom,x1e80100-iris)이 DT에서 disabled입니다. 영상 재생을 CPU가 처리합니다.",
+      "next": "깨어 있을 때 배터리 단계에서 활성화 가능성 확인.",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "MAINTENANCE",
+      "title": "시간 동기화 서비스 없음",
+      "status": "pending",
+      "label": "NTP 클라이언트 미설치",
+      "finding": "timedatectl NTP=no, 동기화 안 됨. systemd-timesyncd·chrony 모두 없습니다.",
+      "next": "오프라인 패키지로 systemd-timesyncd 설치 후 내부 NTP 사용 여부 결정.",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "HARDWARE",
+      "title": "Windows Hello IR 카메라",
+      "status": "held",
+      "label": "현재 리눅스 사용 불가",
+      "finding": "DT에 앞면 RGB 센서만 있고 두 번째 CCI(ac15000)는 비활성, IR 센서·발광기 드라이버 없음. Howdy는 IR 영상 장치가 필요합니다.",
+      "next": "센서 모델·연결 조사부터 필요한 별도 과제.",
+      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+    },
+    {
+      "group": "POWER",
+      "title": "sync_state 단일 변수 시험",
+      "status": "pending",
+      "label": "CXSD 진입 확인 · 즉시 복귀 후 멈춤",
+      "finding": "fw_devlink.sync_state=timeout만으로 CXSD/AOSD/DDR 진입(0→35). 그러나 매 절전이 2초 만에 복귀했고 9번째 진입에서 멈췄습니다(배터리 36%에서 멈춤, 배터리 부족 아님).",
+      "next": "덮개를 연 채 1회 절전으로 pm_wakeup_irq 확인 후 원인 수정. 기록: drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md",
+      "path": "drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md"
     }
   ]
 }
