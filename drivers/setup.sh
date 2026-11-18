@@ -15,7 +15,6 @@ sudo sh -c 'for module in gpi spi-geni-qcom spi-hid uinput ath12k ath12k_wifi7; 
   grep -qxF "$module" /etc/initramfs-tools/modules || echo "$module" >> /etc/initramfs-tools/modules
 done'
 sudo systemctl daemon-reload
-sudo systemctl enable surface-resume-trace.service
 sudo udevadm control --reload-rules
 # Physical speakers: keep PCM open between streams to avoid repeated idle-resume cycles.
 install -D -m 644 drivers/files/audio/user/51-surface-speaker-no-idle.conf "$HOME/.config/wireplumber/wireplumber.conf.d/51-surface-speaker-no-idle.conf"

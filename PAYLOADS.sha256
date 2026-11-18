@@ -2604,6 +2604,7 @@ c2abeaf74462b9ae0b30f90f5501b4b24f82ac0e18350d4cd111183e79c973eb  drivers/files/
 b4d00b98b3b141bc204db0632c7eddb845e455e2f1064f0523eebeec0469ee07  drivers/files/pcie/surface-sl7-xplus-pcie3-off.dtb
 14c153861837cbd4b2ae6fe5d124b856058005aab7dbd528485db425a79bf894  drivers/files/power/2026-11-15-SUSPEND.md
 82aac33346055571729e12430cfbff1cf1a45ab4708eaae735bc0695dd5f6b8c  drivers/files/power/2026-11-16-USB-SUSPEND.md
+4a6ba2336cbd0bd715e0dd51cbd88e067b709be300565b91026876a2deaba67b  drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md
 4c65d614efc4cffae578a0f6b368cfea31079365dbe95d1a09db612157788eef  drivers/files/power/CPU-AND-DRIVER-CHECK.md
 b4b048fa81f3daa0de031c7bbc19bd1353556fb38bdb51833f2c8cd91630fd6a  drivers/files/power/DRIVER-FOLLOWUP.md
 2e0fee9e68f2ba9a24768db1ebaac545ea2ad20b3657146220b963368c03bcba  drivers/files/power/HARDWARE-RECHECK.md
@@ -2630,7 +2631,6 @@ c9afa0e50e1d68010cb4452e8631a73c57b2438b169bf2af4e6e3127a3022319  drivers/files/
 213f8128c0461da45febecd3b0fa71483aa47807a8f53b9954513b574fd45d54  drivers/files/rootfs/etc/sysctl.d/90-surface-ping.conf
 2d88fe8f1a2b7560d49a9b5697a331e41adf7f55d0fc1752962805c1f57236cf  drivers/files/rootfs/etc/systemd/system/iptsd@.service.d/90-surface-edge.conf
 7c899e0b7588ecc56259781c8769c29eb6169db6fc52f9d36c3e49f77a34b8b6  drivers/files/rootfs/etc/systemd/system/surface-bluetooth-address@.service
-9b34757519a6361660ec8254e2a201d30847a845a7fe6c4d698e7fe3cd1ce205  drivers/files/rootfs/etc/systemd/system/surface-resume-trace.service
 9c87356b177464e995fbbe1af15b9d79a1e4aefd3a9ee21c914e0a34436943c9  drivers/files/rootfs/etc/systemd/system/systemd-suspend.service.d/50-surface-session-freeze.conf
 012c9db580a565f3cd23171aef99d11794555f707a99b85739347dc0f1bc9876  drivers/files/rootfs/etc/udev/rules.d/70-surface-dma-heap.rules
 dcae3d05a83757fea9308abf303581b27012ce6f85ac71ba8630def208a4b1ca  drivers/files/rootfs/etc/udev/rules.d/80-surface-bluetooth-address.rules
@@ -2669,9 +2669,8 @@ d68ff102acad198a5831ae65e834518c83002e84dbe0ae732b834bd136b8af6f  drivers/files/
 d6e159c05d915bee20a00e0ce5439ed1f334307367915eaea225bf30584fc229  drivers/files/rootfs/usr/local/libexec/surface-iptsd/lib/libinih.so.1
 05f059bc75fc8f3c5e6267997fb3dee1c1fdb150176fa342a6166037f3b4311e  drivers/files/rootfs/usr/local/libexec/surface-iptsd/lib/libspdlog.so.1.15
 a8d8beb09a08cc85cdce56dc06f8130c0659b5d02255b748452f2c7aece17148  drivers/files/rootfs/usr/local/libexec/surface-power-snapshot.py
-d6d3ae299c3e3e56b21f32290bbe84eae39cb3dc479b385f53dc164fedd58b77  drivers/files/rootfs/usr/local/libexec/surface-resume-trace
 dea2115e8d0e671af10071e707cc26b9f2618f50283de879f07c468d0346981f  drivers/files/rootfs/usr/local/sbin/surface-bluetooth-address
-893b2e1369cf2b28daf0fd6fd8a989336303b6a89c64bf46179d5ed5a5661f98  drivers/files/sleep/README.md
+f6c0c0db5c3f447ad5ebd8aa0abb6505dd6934da610aa4b28b8b69cb27a4f647  drivers/files/sleep/README.md
 24d561f6f33211200f80eba14bdf4c6117d50d9d393c3b2b19c9f05ba809b877  drivers/files/sleep/diagnostics/2026-11-11/1794399158.txt
 5747571f2feb20a4146caf45f7663d4b29d17f60061fbf557cb2aa654a0cca09  drivers/files/sleep/diagnostics/2026-11-11/1794399159.txt
 eba574ac745431dbf0a4463f0451a2dee27b0c9199a3502ae3033c864ce5181f  drivers/files/sleep/diagnostics/2026-11-11/1794399160.txt
@@ -2780,7 +2779,7 @@ ab97dca30e4b8b4f34fa58d356f8e27d3d02324195ab8c223fad301ddfb7b863  drivers/files/
 fd2323e12f32f6762dcb04fb10d643f190c0419fef1bcb1acb549c53b57920d7  drivers/files/touchscreen/tools/libgpiod3_2.2.1-2+deb13u1_arm64.deb
 c9078fe99cb2780320ccb839950e340d1aac03268c1566ced801409e3327a406  drivers/files/usb/2026-11-16-TETHERING.md
 03c4de5e6d987f7f4a377159998fc78405b3ef357bb9cbf002c59eba9bcaffae  drivers/setup.py
-af5c94f42a46571e20b7b1bea916887cd6a3b4ee4b3a62203e597b1a7b0ff501  drivers/setup.sh
+56984fc2b1563ea7e5f752fe9aee5e47d36f1815abfdbd79340343986991c55e  drivers/setup.sh
 1b5cb6b96cc03a8e19ec1ba6dedf7dc1e9e8840c917c6e8b32e903befb5aa22b  kernel/PLAN.txt
 e73ee0d19713dbf2ddb9c3b5d3065e39581978f520296d1b7d48d68f7acc0636  kernel/files/packages/linux-image-7.3.0-31-qcom-x1e-sl7_7.3.0-31.31+sl7.2_arm64.deb
 ea53f44ce2b4c5e6d32217bff86851fa2c22de31a9433a95a8886c2470875547  kernel/files/secureboot/README.md
