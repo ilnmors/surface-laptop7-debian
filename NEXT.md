@@ -47,3 +47,17 @@ Cause: a stale pending USB tethering request inside the phone rejected new reque
 - iris: the trial DTB bound qcom-iris (/dev/video0 decoder, /dev/video1 encoder). The generic linux-firmware `qcom/vpu/vpu30_p4.mbn` is rejected (-22, TZ signature); so is `qcvss8380_pa.mbn`. `qcvss8380.mbn` from the archived Windows package (`SurfaceUpdate/qcdx8380/`, extracted with msitools) loads through a temporary `firmware_class.path`; the decoder lists H264, HEVC, VP90, AV01.
 - Camera LED: the LED hardware works (user saw it lit from sysfs), but V4L2 never claimed it. This kernel's videodev looks the LED up as `privacy`, not `privacy-led`.
 - Second trial DTB (armed for one boot): `led-names = "privacy"` and iris `firmware-name = "qcom/x1e80100/microsoft/qcvss8380.mbn"`, with that firmware installed in /lib/firmware/qcom/x1e80100/microsoft/. After the boot run check-dtb-trial.sh; if both work, promote the DTB (drivers/files/touchscreen/spi-gtch/prepare.sh path) and regenerate the signed default image.
+
+### 2026-11-19 21:20 second trial passed, promoted
+
+Second trial boot: the camera LED follows streaming (on while `cam` streams, off after; sysfs writes refused because V4L2 claims it) and iris opens with the device firmware via `firmware-name` (decoder /dev/video2, encoder /dev/video4: H264, HEVC, VP9, AV1). `drivers/files/touchscreen/spi-gtch/prepare.sh` now adds both changes (rebuilt DTB identical to the trial DTB); `drivers/files/boot-trials/promote-dtb.sh` installed it with the firmware, re-signed the default image (embedded DTB verified) and kept the GRUB menu plus the rollback entry "Surface before iris and camera LED DTB (2026-11-19)". Effective from the next boot. Still open: playback power with hardware decoding (mpv `--hwdec=v4l2m2m-copy` or GStreamer v4l2 decoders; Firefox does not use V4L2 stateful decoders).
+
+### 2026-11-19 22:00 waiting for the user's cold boot
+
+- a400000 softdep installed (`drivers/files/boot-trials/install-a400000-trial.sh`; GRUB rollback "Surface before a400000 softdep (2026-11-19)"; undo with `restore-a400000-trial.sh`). First boot after this is the user's cold boot. Check `xhci-hcd.1.auto` (-110 or bound), `systemd-analyze` kernel time, and record per boot (cold/warm) before judging.
+- The same boot first uses the promoted iris + camera LED DTB from the default image: confirm the LED follows `cam` and `/dev/video*` lists Iris Decoder/Encoder without any temporary firmware path.
+- Hardware decoding (1080p H.264, GStreamer): CPU 86% -> 28% of one core; battery 8.22 W (openh264) vs 5.18 W (v4l2h264dec), gauge updates slowly, so re-measure over several minutes with energy_now deltas.
+
+### 2026-11-19 21:55 cold boot 1 after the a400000 softdep
+
+Default signed image; kernel 6.9 s + userspace 9.6 s. `xhci-hcd.1.auto` bound (no -110), six USB root hubs. Promoted DTB confirmed from the default image: Iris Decoder/Encoder (/dev/video3, /dev/video4) without a firmware path override, camera LED on while `cam` streams and off after. a400000 log so far: cold 1 = OK. Keep logging each boot (cold/warm, kernel time) until the failure has had several chances to recur.
