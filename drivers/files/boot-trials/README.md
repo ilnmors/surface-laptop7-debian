@@ -1,5 +1,7 @@
 # Boot trials prepared on 2026-11-19
 
+Result: the DTB trial passed on its second attempt and was promoted on 2026-11-19 (`promote-dtb.sh`; rollback GRUB entry "Surface before iris and camera LED DTB (2026-11-19)"). The a400000 trial is still pending.
+
 Each trial needs one attended reboot. Nothing here is installed: `/boot`, `/etc/modprobe.d` and the
 initramfs are unchanged, and the default GRUB entry keeps booting the current DTB.
 
