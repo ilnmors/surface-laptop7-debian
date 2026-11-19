@@ -72,6 +72,8 @@ ath12k f2576dc0 comes unmodified from the upstream WireGuard Linux kernel mirror
 
 Photo by Luca Bravo: [Boathouse on a mountain lake](https://unsplash.com/photos/brown-house-near-body-of-water-zAjdgNXsMeg), [Unsplash License](https://unsplash.com/license). A 3200×2134 provider-resized JPEG is retained under `desktop/files/backgrounds/`; URL, SHA256 and processing details are in `desktop/files/topbar/alpine-theme.json`.
 
+Wallpaper since 2026-11-19: Caspar David Friedrich, *Morning in the Riesengebirge* (1810–1811, Alte Nationalgalerie, Berlin), public domain. 3000×1882 JPEG from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich,_Morgen_im_Riesengebirge.jpg), stored as `desktop/files/backgrounds/friedrich-morning-in-the-riesengebirge.jpg` (kept out of Git like the earlier photo; hash in PAYLOADS.sha256). The Luca Bravo photo stays in the bundle as the previous wallpaper.
+
 The `Fluent-teal-Light` variant was built from the already archived Fluent source with the upstream installer (`-t teal -c light -s standard`). Debian trixie arm64 SassC and libsass packages are retained in `desktop/files/topbar/build-tools/`; only the maintained dock CSS is appended after generation. See `desktop/files/topbar/ALPINE-THEME.md` for exact offline reproduction and rollback.
 
 Waydroid host downloads: local `programs/waydroid/download-link.py` and `.sh` integrate the shared-storage path documented at https://docs.waydro.id/faq/setting-up-a-shared-folder . Access uses a per-user ACL instead of changing Android owners. Debian trixie `acl` is retained under `programs/waydroid/files/packages/`; exact package/hash and reproduction are in `programs/waydroid/files/README.md`.

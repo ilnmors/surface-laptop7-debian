@@ -22,4 +22,4 @@ Targeted backups are in `archive/topbar-before-balanced-*` and `archive/alpine-t
 
 ## Notification button
 
-`surface-notifications@example.internal` adds a bell and unread count on the right. It uses the Shell counting rule: unseen notifications minus queued banners. Clicking it opens the clock notification menu; Do Not Disturb changes the bell icon. It is a local GNOME 48 extension with no network access and is already active in the current session.
+Removed on 2026-11-19 at the user's request: the stock clock menu shows notifications. A running session needs `gnome-extensions disable surface-notifications@example.internal` once; setup.sh no longer installs or enables it.

@@ -1,14 +1,12 @@
 # Desktop
 
 - Fluent Light uses the upstream GNOME 48 blur Shell stylesheet from the archived Fluent source.
-- Blur My Shell version 77 is included under extensions/ and enabled by setup.sh. Panel blur uses the dark style and light text, with static blur.
 - settings/ contains GNOME and terminal snapshots. The terminal uses a dark navy background, bright text and saturated ANSI colors.
 - packages/ includes User Themes, the common extension files, unzip and cups-pk-helper. The latter fixes the missing authorization component in GNOME's printer settings.
 - packages/ also includes fonts-symbola. The terminal font (DejaVu Sans Mono via Monospace) and the other installed fonts lack media-control symbols such as U+23F5 ⏵, so they rendered as tofu boxes. Symbola covers U+23F4–U+23FA and the wider symbol blocks; fontconfig uses it automatically as fallback, without changing the terminal font. Check with `fc-list ':charset=23f5' family`.
-- Site-specific printer addresses, CA and VPN settings belong outside this bundle.
+- setup.sh adds the home printer (Samsung SL-T2270DW, `ipp://192.0.2.100/ipp/print`, IPP Everywhere, A4, default) when it answers. CA and VPN settings stay outside this bundle.
 
 Fluent source https://github.com/vinceliuice/Fluent-gtk-theme
-Blur My Shell source https://extensions.gnome.org/extension/3193/blur-my-shell/
 
 ## Boot screen
 
@@ -23,3 +21,7 @@ The current boot artwork and font repair are documented in boot-art/README.md. T
 ## Mail (Geary)
 
 Geary 46.0 is the mail client: it picks up the GNOME Online Accounts mail and Google accounts without its own account setup. packages/ includes geary and the dependencies it pulled in on Debian 13 (libgmime-3.0-0t64, libmessaging-menu0, libytnef0). The home mail account is added in Settings → Online Accounts → Email: IMAP `imap.example.internal` 993 (SSL), SMTP `smtp.example.internal` 587 (STARTTLS), user `il`. The internal root CA must be in the system store (site-specific, outside this bundle).
+
+## Removed extensions (2026-11-19)
+
+Vitals, Caffeine, Blur My Shell (already disabled) and the Surface notification button were removed at the user's request. The remaining extensions are Dash to Dock, User Themes, Open Bar and AppIndicator Support. A running session keeps the old extension files until `gnome-extensions disable` and removal from `~/.local/share/gnome-shell/extensions/`.

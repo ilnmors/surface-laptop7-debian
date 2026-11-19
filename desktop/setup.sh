@@ -31,7 +31,7 @@ cp -a desktop/files/extensions/. "$HOME/.local/share/gnome-shell/extensions/"
 install -D -m 644 desktop/files/sl7-ibus.desktop "$HOME/.config/autostart/sl7-ibus.desktop"
 install -D -m 755 desktop/files/goa-webdav-mount.py "$HOME/.local/bin/goa-webdav-mount"
 install -D -m 644 desktop/files/goa-webdav-mount.desktop "$HOME/.config/autostart/goa-webdav-mount.desktop"
-for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/desktop/input-sources org/freedesktop/ibus/panel org/gnome/desktop/peripherals/touchpad org/gnome/desktop/peripherals/mouse org/gnome/shell/extensions/dash-to-dock org/gnome/shell/extensions/blur-my-shell org/gnome/shell/extensions/openbar org/gnome/shell/extensions/vitals org/gnome/shell/extensions/caffeine org/gnome/shell/extensions/appindicator org/gnome/terminal/legacy; do
+for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/desktop/input-sources org/freedesktop/ibus/panel org/gnome/desktop/peripherals/touchpad org/gnome/desktop/peripherals/mouse org/gnome/shell/extensions/dash-to-dock org/gnome/shell/extensions/openbar org/gnome/shell/extensions/appindicator org/gnome/terminal/legacy; do
   snapshot="desktop/files/settings/${entry##*/}.dconf"
   if [[ -s $snapshot ]]; then dconf load "/$entry/" < "$snapshot"; fi
 done
@@ -40,7 +40,7 @@ python3 - <<'PY'
 from gi.repository import Gio
 settings = Gio.Settings.new("org.gnome.shell")
 enabled = settings.get_strv("enabled-extensions")
-for extension in ("dash-to-dock@micxgx.gmail.com", "user-theme@gnome-shell-extensions.gcampax.github.com", "openbar@neuromorph", "Vitals@CoreCoding.com", "caffeine@patapon.info", "appindicatorsupport@rgcjonas.gmail.com", "surface-notifications@example.internal"):
+for extension in ("dash-to-dock@micxgx.gmail.com", "user-theme@gnome-shell-extensions.gcampax.github.com", "openbar@neuromorph", "appindicatorsupport@rgcjonas.gmail.com"):
     if extension not in enabled:
         enabled.append(extension)
 assert settings.set_strv("enabled-extensions", enabled)
@@ -50,3 +50,14 @@ sudo plymouth-set-default-theme surface-debian
 if [[ -d /lib/modules/$(uname -r) ]]; then sudo update-initramfs -u -k "$(uname -r)"; fi
 
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false
+
+# Home printer: Samsung SL-T2270DW over driverless IPP Everywhere; the repository's Kea reserves 192.0.2.100.
+# lpadmin -m everywhere queries the printer, so an unreachable printer only skips this step.
+if command -v lpadmin >/dev/null; then
+  if sudo lpadmin -p printer -E -v ipp://192.0.2.100/ipp/print -m everywhere -D "Samsung SL-T2270DW" -L home \
+       -o PageSize=A4 -o printer-is-shared=false; then
+    lpoptions -d printer >/dev/null
+  else
+    echo 'printer: 192.0.2.100 did not answer; run desktop/setup.sh again on the home network.' >&2
+  fi
+fi

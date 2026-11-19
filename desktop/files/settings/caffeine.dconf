@@ -1,9 +1,0 @@
-[/]
-cli-toggle=false
-enable-fullscreen=false
-enable-mpris=false
-indicator-position-max=2
-restore-state=false
-user-enabled=false
-show-indicator='only-active'
-show-timer=false
