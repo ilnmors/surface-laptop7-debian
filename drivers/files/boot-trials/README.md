@@ -1,4 +1,4 @@
-# Boot trials prepared on 2026-11-19 (not installed)
+# Boot trials prepared on 2026-11-19
 
 Each trial needs one attended reboot. Nothing here is installed: `/boot`, `/etc/modprobe.d` and the
 initramfs are unchanged, and the default GRUB entry keeps booting the current DTB.
@@ -11,16 +11,22 @@ installed `/boot/surface-sl7-xplus.dtb`) with three changes made by fdtput:
 | Node | Change | Purpose |
 | --- | --- | --- |
 | `/leds/led-camera-indicator` | `phandle = <0x2ff>` | lets the camera node refer to the LED |
-| `/soc@0/cci@ac16000/i2c-bus@1/camera@36` (OV02C10) | `leds = <0x2ff>`, `led-names = "privacy-led"` | V4L2 lights the LED while the sensor streams |
-| `/soc@0/video-codec@aa00000` (iris) | `status = "okay"` | hardware video decoding (+4.3 W measured on 1080p software decode) |
+| `/soc@0/cci@ac16000/i2c-bus@1/camera@36` (OV02C10) | `leds = <0x2ff>`, `led-names = "privacy"` (this kernel looks up `privacy`, not `privacy-led`) | V4L2 lights the LED while the sensor streams |
+| `/soc@0/video-codec@aa00000` (iris) | `status = "okay"`, `firmware-name = "qcom/x1e80100/microsoft/qcvss8380.mbn"` (device-signed, from the Windows package; the generic vpu30_p4.mbn is rejected) | hardware video decoding (+4.3 W measured on 1080p software decode) |
 
-Trial:
+Trial (installed 2026-11-19 20:55, waiting for the reboot):
 
 ```sh
-sudo install -m644 drivers/files/boot-trials/surface-sl7-xplus-trial.dtb /boot/surface-sl7-xplus-trial.dtb
-# add a non-default GRUB entry that differs only in: devicetree /boot/surface-sl7-xplus-trial.dtb
-sudo grub-reboot "<that entry>"   # one boot only; the next boot returns to the default entry
+pkexec bash drivers/files/boot-trials/install-dtb-trial.sh   # signed image in /boot/secureboot/trial-dtb
+pkexec bash drivers/files/boot-trials/restore-dtb-trial.sh   # removes the image, entry and flag
+bash drivers/files/boot-trials/check-dtb-trial.sh            # after the trial boot
 ```
+
+Secure Boot blocks GRUB's `devicetree`, so the DTB is embedded in a separately signed image
+(`surface-secureboot-update --output-directory /boot/secureboot/trial-dtb --no-bootloader-update`).
+`/boot/secureboot/grub.cfg` does not read `next_entry`; like the sync_state trial, the
+`SURFACE_DTB_ONCE` block reads `surface_dtb_next` from `/secureboot/trial-dtb/grubenv`, saves it back
+as 0 and only then selects the trial entry, so the boot after the trial is the default image again.
 
 Check after the trial boot:
 

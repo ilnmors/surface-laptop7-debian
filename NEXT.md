@@ -37,3 +37,13 @@ Latest steering (2026-11-16): phone charging and MTP enumeration work after reco
 
 Cause: a stale pending USB tethering request inside the phone rejected new requests (error 18); a phone restart fixed it and RNDIS tethering works. Phone developer options and debugging are disabled again. Remaining Surface issue: after abrupt USB data loss the USB-C USB2 path stays dead until the dwc3-qcom controller is rebound. See [tethering report](drivers/files/usb/2026-11-16-TETHERING.md).
 - WireGuard `wg0` MTU is fixed at 1360 (largest value that passes over phone tethering; 1420 stalled SSH/TLS). Connection setting plus `dispatcher.d/90-surface-wg-mtu`.
+
+## 2026-11-19 20:55 DTB trial armed (one boot)
+
+`drivers/files/boot-trials/install-dtb-trial.sh` built `/boot/secureboot/trial-dtb` (camera privacy LED + iris) and set the one-shot flag. The next boot uses it once, then the default image returns. After that boot run `bash drivers/files/boot-trials/check-dtb-trial.sh`, record LED/iris results and power if iris decodes, then `pkexec bash drivers/files/boot-trials/restore-dtb-trial.sh` (or promote the DTB if both work). The a400000 softdep trial comes after, as a separate variable.
+
+### 2026-11-19 21:00 first trial boot results, second trial armed
+
+- iris: the trial DTB bound qcom-iris (/dev/video0 decoder, /dev/video1 encoder). The generic linux-firmware `qcom/vpu/vpu30_p4.mbn` is rejected (-22, TZ signature); so is `qcvss8380_pa.mbn`. `qcvss8380.mbn` from the archived Windows package (`SurfaceUpdate/qcdx8380/`, extracted with msitools) loads through a temporary `firmware_class.path`; the decoder lists H264, HEVC, VP90, AV01.
+- Camera LED: the LED hardware works (user saw it lit from sysfs), but V4L2 never claimed it. This kernel's videodev looks the LED up as `privacy`, not `privacy-led`.
+- Second trial DTB (armed for one boot): `led-names = "privacy"` and iris `firmware-name = "qcom/x1e80100/microsoft/qcvss8380.mbn"`, with that firmware installed in /lib/firmware/qcom/x1e80100/microsoft/. After the boot run check-dtb-trial.sh; if both work, promote the DTB (drivers/files/touchscreen/spi-gtch/prepare.sh path) and regenerate the signed default image.
