@@ -95,13 +95,13 @@ USB-C monitor hot-plug delay; Wi-Fi power save (`iw` absent); sleep wake source 
 
 ## Collected fix list (to be ordered after the investigation)
 
-- Speaker PCM always open (`51-surface-speaker-no-idle.conf`): ~0.58 W awake, ~0.2–0.3 W in sleep (ADSP never idles); needs the 2026-11-15 speaker failure root cause.
+- Speaker PCM always open — done 2026-11-18: root cause reproduced (speaker SoundWire controller resume clash); only that controller is held on, the no-idle rule is removed. Driver root fix deferred.
 - Sleep: idle USB-C SuperSpeed PHY wake IRQs (a600000 PDC 17, a800000 PDC 47) storm once CXSD is reachable; then sync_state can be enabled.
-- a400000 boot failure (deferred-probe timeout race; every trial boot so far).
-- Video hardware decoder (`iris`) disabled: +4.3 W during 1080p playback.
-- Camera privacy LED not linked to the sensor.
-- USB-C external monitor hot-plug delay.
+- a400000 boot failure (deferred-probe timeout race; every trial boot so far). 2026-11-19: softdep trial prepared in drivers/files/boot-trials/ (not installed; needs several attended boots).
+- Video hardware decoder (`iris`) disabled: +4.3 W during 1080p playback. 2026-11-19: node, driver and `qcom/vpu/vpu30_p4_s6.mbn` are present; a trial DTB with `status = "okay"` is in drivers/files/boot-trials/ (one attended boot; the VPU may still reject the generic firmware signature).
+- Camera privacy LED not linked to the sensor. 2026-11-19: the same trial DTB gives the LED a phandle and adds `leds`/`led-names = "privacy-led"` to camera@36.
+- USB-C external monitor hot-plug delay. 2026-11-19: the normal kernel log has no HPD or link-training timestamps; measure attended with `drm.debug` enabled (plug in, then time HPD, link training and modeset).
 - No NTP client — done 2026-11-18: managed by the repository (timesyncd), applied directly.
-- Wi-Fi power save not measurable (`iw` missing).
-- Waydroid shows an Android "physical keyboard" notification (user request, low priority).
-- Waydroid start shows a black window for display calibration (~29 ms at login); hide it if possible (user request).
+- Wi-Fi power save — checked 2026-11-19: `iw` is installed (`/usr/sbin`, outside the user PATH) and reports `Power save: on`, set by NetworkManager `20-sl7-wifi.conf` (`wifi.powersave=3`). The power difference can only be measured on battery.
+- Waydroid shows an Android "physical keyboard" notification (user request, low priority). 2026-11-19: it is Android's blockable system channel `PHYSICAL_KEYBOARD` ("Configure physical keyboard"). Long-press the notification and turn that channel off; an automated change means editing the ABX `/data/system/notification_policy.xml` (abx2xml/xml2abx) and restarting the Waydroid session.
+- Waydroid start shows a black window for display calibration (~29 ms at login); hide it if possible (user request). 2026-11-19: `persist.waydroid.width`/`height` are unset, so multi-window mode measures the output with a temporary surface; setting them (waydroid.cfg [properties], `waydroid upgrade -o`, session restart) should skip it. Try while watching the screen.

@@ -115,7 +115,7 @@
       "status": "ok",
       "label": "Wi-Fi·Bluetooth 정상",
       "finding": "Bluetooth가 자동 복구돼 powered on입니다. Wi-Fi station 절전을 켠 뒤 공유기 응답 5/5 성공, 평균 약 5ms, 관찰 중 ath12k 오류는 없었습니다.",
-      "next": "재부팅·절전 뒤 Wi-Fi 재연결과 Bluetooth 전원(Powered: yes)을 확인했습니다. Bluetooth 자동 복구는 유지합니다.",
+      "next": "재부팅·절전 뒤 Wi-Fi 재연결과 Bluetooth 전원(Powered: yes)을 확인했습니다. Bluetooth 자동 복구는 유지합니다. 11/19: iw는 /usr/sbin에 설치되어 있고 Power save: on(NetworkManager 20-sl7-wifi.conf, wifi.powersave=3)입니다. 전력 차이는 배터리 상태에서만 측정 가능합니다.",
       "path": "drivers/files/bluetooth/README.md"
     },
     {
@@ -133,7 +133,7 @@
       "status": "ok",
       "label": "카카오톡 로그인 시 백그라운드 시작",
       "finding": "카카오톡 개별 창을 GNOME 로그인 8초 뒤 자동 실행합니다. 앱 로그인 데이터는 보존하며, 사용자가 창을 닫아도 수신하도록 Android 자동 컨테이너 절전 해제·카카오 idle 예외·알림 권한을 적용했습니다. Linux 다운로드 폴더의 waydroid 링크로 Android Download에 접근할 수 있으며, 원본 Android 소유권을 유지한 ACL 접근을 적용했습니다.",
-      "next": "재부팅 후 로그인 시 카카오톡이 창 없이 백그라운드로 실행되는 것을 확인했습니다. 실제 수신 알림은 다음 메시지로 확인합니다. Waydroid SH·Python 설정 흐름에 링크와 ACL 자동 구성을 추가했습니다. 현재 환경에서 재실행·--check 및 읽기/쓰기 접근을 검증했고, acl 의존성도 오프라인 패키지로 보관했습니다.",
+      "next": "재부팅 후 로그인 시 카카오톡이 창 없이 백그라운드로 실행되는 것을 확인했습니다. 실제 수신 알림은 다음 메시지로 확인합니다. Waydroid SH·Python 설정 흐름에 링크와 ACL 자동 구성을 추가했습니다. 현재 환경에서 재실행·--check 및 읽기/쓰기 접근을 검증했고, acl 의존성도 오프라인 패키지로 보관했습니다. 11/19: 물리 키보드 알림은 Android 시스템 채널 PHYSICAL_KEYBOARD(차단 가능)이고, 시작 때 검은 창은 persist.waydroid.width/height 미설정으로 보입니다. 둘 다 방법만 정리했고 화면을 보며 시험할 예정입니다.",
       "path": "programs/kakaotalk/README.md"
     },
     {
@@ -284,10 +284,10 @@
       "group": "USB",
       "title": "USB 컨트롤러 a400000 부팅 초기화 실패",
       "status": "pending",
-      "label": "가끔 실패 · USB-A·Surface Connect 데이터 영향",
+      "label": "softdep 시험 파일 준비 · 여러 번의 부팅 확인 필요",
       "finding": "부팅 19~25초, 지연 초기화 시간 초과 메시지 직후 xhci-hcd.1.auto가 -110으로 실패합니다(11/17 13:16, 11/18 10:21 부팅). 진단용 dwc3-qcom 재바인드 1회로 올라왔고 USB-A는 2번 포트(USB3 5Gbps, USB2 마우스·키보드 정상)였습니다.",
-      "next": "자동 복구가 아니라 부팅 초기화 경로 원인 수정. 절전 단계의 sync_state 작업과 같은 경로라 함께 진행합니다.",
-      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+      "next": "drivers/files/boot-trials/a400000-order.conf (dwc3-qcom 전에 eUSB2 repeater·PHY 로드)를 준비했습니다. 설치하지 않았으며, 설치 후 여러 번의 냉·온 부팅에서 -110 여부를 봐야 합니다.",
+      "path": "drivers/files/boot-trials/README.md"
     },
     {
       "group": "USB",
@@ -295,26 +295,26 @@
       "status": "pending",
       "label": "두 포트 모두 출력되지만 느림",
       "finding": "허브 연결 후 포트1은 HPD까지 39초, 포트2는 HPD 2초 후 GNOME 모드 설정이 13초 반복됐습니다. 포트2에서 SS 허브 리셋(set hub depth failed) 1회. GNOME KMS 스레드는 RealtimeKit이 없어 실시간 우선순위를 못 얻습니다.",
-      "next": "pmic_glink altmode·재타이머(ps883x) HPD 경로 조사.",
+      "next": "평소 커널 로그에는 HPD·링크 학습 시각이 남지 않습니다. drm.debug를 켜고 직접 연결하며 HPD → 링크 학습 → 모드 설정 시각을 재는 시험이 필요합니다(사용자 입회).",
       "path": "docs/2026-11-18-HARDWARE-CHECK.md"
     },
     {
       "group": "HARDWARE",
       "title": "카메라 사용 표시등 미연동",
       "status": "pending",
-      "label": "표시등 하드웨어 정상 · 카메라와 연결 안 됨",
+      "label": "시험용 DTB 준비 · 1회 시험 부팅 필요",
       "finding": "white:camera-indicator를 직접 켜면 표시등이 켜지지만(사용자 확인) 카메라 사용 중에는 0으로 남습니다. 센서 노드에 privacy-led 연결이 없습니다.",
-      "next": "OV02C10 노드에 leds/led-names=privacy-led를 추가한 DT 시험(재부팅 승인 필요).",
-      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+      "next": "LED 노드에 phandle을 주고 camera@36에 leds/led-names=\"privacy-led\"를 넣은 시험용 DTB를 준비했습니다. /boot와 기본 GRUB 항목은 그대로입니다.",
+      "path": "drivers/files/boot-trials/README.md"
     },
     {
       "group": "HARDWARE",
       "title": "동영상 하드웨어 디코더 비활성",
       "status": "pending",
-      "label": "iris DT 비활성 · 펌웨어 있음",
+      "label": "시험용 DTB 준비 · 1회 시험 부팅 필요",
       "finding": "video-codec@aa00000(qcom,x1e80100-iris)이 DT에서 disabled입니다. 영상 재생을 CPU가 처리합니다.",
-      "next": "깨어 있을 때 배터리 단계에서 활성화 가능성 확인.",
-      "path": "docs/2026-11-18-HARDWARE-CHECK.md"
+      "next": "같은 시험용 DTB에서 video-codec@aa00000을 okay로 바꿨습니다. 드라이버와 vpu30_p4_s6.mbn은 있으나 이 기기가 범용 펌웨어 서명을 받아들이는지는 부팅해 봐야 압니다.",
+      "path": "drivers/files/boot-trials/README.md"
     },
     {
       "group": "MAINTENANCE",
@@ -342,6 +342,24 @@
       "finding": "fw_devlink.sync_state=timeout만으로 CXSD/AOSD/DDR 진입(0→35). 그러나 매 절전이 2초 만에 복귀했고 9번째 진입에서 멈췄습니다(배터리 36%에서 멈춤, 배터리 부족 아님).",
       "next": "덮개를 연 채 1회 절전으로 pm_wakeup_irq 확인 후 원인 수정. 기록: drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md",
       "path": "drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md"
+    },
+    {
+      "group": "AUDIO",
+      "title": "스피커 무음 원인과 PCM 정책",
+      "status": "ok",
+      "label": "원인 확정 · 컨트롤러만 항상 켬 적용",
+      "finding": "자동 재현(PCM 닫기·다시 열기 400회)에서 스피커 SoundWire 컨트롤러(6b10000)가 절전 후 복귀할 때 버스 충돌이 2번 났고, 2번 모두 1초 안에 약 10초 무음이 시작됐습니다. 컨트롤러만 항상 켠 400회는 충돌·무음 0회였습니다. PCM 항상 열림 규칙은 오디오 DSP를 계속 깨워 깨어 있을 때 약 0.58W, 절전 중 약 0.2~0.3W를 썼습니다.",
+      "next": "udev 규칙 90-surface-speaker-swr-on.rules 적용, WirePlumber 규칙 제거(소리 끝나고 약 5초 뒤 PCM 닫힘, DSP 정상 휴식 확인). 드라이버 근본 수정은 보류. 평소 사용 중 무음이 다시 나면 알려 주세요.",
+      "path": "drivers/files/audio/diagnostics/2026-11-18/README.md"
+    },
+    {
+      "group": "DESKTOP",
+      "title": "집 프린터",
+      "status": "ok",
+      "label": "Samsung SL-T2270DW · IPP Everywhere · 기본 프린터",
+      "finding": "Kea가 192.0.2.100으로 예약한 Samsung SL-T2270DW를 드라이버 없는 IPP Everywhere(ipp://192.0.2.100/ipp/print)로 추가했습니다. A4, 공유 끔, 사용자 기본 프린터입니다.",
+      "next": "desktop/setup.sh가 같은 설정을 다시 만듭니다(프린터가 응답하지 않으면 건너뜀).",
+      "path": "desktop/setup.sh"
     }
   ]
 }
