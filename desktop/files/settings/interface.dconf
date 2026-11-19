@@ -1,10 +1,10 @@
 [/]
-accent-color='green'
+accent-color='orange'
 clock-show-date=true
 clock-show-weekday=false
 color-scheme='prefer-light'
 enable-hot-corners=true
-gtk-theme='Fluent-teal-Light'
+gtk-theme='Fluent-orange-Light'
 icon-theme='Papirus'
 show-battery-percentage=true
 toolkit-accessibility=false

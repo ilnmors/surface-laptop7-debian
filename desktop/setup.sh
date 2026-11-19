@@ -18,13 +18,13 @@ fi
 sudo dconf update
 if [[ -x /usr/share/gdm/generate-config ]]; then sudo /usr/share/gdm/generate-config; fi
 mkdir -p "$HOME/.themes" "$HOME/.config"
-for theme in Fluent-Light Fluent-teal-Light; do
+for theme in Fluent-Light Fluent-teal-Light Fluent-orange-Light; do
   cp -a "desktop/files/themes/$theme" "$HOME/.themes/"
 done
 if [[ ! -e "$HOME/.config/gtk-4.0" && ! -L "$HOME/.config/gtk-4.0" ]]; then
-  ln -s "$HOME/.themes/Fluent-teal-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
+  ln -s "$HOME/.themes/Fluent-orange-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
 elif [[ -L "$HOME/.config/gtk-4.0" && ( $(readlink -f "$HOME/.config/gtk-4.0") == "$HOME/.themes/Fluent-Light/gtk-4.0" || $(readlink -f "$HOME/.config/gtk-4.0") == "$HOME/.themes/Fluent-teal-Light/gtk-4.0" ) ]]; then
-  ln -sfn "$HOME/.themes/Fluent-teal-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
+  ln -sfn "$HOME/.themes/Fluent-orange-Light/gtk-4.0" "$HOME/.config/gtk-4.0"
 fi
 mkdir -p "$HOME/.local/share/gnome-shell/extensions" "$HOME/.config/pipewire/pipewire.conf.d"
 cp -a desktop/files/extensions/. "$HOME/.local/share/gnome-shell/extensions/"
