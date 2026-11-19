@@ -1,0 +1,3 @@
+# Keep only the speaker SoundWire controller out of runtime suspend: resuming it occasionally raises
+# "SWR bus clsh detected" and leaves the speakers silent until the next resume (2026-11-18 repro).
+ACTION=="add", SUBSYSTEM=="platform", KERNEL=="6b10000.soundwire", ATTR{power/control}="on"

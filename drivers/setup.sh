@@ -16,8 +16,8 @@ sudo sh -c 'for module in gpi spi-geni-qcom spi-hid uinput ath12k ath12k_wifi7; 
 done'
 sudo systemctl daemon-reload
 sudo udevadm control --reload-rules
-# Physical speakers: keep PCM open between streams to avoid repeated idle-resume cycles.
-install -D -m 644 drivers/files/audio/user/51-surface-speaker-no-idle.conf "$HOME/.config/wireplumber/wireplumber.conf.d/51-surface-speaker-no-idle.conf"
+# Physical speakers: the old keep-PCM-open rule is replaced by 90-surface-speaker-swr-on.rules (rootfs); remove it.
+rm -f "$HOME/.config/wireplumber/wireplumber.conf.d/51-surface-speaker-no-idle.conf"
 # Camera: OV02C10 black level for libcamera's soft ISP, used by PipeWire (desktop user).
 install -D -m 644 drivers/files/camera-quality/user/ov02c10.yaml "$HOME/.config/libcamera/ipa/simple/ov02c10.yaml"
 install -D -m 644 drivers/files/camera-quality/user/pipewire-libcamera-tuning.conf "$HOME/.config/systemd/user/pipewire.service.d/libcamera-tuning.conf"

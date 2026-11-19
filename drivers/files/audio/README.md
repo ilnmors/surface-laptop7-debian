@@ -1,5 +1,13 @@
 # Audio
 
+## Speaker policy since 2026-11-18
+
+- Cause of the intermittent speaker silence: a SoundWire bus clash on the speaker controller `6b10000.soundwire` during its runtime resume; the bus stays silent until the next resume. Reproduced automatically (2 events in 400 close/reopen cycles, each right after `SWR bus clsh detected` on 6b10000) — see [diagnostics/2026-11-18](diagnostics/2026-11-18/README.md).
+- Fix in use: `/etc/udev/rules.d/90-surface-speaker-swr-on.rules` holds only that controller at `power/control=on`. 400 cycles: no clash, no silence. Cost within measurement noise.
+- The previous workaround (`51-surface-speaker-no-idle.conf`, PCM never closed) is removed: it kept the ADSP awake (~0.58 W awake, ~0.2–0.3 W during sleep). The speaker PCM now closes ~5 s after playback and the ADSP idles (~104 LPM entries/s).
+- Not fixed at the root: why the resume clashes. Driver work is deferred; when a driver fix passes the same 400-cycle test with `auto`, drop the udev rule.
+- Rollback: remove the udev rule (and set `auto`), and restore the WirePlumber rule from Git history (`drivers/files/audio/user/51-surface-speaker-no-idle.conf` before this change); the live copy is `~/.config/wireplumber/wireplumber.conf.d/51-surface-speaker-no-idle.conf.disabled-20261118`.
+
 The active output uses the physical ALSA speaker sink directly. The separate Windows EQ virtual sink was removed at the user's request. Its configuration and source data remain under optional-windows-eq for reference; setup.sh does not activate or install this optional filter.
 
 Live filter backup: ~/.local/state/surface-audio/50-surface-speakers.conf.disabled. PipeWire and WirePlumber were restarted and the physical speaker sink was selected. Volume was preserved at 35% during the 2026-11-14 recovery. Headphones remain a separate physical output.
