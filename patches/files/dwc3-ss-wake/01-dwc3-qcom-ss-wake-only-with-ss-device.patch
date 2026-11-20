@@ -1,0 +1,71 @@
+--- a/drivers/usb/dwc3/dwc3-qcom.c	2026-11-20 09:59:01.637007918 +0900
++++ b/drivers/usb/dwc3/dwc3-qcom.c	2026-11-20 09:59:01.645695295 +0900
+@@ -66,6 +66,7 @@
+ 	int			dm_hs_phy_irq;
+ 	int			ss_phy_irq;
+ 	enum usb_device_speed	usb2_speed;
++	bool			ss_wake;
+ };
+ 
+ struct dwc3_qcom {
+@@ -250,6 +251,27 @@
+ 	return udev->speed;
+ }
+ 
++/*
++ * Whether a SuperSpeed device is attached to this port of the USB3 root hub. Only then is the SuperSpeed
++ * PHY wake line meaningful: on an empty port the QMP PHY's autonomous receiver detection keeps ss_phy_irq
++ * asserted once the system power-collapses, so arming it wakes the system immediately. New connections
++ * on an empty port still wake through the DP/DM lines.
++ */
++static bool dwc3_qcom_ss_device_attached(struct dwc3_qcom *qcom, int port_index)
++{
++	struct usb_hcd __maybe_unused *hcd;
++	struct usb_device *udev = NULL;
++	struct dwc3 *dwc = &qcom->dwc;
++
++	hcd = platform_get_drvdata(dwc->xhci);
++
++#ifdef CONFIG_USB
++	if (hcd && hcd->shared_hcd)
++		udev = usb_hub_find_child(hcd->shared_hcd->self.root_hub, port_index + 1);
++#endif
++	return udev && udev->speed >= USB_SPEED_SUPER;
++}
++
+ static void dwc3_qcom_enable_wakeup_irq(int irq, unsigned int polarity)
+ {
+ 	if (!irq)
+@@ -285,7 +307,9 @@
+ 		dwc3_qcom_disable_wakeup_irq(port->dm_hs_phy_irq);
+ 	}
+ 
+-	dwc3_qcom_disable_wakeup_irq(port->ss_phy_irq);
++	if (port->ss_wake)
++		dwc3_qcom_disable_wakeup_irq(port->ss_phy_irq);
++	port->ss_wake = false;
+ }
+ 
+ static void dwc3_qcom_enable_port_interrupts(struct dwc3_qcom_port *port)
+@@ -315,7 +339,8 @@
+ 					    IRQ_TYPE_EDGE_RISING);
+ 	}
+ 
+-	dwc3_qcom_enable_wakeup_irq(port->ss_phy_irq, 0);
++	if (port->ss_wake)
++		dwc3_qcom_enable_wakeup_irq(port->ss_phy_irq, 0);
+ }
+ 
+ static void dwc3_qcom_disable_interrupts(struct dwc3_qcom *qcom)
+@@ -358,8 +383,10 @@
+ 	 * freezable workqueue.
+ 	 */
+ 	if (dwc3_qcom_is_host(qcom) && wakeup) {
+-		for (i = 0; i < qcom->num_ports; i++)
++		for (i = 0; i < qcom->num_ports; i++) {
+ 			qcom->ports[i].usb2_speed = dwc3_qcom_read_usb2_speed(qcom, i);
++			qcom->ports[i].ss_wake = dwc3_qcom_ss_device_attached(qcom, i);
++		}
+ 		dwc3_qcom_enable_interrupts(qcom);
+ 	}
+ 

@@ -1,0 +1,17 @@
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c	2026-11-20 09:36:57.421584919 +0900
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c	2026-11-20 09:36:57.423544994 +0900
+@@ -4383,9 +4383,13 @@
+ 	void __iomem *pcs_aon = qmp->pcs_aon;
+ 	u32 intr_mask;
+ 
++	/*
++	 * Trial (Surface Laptop 7, 2026-11-20): receiver detection only. With LFPS detection armed, an idle
++	 * USB-C port with nothing attached asserts ss_phy_irq level-high once CX collapses.
++	 */
+ 	if (qmp->phy_mode == PHY_MODE_USB_HOST_SS ||
+ 	    qmp->phy_mode == PHY_MODE_USB_DEVICE_SS)
+-		intr_mask = ARCVR_DTCT_EN | ALFPS_DTCT_EN;
++		intr_mask = ARCVR_DTCT_EN;
+ 	else
+ 		intr_mask = ARCVR_DTCT_EN | ARCVR_DTCT_EVENT_SEL;
+ 

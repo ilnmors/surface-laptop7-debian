@@ -1,0 +1,19 @@
+--- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c	2026-11-20 09:45:06.745814107 +0900
++++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c	2026-11-20 09:45:06.746704755 +0900
+@@ -4383,11 +4383,11 @@
+ 	void __iomem *pcs_aon = qmp->pcs_aon;
+ 	u32 intr_mask;
+ 
+-	if (qmp->phy_mode == PHY_MODE_USB_HOST_SS ||
+-	    qmp->phy_mode == PHY_MODE_USB_DEVICE_SS)
+-		intr_mask = ARCVR_DTCT_EN | ALFPS_DTCT_EN;
+-	else
+-		intr_mask = ARCVR_DTCT_EN | ARCVR_DTCT_EVENT_SEL;
++	/*
++	 * Trial 2 (Surface Laptop 7, 2026-11-20): no autonomous detection at all, to tell whether ss_phy_irq
++	 * is raised by the detectors or stays high regardless of them once CX collapses.
++	 */
++	intr_mask = 0;
+ 
+ 	/* Clear any pending interrupts status */
+ 	qphy_setbits(pcs_usb, cfg->regs[QPHY_PCS_LFPS_RXTERM_IRQ_CLEAR], IRQ_CLEAR);
