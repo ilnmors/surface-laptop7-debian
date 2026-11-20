@@ -2494,6 +2494,10 @@ cb5e8945946b3bdcbe8c5be326c0e61855e03026b40c1ce6e68f7157587bedad  drivers/files/
 07092f599246c3dee43eb0ff8a26a7715982f282ef3d14167bc1db5005f9cfc5  drivers/files/boot-trials/restore-a400000-trial.sh
 cb9caf2d3d3d2155ed5ff140d02e73de764630ac70fd499b35f8145ff19d4c79  drivers/files/boot-trials/restore-dtb-trial.sh
 bd149ad090568c3dc9e8c746b490d6dc0d005de55912dc9b70210663779f1bef  drivers/files/boot-trials/surface-sl7-xplus-trial.dtb
+74ca3554f86335dc8c789a7c947260e74e539ebe21fed5ac12503f12435503e5  drivers/files/boot-trials/sync-state-keep/README.md
+1e101dbdbcf86e6c61fabc30f6f4fee56eb2de4f5933a00930806e26a17e3cbe  drivers/files/boot-trials/sync-state-keep/install.sh
+99f4d97f1d79fd5a67566b63c02dd29ef0202cf6e3e45bd017ef6c95c52ce58f  drivers/files/boot-trials/sync-state-keep/surface-sync-state-keep.service
+e4961388c948734c9d71359f418fc14b919c248c5a2369a3100f808452d63ccf  drivers/files/boot-trials/sync-state-keep/surface-sync-state-keep.sh
 bf78dc08d822d5e07599af349e6ede6b20058956f39458e82c1bbd940418dbba  drivers/files/camera-quality/README.md
 7864ca7fb544abed1ae09b9c07f039e043a21fc0d9bbfb866fcbd75b855e6934  drivers/files/camera-quality/backports/ipa/ipa_soft_simple-balanced-candidate.so
 1fff5f2b58a98ee8e8b145b1a4cc574223f9af2699cbec8dfc0bb509b4234c68  drivers/files/camera-quality/backports/ipa/ipa_soft_simple-gain-step-candidate.so

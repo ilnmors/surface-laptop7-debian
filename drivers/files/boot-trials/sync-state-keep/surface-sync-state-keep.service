@@ -1,0 +1,14 @@
+[Unit]
+Description=Re-arm the sync_state trial boot at shutdown while it stays free of SSAM and USB faults
+RequiresMountsFor=/boot /var/log
+After=boot.mount systemd-journald.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/true
+ExecStop=/usr/local/sbin/surface-sync-state-keep
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
