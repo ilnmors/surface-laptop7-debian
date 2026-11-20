@@ -144,5 +144,5 @@ Rules for external posts are in AGENT.md ("External contributions"): user approv
 | --- | --- | --- |
 | qBitnaut/omarchy-dragon-sl7 #39 | Test their patch 0124 (geni UART keeps the engine clocked in suspend) on 7.3 against the SSAM -110 after back-to-back suspends, and report back | Open: needs a module build and an approved reboot |
 | omacom/omarchy #18970 | If the D+ (dp_hs_phy) wake or the lid-line wake reproduces on the 13.8-inch model, add the numbers | Open: needs the attended device-attached suspend test (pending item 2) |
-| bryce-hoehn/linux-surface-laptop-7 PR #28 | Answer review comments on the romulus13 touchscreen row | Open: no review yet |
+| bryce-hoehn/linux-surface-laptop-7 PR #28 | Answer review comments on the romulus13 touchscreen row | Answered 2026-11-21: iptsd dependency added to the README row; touchscreen tested with the patched daemon, an unpatched source build and the unchanged ELLX package (its binary exits with SIGILL on stop under Debian 13). Waiting for the reviewer |
 | #39, #18970, PR #28 | The posts lack the AI-use and verification line | Left as posted (user decision); new posts carry the line |
