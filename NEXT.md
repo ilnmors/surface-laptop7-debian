@@ -124,3 +124,25 @@ Remaining blocker is outside the Linux apps votes: another subsystem's RSC (the 
 own timer) or AOP policy. Seeing it needs firmware-side visibility that Linux does not provide, so the work stops here
 by decision (2026-11-20). Default boot keeps sync_state off: DDR collapse needs it, but the 10:03 sync_state boot lost
 EC transmit (cause unknown; three later sync_state suspends were clean). The SSAM logger keeps watching for -110.
+
+## 2026-11-21 state for the next session
+
+- The repository is public as `surface-laptop7-debian` (GPL-2.0-only). Personal values (printer, mail hosts, VPN name) live only in the untracked `local/`; keep it that way and run a privacy check before every push.
+- Boot: sync_state trial boots are kept by `boot-trials/sync-state-keep` while each boot is free of SSAM -110 and xhci -110.
+- Applied: `logind.conf.d/50-surface-lock-before-sleep.conf` (`InhibitDelayMaxSec=15`). A lid opened while a slow gnome-shell was still locking had left the display off for ~20 s after resume; a normal close/open locks in 1 s and lights the display 0.5 s after resume.
+- Firefox V4L2 hardware decoding was tried with rpi-ffmpeg 8.1.2 (DRM PRIME output, AV1 V4L2 decoder): Iris opened, no picture. Rolled back; only Debian FFmpeg remains.
+- Pending, attended:
+  1. Overnight lid-closed sleep on battery on a sync_state boot; compare with 0.52 W (default boot, 2026-11-19/20). Check that no session inhibitor (e.g. a stuck Nautilus transfer) is active first.
+  2. Suspend with a USB device attached on USB-A and on USB-C: does a D+ (dp_hs_phy) line wake it within ~40 s (as reported on the 15-inch model, omarchy #18970)?
+  3. USB-C monitor attached across suspend/resume, and the HPD delay (port 1: 39 s).
+- Offered to the community: test omarchy-dragon-sl7 patch 0124 (geni UART keeps the engine clocked in suspend; aimed at SSAM -110 after back-to-back suspends). Needs a module build and an approved reboot.
+## External commitments (open until the result is posted)
+
+Rules for external posts are in AGENT.md ("External contributions"): user approval of the final text, a one-line AI-use and verification note, point-by-point review answers.
+
+| Where | Promise | State |
+| --- | --- | --- |
+| qBitnaut/omarchy-dragon-sl7 #39 | Test their patch 0124 (geni UART keeps the engine clocked in suspend) on 7.3 against the SSAM -110 after back-to-back suspends, and report back | Open: needs a module build and an approved reboot |
+| omacom/omarchy #18970 | If the D+ (dp_hs_phy) wake or the lid-line wake reproduces on the 13.8-inch model, add the numbers | Open: needs the attended device-attached suspend test (pending item 2) |
+| bryce-hoehn/linux-surface-laptop-7 PR #28 | Answer review comments on the romulus13 touchscreen row | Open: no review yet |
+| #39, #18970, PR #28 | The posts lack the AI-use and verification line | Left as posted (user decision); new posts carry the line |

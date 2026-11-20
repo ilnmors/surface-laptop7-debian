@@ -48,3 +48,7 @@ Audio follow-up: a new SoundWire clash occurred at 23:56:21 without further rese
 2026-11-14 23:28 reboot comparison: scheduled shutdown was orderly; user confirms sound after boot ad5da1de-571e-4655-9cd2-259a4ef0dab5. Same signed kernel/module and identical selected hardware mixer controls. A separate WCD-bus clash at 23:20:42 coincided with profile-off; no current-boot clash in the 23:27 query. Preserve working output and evaluate the idle policy through normal use. See [post-reboot evidence](drivers/files/audio/diagnostics/2026-11-14/POST-REBOOT.md).
 
 2026-11-15 physical click-drag: installed the narrow 045E:0C77 BTN_LEFT/debounce-cache fix at 08:29:44 KST. The user confirms one-finger physical dragging and held-click/second-finger motion are both normal. Original code fails 7 regression checks; the patched header passes all 13. Live executable matches the offline payload, service restarts=0; calibration and GNOME settings unchanged. See [click-drag and rollback](drivers/files/touchpad/click-drag/README.md).
+
+## External contributions (2026-11-21)
+
+Posted on 2026-11-20 from the dwc3 ss_phy_irq fix and the romulus13 touchscreen overlay: bryce-hoehn/linux-surface-laptop-7 PR #28, qBitnaut/omarchy-dragon-sl7 issue #39 and a comment on omacom/omarchy #18970. None of the three projects forbids AI-assisted contributions (omarchy ships AGENTS.md and CLAUDE.md). Open promises and the rules for future posts are tracked in NEXT.md ("External commitments") and AGENT.md.
