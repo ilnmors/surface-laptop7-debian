@@ -23,3 +23,5 @@ The replacement USB module is installed and signed; physical resume verification
 ## Persistent tracking
 
 surface-resume-trace.service (boot-time power-callback trace, saved to /var/log/surface-resume/<boot-id>/ on orderly shutdown) was removed on 2026-11-18. The 21 saved traces are in archive/diagnostics/surface-resume-traces-20261118.tar.gz (not in Git). A hang never saves a trace, so it did not help with the deep-sleep hangs; use trace-resume.py for a manual attended cycle.
+
+Lock before sleep (2026-11-20): `drivers/files/rootfs/etc/systemd/logind.conf.d/50-surface-lock-before-sleep.conf` raises `InhibitDelayMaxSec` from 5 to 15 s. A busy gnome-shell once missed the 5 s limit, so the system slept unlocked; the lid was opened during entry and the display returned ~20 s after resume. A normal close/open reproduction locked in 1 s and lit the display 0.5 s after resume.
