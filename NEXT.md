@@ -61,3 +61,35 @@ Second trial boot: the camera LED follows streaming (on while `cam` streams, off
 ### 2026-11-19 21:55 cold boot 1 after the a400000 softdep
 
 Default signed image; kernel 6.9 s + userspace 9.6 s. `xhci-hcd.1.auto` bound (no -110), six USB root hubs. Promoted DTB confirmed from the default image: Iris Decoder/Encoder (/dev/video3, /dev/video4) without a firmware path override, camera LED on while `cam` streams and off after. a400000 log so far: cold 1 = OK. Keep logging each boot (cold/warm, kernel time) until the failure has had several chances to recur.
+
+### 2026-11-19 22:20 hardware decoding power (battery, 3 min windows, power_now mean every 5 s)
+
+1080p H.264 Big Buck Bunny at real-time speed through GStreamer: idle 3.88 W, openh264dec 6.75 W, v4l2h264dec (iris) 2.50 W. energy_now updates in large steps and is unusable over 3 minutes; power_now changed every 5 s. Software decoding costs about +3 W over idle; iris decoding stays at idle level. Players still need V4L2 decode support (GStreamer/mpv); Firefox keeps software decoding.
+
+### 2026-11-20 09:05 overnight deep sleep with the promoted DTB and the a400000 softdep
+
+One s2idle/deep suspend, 22:14 -> 09:02 KST (10 h 48 min), success 1 / fail 0. Battery 37.58 -> 31.92 Wh: 5.66 Wh, **0.52 W average** (about 1.0 %/h), down from 0.77-0.88 W on 11/16. The deepest states still never entered (qcom_stats cxsd/aosd/ddr count 0), and the ADSP subsystem counter rose by about 4.1 million during the sleep: both are the next sleep-power leads.
+
+### 2026-11-20 09:30 PHY AON clamp fix installed, sync_state trial armed
+
+- `patches/files/phy-sleep/patches/03-qmp-combo-x1e80100-pcs-aon-offsets.patch` (qualcomm-linux PR #1357, lore 20261030105515.1948430-1-tapas.rana@oss.qualcomm.com): x1e80100_usb3dpphy_cfg used offsets without `usb3_pcs_aon`, so autonomous mode wrote the AON clamp into PCS_MISC. Built on top of 01/02 (only the AON line differs from v5); `install-aon-clamp.sh` installed the signed combo module (srcversion 0A74E69E94C0DD14BD50B53; usb module unchanged 601E8F5D...), refreshed initramfs and image, rollback "Surface before PHY AON clamp fix (2026-11-20)".
+- One-shot `fw_devlink.sync_state=timeout` trial armed (`surface_trial_next=1`). After that boot: check `/proc/cmdline`, USB-A/USB-C, charging; then ONE attended `systemctl suspend` with the lid open (power button to wake), `pm_debug_messages=1`; record `/sys/power/pm_wakeup_irq`, PDC 17/47 interrupt counts and cxsd/aosd/ddr counts. If it still storms, do not close the lid; reboot to the default entry.
+
+### 2026-11-20 09:45 sync_state trial with the AON clamp fix: storm unchanged; trial A armed
+
+- Attended lid-open suspend on the sync_state boot (AON clamp fix active): wake IRQ 188 (a600000 ss_phy_irq) 82,847 times, 193 (a800000) 26,542; cxsd/aosd/ddr stayed 0; "Wakeup pending. Abort". a400000 again -110 on the sync_state boot (deferred-probe timing). The clamp fix is kept but is not the cause.
+- Code reading: dwc3-qcom arms ss_phy_irq unconditionally (level-high from DT); qmp-combo enables autonomous mode with ARCVR_DTCT_EN | ALFPS_DTCT_EN in host SS mode. Both combo PHYs are initialized (runtime active, usage 2), so autonomous mode is armed on idle ports.
+- One variable at a time. Trial A (installed, `trials/04-trial-no-alfps-detect.patch`, srcversion 10CECE68674D50A8CFDCE15): receiver detection only (no ALFPS_DTCT_EN). Rollback entry "Surface before ALFPS-off trial (2026-11-20)". sync_state one-shot armed. After the reboot: one attended lid-open suspend; if the storm stops, write the real fix (ALFPS only while an SS device is attached); either way reinstall the AON-clamp-only module (`files/aon-clamp/`) with install-combo-module.sh until then.
+
+### 2026-11-20 09:50 trial A rejected; trial 2 prepared
+
+- Trial A (receiver detection only): storm unchanged (ss_phy_irq 75,779 a600000 / 20,212 a800000, cxsd 0, abort). LFPS detection is not the cause. a400000 bound on that sync_state boot.
+- Trial 2 (installed, `trials/05-trial-no-autonomous-detect.patch`, srcversion 5683C0DA8CF5F181A714386): autonomous detection mask 0. Storm persists -> the line is high regardless of the detectors (clear/clamp order, PHY power-down or the DT trigger polarity). Storm stops -> receiver detection misbehaves. The first install failed: /boot (2 GB) was full of per-trial rollback copies; the reboot was cancelled 5 s before it fired (a pipeline hid the failure). Cleanup kept the default image, rollback-20261112 and rollback-aon-clamp-20261120 (last verified good), freed about 1 GB, removed four stale menu entries and the empty initrd.img.new, and disarmed the flag. install-combo-module.sh now refuses to start under 600 MB free and trials reuse one rollback-trial copy.
+
+### 2026-11-20 09:53 trial 2: the storm is gone — autonomous receiver detection is the cause
+
+Trial 2 (no autonomous detection) on the sync_state boot: ss_phy_irq 0 / 0, suspend success (deep, 32 s, woken by IRQ 232), DDR count 0 -> 626, cxsd/aosd still 0. With trial A (receiver detection only) the storm stayed, so `ARCVR_DTCT_EN` on an idle port is what keeps ss_phy_irq high. Real fix: arm receiver/LFPS detection (or the ss_phy_irq wake) only on ports with an attached SuperSpeed device; new connections still wake through the USB2 DP/DM lines. Next blocker: CXSD/AOSD still never entered.
+
+### 2026-11-20 10:05 fix under test: dwc3-qcom arms ss_phy_irq only with a SuperSpeed device attached
+
+`patches/files/dwc3-ss-wake/01-dwc3-qcom-ss-wake-only-with-ss-device.patch` on top of the installed null-HCD build (base rebuild matches the installed 8554A2970EC29806E65733C): reads the USB3 root hub (shared_hcd) at suspend and arms ss_phy_irq only on ports with a SuperSpeed device; empty ports keep the DP/DM wake lines. Installed with `dwc3-ss-wake/install.sh` (dwc3-qcom 373A6F05E3EFE6B7721A44D) together with the AON-clamp PHY module (normal autonomous detection back, 0A74E69E94C0DD14BD50B53); rollback-trial holds the trial-2 image. sync_state one-shot armed. Tests after the reboot: lid-open suspend with no USB device, then with the phone attached (it enumerates at 480M only, so no SuperSpeed device is available for the attached-port case).
