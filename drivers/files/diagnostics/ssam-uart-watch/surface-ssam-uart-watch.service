@@ -1,0 +1,10 @@
+[Unit]
+Description=Log the Surface EC UART byte counters to catch the moment transmit stops (diagnostics only)
+
+[Service]
+ExecStart=/usr/local/sbin/surface-ssam-uart-watch
+Nice=10
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=multi-user.target

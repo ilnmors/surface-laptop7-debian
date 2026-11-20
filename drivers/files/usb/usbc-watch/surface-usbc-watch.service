@@ -1,0 +1,10 @@
+[Unit]
+Description=Snapshot the USB-C ports when a partner stays attached without a USB device (diagnostics only)
+
+[Service]
+ExecStart=/usr/local/sbin/surface-usbc-watch
+Nice=10
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=multi-user.target
