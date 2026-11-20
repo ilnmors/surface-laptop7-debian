@@ -1,5 +1,5 @@
 43e795847c5807d7966d87f3061c14e0bbeff0f759b83156e037d8ff2b0759e1  desktop/PLAN.txt
-04e0de45c4e10e6582603f2926a35219cf83fadd2ff35743566a94adf6517391  desktop/files/README.md
+badc96d07cb83cea2be1ddbd66c6cf603c0821e227f91a774745374435bf0371  desktop/files/README.md
 7cfb72ea5f390b4ca6742ea30d5c46d75db9691318e7756ec130c80b29cb1a87  desktop/files/backgrounds/alpine-lake-luca-bravo.jpg
 9cf0e9daf8915e04110045e1f3db010ff47926cdb35b54f861d572082c1a34c2  desktop/files/backgrounds/church-cross-in-the-wilderness.jpg
 53ebf079eb4ccd824075e595eb133650fb672d578a144dd66dce29ef79681b23  desktop/files/backgrounds/friedrich-morning-in-the-riesengebirge.jpg
@@ -2434,7 +2434,7 @@ a5f0cccac0997ecebde9f68fcb5c63d1041311c4c9897fef7f4c16426ca0d3cd  desktop/files/
 6e0c18261fd1b1a09f9b496c3a3db590015117c49eacbb53800fcb4c4449b112  desktop/files/themes/Fluent-teal-Light/xfwm4/top-right-inactive.png
 56fc9078953f73a3ceea32d24fd61d1782567b9af056ba3b79fb0d19692c0f50  desktop/files/topbar/ALPINE-THEME.md
 7641a950e613b1d9a81805e4419ca0be99e4519fcb9bba819fc99750f79f3f25  desktop/files/topbar/CHURCH-THEME.md
-06e2d57be733d038b3a0d78d74264d4e2eb3416cfa9e4fadba74d4ac5685a788  desktop/files/topbar/README.md
+52bb3f33ab1b70254b0d18d39bbc1025121b7c30cb78cbeef1ce7e9cf822f0d1  desktop/files/topbar/README.md
 1f0182cc01db759dfe5f763b56a8564e5bdaab25bcc0fb8e3232a33348b90551  desktop/files/topbar/alpine-theme.json
 bc255c0dcfe505a55d84e3276da2f72ebb9ccc5e7fb025fd4f97090d39b9cb25  desktop/files/topbar/before-openbar.dconf
 d55a94f2289849f8528af0063925a4e686086cd485852ced502d64296af69fbb  desktop/files/topbar/build-tools/libsass1_3.6.5+20231221-3+b1_arm64.deb
@@ -2658,7 +2658,7 @@ dea2115e8d0e671af10071e707cc26b9f2618f50283de879f07c468d0346981f  drivers/files/
 f6c0c0db5c3f447ad5ebd8aa0abb6505dd6934da610aa4b28b8b69cb27a4f647  drivers/files/sleep/README.md
 24d561f6f33211200f80eba14bdf4c6117d50d9d393c3b2b19c9f05ba809b877  drivers/files/sleep/diagnostics/2026-11-11/1794399158.txt
 5747571f2feb20a4146caf45f7663d4b29d17f60061fbf557cb2aa654a0cca09  drivers/files/sleep/diagnostics/2026-11-11/1794399159.txt
-eba574ac745431dbf0a4463f0451a2dee27b0c9199a3502ae3033c864ce5181f  drivers/files/sleep/diagnostics/2026-11-11/1794399160.txt
+32a2b0c61b2b68edb5c88fccecfabf58768abf63e138025d15f4d44f67fae5e8  drivers/files/sleep/diagnostics/2026-11-11/1794399160.txt
 7e316d82480e46a61915b7061f4a3044fdfb01a9d138d6c7bf856913050bb059  drivers/files/sleep/diagnostics/2026-11-11/README.md
 aae9077058cf365f578873707a7d6eaa5a3d00bbdc47a905a3cb814c88cc1fce  drivers/files/sleep/diagnostics/2026-11-12-090205/power-trace.txt
 592be5a6e3dc851ce067312dcc0ed93a34e631beac5ebb846b2b7973cf86d416  drivers/files/sleep/diagnostics/2026-11-12-090205/timing-summary.json
@@ -2762,7 +2762,7 @@ bd149ad090568c3dc9e8c746b490d6dc0d005de55912dc9b70210663779f1bef  drivers/files/
 09fd63316498a1cdc2e1d100fc744a6377c499f6a5530b5c3b008940f517088f  drivers/files/touchscreen/surface-sl7-xplus-touchscreen.dtb
 2d5ad684060696d601559e55792308f2528a18bbe6e9e86759df3f092c482e4e  drivers/files/touchscreen/tools/gpiod_2.2.1-2+deb13u1_arm64.deb
 fd2323e12f32f6762dcb04fb10d643f190c0419fef1bcb1acb549c53b57920d7  drivers/files/touchscreen/tools/libgpiod3_2.2.1-2+deb13u1_arm64.deb
-c9078fe99cb2780320ccb839950e340d1aac03268c1566ced801409e3327a406  drivers/files/usb/2026-11-16-TETHERING.md
+6212af8722d3a2f44ee69deb195c7815cbd4b1146f3f00d145f1a0491bfda548  drivers/files/usb/2026-11-16-TETHERING.md
 94b1212820deea81ee03b6711a0d7d972c72d5ff215e19a158f3cad008a45973  drivers/files/usb/usbc-watch/README.md
 283f76ec924f19b8cc6835545e1599b22a8045d9c7b05d70b974e4a88e253165  drivers/files/usb/usbc-watch/install.sh
 98910de38a5dd8f3e1ab6c41959c8b9d60de2372f891c2f9c9b732f048c987fa  drivers/files/usb/usbc-watch/surface-usbc-watch.service
