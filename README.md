@@ -33,3 +33,7 @@ Steam runtime/game downloads and user saves are not bundled; its component repai
 SOURCES.md records origins and patch procedures. PAYLOADS.sha256 covers component payloads; SHA256SUMS covers maintained files and those payloads. Regenerate with `python3 tools/checksums.py`, then verify with `python3 setup.py --verify-only` or `sha256sum -c SHA256SUMS`. Rebuild the local HTML with `python3 tools/report.py` after updating STATUS.json.
 
 Git tracks text/configuration, scripts and patches. Offline binaries, historical archives and private keys stay outside Git. hardware-report.html is tracked. Caddy, code-server, Kopia, Console identity, site CA/VPN and infrastructure secrets belong to the separate repository, not this bundle.
+
+## License
+
+GPL-2.0-only (see [LICENSE](LICENSE)), the license of the Linux kernel that the patches and device tree overlays derive from. Bundled third-party components keep their own licenses: the Fluent GTK themes under `desktop/files/themes/` (GPL-3.0) and each GNOME extension under `desktop/files/extensions/` (see its metadata). Firmware and other binary payloads are not part of the repository.
