@@ -54,13 +54,14 @@ if [[ -d /lib/modules/$(uname -r) ]]; then sudo update-initramfs -u -k "$(uname 
 
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false
 
-# Home printer: Samsung SL-T2270DW over driverless IPP Everywhere; the repository's Kea reserves 192.0.2.100.
+# Home printer over driverless IPP Everywhere, from the untracked local/site.env (see local.example/site.env).
 # lpadmin -m everywhere queries the printer, so an unreachable printer only skips this step.
-if command -v lpadmin >/dev/null; then
-  if sudo lpadmin -p printer -E -v ipp://192.0.2.100/ipp/print -m everywhere -D "Samsung SL-T2270DW" -L home \
-       -o PageSize=A4 -o printer-is-shared=false; then
+if [[ -r $bundle/local/site.env ]]; then source "$bundle/local/site.env"; fi
+if [[ -n ${SL7_PRINTER_URI:-} ]] && command -v lpadmin >/dev/null; then
+  if sudo lpadmin -p printer -E -v "$SL7_PRINTER_URI" -m everywhere -D "${SL7_PRINTER_NAME:-printer}" -L home \
+       -o PageSize="${SL7_PRINTER_PAGE:-A4}" -o printer-is-shared=false; then
     lpoptions -d printer >/dev/null
   else
-    echo 'printer: 192.0.2.100 did not answer; run desktop/setup.sh again on the home network.' >&2
+    echo "printer: $SL7_PRINTER_URI did not answer; run desktop/setup.sh again on the home network." >&2
   fi
 fi

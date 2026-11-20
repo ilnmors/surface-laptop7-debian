@@ -4,7 +4,7 @@
 - settings/ contains GNOME and terminal snapshots. The terminal uses a dark navy background, bright text and saturated ANSI colors.
 - packages/ includes User Themes, the common extension files, unzip and cups-pk-helper. The latter fixes the missing authorization component in GNOME's printer settings.
 - packages/ also includes fonts-symbola. The terminal font (DejaVu Sans Mono via Monospace) and the other installed fonts lack media-control symbols such as U+23F5 ⏵, so they rendered as tofu boxes. Symbola covers U+23F4–U+23FA and the wider symbol blocks; fontconfig uses it automatically as fallback, without changing the terminal font. Check with `fc-list ':charset=23f5' family`.
-- setup.sh adds the home printer (Samsung SL-T2270DW, `ipp://192.0.2.100/ipp/print`, IPP Everywhere, A4, default) when it answers. CA and VPN settings stay outside this bundle.
+- setup.sh adds the home printer (IPP Everywhere, default) from the untracked `local/site.env` (template `local.example/site.env`) when it answers. CA and VPN settings stay outside this bundle.
 
 Fluent source https://github.com/vinceliuice/Fluent-gtk-theme
 

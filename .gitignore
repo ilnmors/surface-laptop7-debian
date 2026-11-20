@@ -72,3 +72,6 @@ drivers/files/camera-quality/research/issue-*-comments.json
 
 # Downloaded wallpaper is retained locally as an offline payload.
 desktop/files/backgrounds/*.jpg
+
+# Personal site values (printer, mail hosts, VPN names) and their notes; template in local.example/.
+local/
