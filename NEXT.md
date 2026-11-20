@@ -93,3 +93,17 @@ Trial 2 (no autonomous detection) on the sync_state boot: ss_phy_irq 0 / 0, susp
 ### 2026-11-20 10:05 fix under test: dwc3-qcom arms ss_phy_irq only with a SuperSpeed device attached
 
 `patches/files/dwc3-ss-wake/01-dwc3-qcom-ss-wake-only-with-ss-device.patch` on top of the installed null-HCD build (base rebuild matches the installed 8554A2970EC29806E65733C): reads the USB3 root hub (shared_hcd) at suspend and arms ss_phy_irq only on ports with a SuperSpeed device; empty ports keep the DP/DM wake lines. Installed with `dwc3-ss-wake/install.sh` (dwc3-qcom 373A6F05E3EFE6B7721A44D) together with the AON-clamp PHY module (normal autonomous detection back, 0A74E69E94C0DD14BD50B53); rollback-trial holds the trial-2 image. sync_state one-shot armed. Tests after the reboot: lid-open suspend with no USB device, then with the phone attached (it enumerates at 480M only, so no SuperSpeed device is available for the attached-port case).
+
+## 2026-11-20 afternoon (default boot 14:22, no sync_state)
+
+- SSAM: the 10:03 sync_state boot lost EC transmit (requests and suspend prepare/D0 notifications timed out, -110,
+  7 of 8 suspends failed). After the 14:22 default reboot EC requests work (fan read; TX 355 -> 383). The first logger
+  version's `STALL` marks were false positives (RX grows from EC events by itself); it now logs kernel SSAM -110 as
+  `FAULT` (drivers/files/diagnostics/). Open question: does sync_state=timeout cause the transmit loss? Three earlier
+  sync_state boots had no -110 but only 1-2 suspends each.
+- Attended suspend 14:26-14:28 on the default boot, nothing attached: success, no SSAM error, EC and Wi-Fi fine after
+  resume. APSS slept (count +1, ~90 s); DDR, CXSD, AOSD 0, as expected without sync_state (DDR entered only on the
+  sync_state boot, trial 2). ADSP counted +10,383 entries in ~90 s (~110/s): the audio DSP keeps waking during sleep.
+- Shift+Hangul now toggles ibus-hangul (switch-keys `Hangul,Shift+Hangul`; user value, system dconf and bundle default).
+- Waydroid: ReteKey (F-Droid 0.2.3) installed and set as the input method; the PHYSICAL_KEYBOARD notification channel
+  is off (importance 0, verified after a session restart). The user still assigns the KO/EN key in ReteKey.
