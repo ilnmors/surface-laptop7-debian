@@ -20,7 +20,7 @@ The current boot artwork and font repair are documented in boot-art/README.md. T
 
 ## Mail (Geary)
 
-Geary 46.0 is the mail client: it picks up the GNOME Online Accounts mail and Google accounts without its own account setup. packages/ includes geary and the dependencies it pulled in on Debian 13 (libgmime-3.0-0t64, libmessaging-menu0, libytnef0). The home mail account is added in Settings → Online Accounts → Email: IMAP `imap.example.internal` 993 (SSL), SMTP `smtp.example.internal` 587 (STARTTLS), user `il`. The internal root CA must be in the system store (site-specific, outside this bundle).
+Geary 46.0 is the mail client: it picks up the GNOME Online Accounts mail and Google accounts without its own account setup. packages/ includes geary and the dependencies it pulled in on Debian 13 (libgmime-3.0-0t64, libmessaging-menu0, libytnef0). The home mail account is added in Settings → Online Accounts → Email: IMAP `imap.example.internal` 993 (SSL), SMTP `smtp.example.internal` 587 (STARTTLS), user `il`. The internal root CA must be in the system store (site-specific, outside this bundle). Geary starts at login in the background (`run-in-background` true, `~/.config/autostart/geary-autostart.desktop` = `geary --gapplication-service`, installed by desktop/setup.sh), so new mail raises GNOME notifications without an open window.
 
 ## Removed extensions (2026-11-19)
 
