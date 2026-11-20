@@ -107,3 +107,20 @@ Trial 2 (no autonomous detection) on the sync_state boot: ss_phy_irq 0 / 0, susp
 - Shift+Hangul now toggles ibus-hangul (switch-keys `Hangul,Shift+Hangul`; user value, system dconf and bundle default).
 - Waydroid: ReteKey (F-Droid 0.2.3) installed and set as the input method; the PHYSICAL_KEYBOARD notification channel
   is off (importance 0, verified after a session restart). The user still assigns the KO/EN key in ReteKey.
+
+## 2026-11-20 evening: CXSD investigation closed (sync_state trial boot 18:01)
+
+Three attended suspends on the sync_state boot, all successful, no SSAM -110, EC fine after resume, ss_phy_irq 0.
+DDR power collapse works (265 s of 279 s, 2,915 entries); CXSD/AOSD stay 0. Ruled out as the CXSD blocker:
+- USB and PCIe system wakeup: disabling it on a400000/a600000/a800000 and both root ports changed nothing.
+- PCIe links: both controllers retrain on every resume, so dw_pcie_suspend_noirq took the D3cold path and
+  qcom_pcie_suspend_noirq released clocks, bandwidth and the OPP vote (upstream v7.3 code read). Wi-Fi logs
+  "Timeout waiting for L2 entry" but the link still goes down.
+- Speaker SoundWire hold: ADSP ~105 sleep entries/s with the controller held on or suspended.
+- Linux RPMh votes (rpmh_send_msg trace across one suspend, resolved via cmd-db): apps_rsc left cx.lvl, mx.lvl and
+  mmcx.lvl at level 0 before suspend; the sleep set zeroes every BCM (MC0, SH0, SH1, SN0, CN0, QUP0-2, ACV).
+- Linux <-> DSP traffic is ~1 IPCC/GLINK interrupt per second.
+Remaining blocker is outside the Linux apps votes: another subsystem's RSC (the ADSP wakes ~100 times a second on its
+own timer) or AOP policy. Seeing it needs firmware-side visibility that Linux does not provide, so the work stops here
+by decision (2026-11-20). Default boot keeps sync_state off: DDR collapse needs it, but the 10:03 sync_state boot lost
+EC transmit (cause unknown; three later sync_state suspends were clean). The SSAM logger keeps watching for -110.
