@@ -25,3 +25,11 @@ The replacement USB module is installed and signed; physical resume verification
 surface-resume-trace.service (boot-time power-callback trace, saved to /var/log/surface-resume/<boot-id>/ on orderly shutdown) was removed on 2026-11-18. The 21 saved traces are in archive/diagnostics/surface-resume-traces-20261118.tar.gz (not in Git). A hang never saves a trace, so it did not help with the deep-sleep hangs; use trace-resume.py for a manual attended cycle.
 
 Lock before sleep (2026-11-20): `drivers/files/rootfs/etc/systemd/logind.conf.d/50-surface-lock-before-sleep.conf` raises `InhibitDelayMaxSec` from 5 to 15 s. A busy gnome-shell once missed the 5 s limit, so the system slept unlocked; the lid was opened during entry and the display returned ~20 s after resume. A normal close/open reproduction locked in 1 s and lit the display 0.5 s after resume.
+
+Wake/hang trace (2026-11-22): `drivers/files/rootfs/etc/tmpfiles.d/50-surface-pm-debug.conf` sets `/sys/power/pm_debug_messages` to 1 at every boot, so the kernel logs the wake IRQ ("PM: Triggering wakeup from IRQ N") and each suspend/resume phase. Reason: on 2026-11-22 03:18 the machine woke with the lid closed for an unknown reason, re-suspended 27 s later and never came back (log ends after "Filesystems sync"); see NEXT.md.
+
+When it happens again:
+1. Self-wake while the lid is closed (machine still alive): `sudo journalctl -b 0 -k | grep -E "PM: (suspend|Triggering wakeup)|Abort"`, then map the IRQ number with `grep -E "^ *N:" /proc/interrupts` (numbers change per boot, so look it up on the same boot) and read `/sys/power/pm_wakeup_irq`.
+2. Hang (forced power-off needed): after booting, `sudo journalctl -b -1 -k -o short-iso | tail -80` shows the last phase reached (freeze, device suspend, CPUs off, or a resume step); `sudo journalctl -b -1 -o short-iso | grep -E "Lid|Suspending|returned from sleep"` gives the lid/sleep sequence; check `surface-ssam-uart-watch` output and `ttyHS0: Unable to drain transmitter` / SSAM `-110` in the same boot.
+3. Record the result in NEXT.md (2026-11-22 section) and compare with the omarchy-dragon-sl7 #39 promise (patch 0124, SSAM after back-to-back suspends).
+

@@ -369,6 +369,15 @@
       "finding": "2026-11-20 23:19 덮개를 닫았을 때 gnome-shell이 바빠 5초 안에 잠그지 못해 잠기지 않은 채 절전에 들어갔고, 진입 중 덮개를 열자 복귀 후 화면이 약 20초 늦게 켜졌습니다. 같은 동작을 정상 상태에서 재현하면 잠금 1초, 화면 복귀 0.5초였습니다.",
       "next": "drivers/files/rootfs/etc/systemd/logind.conf.d/50-surface-lock-before-sleep.conf로 잠금을 최대 15초 기다립니다(설치·적용 확인: InhibitDelayMaxUSec=15000000). 평소 절전 진입 시간은 그대로입니다.",
       "path": "drivers/files/sleep/README.md"
+    },
+    {
+      "group": "POWER",
+      "title": "절전 복귀 실패 추적",
+      "status": "open",
+      "label": "pm_debug_messages 상시 켜짐",
+      "finding": "2026-11-22 03:18 덮개가 닫힌 채 원인 모를 자가 깨어남 후 27초 뒤 다시 절전에 들어가 복귀하지 못했습니다(로그는 Filesystems sync에서 끝남, SSAM -110 기록 없음). 12:45 덮개를 연 상태에서 25초 간격 연속 절전 3회는 모두 정상 복귀해 재현되지 않았습니다.",
+      "next": "drivers/files/rootfs/etc/tmpfiles.d/50-surface-pm-debug.conf로 부팅마다 pm_debug_messages=1을 켭니다(설치·적용 확인). 다시 일어나면 drivers/files/sleep/README.md의 확인 절차로 깨운 IRQ와 멈춘 단계를 확인합니다.",
+      "path": "drivers/files/sleep/README.md"
     }
   ]
 }

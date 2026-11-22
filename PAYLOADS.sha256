@@ -2616,6 +2616,7 @@ c9afa0e50e1d68010cb4452e8631a73c57b2438b169bf2af4e6e3127a3022319  drivers/files/
 2d88fe8f1a2b7560d49a9b5697a331e41adf7f55d0fc1752962805c1f57236cf  drivers/files/rootfs/etc/systemd/system/iptsd@.service.d/90-surface-edge.conf
 7c899e0b7588ecc56259781c8769c29eb6169db6fc52f9d36c3e49f77a34b8b6  drivers/files/rootfs/etc/systemd/system/surface-bluetooth-address@.service
 9c87356b177464e995fbbe1af15b9d79a1e4aefd3a9ee21c914e0a34436943c9  drivers/files/rootfs/etc/systemd/system/systemd-suspend.service.d/50-surface-session-freeze.conf
+b5f4725205c90086577ca4424bac055a3e796b611d0d4c36dfe6b0a09b6c1d6c  drivers/files/rootfs/etc/tmpfiles.d/50-surface-pm-debug.conf
 012c9db580a565f3cd23171aef99d11794555f707a99b85739347dc0f1bc9876  drivers/files/rootfs/etc/udev/rules.d/70-surface-dma-heap.rules
 dcae3d05a83757fea9308abf303581b27012ce6f85ac71ba8630def208a4b1ca  drivers/files/rootfs/etc/udev/rules.d/80-surface-bluetooth-address.rules
 fe674e138222f24362800fcf4beeef34a950ddfd8aaea4eb260df27c6af4b7b8  drivers/files/rootfs/etc/udev/rules.d/90-surface-speaker-swr-on.rules
@@ -2656,7 +2657,7 @@ d6e159c05d915bee20a00e0ce5439ed1f334307367915eaea225bf30584fc229  drivers/files/
 05f059bc75fc8f3c5e6267997fb3dee1c1fdb150176fa342a6166037f3b4311e  drivers/files/rootfs/usr/local/libexec/surface-iptsd/lib/libspdlog.so.1.15
 a8d8beb09a08cc85cdce56dc06f8130c0659b5d02255b748452f2c7aece17148  drivers/files/rootfs/usr/local/libexec/surface-power-snapshot.py
 dea2115e8d0e671af10071e707cc26b9f2618f50283de879f07c468d0346981f  drivers/files/rootfs/usr/local/sbin/surface-bluetooth-address
-64fcd7b16e145511aaed0518ca6bdcfa3fc53a5cfec3f0246de8ec31e7ed4900  drivers/files/sleep/README.md
+8e9ee2623a0c499c8d0a9bf40e95c8cadb6f1bcf4f4401dd78092e2957e6f541  drivers/files/sleep/README.md
 24d561f6f33211200f80eba14bdf4c6117d50d9d393c3b2b19c9f05ba809b877  drivers/files/sleep/diagnostics/2026-11-11/1794399158.txt
 5747571f2feb20a4146caf45f7663d4b29d17f60061fbf557cb2aa654a0cca09  drivers/files/sleep/diagnostics/2026-11-11/1794399159.txt
 32a2b0c61b2b68edb5c88fccecfabf58768abf63e138025d15f4d44f67fae5e8  drivers/files/sleep/diagnostics/2026-11-11/1794399160.txt

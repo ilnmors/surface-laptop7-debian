@@ -136,6 +136,18 @@ EC transmit (cause unknown; three later sync_state suspends were clean). The SSA
   2. Suspend with a USB device attached on USB-A and on USB-C: does a D+ (dp_hs_phy) line wake it within ~40 s (as reported on the 15-inch model, omarchy #18970)?
   3. USB-C monitor attached across suspend/resume, and the HPD delay (port 1: 39 s).
 - Offered to the community: test omarchy-dragon-sl7 patch 0124 (geni UART keeps the engine clocked in suspend; aimed at SSAM -110 after back-to-back suspends). Needs a module build and an approved reboot.
+## 2026-11-22 failed resume overnight and back-to-back test
+
+- 2026-11-21 22:03 lid-closed suspend (sync_state boot). 03:18:45 the machine woke with the lid still closed (no
+  "Lid opened"; wake source unknown, pm_debug_messages was off), logind re-suspended 27 s later at 03:19:12, and the
+  log ends after "Filesystems sync". No SSAM -110 logged, nothing in pstore; the next boot was the user's at 12:08.
+  Both wakes that night logged `ttyHS0: Unable to drain transmitter` (the SSAM UART).
+- Attended reproduction 12:45-12:49 (lid open, pm_debug_messages=1): three suspends 25 s apart, each woken by the
+  power button (wake IRQ pmic_pwrkey every time). All three resumed; no SSAM -110, no UART drain warning,
+  dp_hs_phy_1 0. Not reproduced. Untested differences: lid closed, hours-long sleep, the unknown self-wake source.
+- `pm_debug_messages` is now on at every boot (`rootfs/etc/tmpfiles.d/50-surface-pm-debug.conf`, installed). When a
+  self-wake or hang recurs, follow the checks in [drivers/files/sleep/README.md](drivers/files/sleep/README.md).
+
 ## External commitments (open until the result is posted)
 
 Record of every post: [docs/EXTERNAL-CONTRIBUTIONS.md](docs/EXTERNAL-CONTRIBUTIONS.md). Rules for external posts are in AGENT.md ("External contributions"): user approval of the final text, a one-line AI-use and verification note, point-by-point review answers.
