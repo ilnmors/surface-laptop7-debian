@@ -7,11 +7,11 @@ here=$(dirname "$(realpath "$0")")
 kernel=$(uname -r); sb=/boot/secureboot; rb=$sb/rollback-aon-clamp-20261120
 mod=/lib/modules/$kernel/updates/surface/phy-qcom-qmp-combo.ko
 entry='Surface before PHY AON clamp fix (2026-11-20)'
-want=$(modinfo -F srcversion "$here/files/aon-clamp/phy-qcom-qmp-combo.ko")
+want=$(modinfo -F srcversion "$here/../modules/7.3.0-31-qcom-x1e/phy-qcom-qmp-combo.ko")
 install -d -m755 "$rb"
 cp -a "$sb/vmlinuz-surface-signed.efi" "$sb/initrd.img-$kernel" "$mod" "$rb/"
 cp -a "$sb/grub.cfg" "$rb/grub.cfg.before"
-install -m644 "$here/files/aon-clamp/phy-qcom-qmp-combo.ko" "$mod"
+install -m644 "$here/../modules/7.3.0-31-qcom-x1e/phy-qcom-qmp-combo.ko" "$mod"
 /usr/local/sbin/surface-secureboot-update "$kernel" --dtb /boot/surface-sl7-xplus.dtb
 python3 -I - "$rb/grub.cfg.before" "$entry" <<'PY'
 import re, sys

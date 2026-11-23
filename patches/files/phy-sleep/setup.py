@@ -14,6 +14,12 @@ MODULES = Path("/lib/modules") / KERNEL / "updates/surface"
 HOOK = Path("/etc/initramfs-tools/hooks/surface-kernel-patches")
 NAMES = ("phy-qcom-qmp-combo", "phy-qcom-qmp-usb")
 
+
+def module_source(name):
+    """The 2026-11-16 trial build is in files/; builds now in use were moved to the shared installer payload."""
+    local = HERE / "files" / (name + ".ko")
+    return local if local.exists() else HERE.parent / "modules" / KERNEL / (name + ".ko")
+
 def run(*args, **kw):
     return subprocess.run(args, check=True, **kw)
 
@@ -46,7 +52,7 @@ def apply():
         raise RuntimeError("A previous backup exists; preserve it and review before another installation")
     meta = json.loads((HERE / "verification.json").read_text())
     for name in NAMES:
-        source = HERE / "files" / (name + ".ko")
+        source = module_source(name)
         if digest(source) != meta["modules"][name]["sha256_signed"]:
             raise RuntimeError("Module checksum changed")
         version = subprocess.check_output(["/usr/sbin/modinfo", "-F", "vermagic", str(source)], text=True)
@@ -97,7 +103,7 @@ def apply():
     try:
         MODULES.mkdir(parents=True, exist_ok=True)
         for name in NAMES:
-            shutil.copyfile(HERE / "files" / (name + ".ko"), MODULES / (name + ".ko"))
+            shutil.copyfile(module_source(name), MODULES / (name + ".ko"))
             (MODULES / (name + ".ko")).chmod(0o644)
         hook = HOOK.read_text()
         if "manual_add_modules phy_qcom_qmp_combo phy_qcom_qmp_usb" not in hook:

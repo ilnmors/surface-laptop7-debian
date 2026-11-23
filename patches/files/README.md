@@ -16,17 +16,18 @@ Rollback: remove only updates/surface/dwc3-qcom.ko and updates/surface/soundwire
 
 Deep suspend and resume with these modules work. The a400000 xHCI probe timeout at boot is handled by a softdep (`drivers/files/boot-trials/`), not by these modules; the speaker silence is avoided by holding the SoundWire controller on (`drivers/files/audio/`).
 
-## Other replacements in use
+## Replacements in use
 
-Loaded on the current boot from `/lib/modules/7.3.0-31-qcom-x1e/updates/surface/` (srcversion):
+`setup.sh` (through `install.sh`) installs every module in `modules/7.3.0-31-qcom-x1e/` into `/lib/modules/7.3.0-31-qcom-x1e/updates/surface/`, and the initramfs hook `surface-kernel-patches` includes them. These are exactly the builds loaded on the current boot (srcversion):
 
 | Module | Build | Notes |
 | --- | --- | --- |
 | dwc3-qcom | `373A6F05E3EFE6B7721A44D` | NULL-HCD guard plus SuperSpeed wake only with a SuperSpeed device attached ([dwc3-ss-wake/](dwc3-ss-wake/)) |
 | phy-qcom-qmp-combo | `0A74E69E94C0DD14BD50B53` | System-sleep callbacks and the AON clamp fix ([phy-sleep/](phy-sleep/README.md)) |
+| phy-qcom-qmp-usb | `601E8F5D83837191C8575E9` | System-sleep callbacks ([phy-sleep/](phy-sleep/README.md)) |
 | ath12k | `D044C56077CC5357DC3F5BF` | The original source with both Romulus13 rfkill guards plus the upstream regulatory fix f2576dc0 ([wifi-regulatory/known-good/](wifi-regulatory/known-good/README.md)). The first Wi-Fi rebuild (`D61DA424018CF1563587D2E`) caused a hard-rfkill regression and is rejected ([wifi-regulatory/README.md](wifi-regulatory/README.md)) |
 | ov02c10 | `08EF7452B0F555AA15FA25F` | Minimum vertical blanking on Romulus13 for about 37.5 fps ([CAMERA-FRAME-TIMING.md](CAMERA-FRAME-TIMING.md)) |
 | scmi-cpufreq | `3A225A33A62E1578048E341` | All SCMI OPPs usable so clusters 1 and 2 get cpufreq (`drivers/files/cpu/`) |
 | soundwire-qcom | `3D22555E212EACB6FA11473` | The SoundWire backports above |
 
-spi-hid v2 (`0923360D0DE94E631C945EE`) is loaded from `updates/sl7/` (`drivers/files/touchpad/spi-hid-resume/`). The `updates/sl7/` copies of ath12k and ov02c10 are the original builds and are shadowed by `updates/surface/`.
+Until 2026-11-24 the dwc3-qcom ss-wake build and both PHY builds were installed only by their own scripts (`dwc3-ss-wake/install.sh`, `phy-sleep/`); they now sit in `modules/` with the rest, and those scripts read them from there. The earlier dwc3-qcom build with the NULL-HCD guard only (`8554A2970EC29806E65733C`) is kept in `superseded/`. spi-hid v2 (`0923360D0DE94E631C945EE`) is loaded from `updates/sl7/` (`drivers/files/touchpad/spi-hid-resume/`). The `updates/sl7/` copies of ath12k and ov02c10 are the original builds and are shadowed by `updates/surface/`.

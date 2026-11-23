@@ -9,7 +9,8 @@ kernel=$(uname -r); sb=/boot/secureboot; rb=$sb/rollback-trial; upd=/lib/modules
 entry='Surface before the current PHY trial'
 free_mb=$(df -m --output=avail /boot | tail -1 | tr -d ' ')
 (( free_mb >= 600 )) || { echo "only ${free_mb} MB free on /boot" >&2; exit 1; }
-declare -A src=([dwc3-qcom.ko]="$here/dwc3-qcom.ko" [phy-qcom-qmp-combo.ko]="$files/phy-sleep/files/aon-clamp/phy-qcom-qmp-combo.ko")
+# Both builds live in the shared installer payload (patches/files/modules), which setup.sh installs as well.
+declare -A src=([dwc3-qcom.ko]="$files/modules/7.3.0-31-qcom-x1e/dwc3-qcom.ko" [phy-qcom-qmp-combo.ko]="$files/modules/7.3.0-31-qcom-x1e/phy-qcom-qmp-combo.ko")
 declare -A want
 for m in "${!src[@]}"; do want[$m]=$(modinfo -F srcversion "${src[$m]}"); done
 rm -rf "$rb"; install -d -m755 "$rb"
