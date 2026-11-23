@@ -57,7 +57,7 @@
     "현재 커널의 QMP combo PHY에는 시스템 절전 콜백이 없습니다. 해당 클록의 절전 누설을 다루는 상류 패치가 있지만 런타임 PM·잠금 처리 검토가 남아 있어 이 장치의 검증된 해결책으로 보지 않습니다.",
     "다음 절전부터 에너지·Qualcomm 전력 영역 카운터를 자동 기록합니다. 상시 데몬 없이 경계에서만 수집하며 수동 검증 약 22ms, 제한 시간 2초입니다. 실제 pre/post 비교는 다음 절전 후 가능합니다."
   ],
-  "report_path": "drivers/files/power/2026-11-16-USB-SUSPEND.md",
+  "report_path": "docs/investigations/2026-11-16-usb-suspend/USB-SUSPEND.md",
   "sources": [
     "https://lists.openwall.net/linux-kernel/2026/11/02/735",
     "https://github.com/bryce-hoehn/linux-surface-laptop-7/issues/7"

@@ -9,7 +9,7 @@ cp -a "$folder/sources/." "$work/source/"
 for patchfile in "$folder"/patches/*.patch; do patch --batch --fuzz=0 -d "$work/source" -p1 < "$patchfile"; done
 mkdir -p "$work/source/drivers/cpufreq"
 cp "$folder/../../drivers/files/cpu/baseline/scmi-cpufreq.c" "$work/source/drivers/cpufreq/"
-patch --batch --fuzz=0 -d "$work/source" -p1 < "$folder/../../drivers/files/cpu/research/scmi-all-boost.patch"
+patch --batch --fuzz=0 -d "$work/source" -p1 < "$folder/../../drivers/files/cpu/scmi-all-boost.patch"
 printf 'obj-m += scmi-cpufreq.o\n' > "$work/source/drivers/cpufreq/Makefile"
 printf 'obj-m += dwc3-qcom.o\n' > "$work/source/drivers/usb/dwc3/Makefile"
 printf 'obj-m += soundwire-qcom.o\nsoundwire-qcom-y := qcom.o\n' > "$work/source/drivers/soundwire/Makefile"

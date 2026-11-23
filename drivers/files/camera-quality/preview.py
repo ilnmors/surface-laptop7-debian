@@ -19,7 +19,7 @@ config = cache / 'trial-config/simple'
 ipa.mkdir(exist_ok=True)
 config.mkdir(parents=True, exist_ok=True)
 shutil.copy2(here / ('backports/ipa/ipa_soft_simple-gain-step-candidate.so' if a.low_gain else 'backports/ipa/ipa_soft_simple-balanced-candidate.so'), ipa / 'ipa_soft_simple.so')
-shutil.copy2(here / ('research/ov02c10-neutral-low-gain.yaml' if a.low_gain else 'research/ov02c10-neutral-candidate.yaml'), config / 'ov02c10.yaml')
+shutil.copy2(here / ('preview/ov02c10-neutral-low-gain.yaml' if a.low_gain else 'preview/ov02c10-neutral-candidate.yaml'), config / 'ov02c10.yaml')
 env = dict(os.environ,
     LD_LIBRARY_PATH=str(cache / 'usr/lib/aarch64-linux-gnu'),
     LIBCAMERA_IPA_MODULE_PATH=str(ipa),

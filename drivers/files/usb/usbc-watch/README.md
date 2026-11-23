@@ -1,7 +1,7 @@
 # USB-C dead-port snapshot collector (2026-11-20)
 
 The USB-C USB2 path sometimes stays dead after a disconnect or a resume (no attach events at all; charging also stops);
-rebinding dwc3-qcom brings it back (see ../2026-11-16-TETHERING.md). Ruled out on 2026-11-20: runtime PM (both
+rebinding dwc3-qcom brings it back (see ../../../../docs/investigations/2026-11-16-usb-tethering/TETHERING.md). Ruled out on 2026-11-20: runtime PM (both
 controllers have `power/control=on`), the eUSB2 repeater losing its settings (pmic@7 0xfd00-0xfdff identical before and
 after the rebind) and Type-C role switching (no usb_role switch; dwc3 is host-only). The fault did not reproduce on demand,
 so this collector waits for it.

@@ -2,7 +2,7 @@
 
 ## Speaker policy since 2026-11-18
 
-- Cause of the intermittent speaker silence: a SoundWire bus clash on the speaker controller `6b10000.soundwire` during its runtime resume; the bus stays silent until the next resume. Reproduced automatically (2 events in 400 close/reopen cycles, each right after `SWR bus clsh detected` on 6b10000) — see [diagnostics/2026-11-18](diagnostics/2026-11-18/README.md).
+- Cause of the intermittent speaker silence: a SoundWire bus clash on the speaker controller `6b10000.soundwire` during its runtime resume; the bus stays silent until the next resume. Reproduced automatically (2 events in 400 close/reopen cycles, each right after `SWR bus clsh detected` on 6b10000) — see [the 2026-11-18 speaker reproduction](../../../docs/investigations/2026-11-18-audio-speaker-repro/README.md).
 - Fix in use: `/etc/udev/rules.d/90-surface-speaker-swr-on.rules` holds only that controller at `power/control=on`. 400 cycles: no clash, no silence. Cost within measurement noise.
 - The previous workaround (`51-surface-speaker-no-idle.conf`, PCM never closed) is removed: it kept the ADSP awake (~0.58 W awake, ~0.2–0.3 W during sleep). The speaker PCM now closes ~5 s after playback and the ADSP idles (~104 LPM entries/s).
 - Not fixed at the root: why the resume clashes. Driver work is deferred; when a driver fix passes the same 400-cycle test with `auto`, drop the udev rule.
@@ -20,10 +20,10 @@ Sound returned after an unexpected host reboot following the agent's live ADSP r
 
 The soft-mixer trial failed and was removed from the active user configuration. Trial files here are reference only, not installed by setup scripts. PA gain 1/1 is also present with working sound after reboot and is not a sufficient diagnosis. No kernel or firmware files were changed during these attempts.
 
-See the [incident timeline, failed actions, evidence and follow-up](diagnostics/2026-11-13/README.md). This supersedes the initial “no kernel errors” assessment and the pending soft-mixer test status.
+See the [incident timeline, failed actions, evidence and follow-up](../../../docs/investigations/2026-11-13-audio-silence/README.md). This supersedes the initial “no kernel errors” assessment and the pending soft-mixer test status.
 
 ## Current recovery — 2026-11-14
 
-Full user audio service/socket shutdown and restart, followed by HiFi profile reapplication, did not restore sound according to the user. An exact-speaker no-idle policy is now applied and included in drivers/setup.sh; it prevents repeated PCM close/resume transitions but is not a verified cure and may increase idle power. A normal scheduled reboot restored sound, confirmed by the user on 2026-11-14. Long-term stability remains pending. See [applied settings, results and rollback](diagnostics/2026-11-14/RECOVERY.md) and [resume instructions](RESUME.md). No hot hardware resets or module changes were made.
+Full user audio service/socket shutdown and restart, followed by HiFi profile reapplication, did not restore sound according to the user. An exact-speaker no-idle policy is now applied and included in drivers/setup.sh; it prevents repeated PCM close/resume transitions but is not a verified cure and may increase idle power. A normal scheduled reboot restored sound, confirmed by the user on 2026-11-14. Long-term stability remains pending. See [applied settings, results and rollback](../../../docs/investigations/2026-11-14-audio-cause/RECOVERY.md) and [resume instructions](RESUME.md). No hot hardware resets or module changes were made.
 
-Post-reboot analysis: [same-kernel recovery, matched mixers and distinct WCD-bus recovery error](diagnostics/2026-11-14/POST-REBOOT.md). The selected mixer controls match between silent and recovered states. Avoid repeating profile toggles as automatic recovery.
+Post-reboot analysis: [same-kernel recovery, matched mixers and distinct WCD-bus recovery error](../../../docs/investigations/2026-11-14-audio-cause/POST-REBOOT.md). The selected mixer controls match between silent and recovered states. Avoid repeating profile toggles as automatic recovery.

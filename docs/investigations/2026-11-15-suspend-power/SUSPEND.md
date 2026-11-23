@@ -33,7 +33,7 @@ Source: [Microsoft SleepStudy thresholds](https://learn.microsoft.com/en-us/wind
 
 ## Reproduction and next diagnostic step
 
-`measurements/2026-11-15-summary.json` preserves the PM timestamps, boundary charge samples, full capacity, suspend counters, and rate pairs used in this analysis, without account data or a battery serial.
+`summary.json` preserves the PM timestamps, boundary charge samples, full capacity, suspend counters, and rate pairs used in this analysis, without account data or a battery serial.
 
 Sleep estimate: `(charge_before - charge_after) / 100 * full_Wh / hours`.
 Awake mean: `sum((W_start + W_end)/2 * seconds) / sum(seconds)` over the retained pairs.

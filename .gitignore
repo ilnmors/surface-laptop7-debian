@@ -49,7 +49,7 @@ kernel/files/secureboot/sign-file
 # Raw measurements remain local; aggregate findings are documented.
 drivers/files/touchpad/diagnostics/**/raw-touchpad.json
 drivers/files/touchpad/diagnostics/**/libinput.txt
-drivers/files/sleep/diagnostics/**/power-trace.txt
+docs/investigations/**/power-trace.txt
 
 # Boot artwork remains in the local offline payload.
 desktop/files/rootfs/usr/share/plymouth/themes/surface-debian/*.png
@@ -67,8 +67,8 @@ AGENT.md
 CLAUDE.md
 
 # Raw upstream research data remains in the offline bundle.
-drivers/files/touchscreen/research/*.dsl
-drivers/files/camera-quality/research/issue-*-comments.json
+docs/investigations/2026-11-12-touchscreen-acpi/*.dsl
+docs/investigations/2026-11-12-camera-quality/issue-*-comments.json
 
 # Downloaded wallpaper is retained locally as an offline payload.
 desktop/files/backgrounds/*.jpg

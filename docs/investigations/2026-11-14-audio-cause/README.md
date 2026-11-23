@@ -46,5 +46,5 @@ Next discriminating experiment would be a longer same-source pause/restart compa
 - [Linux runtime PM semantics](https://docs.kernel.org/power/runtime_pm.html).
 - [Linux trace instances and event tracing](https://docs.kernel.org/trace/ftrace.html).
 - [Machine-readable assessment](cause-assessment.json).
-- [Previous incident and subsequent stabilization research](../2026-11-13/STABILIZATION.md).
+- [Previous incident and subsequent stabilization research](../2026-11-13-audio-silence/STABILIZATION.md).
 - [Comparable cases and proposed remedy](CASES-AND-PROPOSAL.md).

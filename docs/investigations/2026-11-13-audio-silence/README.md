@@ -45,7 +45,7 @@ The failed user config was moved out of the active WirePlumber directory to ~/.l
 ## Evidence and references
 
 - [Saved journal evidence](reboot-journal-evidence.json): previous boot eaffbe4480614e6684035d126bfc639c; current boot 025eac43-634e-495b-b4ee-a4d4c7305eee.
-- [Trial diagnostics](../../trials/2026-11-13-diagnosis.json).
+- [Trial diagnostics](trials/2026-11-13-diagnosis.json).
 - [Kernel AudioReach command definitions](https://raw.githubusercontent.com/torvalds/linux/master/sound/soc/qcom/qdsp6/audioreach.h).
 - [Same-codec Surface Pro 11 reference](https://tangled.org/overby.me/overby.me/commit/03759aae6924e3b000a2e7f03cef85687eef2062): supporting research, not a validated Laptop 7 fix.
 

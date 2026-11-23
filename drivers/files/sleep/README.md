@@ -12,7 +12,7 @@ Reference: https://github.com/systemd/systemd/blob/v257/src/sleep/sleep.c
 
 EFI pstore confirms a kernel NULL-pointer Oops in dwc3_qcom_suspend during deep suspend entry. The a400000.usb xHCI host failed probing with -110 earlier in that boot; the USB suspend code dereferenced its missing driver data. This is a suspend-entry crash, not a confirmed power-button wake failure. Secure Boot was disabled in the affected boot.
 
-See diagnostics/2026-11-11/README.md and the saved original crash records. The matching NULL-guard patch is installed for the next boot. Current boot has all three xHCI hosts bound, but successful resume remains untested. Changing to s2idle alone does not eliminate the shared device-suspend code path.
+See [the 2026-11-11 crash record](../../../docs/investigations/2026-11-11-suspend-crash/README.md) and the saved original crash records. The matching NULL-guard patch is installed for the next boot. Current boot has all three xHCI hosts bound, but successful resume remains untested. Changing to s2idle alone does not eliminate the shared device-suspend code path.
 
 The replacement USB module is installed and signed; physical resume verification still requires a reboot. See ../../../patches/files/README.md.
 

@@ -1,8 +1,8 @@
 # Battery measurements
 
-Latest: [2026-11-16 USB and suspend review](2026-11-16-USB-SUSPEND.md) — overnight deep sleep 16h 27m, about 28 pp / 0.88 W. Next sleeps automatically record energy and Qualcomm counters. Aggregate inputs: `battery-latest.json`.
+Latest: [2026-11-16 USB and suspend review](../../../docs/investigations/2026-11-16-usb-suspend/USB-SUSPEND.md) — overnight deep sleep 16h 27m, about 28 pp / 0.88 W. Next sleeps automatically record energy and Qualcomm counters. Aggregate inputs: `battery-latest.json`.
 
-Previous: [2026-11-15 analysis](2026-11-15-SUSPEND.md), with original inputs in `measurements/2026-11-15-summary.json`.
+Previous: [2026-11-15 analysis](../../../docs/investigations/2026-11-15-suspend-power/SUSPEND.md), with original inputs in [summary.json](../../../docs/investigations/2026-11-15-suspend-power/summary.json).
 
 ## Historical baseline — 2026-11-12
 

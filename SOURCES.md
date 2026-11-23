@@ -55,7 +55,7 @@ MediaProvider/StorageManager timed out while IOmx/IOmxStore attempted to start a
 
 Debian desktop-base logo-text.svg is the source of desktop/files/boot-art/debian-wordmark-source.svg; render.py changes neutral grey to off-white and rasterizes through librsvg/cairo. COPYRIGHT is retained. The post-Plymouth initramfs hook preserves the custom watermark and includes static/fallback fonts. Both original artwork source and transformation are recorded, with no site credentials. GPU firmware inclusion copies the already installed gen70500 files unmodified; sources retain the existing firmware provenance.
 
-WCN7850 power-save uses the existing driver's supported station PS, persisted by NetworkManager rather than replacing firmware or kernel code. The short link check passed; no claimed runtime extension has been measured. KakaoTalk login/background settings are normal user/Android settings; sources and rollback are in programs/kakaotalk/README.md and drivers/files/power/OPTIMIZATION.md.
+WCN7850 power-save uses the existing driver's supported station PS, persisted by NetworkManager rather than replacing firmware or kernel code. The short link check passed; no claimed runtime extension has been measured. KakaoTalk login/background settings are normal user/Android settings; sources and rollback are in programs/kakaotalk/README.md and docs/investigations/2026-11-12-power-and-drivers/OPTIMIZATION.md.
 
 ## Regulatory and camera follow-up
 
@@ -65,7 +65,7 @@ ath12k f2576dc0 comes unmodified from the upstream WireGuard Linux kernel mirror
 
 - CPU: `drivers/files/cpu/README.md` records the X1P64100 report, upstream pull request, baseline source and local topology trial.
 - Wi-Fi: `patches/files/wifi-regulatory/known-good/README.md` records the upstream completion fix, preserved Surface guards and the retracted beacon-loss regression claim.
-- Camera: `drivers/files/camera-quality/research/RESULTS.md` records exact tested/rejected color profiles, public OV02C10 patches, isolated Debian 0.7.1 packages and deferred GPU-denoise research.
+- Camera: `docs/investigations/2026-11-12-camera-quality/RESULTS.md` records exact tested/rejected color profiles, public OV02C10 patches, isolated Debian 0.7.1 packages and deferred GPU-denoise research.
 - Open Bar 49: GNOME Extensions version tag 65598, source https://github.com/neuromorph/openbar , offline zip + source under desktop. No app or Flatpak recoloring enabled.
 
 ## Alpine desktop palette (2026-11-13)
@@ -84,7 +84,7 @@ Audio trial (2026-11-13): official WirePlumber ALSA `api.alsa.soft-mixer` docume
 
 ## Audio recurrence case review — 2026-11-14
 
-[Cases, primary links and applicability](drivers/files/audio/diagnostics/2026-11-14/CASES-AND-PROPOSAL.md) compare the X1 IRQ/clock fix, X13s stability series, Surface Laptop 7 UCM enablement and Surface Pro 11 configuration attempts with retained local source and measurements. No new patch or payload installed; proposed runtime-PM mitigation remains unconfirmed.
+[Cases, primary links and applicability](docs/investigations/2026-11-14-audio-cause/CASES-AND-PROPOSAL.md) compare the X1 IRQ/clock fix, X13s stability series, Surface Laptop 7 UCM enablement and Surface Pro 11 configuration attempts with retained local source and measurements. No new patch or payload installed; proposed runtime-PM mitigation remains unconfirmed.
 
 ## Physical click state (2026-11-15)
 

@@ -1,6 +1,6 @@
 # Surface 조사 결과와 수정 순서 — 2026-11-18
 
-세부 근거는 `docs/2026-11-18-HARDWARE-CHECK.md`, 절전 시험은 `drivers/files/power/2026-11-17-SYNC-STATE-TRIAL.md`.
+세부 근거는 `docs/investigations/2026-11-18-hardware-check/HARDWARE-CHECK.md`, 절전 시험은 `docs/investigations/2026-11-17-sync-state-trial/SYNC-STATE-TRIAL.md`.
 
 ## 목표
 

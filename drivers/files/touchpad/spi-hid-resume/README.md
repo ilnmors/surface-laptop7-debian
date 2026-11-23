@@ -1,6 +1,6 @@
 # spi-hid deferred resume settle (verified 2026-11-12 21:22, installer default)
 
-The installed community spi-hid.ko (srcversion A2DC44A5E473B534676E1E3, rebuilt byte-for-byte from archive/hardware/source/surface-xplus-project.zip → kernel/modules/spi-hid) slept msleep(2000) inside the system resume callback after reset. That fixed wait was 2.455 s of a 4.76 s kernel resume (see drivers/files/sleep/diagnostics/2026-11-12-192713).
+The installed community spi-hid.ko (srcversion A2DC44A5E473B534676E1E3, rebuilt byte-for-byte from archive/hardware/source/surface-xplus-project.zip → kernel/modules/spi-hid) slept msleep(2000) inside the system resume callback after reset. That fixed wait was 2.455 s of a 4.76 s kernel resume (see docs/investigations/2026-11-12-resume-timing/192713).
 
 The firmware still needs ~2 s after reset, so the wait is not removed; it moves to a resume_work item:
 - resume(): reset + power up, record settle_until = now + 2 s, return immediately.

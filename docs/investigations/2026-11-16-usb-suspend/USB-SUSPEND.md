@@ -2,7 +2,7 @@
 
 ## USB: resolved later the same day
 
-Superseded by [2026-11-16-TETHERING.md](../usb/2026-11-16-TETHERING.md): the phone held a stale pending tethering request; a phone restart fixed tethering. The notes below are the earlier investigation.
+Superseded by [the tethering report](../2026-11-16-usb-tethering/TETHERING.md): the phone held a stale pending tethering request; a phone restart fixed tethering. The notes below are the earlier investigation.
 
 ### Earlier notes
 

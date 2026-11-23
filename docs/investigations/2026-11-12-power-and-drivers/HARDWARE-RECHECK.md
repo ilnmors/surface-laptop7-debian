@@ -8,4 +8,4 @@
 - Speakers: user reports sound appears good. One wsa884x parity error occurred after resume; continue monitoring rather than declaring the bus issue solved.
 - GPU: no prior missing-zap/GMU-OOB/GPU-init-failure messages in this boot; user confirmed graphics recovered.
 
-See ../sleep/diagnostics/2026-11-12-post-reboot-review.md and ../camera-quality/latest-capture-check.json.
+See ../../../docs/investigations/2026-11-12-resume-timing/post-reboot-review.md and ../camera-quality/latest-capture-check.json.

@@ -22,7 +22,8 @@ Run installation as the desktop user with sudo access. Use a compatible Debian 1
 | `programs/` | Waydroid, Steam/FEX helpers and KakaoTalk preparation. Each program has its own entry. |
 | `*/files/` | Offline packages, configuration, source and reusable payloads used by the corresponding component. |
 | `archive/` | Historical installer/scripts, original reports and reference snapshots; not an installation entry. |
-| `tools/` | Report/checksum maintenance helpers. |
+| `docs/` | `UPDATES.md` (how updates interact with the local packages) and `investigations/` (dated records behind the settings). |
+| `tools/` | Checksum and battery maintenance helpers. |
 
 Each component has `setup.sh` and `setup.py`; Python delegates to that component's shell implementation. The top-level entry calls components in kernel → drivers → patches → desktop → programs order. Hardware stages refuse unrelated boards. Portable desktop assets are reusable on other Debian machines with native packages; see PORTABILITY.md.
 

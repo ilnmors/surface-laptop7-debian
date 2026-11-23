@@ -1,6 +1,6 @@
 # Intermittent speaker silence: cases and proposed remedy
 
-Reviewed 2026-11-14. Research only: no new live audio settings, resets or modules were applied. See [local measurements](README.md) and [the recovery incident](../2026-11-13/README.md).
+Reviewed 2026-11-14. Research only: no new live audio settings, resets or modules were applied. See [local measurements](README.md) and [the recovery incident](../2026-11-13-audio-silence/README.md).
 
 ## Assessment
 
