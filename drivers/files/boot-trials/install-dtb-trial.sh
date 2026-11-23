@@ -9,7 +9,8 @@ kernel=$(uname -r)
 out=/boot/secureboot/trial-dtb
 entry='Surface DTB trial: camera LED + iris (one-shot)'
 install -d -m755 "$out"
-install -m644 "$here/surface-sl7-xplus-trial.dtb" "$out/surface-sl7-xplus-trial.dtb"
+# Since the 2026-11-19 promotion the GTCH DTB carries the same three changes (byte-identical to the old trial DTB).
+install -m644 "$here/../touchscreen/spi-gtch/surface-sl7-xplus-gtch.dtb" "$out/surface-sl7-xplus-trial.dtb"
 /usr/local/sbin/surface-secureboot-update "$kernel" --skip-module-signing \
   --dtb "$out/surface-sl7-xplus-trial.dtb" --output-directory "$out" --no-bootloader-update
 python3 -I - "$entry" <<'PY'

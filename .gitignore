@@ -33,22 +33,15 @@ drivers/files/rootfs/usr/local/libexec/surface-iptsd/iptsd
 kernel/files/secureboot/sign-file
 *.key
 *.gpg
-# The generated HTML report is tracked by user request.
 
 *.ttc
 *.apk
 *.xapk
 *.apkm
-drivers/files/rootfs/usr/lib/firmware/
-drivers/files/rootfs/lib/firmware/
-drivers/files/rootfs/usr/local/libexec/surface-iptsd/iptsd
-kernel/files/secureboot/sign-file
 
 *.download
 
 # Raw measurements remain local; aggregate findings are documented.
-drivers/files/touchpad/diagnostics/**/raw-touchpad.json
-drivers/files/touchpad/diagnostics/**/libinput.txt
 docs/investigations/**/power-trace.txt
 
 # Boot artwork remains in the local offline payload.
@@ -62,9 +55,11 @@ desktop/files/boot-art/*.png
 
 programs/kakaotalk/files/*.png
 
-# Local workspace guidance.
+# Agent rule links (the rules live in ~/workspace/AGENTS.md).
 AGENT.md
+AGENTS.md
 CLAUDE.md
+GEMINI.md
 
 # Raw upstream research data remains in the offline bundle.
 docs/investigations/2026-11-12-touchscreen-acpi/*.dsl
@@ -75,5 +70,3 @@ desktop/files/backgrounds/*.jpg
 
 # Personal site values (printer, mail hosts, VPN names) and their notes; template in local.example/.
 local/
-AGENTS.md
-GEMINI.md

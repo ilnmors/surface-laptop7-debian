@@ -6,7 +6,7 @@ Each trial needs one attended reboot; the scripts here install and remove them.
 
 ## 1. Device tree: camera privacy LED and iris video decoder
 
-`surface-sl7-xplus-trial.dtb` is `drivers/files/touchscreen/spi-gtch/surface-sl7-xplus-gtch.dtb` (the
+Since the 2026-11-19 promotion, `drivers/files/touchscreen/spi-gtch/surface-sl7-xplus-gtch.dtb` already contains these changes, so `install-dtb-trial.sh` installs it under the trial name; the separate trial DTB was removed as a duplicate. Originally `surface-sl7-xplus-trial.dtb` was `drivers/files/touchscreen/spi-gtch/surface-sl7-xplus-gtch.dtb` (the
 installed `/boot/surface-sl7-xplus.dtb`) with three changes made by fdtput:
 
 | Node | Change | Purpose |
