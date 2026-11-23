@@ -1,17 +1,15 @@
-# Speaker recovered after scheduled reboot — observation pending
+# If the speaker goes silent again
 
-Read [the reboot comparison](../../../docs/investigations/2026-11-14-audio-cause/POST-REBOOT.md). On 2026-11-14 the user confirmed sound after the scheduled 23:24 reboot. Current boot ID: `ad5da1de-571e-4655-9cd2-259a4ef0dab5`. Same signed kernel and SoundWire module; all eight selected hardware mixer controls match the silent sample.
+Policy in use since 2026-11-18 (see [README.md](README.md)): the speaker SoundWire controller `6b10000.soundwire` is held at `power/control=on` by `/etc/udev/rules.d/90-surface-speaker-swr-on.rules`, which avoids the bus clash on runtime resume that caused the silence. Background: [cause](../../../docs/investigations/2026-11-14-audio-cause/README.md), [reproduction](../../../docs/investigations/2026-11-18-audio-speaker-repro/README.md).
 
-Keep the physical speaker idle timeout at 0 for normal-use observation. It prevents repeated PCM closure, but is not a proven root-cause fix and may increase idle power. Runtime PM remains auto/3000 ms. Preserve the user's current volume (9% at the check), rather than forcing an old test volume.
+1. Capture once in the desktop session before changing playback:
 
-Do not repeat HiFi off/on as automatic recovery: a new WCD-bus clash coincided with the previous profile-off step. Never hot-unbind codecs/cards or stop/start ADSP. If another module comparison becomes necessary, use signed boot entries and a retained fallback.
+   ```sh
+   bash ~/workspace/surface-laptop7-debian/drivers/files/audio/capture-state.sh --state silent
+   ```
 
-On recurrence, capture once in the console desktop session before changing playback:
+   Use `--state audible` only with the user's confirmation and note whether a stream is actually playing. Python entry point: `capture-state.py`. Captures go to `~/.local/state/surface-audio/recurrence/`.
+2. Check that the controller is still held on: `cat /sys/bus/platform/devices/6b10000.soundwire/power/control` should read `on`; look for `SWR bus clsh detected` in the kernel log.
+3. Do not hot-unbind codecs or cards, stop or start the ADSP, or toggle the HiFi profile off and on as a recovery: a profile-off step once coincided with a new WCD bus clash. If a module comparison is needed, use signed boot entries and keep a working entry.
 
-```sh
-bash ~/workspace/surface/drivers/files/audio/capture-state.sh --state silent
-```
-
-Use `audible` only with user feedback and note whether a stream is actually playing; the current post-reboot audible-labelled sample is idle after user confirmation. Python entry point: `capture-state.py`. Private captures are under `~/.local/state/surface-audio/recurrence/`.
-
-No new runtime settings were changed in the post-reboot log check. RTKit is absent and real-time scheduling is unavailable; that separate finding also exists with audible playback, so it is not established as the cause of this persistent silence.
+RTKit is absent, so real-time scheduling is unavailable; that also holds while audio works and is not a known cause.

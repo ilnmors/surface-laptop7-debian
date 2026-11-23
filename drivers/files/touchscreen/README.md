@@ -2,11 +2,12 @@
 
 For the 13.8-inch Romulus13 Surface Laptop 7.
 
+Superseded: the working touchscreen is GTCH over SPI ([spi-gtch/](spi-gtch/README.md)), promoted to the default image on 2026-11-13. The I2C overlay below never bound on this unit and is kept as a record.
+
 - Source patch by Jizhou Tong, 2026-09-30. Enables I2C8 at 400 kHz, HID-over-I2C address 0x34, descriptor register 0 and GPIO38.
 - romulus13-touchscreen.dts and .dtbo contain the enablement overlay.
 - surface-sl7-xplus-touchscreen.dtb merges that overlay with this machine's existing touchpad and camera DTB.
-- setup.sh installs the merged DTB. The Secure Boot updater embeds the same DTB in the signed kernel.
-- Reboot and check for a touchscreen in libinput list-devices. Actual finger and multitouch operation still needs testing on this machine.
+- The merged DTB was installed and embedded in the signed kernel for the 2026-11-11 test.
 
 Source https://lkml.iu.edu/2609.3/14494.html
 

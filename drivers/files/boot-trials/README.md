@@ -1,9 +1,8 @@
 # Boot trials prepared on 2026-11-19
 
-Result: the DTB trial passed on its second attempt and was promoted on 2026-11-19 (`promote-dtb.sh`; rollback GRUB entry "Surface before iris and camera LED DTB (2026-11-19)"). The a400000 trial is still pending.
+Result: the DTB trial passed on its second attempt and was promoted on 2026-11-19 (`promote-dtb.sh`; rollback GRUB entry "Surface before iris and camera LED DTB (2026-11-19)"). The a400000 softdep was installed on 2026-11-19 (`install-a400000-trial.sh`; rollback GRUB entry "Surface before a400000 softdep (2026-11-19)") and is still being watched across cold and warm boots.
 
-Each trial needs one attended reboot. Nothing here is installed: `/boot`, `/etc/modprobe.d` and the
-initramfs are unchanged, and the default GRUB entry keeps booting the current DTB.
+Each trial needs one attended reboot; the scripts here install and remove them.
 
 ## 1. Device tree: camera privacy LED and iris video decoder
 

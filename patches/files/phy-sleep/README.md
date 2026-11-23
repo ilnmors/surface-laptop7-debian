@@ -12,9 +12,9 @@ Goal: reduce Linux `deep` sleep drain (0.77–0.88 W measured 11/15–16) by gat
 
 - Built and signed by the earlier session (`build.py`, `verify.py`, `verification.json`): QEMU guest with `module.sig_enforce=1` accepted signed and rejected unsigned modules; offline rebuild matched srcversions.
 - Installed 2026-11-16 13:53 KST with `setup.py` (pkexec): modules in `/lib/modules/7.3.0-31-qcom-x1e/updates/surface/`, initramfs and signed image refreshed, `sbverify` OK. Backups and manifest under `/var/lib/surface-power/phy-sleep-20261116/backup/`.
-- Next boot loads `41E45FA66B29B5A2C416CBE` (combo) and `601E8F5D83837191C8575E9` (usb). The boot that installed them still runs `63A1B2708C9E05A81BA565D` / `8ABB3B604DFD01F79E2AD77`.
+- Validated after the 2026-11-16 reboot (`41E45FA66B29B5A2C416CBE` combo, `601E8F5D83837191C8575E9` usb). On 2026-11-20 the combo module was rebuilt with the AON clamp fix (`patches/03-qmp-combo-x1e80100-pcs-aon-offsets.patch`); `0A74E69E94C0DD14BD50B53` is the combo module in use. Overnight deep sleep fell to 0.52 W (2026-11-19/20).
 
-## Validation after reboot
+## Validation steps used
 
 1. `cat /sys/module/phy_qcom_qmp_{combo,usb}/srcversion` shows the new values; USB-A/USB-C devices, charging and external display still work.
 2. Let the machine sleep naturally on battery for 2 h or more (matched brightness/120Hz/apps). Compare pre/post energy and Qualcomm counters in `/var/lib/surface-power/suspend.jsonl`.

@@ -4,17 +4,17 @@ Open Bar 49 for GNOME 48, from https://extensions.gnome.org/extension/6580/open-
 
 ## Current appearance
 
-One continuous 34px opaque light Mainland panel, zero outside margin, zero outer radius/border and no shadow. This removes the wallpaper-visible gaps caused by the earlier Trilands layout. CPU/RAM are on the left, the clock/date is centered, and notifications, native English/Korean input, tray and system controls are on the right.
+One continuous 34px light Mainland panel at 0.9 background opacity, zero outside margin, zero outer radius/border and no shadow. This removes the wallpaper-visible gaps caused by the earlier Trilands layout. The clock/date is centered; notifications, native English/Korean input, tray and system controls are on the right. Since 2026-11-19 there are no widget extensions (Vitals, Caffeine removed).
 
-Vitals uses fixed-width values, GNOME icons and five-second polling. Caffeine appears only while active without timer text. The clock keeps the date and hides weekday/seconds. The legacy IBus tray icon is hidden; native input switching is retained.
+The clock keeps the date and hides weekday/seconds. The legacy IBus tray icon is hidden; native input switching is retained.
 
-Keep the established Fluent-Light Shell, including its Surface panel CSS additions. The alpine wallpaper and teal GTK3/GTK4 application theme remain applied. See [ALPINE-THEME.md](ALPINE-THEME.md) for image source, theme build and GTK4 behavior. No additional extension or resident process was introduced for the wallpaper.
+Keep the established Fluent-Light Shell, including its Surface panel CSS additions. The wallpaper and GTK theme are Church's *Cross in the Wilderness* with Fluent orange since 2026-11-19 ([CHURCH-THEME.md](CHURCH-THEME.md)); the earlier alpine/teal set is in [ALPINE-THEME.md](ALPINE-THEME.md) for image source, theme build and GTK4 behavior. No additional extension or resident process was introduced for the wallpaper.
 
 ## Apply and verify
 
-`desktop/setup.sh` and `desktop/setup.py` restore the same maintained Open Bar, Vitals, Caffeine, interface and IBus panel presets in `desktop/files/settings/`. Existing extensions accept setting changes without logout. Open Bar was re-enabled and its stylesheet regenerated live. A fresh install requires a new login only to discover newly installed extensions.
+`desktop/setup.sh` and `desktop/setup.py` restore the same maintained Open Bar, interface and IBus panel presets in `desktop/files/settings/`. Existing extensions accept setting changes without logout. Open Bar was re-enabled and its stylesheet regenerated live. A fresh install requires a new login only to discover newly installed extensions.
 
-Open Bar resets opacity to 0.9 on a bar-type change; the final live opacity was set back to 1.0 after that callback. Mainland, opacity 1.0, margin 0 and active extensions were read back. Appearance still needs user confirmation; no screenshot or memory benchmark is claimed.
+Open Bar resets opacity to 0.9 on a bar-type change; the user kept 0.9. The snapshot in `desktop/files/settings/openbar.dconf` was refreshed from the live settings on 2026-11-24 (Mainland, opacity 0.9, margin 0, teal accent).
 
 ## Rollback
 

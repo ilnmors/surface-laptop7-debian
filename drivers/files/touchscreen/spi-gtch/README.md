@@ -6,7 +6,7 @@
 
 The trial image in /boot/secureboot/trial-touch is signed with the machine key and selected once through GRUB `next_entry` (cleared before booting, so a failed trial returns to the default image on the next power cycle). It also carries `cma=512M` (camera buffers, see docs/investigations/2026-11-12-camera-quality/RESULTS.md).
 
-After the trial boot: `grep -iE 'spi_hid|hid-over-spi|gtch' <(sudo journalctl -k -b)`, `libinput list-devices | grep -i touch`, and touch the screen. If it works, promote by appending the overlay to drivers/files/pcie DTB generation and kernel/setup.sh, then run surface-secureboot-update. Otherwise run `restore.sh` as root.
+Trial procedure (done; result below): after the trial boot, `grep -iE 'spi_hid|hid-over-spi|gtch' <(sudo journalctl -k -b)`, `libinput list-devices | grep -i touch`, and touch the screen. If it works, promote by appending the overlay to drivers/files/pcie DTB generation and kernel/setup.sh, then run surface-secureboot-update. Otherwise run `restore.sh` as root.
 
 ## Result
 

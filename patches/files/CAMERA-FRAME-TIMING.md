@@ -1,6 +1,6 @@
-# DISABLED — camera experiment withdrawn from default setup
+# In use (2026-11-24): `updates/surface/ov02c10.ko`, srcversion 08EF7452B0F555AA15FA25F, `vertical_blanking` 72
 
-The faster rebuilt module captured ~37.45fps but emitted three unsupported crop-selection ioctl errors on this real boot. The retained sl7 driver has not yet been compared in this boot: live removal of the experiment was refused as in use, and no forced unload was attempted. Its on-disk replacement/override and default build/install were removed. The next signed initramfs restores the original sl7 module C8AE6F17BF899E4A937A808. Recheck after reboot before attributing every crop error to the rebuild. Fast-video experiment files remain historical only under rejected/. No permanent frame-timing change is enabled by setup.
+Earlier note, superseded: the faster rebuilt module once emitted three unsupported crop-selection ioctl errors and was withdrawn for a time; the retained sl7 driver had not been compared in that boot: live removal of the experiment was refused as in use, and no forced unload was attempted. Its on-disk replacement/override and default build/install were removed. The next signed initramfs restores the original sl7 module C8AE6F17BF899E4A937A808. Recheck after reboot before attributing every crop error to the rebuild. Fast-video experiment files remain historical only under rejected/. No permanent frame-timing change is enabled by setup.
 
 # Surface OV02C10 faster video policy
 
