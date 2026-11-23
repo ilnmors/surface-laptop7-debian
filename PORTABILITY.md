@@ -1,6 +1,6 @@
 # Reusing this bundle on Debian
 
-Read CURRENT.md first. setup.sh / python3 setup.py is the complete installer for this Surface on Debian 13 ARM64. It is not a generic installer for an unrelated PC. python3 setup.py --verify-only only checks files.
+Read the "Support and limits" table in README.md first. setup.sh / python3 setup.py is the complete installer for this Surface on Debian 13 ARM64. It is not a generic installer for an unrelated PC. python3 setup.py --verify-only only checks files.
 
 | Component | Scope | Reuse rule |
 | --- | --- | --- |
@@ -15,12 +15,12 @@ Read CURRENT.md first. setup.sh / python3 setup.py is the complete installer for
 
 ## Procedure for a person or AI agent
 
-1. Inspect architecture, Debian/GNOME/kernel versions, model/compatible strings and device IDs. Check CURRENT.md for verified versus pending behavior.
+1. Inspect architecture, Debian/GNOME/kernel versions, model/compatible strings and device IDs. Check README.md ("Support and limits") for what is provided and what is not.
 2. Select only matching rows above. Preserve current configuration and a working boot entry before changing drivers. Do not execute archive/ scripts; they are historical references.
 3. For a non-Surface desktop, restore only the chosen theme/extension/dconf categories using the steps in desktop/files/ and native distro packages. Avoid setup.sh's hardware, accounts and boot steps.
 4. For this Surface, verify files, run bash setup.sh or python3 setup.py as the desktop user, then complete first-time MOK enrollment if needed. Review kernel/files/secureboot/README.md.
 5. Verify boot, module signatures, devices and one user-initiated sleep/wake cycle. A successful build or module load does not prove device behavior. Record unresolved faults rather than declaring success.
-6. Update installer inputs, concise English procedures, SOURCES.md and both checksum manifests after every change. Commit documentation, scripts, patches and configuration; keep payloads/data/private keys outside Git. hardware-report.html is tracked by user request.
+6. Update installer inputs, concise English procedures, SOURCES.md and both checksum manifests after every change. Commit documentation, scripts, patches and configuration; keep payloads/data/private keys outside Git.
 
 ## Component selection
 

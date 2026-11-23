@@ -75,3 +75,5 @@ desktop/files/backgrounds/*.jpg
 
 # Personal site values (printer, mail hosts, VPN names) and their notes; template in local.example/.
 local/
+AGENTS.md
+GEMINI.md

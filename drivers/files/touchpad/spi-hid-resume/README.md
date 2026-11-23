@@ -19,7 +19,7 @@ Expected: system resume ~2.4 s shorter; touchpad ready about 2 s after wake, as 
 | install.sh | Root: save verified boot to /boot/secureboot/rollback-20261112 (GRUB "Surface previous working image"), install module + PCIe3-off DTB, run surface-secureboot-update. |
 | restore.sh | Root: put back the saved module, DTB and signed image. |
 
-Rollback at boot: choose "Surface previous working image" in GRUB (hold Esc). After a successful check the older images are to be deleted (see NEXT.md).
+Rollback at boot: choose "Surface previous working image" in GRUB (hold Esc). After a successful check the older images can be deleted.
 
 ## Result (21:22 lid cycle)
 
