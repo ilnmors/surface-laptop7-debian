@@ -1,1 +1,1 @@
-Install ABI-matched USB/SoundWire replacements, sign locally and refresh signed images; reboot required.
+Install ABI-matched module replacements from patches/files/modules (dwc3-qcom NULL-HCD guard, SoundWire, ath12k, OV02C10, SCMI cpufreq), sign locally and refresh signed images; reboot required.
