@@ -21,7 +21,7 @@ Extract `archive/desktop/fluent-source.tar.gz` into a temporary user-owned build
 
 GTK3, GTK4 and Shell CSS all contain #009688; the previous blue accent is absent from those generated files. The live photo hash matches the offline photo, and the GTK4 symlink targets the new theme. The screen was locked during the final application, so Shell extensions were inactive for the lock-screen session; they are enabled and pick up the new settings on unlock. Final visual confirmation is pending.
 
-Targeted rollback: `archive/alpine-theme-before-*/restore.sh`. It restores the prior wallpaper, selected GTK/Shell theme, panel/dock colors and previous managed GTK4 symlink. Earlier theme folders and wallpaper files remain available.
+The targeted rollback backup (`archive/alpine-theme-before-*`) was deleted on 2026-11-24; the Church theme replaced this one. Earlier theme folders and wallpaper files remain available.
 
 ## Panel recovery
 

@@ -18,7 +18,7 @@ Open Bar resets opacity to 0.9 on a bar-type change; the user kept 0.9. The snap
 
 ## Rollback
 
-Targeted backups are in `archive/topbar-before-balanced-*` and `archive/alpine-theme-before-*`. Their `restore.sh` files restore only the recorded keys; the alpine backup also restores the previous managed GTK4 symlink. These backups predate the final Mainland correction. To remove Open Bar styling, use `gnome-extensions disable openbar@neuromorph`. Do not restore old full-desktop snapshots over unrelated later settings.
+The older targeted backups (`archive/topbar-before-*`, `archive/alpine-theme-before-*`) were deleted on 2026-11-24; the current theme's rollback is `archive/church-theme-before-2026-11-19/restore.sh`. To remove Open Bar styling, use `gnome-extensions disable openbar@neuromorph`. Do not restore old full-desktop snapshots over unrelated later settings.
 
 ## Notification button
 

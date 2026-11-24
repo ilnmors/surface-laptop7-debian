@@ -1,10 +1,10 @@
 # KakaoTalk in Waydroid
 
-KakaoTalk 26.9.2 (29260920), original signed ARM64 split APKs, Android minimum API 29. Installed on Vanilla ARM64 Android 13 (API 33). No APK modification, Google services or x86 translation.
+Any current KakaoTalk release as original signed ARM64 split APKs (last installed: 26.9.2, 29260920, minimum API 29). Installed on Vanilla ARM64 Android 13 (API 33). No APK modification, Google services or x86 translation.
 
-- Source page: https://apk.gold/download?split=621182/3544335/kakaotalk-free-calls-and-text . The download link on that page delivered the original APK ZIP; SHA256 is recorded in files/manifest.json.
-- All four APKs passed apksigner verification. Their signer SHA256 matches com.kakao.talk in the official https://www.kakao.com/.well-known/assetlinks.json saved here.
-- aapt confirmed the package name, matching version codes and arm64-v8a native library split. The downloaded archive, APKs, metadata and inspection tools remain local/offline; binaries are not committed.
+- Put the base APK and its splits (at least `config.arm64_v8a`) into files/apk/. The 26.9.2 split ZIP came from https://apk.gold/download?split=621182/3544335/kakaotalk-free-calls-and-text ; files/manifest.json records that download only and is not used by the installer.
+- install.py accepts any version: every APK must pass `apksigner verify` (Debian package `apksigner`, not bundled) with a signer listed for com.kakao.talk in the official https://www.kakao.com/.well-known/assetlinks.json saved here as official-assetlinks.json.
+- The bundled aapt (files/tools, extracted to a temporary directory) checks that every APK is com.kakao.talk with one versionCode, exactly one base APK and arm64-v8a native code; the device API level must reach the base APK's minimum. The 26.9.2 APKs were deleted on 2026-11-24; binaries are not committed.
 - The earlier APKPure download was ARMv7-only and rejected. files/rejected-download.json records its provenance without retaining the unusable duplicate.
 
 Run `bash programs/kakaotalk/setup.sh` or its setup.py as the desktop user. The Waydroid component must be installed first. The installer verifies the APK hashes and actual active data mount, stages public APKs temporarily, uses Android's split-install session and removes temporary copies. Existing account data is retained on reinstall. Login remains manual.

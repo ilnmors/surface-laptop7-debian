@@ -29,7 +29,7 @@ Each component has `setup.sh` and `setup.py`; Python delegates to that component
 
 First-time MOK enrollment, firmware settings, reboot and GNOME re-login are physical/manual steps. Read kernel/files/secureboot/README.md. New USB/SoundWire modules only become active after reboot. A successful installer run does not prove device behavior; see "Support and limits" below.
 
-Steam runtime/game downloads and user saves are not bundled; its component repairs an existing ARM64 Steam/FEX setup. Verified ARM64 KakaoTalk APK splits and installer are bundled. Login remains manual. Android system components are retained; unwanted app launchers are hidden. No account login is automated.
+Steam runtime/game downloads and user saves are not bundled; its component repairs an existing ARM64 Steam/FEX setup. The KakaoTalk installer is bundled; download the current ARM64 split APKs yourself, and the installer accepts them only with Kakao's official signer. Login remains manual. Android system components are retained; unwanted app launchers are hidden. No account login is automated.
 
 SOURCES.md records origins and patch procedures. PAYLOADS.sha256 covers component payloads; SHA256SUMS covers maintained files and those payloads. Regenerate with `python3 tools/checksums.py`, then verify with `python3 setup.py --verify-only` or `sha256sum -c SHA256SUMS`.
 

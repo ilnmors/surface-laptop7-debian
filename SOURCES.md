@@ -20,7 +20,7 @@ PAYLOADS.sha256 records every offline payload's SHA-256. SHA256SUMS covers the c
 | spi-hid deferred resume | Archived community source kernel/modules/spi-hid (surface-xplus-project.zip), srcversion A2DC44A5E473B534676E1E3 | drivers/files/touchpad/spi-hid-resume/resume-deferred.patch moves the 2 s post-reset settle from the resume callback to a work item; built against bundled headers, signed on the machine. |
 | PCIe3-off DTB | Verified Surface DTB (09fd6331…) | drivers/files/pcie/prepare-pcie3-off.sh sets only pcie@1bd0000 status=disabled. |
 | Secure Boot helpers | Local scripts using Linux insert-sys-cert semantics and Debian shim/GRUB/sign-file | kernel/files/secureboot/ describes certificate insertion, signing hooks, original references and isolated VM verification. Every target generates/keeps its own private signing key outside this bundle. |
-| Waydroid | Debian 1.6.3+ds-2~bpo13+1 and official https://ota.waydro.id/ | programs/waydroid/files/OTA-SOURCES.json records official channel metadata and download URLs/hashes. Vanilla ARM64 system/vendor images are copied without modification. Local adaptation sets multiwindow mode and adds individual GNOME launchers. |
+| Waydroid | Debian 1.6.3+ds-2~bpo13+1 and official https://ota.waydro.id/ | programs/waydroid/files/OTA-SOURCES.json records official channel metadata and download URLs/hashes. Vanilla ARM64 system/vendor images are used without modification; the local copies were deleted on 2026-11-24 and are downloaded again from OTA. Local adaptation sets multiwindow mode and adds individual GNOME launchers. |
 
 ## Reproduction
 
@@ -30,7 +30,7 @@ Unrecorded historical download URLs are explicitly marked above. Preserve the ar
 
 ## Modular layout and additional sources (2026-11-12)
 
-Payloads were moved byte-for-byte from files/ into kernel/files, drivers/files, patches/files, desktop/files and programs/waydroid/files. Rootfs Plymouth assets moved to desktop; device firmware/configuration remains under drivers. The pre-refactor installer is retained under archive/layout-before-modules. New entry points preserve one shell implementation per component. No CA/private credentials were added.
+Payloads were moved byte-for-byte from files/ into kernel/files, drivers/files, patches/files, desktop/files and programs/waydroid/files. Rootfs Plymouth assets moved to desktop; device firmware/configuration remains under drivers. The pre-refactor installer copy was deleted on 2026-11-24. New entry points preserve one shell implementation per component. No CA/private credentials were added.
 
 - Steam Korean fonts: installed Debian fonts-noto-cjk package, /usr/share/fonts/opentype/noto; license bundled with regular/bold TTC files under programs/steam/files/fonts. These are copied unmodified into the FEX root, not patched. Game behavior remains unverified/paused.
 - Touchpad source ZIP: drivers/files/touchpad/edge-fix/source.zip is the surface-xplus-project.zip community snapshot (its byte-identical archive copy was removed on 2026-11-24). edge-contact.patch records local modifications. Source build dependencies remain an explicit prerequisite; the offline installer uses the prebuilt daemon.
@@ -43,7 +43,7 @@ Official Debian pool source libinput_1.28.1.orig.tar.gz (SHA256 a13f8c9a7d93df3c
 
 ## KakaoTalk ARM64 acquired
 
-Source https://apk.gold/download?split=621182/3544335/kakaotalk-free-calls-and-text delivered KakaoTalk ZIP SHA256 377ff35febd1d60498efb160caaec29a02ed94d8eb073f3b038c59a3f3d255f0. Four unmodified APKs are in programs/kakaotalk/files/apk, with per-file SHA256 in manifest.json. apksigner verified every split against the official Kakao assetlinks signer allowlist; aapt verified package com.kakao.talk, version 29260920, min SDK29 and ARM64 split. Installed on API33 without entering account credentials. Initial APKPure ARMv7 duplicate was rejected and removed; metadata retained. AAPT inspection packages came from authenticated Debian APT.
+Source https://apk.gold/download?split=621182/3544335/kakaotalk-free-calls-and-text delivered KakaoTalk ZIP SHA256 377ff35febd1d60498efb160caaec29a02ed94d8eb073f3b038c59a3f3d255f0. Four unmodified APKs had per-file SHA256 in manifest.json (local copies and the ZIP deleted on 2026-11-24); since then install.py accepts any version whose APKs carry the official Kakao signer (official-assetlinks.json) and pass the aapt checks. apksigner verified every split against the official Kakao assetlinks signer allowlist; aapt verified package com.kakao.talk, version 29260920, min SDK29 and ARM64 split. Installed on API33 without entering account credentials. Initial APKPure ARMv7 duplicate was rejected and removed; metadata retained. AAPT inspection packages came from authenticated Debian APT.
 
 ## Waydroid shared-storage initialization
 

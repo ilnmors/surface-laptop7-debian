@@ -7,9 +7,13 @@ apt-get --no-download --no-install-recommends -o Dir::Etc::sourcelist=/dev/null 
 install -d /etc/apt/sources.list.d
 printf 'deb https://deb.debian.org/debian trixie-backports main\n' > /etc/apt/sources.list.d/surface-backports.list
 if [[ ! -e /var/lib/waydroid/waydroid.cfg ]]; then
-    install -d /usr/share/waydroid-extra/images
-    cp --reflink=auto images/*.img /usr/share/waydroid-extra/images/
-    # Waydroid recognizes this preinstalled-image directory and skips OTA downloads.
+    if compgen -G 'images/*.img' >/dev/null; then
+        install -d /usr/share/waydroid-extra/images
+        cp --reflink=auto images/*.img /usr/share/waydroid-extra/images/
+        # Waydroid recognizes this preinstalled-image directory and skips OTA downloads.
+    else
+        echo 'No local images/*.img; waydroid init downloads VANILLA from the official OTA channels (OTA-SOURCES.json).' >&2
+    fi
     waydroid init -s VANILLA
 fi
 python3 - <<'CONFIG'

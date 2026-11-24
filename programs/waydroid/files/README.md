@@ -1,10 +1,10 @@
 # Android apps (Waydroid)
 
-Debian 13 ARM64; Wayland and a kernel with Binder/Binderfs required. The Surface kernel provides both as signed modules. Vanilla ARM64 Android images are included; Google Play services and x86 translation are not installed.
+Debian 13 ARM64; Wayland and a kernel with Binder/Binderfs required. The Surface kernel provides both as signed modules. Vanilla ARM64 Android images are not bundled (deleted 2026-11-24); install.sh uses images/*.img when present and otherwise lets `waydroid init` download them from the official OTA channels; Google Play services and x86 translation are not installed.
 
 - packages/: Debian trixie/backports packages downloaded through APT's authenticated repository metadata.
-- images/: installed system.img and vendor.img from the official Waydroid OTA channels. OTA-SOURCES.json records the release URLs, timestamps and published image hashes; installed-config.txt records the selected variants.
-- install.sh: install local packages, initialize from /usr/share/waydroid-extra/images without network, select tablet/multiwindow mode and enable the container service. Existing Android data is retained.
+- images/ (not bundled; optional): system.img and vendor.img from the official Waydroid OTA channels. OTA-SOURCES.json records the release URLs, timestamps and published image hashes; installed-config.txt records the selected variants.
+- install.sh: install local packages, initialize from /usr/share/waydroid-extra/images (or from OTA when images/ is empty), select tablet/multiwindow mode and enable the container service. Existing Android data is retained.
 - integrate-apps.py: run as the desktop user to hide stock Android utility launchers. Installed personal APKs are exported by Waydroid itself.
 
 setup.sh runs both helpers. Offline property regeneration uses waydroid upgrade -o; images are not downloaded. Run Android apps from GNOME's app grid; a full Android desktop is unnecessary. Install an ARM64 APK with waydroid app install /path/app.apk. The session starts on demand; KakaoTalk login integration now starts it at GNOME login. To free its RAM, run waydroid session stop.
