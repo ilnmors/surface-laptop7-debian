@@ -4,6 +4,7 @@
 - settings/ contains GNOME and terminal snapshots. The terminal uses a dark navy background, bright text and saturated ANSI colors.
 - packages/ includes User Themes, the common extension files, unzip and cups-pk-helper. The latter fixes the missing authorization component in GNOME's printer settings.
 - packages/ also includes fonts-symbola. The terminal font (DejaVu Sans Mono via Monospace) and the other installed fonts lack media-control symbols such as U+23F5 ⏵, so they rendered as tofu boxes. Symbola covers U+23F4–U+23FA and the wider symbol blocks; fontconfig uses it automatically as fallback, without changing the terminal font. Check with `fc-list ':charset=23f5' family`.
+- packages/ also includes libgdk-pixbuf2.0-bin. It ships `gdk-pixbuf-thumbnailer` and `/usr/share/thumbnailers/gdk-pixbuf-thumbnailer.thumbnailer`, which make Files (Nautilus) thumbnails for JPEG, PNG, GIF, BMP, TIFF and other gdk-pixbuf formats; without it only the HEIF, JXL, WebP, SVG, PDF, video and font thumbnailers exist and ordinary photos show a generic icon. After installing it on a system that already tried, remove `~/.cache/thumbnails/fail` (cached failures are not retried) and run `nautilus -q`. Check with `gdk-pixbuf-thumbnailer -s 256 file:///usr/share/backgrounds/<image>.jpg /tmp/t.png`.
 - setup.sh adds the home printer (IPP Everywhere, default) from the untracked `local/site.env` (template `local.example/site.env`) when it answers. CA and VPN settings stay outside this bundle.
 
 Fluent source https://github.com/vinceliuice/Fluent-gtk-theme
