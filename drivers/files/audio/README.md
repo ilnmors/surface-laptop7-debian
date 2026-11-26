@@ -8,6 +8,8 @@
 - Not fixed at the root: why the resume clashes. Driver work is deferred; when a driver fix passes the same 400-cycle test with `auto`, drop the udev rule.
 - Rollback: remove the udev rule (and set `auto`), and restore the WirePlumber rule from Git history (`drivers/files/audio/user/51-surface-speaker-no-idle.conf` before this change); the live copy is `~/.config/wireplumber/wireplumber.conf.d/51-surface-speaker-no-idle.conf.disabled-20261118`.
 
+Per-output EQ for headphones (AutoEq files, smart filter on one sink): [output-eq/](output-eq/README.md).
+
 The active output uses the physical ALSA speaker sink directly. The separate Windows EQ virtual sink was removed at the user's request. Its configuration and source data remain under optional-windows-eq for reference; setup.sh does not activate or install this optional filter.
 
 Live filter backup: ~/.local/state/surface-audio/50-surface-speakers.conf.disabled. PipeWire and WirePlumber were restarted and the physical speaker sink was selected. Volume was preserved at 35% during the 2026-11-14 recovery. Headphones remain a separate physical output.
