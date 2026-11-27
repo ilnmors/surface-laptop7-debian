@@ -21,7 +21,7 @@ The current boot artwork and font repair are documented in boot-art/README.md. T
 
 ## Mail
 
-The mail client moved to `programs/mail/` on 2026-11-27 (terminal: aerc with mbsync, notmuch and msmtp). Geary and its own dependencies (libmessaging-menu0, libytnef0) were removed from packages/; libgmime-3.0-0t64 moved to `programs/mail/files/packages/` because notmuch needs it. The home mail account is still added in Settings → Online Accounts → Email: IMAP `imap.example.internal` 993 (SSL), SMTP `smtp.example.internal` 587 (STARTTLS), user `il`. The internal root CA must be in the system store (site-specific, outside this bundle).
+The mail client moved to `programs/mail/` on 2026-11-27 (terminal: Alpine with mbsync, notmuch and msmtp). Geary and its own dependencies (libmessaging-menu0, libytnef0) were removed from packages/; libgmime-3.0-0t64 moved to `programs/mail/files/packages/` because notmuch needs it. The home mail account is still added in Settings → Online Accounts → Email: IMAP `imap.example.internal` 993 (SSL), SMTP `smtp.example.internal` 587 (STARTTLS), user `il`. The internal root CA must be in the system store (site-specific, outside this bundle).
 
 ## Removed extensions (2026-11-19)
 

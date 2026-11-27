@@ -1,5 +1,5 @@
 #!/bin/bash
-# Terminal mail: mbsync + notmuch + aerc + msmtp; accounts and credentials come from GNOME Online Accounts.
+# Terminal mail: mbsync + notmuch + Alpine + msmtp; accounts and credentials come from GNOME Online Accounts.
 set -euo pipefail
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 bundle=$(CDPATH= cd -- "$here/../.." && pwd)
@@ -14,6 +14,8 @@ for deb in "$here"/files/packages/*.deb; do
   [[ $(dpkg-query -W -f='${db:Status-Status} ${Version}' "$pkg" 2>/dev/null) == "installed $ver" ]] || missing+=("$deb")
 done
 if (( ${#missing[@]} )); then sudo dpkg -i "${missing[@]}"; fi
+# The Alpine build carries the Maildir patch; hold it so a Debian alpine update cannot replace it.
+if [[ $(apt-mark showhold alpine) != alpine ]]; then sudo apt-mark hold alpine; fi
 
 install -D -m 755 "$here/goa-mail-secret.py" "$HOME/.local/bin/goa-mail-secret"
 install -D -m 755 "$here/files/sl7-mail-sync" "$HOME/.local/bin/sl7-mail-sync"
