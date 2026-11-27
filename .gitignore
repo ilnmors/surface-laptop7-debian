@@ -30,6 +30,12 @@ __pycache__/
 drivers/files/rootfs/usr/lib/firmware/
 drivers/files/rootfs/lib/firmware/
 drivers/files/rootfs/usr/local/libexec/surface-iptsd/iptsd
+drivers/files/rootfs/usr/lib/surface-sensors/hexagonrpcd
+drivers/files/rootfs/usr/lib/surface-sensors/iio-sensor-proxy
+drivers/files/rootfs/usr/lib/surface-sensors/ssccli
+drivers/files/rootfs/usr/lib/surface-sensors/girepository-1.0/SSC-2.typelib
+drivers/files/rootfs/usr/local/bin/monitor-sensor
+drivers/files/rootfs/var/lib/surface-sensors/root/
 kernel/files/secureboot/sign-file
 *.key
 *.gpg
@@ -69,4 +75,4 @@ docs/investigations/2026-11-12-camera-quality/issue-*-comments.json
 desktop/files/backgrounds/*.jpg
 
 # Personal site values (printer, mail hosts, VPN names) and their notes; template in local.example/.
-local/
+/local/

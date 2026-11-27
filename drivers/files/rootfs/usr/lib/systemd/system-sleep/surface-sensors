@@ -1,0 +1,33 @@
+#!/bin/bash
+
+compatible=${SURFACE_SENSORS_COMPATIBLE:-/proc/device-tree/compatible}
+flag_iio=${SURFACE_SENSORS_SLEEP_FLAG:-/run/surface-sensors-sleep.stopped}
+flag_ab=/run/surface-autobrightness-sleep.stopped
+
+[[ -r $compatible ]] && tr '\0' '\n' <"$compatible" | grep -qx 'microsoft,romulus13' || exit 0
+
+case ${1:-} in
+  pre)
+    rm -f "$flag_iio" "$flag_ab"
+    if systemctl is-active --quiet surface-autobrightness.service; then
+      systemctl stop surface-autobrightness.service && touch "$flag_ab"
+    fi
+    if systemctl is-active --quiet iio-sensor-proxy.service; then
+      systemctl stop iio-sensor-proxy.service && touch "$flag_iio"
+    fi
+    ;;
+  post)
+    if [[ -e $flag_iio || -e $flag_ab ]]; then
+      sleep 1.5
+      if [[ -e $flag_iio ]]; then
+        rm -f "$flag_iio"
+        systemctl start iio-sensor-proxy.service || true
+      fi
+      if [[ -e $flag_ab ]]; then
+        rm -f "$flag_ab"
+        systemctl start surface-autobrightness.service || true
+      fi
+    fi
+    ;;
+esac
+exit 0

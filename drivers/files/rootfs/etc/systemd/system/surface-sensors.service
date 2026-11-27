@@ -1,0 +1,34 @@
+[Unit]
+Description=Surface Laptop 7 Qualcomm sensor service
+ConditionFirmware=device-tree-compatible(microsoft,romulus13)
+BindsTo=dev-fastrpc\x2dadsp.device
+After=systemd-modules-load.service dev-fastrpc\x2dadsp.device
+Before=iio-sensor-proxy.service
+ConditionPathExists=/dev/fastrpc-adsp
+ConditionPathExists=/var/lib/surface-sensors/root/sensors/sns_reg.conf
+ConditionPathExists=/var/lib/surface-sensors/root/sensors/config/json.lst
+
+[Service]
+Type=simple
+Environment=LD_LIBRARY_PATH=/usr/lib/surface-sensors
+ExecStart=/usr/lib/surface-sensors/hexagonrpcd -f /dev/fastrpc-adsp -d adsp -s -R /var/lib/surface-sensors/root
+Restart=on-failure
+RestartSec=2
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=false
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectClock=true
+RestrictAddressFamilies=AF_UNIX
+RestrictRealtime=true
+MemoryDenyWriteExecute=true
+ReadOnlyPaths=/var/lib/surface-sensors/root
+ReadWritePaths=/var/lib/surface-sensors/root/sensors/persist
+
+[Install]
+WantedBy=dev-fastrpc\x2dadsp.device

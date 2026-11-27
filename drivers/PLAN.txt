@@ -1,1 +1,1 @@
-Install matching firmware, touchpad/audio/camera support and persistent device configuration; rebuild initramfs.
+Install matching firmware, touchpad/audio/camera/ambient-light sensor support and persistent device configuration; rebuild initramfs.

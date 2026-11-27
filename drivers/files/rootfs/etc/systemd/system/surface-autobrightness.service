@@ -1,0 +1,24 @@
+[Unit]
+Description=Surface Laptop 7 smooth 12-bit ambient-light backlight controller
+ConditionFirmware=device-tree-compatible(microsoft,romulus13)
+ConditionPathExists=/sys/class/backlight/backlight/brightness
+After=surface-sensors.service
+
+[Service]
+Type=simple
+Environment=LD_LIBRARY_PATH=/usr/lib/surface-sensors
+Environment=GI_TYPELIB_PATH=/usr/lib/surface-sensors/girepository-1.0
+ExecStart=/usr/bin/python3 -u /usr/lib/surface-sensors/surface-autobrightness.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_QIPCRTR
+ReadWritePaths=/sys/class/backlight /sys/devices/platform/backlight
+
+[Install]
+WantedBy=multi-user.target
