@@ -31,9 +31,6 @@ cp -a desktop/files/extensions/. "$HOME/.local/share/gnome-shell/extensions/"
 install -D -m 644 desktop/files/sl7-ibus.desktop "$HOME/.config/autostart/sl7-ibus.desktop"
 install -D -m 755 desktop/files/goa-webdav-mount.py "$HOME/.local/bin/goa-webdav-mount"
 install -D -m 644 desktop/files/goa-webdav-mount.desktop "$HOME/.config/autostart/goa-webdav-mount.desktop"
-# Geary runs in the background from login (no window) so new mail raises notifications.
-gsettings set org.gnome.Geary run-in-background true
-install -D -m 644 /usr/share/applications/geary-autostart.desktop "$HOME/.config/autostart/geary-autostart.desktop"
 for entry in org/gnome/desktop/interface org/gnome/desktop/background org/gnome/desktop/input-sources org/freedesktop/ibus/panel org/gnome/desktop/peripherals/touchpad org/gnome/desktop/peripherals/mouse org/gnome/shell/extensions/dash-to-dock org/gnome/shell/extensions/openbar org/gnome/shell/extensions/appindicator org/gnome/terminal/legacy; do
   snapshot="desktop/files/settings/${entry##*/}.dconf"
   if [[ -s $snapshot ]]; then dconf load "/$entry/" < "$snapshot"; fi

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Sync every mail account with mbsync, then index it with notmuch (its post-new hook announces new mail).
+set -uo pipefail
+rc=0
+mbsync --quiet --all || rc=$?
+notmuch new --quiet || rc=$?
+exit "$rc"

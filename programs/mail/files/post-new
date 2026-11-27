@@ -1,0 +1,17 @@
+#!/bin/bash
+# notmuch post-new hook: announce mail that arrived in an INBOX, then drop the transient "new" tag.
+# SL7_MAIL_QUIET=1 (the first full sync) skips the notification.
+set -uo pipefail
+inbox='folder:"/(^|\/)INBOX$/"'
+notmuch tag -inbox -- "tag:new and not $inbox"
+count=$(notmuch count -- "tag:new and $inbox")
+if (( count > 0 )) && [[ -z ${SL7_MAIL_QUIET:-} ]] && command -v notify-send >/dev/null; then
+  if (( count <= 3 )); then
+    body=$(notmuch search --output=summary --format=text --sort=newest-first -- "tag:new and $inbox" \
+      | sed -E 's/^thread:[^ ]+ +[^]]+\] //; s/ \([^()]*\)$//')
+  else
+    body="$count new messages"
+  fi
+  notify-send --app-name=Mail --icon=mail-unread "New mail" "$body" || true
+fi
+notmuch tag -new -- tag:new

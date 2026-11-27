@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync mail every two minutes
+
+[Timer]
+OnStartupSec=1min
+OnUnitInactiveSec=2min
+
+[Install]
+WantedBy=timers.target

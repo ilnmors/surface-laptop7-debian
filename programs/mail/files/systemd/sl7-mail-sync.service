@@ -1,0 +1,7 @@
+[Unit]
+Description=Sync mail (mbsync) and index it (notmuch)
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/sl7-mail-sync
+TimeoutStartSec=15min

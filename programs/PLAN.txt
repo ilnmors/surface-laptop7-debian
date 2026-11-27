@@ -1,1 +1,1 @@
-Configure Waydroid and existing Steam/FEX helpers; install KakaoTalk only when a verified ARM64 manifest exists.
+Configure Waydroid, existing Steam/FEX helpers and terminal mail (aerc, mbsync, notmuch, msmtp from GNOME Online Accounts); install KakaoTalk only when a verified ARM64 manifest exists.

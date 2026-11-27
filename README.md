@@ -19,7 +19,7 @@ Run installation as the desktop user with sudo access. Use a compatible Debian 1
 | `drivers/` | Firmware, touchpad/audio/camera support, Bluetooth recovery and device configuration. |
 | `patches/` | ABI-matched USB/SoundWire module backports, sources, headers, build/install helpers. |
 | `desktop/` | Fluent theme, GNOME extensions, dconf, terminal, IBus and Plymouth. |
-| `programs/` | Waydroid, Steam/FEX helpers and KakaoTalk preparation. Each program has its own entry. |
+| `programs/` | Waydroid, Steam/FEX helpers, terminal mail and KakaoTalk preparation. Each program has its own entry. |
 | `*/files/` | Offline packages, configuration, source and reusable payloads used by the corresponding component. |
 | `archive/` | Historical installer/scripts, original reports and reference snapshots; not an installation entry. |
 | `docs/` | `UPDATES.md` (how updates interact with the local packages) and `investigations/` (dated records behind the settings). |
@@ -48,7 +48,7 @@ What the installed setup provides on this machine, and what it does not. Investi
 | Audio | Speakers and headphones through the Romulus topology and UCM, SoundWire backports; the speaker SoundWire controller is held on (udev rule), which stops the intermittent speaker silence; Bluetooth headset playback (A2DP, tested with a Sony WH-CH720N); optional per-output EQ from AutoEq files ([drivers/files/audio/output-eq](drivers/files/audio/output-eq/README.md)) | The bus clash on runtime resume is avoided, not fixed at the root ([drivers/files/audio/README.md](drivers/files/audio/README.md)); the Bluetooth headset microphone (HFP) is untested |
 | Wireless, USB | Wi-Fi, Bluetooth with a persistent address, all USB ports, phone tethering | The `a400000` controller can fail to start at boot; the USB-C USB2 path can stay dead after abrupt data loss until dwc3-qcom is rebound; USB-C display hot-plug is slow |
 | Sleep | `deep` sleep with locking before sleep; dwc3-qcom and QMP PHY fixes for sleep | Lid-closed suspends have occasionally not resumed ([drivers/files/sleep/README.md](drivers/files/sleep/README.md)); the deepest SoC states are not reached |
-| Android, programs | Waydroid (ARM64) and KakaoTalk preparation | Arbitrary APK compatibility is not guaranteed; Steam and its games are not bundled |
+| Android, programs | Waydroid (ARM64) and KakaoTalk preparation; terminal mail (aerc, mbsync, notmuch, msmtp) for the GNOME Online Accounts mail accounts with a GNOME notification for new INBOX mail ([programs/mail/README.md](programs/mail/README.md)) | Arbitrary APK compatibility is not guaranteed; Steam and its games are not bundled; mail syncs every 2 minutes (no IMAP IDLE push); only Google and IMAP/SMTP accounts are supported |
 
 ## License
 
