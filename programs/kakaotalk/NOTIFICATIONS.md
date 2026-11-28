@@ -17,6 +17,8 @@ Thus the empty companion is a confirmed source of blank boxes. No body loss was 
 
 The filter was installed and the user Waydroid session restarted, then KakaoTalk reopened without reinstalling or resetting data. Guard regression checks passed. Incoming-message notifications were later confirmed to show their text.
 
+A systemd drop-in (`drivers/files/rootfs/etc/systemd/system/waydroid-container.service.d/10-kakaotalk-notification-filter.conf`) runs the same idempotent installer before every `waydroid-container.service` start, so a Waydroid package upgrade is patched again at the next start without a manual step.
+
 The KakaoTalk setup entry includes this filter. A Waydroid package upgrade may overwrite it: rerun the helper and restart the Waydroid session as the desktop user. To undo, remove the three marked guard lines and restart the session; use the original backup only if the installed package version has not changed. Do not replace a newly upgraded module with an old backup.
 
 Sources: installed Waydroid `tools/services/notification_manager.py` (GPL-3.0-or-later); https://github.com/waydroid/android_frameworks_waydroid/blob/lineage-20/services/java/id/waydro/server/WayDroidService.java . No framework image replacement, conversation database read, polling bridge or additional background service is needed.
